@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>98245B7A-8C25-4593-9D7D-E5EAD3CA29A8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TRx</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F0EDE455-D683-4237-A77D-6435997C2BCD</key>
+		<string>https://github.com/mdbellott/TRx.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TRx.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F0EDE455-D683-4237-A77D-6435997C2BCD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mdbellott/TRx.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F0EDE455-D683-4237-A77D-6435997C2BCD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F0EDE455-D683-4237-A77D-6435997C2BCD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TRx</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -14,7 +14,6 @@
 		C41CC9CD17E0298A00E6EA8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C41CC9CB17E0298A00E6EA8D /* InfoPlist.strings */; };
 		C41CC9CF17E0298A00E6EA8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CC9CE17E0298A00E6EA8D /* main.m */; };
 		C41CC9D317E0298A00E6EA8D /* TRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CC9D217E0298A00E6EA8D /* TRAppDelegate.m */; };
-		C41CC9D617E0298A00E6EA8D /* TRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41CC9D417E0298A00E6EA8D /* TRx.xcdatamodeld */; };
 		C41CC9D817E0298A00E6EA8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41CC9D717E0298A00E6EA8D /* Images.xcassets */; };
 		C41CC9DF17E0298A00E6EA8D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41CC9DE17E0298A00E6EA8D /* XCTest.framework */; };
 		C41CC9E017E0298A00E6EA8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41CC9C017E0298A00E6EA8D /* Foundation.framework */; };
@@ -27,6 +26,7 @@
 		C479657C17E02DAC00E038A5 /* TRPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = C479657B17E02DAC00E038A5 /* TRPatient.m */; };
 		C479658217E02DFD00E038A5 /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C479658017E02DFD00E038A5 /* TRPatientListViewController.m */; };
 		C479658317E02DFD00E038A5 /* TRPatientListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C479658117E02DFD00E038A5 /* TRPatientListViewController.xib */; };
+		C479658617E02E8800E038A5 /* TRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C479658417E02E8800E038A5 /* TRx.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,6 @@
 		C41CC9D017E0298A00E6EA8D /* TRx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TRx-Prefix.pch"; sourceTree = "<group>"; };
 		C41CC9D117E0298A00E6EA8D /* TRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRAppDelegate.h; sourceTree = "<group>"; };
 		C41CC9D217E0298A00E6EA8D /* TRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRAppDelegate.m; sourceTree = "<group>"; };
-		C41CC9D517E0298A00E6EA8D /* TRx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TRx.xcdatamodel; sourceTree = "<group>"; };
 		C41CC9D717E0298A00E6EA8D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C41CC9DD17E0298A00E6EA8D /* TRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41CC9DE17E0298A00E6EA8D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,6 +65,7 @@
 		C479657F17E02DFD00E038A5 /* TRPatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListViewController.h; path = ViewControllers/TRPatientListViewController.h; sourceTree = SOURCE_ROOT; };
 		C479658017E02DFD00E038A5 /* TRPatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatientListViewController.m; path = ViewControllers/TRPatientListViewController.m; sourceTree = SOURCE_ROOT; };
 		C479658117E02DFD00E038A5 /* TRPatientListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TRPatientListViewController.xib; path = ViewControllers/TRPatientListViewController.xib; sourceTree = SOURCE_ROOT; };
+		C479658517E02E8800E038A5 /* TRx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TRx.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +182,7 @@
 		C479657917E02D1B00E038A5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C41CC9D417E0298A00E6EA8D /* TRx.xcdatamodeld */,
+				C479658417E02E8800E038A5 /* TRx.xcdatamodeld */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -304,8 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C479658617E02E8800E038A5 /* TRx.xcdatamodeld in Sources */,
 				C479657C17E02DAC00E038A5 /* TRPatient.m in Sources */,
-				C41CC9D617E0298A00E6EA8D /* TRx.xcdatamodeld in Sources */,
 				C479658217E02DFD00E038A5 /* TRPatientListViewController.m in Sources */,
 				C479657617E02C8A00E038A5 /* Test.m in Sources */,
 				C41CC9D317E0298A00E6EA8D /* TRAppDelegate.m in Sources */,
@@ -526,13 +526,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C41CC9D417E0298A00E6EA8D /* TRx.xcdatamodeld */ = {
+		C479658417E02E8800E038A5 /* TRx.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C41CC9D517E0298A00E6EA8D /* TRx.xcdatamodel */,
+				C479658517E02E8800E038A5 /* TRx.xcdatamodel */,
 			);
-			currentVersion = C41CC9D517E0298A00E6EA8D /* TRx.xcdatamodel */;
-			path = TRx.xcdatamodeld;
+			currentVersion = C479658517E02E8800E038A5 /* TRx.xcdatamodel */;
+			name = TRx.xcdatamodeld;
+			path = ../Data/TRx.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

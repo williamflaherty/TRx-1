@@ -7,6 +7,7 @@
 //
 
 #import "TRAppDelegate.h"
+#import "Test.h"
 
 @implementation TRAppDelegate
 
@@ -17,9 +18,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
+    Test *rootViewController = [[Test alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc]
+                                                    initWithRootViewController:rootViewController];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [self.window addSubview:navigationController.view];
     return YES;
 }
 

@@ -14,25 +14,48 @@
 
 @implementation Test
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+@synthesize textFieldOne = _textFieldOne,
+textFieldTwo = _textFieldTwo,
+textFieldThree = _textFieldThree,
+textFieldFour = _textFieldFour,
+textOne = _textOne,
+textTwo = _textTwo,
+textThree = _textThree,
+textFour = _textFour;
+
+#pragma mark - Init and Loan Methods
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _textOne = @"";
+        _textTwo = @"";
+        _textThree = @"";
+        _textFour = @"";
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
+#pragma mark - UITextFiedDelegate Methods
+
+
+#pragma mark - Touch Handling Methods
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_textFieldOne resignFirstResponder];
+    [_textFieldTwo resignFirstResponder];
+    [_textFieldThree resignFirstResponder];
+    [_textFieldFour resignFirstResponder];
+}
+
+#pragma mark - Memory Handling Methods
+
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

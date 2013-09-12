@@ -22,11 +22,10 @@
 		C41CC9EA17E0298A00E6EA8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C41CC9E817E0298A00E6EA8D /* InfoPlist.strings */; };
 		C41CC9EC17E0298A00E6EA8D /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C41CC9EB17E0298A00E6EA8D /* TRxTests.m */; };
 		C479657617E02C8A00E038A5 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = C479657417E02C8A00E038A5 /* Test.m */; };
-		C479657717E02C8A00E038A5 /* Test.xib in Resources */ = {isa = PBXBuildFile; fileRef = C479657517E02C8A00E038A5 /* Test.xib */; };
 		C479657C17E02DAC00E038A5 /* TRPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = C479657B17E02DAC00E038A5 /* TRPatient.m */; };
 		C479658217E02DFD00E038A5 /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C479658017E02DFD00E038A5 /* TRPatientListViewController.m */; };
-		C479658317E02DFD00E038A5 /* TRPatientListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C479658117E02DFD00E038A5 /* TRPatientListViewController.xib */; };
 		C479658617E02E8800E038A5 /* TRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C479658417E02E8800E038A5 /* TRx.xcdatamodeld */; };
+		C4C5D9E317E148C7006F6653 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C5D9E217E148C7006F6653 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,13 +58,12 @@
 		C41CC9EB17E0298A00E6EA8D /* TRxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRxTests.m; sourceTree = "<group>"; };
 		C479657317E02C8A00E038A5 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test.h; path = Test/Test.h; sourceTree = SOURCE_ROOT; };
 		C479657417E02C8A00E038A5 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = Test/Test.m; sourceTree = SOURCE_ROOT; };
-		C479657517E02C8A00E038A5 /* Test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Test.xib; path = Test/Test.xib; sourceTree = SOURCE_ROOT; };
 		C479657A17E02DAC00E038A5 /* TRPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatient.h; path = Models/TRPatient.h; sourceTree = SOURCE_ROOT; };
 		C479657B17E02DAC00E038A5 /* TRPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatient.m; path = Models/TRPatient.m; sourceTree = SOURCE_ROOT; };
 		C479657F17E02DFD00E038A5 /* TRPatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListViewController.h; path = ViewControllers/TRPatientListViewController.h; sourceTree = SOURCE_ROOT; };
 		C479658017E02DFD00E038A5 /* TRPatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatientListViewController.m; path = ViewControllers/TRPatientListViewController.m; sourceTree = SOURCE_ROOT; };
-		C479658117E02DFD00E038A5 /* TRPatientListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TRPatientListViewController.xib; path = ViewControllers/TRPatientListViewController.xib; sourceTree = SOURCE_ROOT; };
 		C479658517E02E8800E038A5 /* TRx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TRx.xcdatamodel; sourceTree = "<group>"; };
+		C4C5D9E217E148C7006F6653 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +132,7 @@
 				C479657E17E02DC400E038A5 /* ViewControllers */,
 				C41CC9D117E0298A00E6EA8D /* TRAppDelegate.h */,
 				C41CC9D217E0298A00E6EA8D /* TRAppDelegate.m */,
+				C4C5D9E217E148C7006F6653 /* MainStoryboard.storyboard */,
 				C41CC9D717E0298A00E6EA8D /* Images.xcassets */,
 				C41CC9C917E0298A00E6EA8D /* Supporting Files */,
 			);
@@ -174,7 +173,6 @@
 			children = (
 				C479657317E02C8A00E038A5 /* Test.h */,
 				C479657417E02C8A00E038A5 /* Test.m */,
-				C479657517E02C8A00E038A5 /* Test.xib */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -201,7 +199,6 @@
 			children = (
 				C479657F17E02DFD00E038A5 /* TRPatientListViewController.h */,
 				C479658017E02DFD00E038A5 /* TRPatientListViewController.m */,
-				C479658117E02DFD00E038A5 /* TRPatientListViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -282,9 +279,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4C5D9E317E148C7006F6653 /* MainStoryboard.storyboard in Resources */,
 				C41CC9CD17E0298A00E6EA8D /* InfoPlist.strings in Resources */,
-				C479657717E02C8A00E038A5 /* Test.xib in Resources */,
-				C479658317E02DFD00E038A5 /* TRPatientListViewController.xib in Resources */,
 				C41CC9D817E0298A00E6EA8D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

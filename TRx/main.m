@@ -2,8 +2,8 @@
 //  main.m
 //  TRx
 //
-//  Created by Mark Bellott on 9/11/13.
-//  Copyright (c) 2013 Team Haiti. All rights reserved.
+//  Created by Mark Bellott on 9/14/13.
+//  Copyright (c) 2013 TeamHaiti. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

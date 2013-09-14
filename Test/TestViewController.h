@@ -1,14 +1,14 @@
 //
-//  Test.h
+//  TestViewController.h
 //  TRx
 //
-//  Created by Mark Bellott on 9/11/13.
+//  Created by Mark Bellott on 9/12/13.
 //  Copyright (c) 2013 Team Haiti. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface Test : UIViewController <UITextFieldDelegate>
+@interface TestViewController : UIViewController <UITextFieldDelegate>
 
 @property(nonatomic, readonly) NSString *textOne;
 @property(nonatomic, readonly) NSString *textTwo;

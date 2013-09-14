@@ -1,18 +1,18 @@
 //
-//  Test.m
+//  TestViewController.m
 //  TRx
 //
-//  Created by Mark Bellott on 9/11/13.
+//  Created by Mark Bellott on 9/12/13.
 //  Copyright (c) 2013 Team Haiti. All rights reserved.
 //
 
-#import "Test.h"
+#import "TestViewController.h"
 
-@interface Test ()
+@interface TestViewController ()
 
 @end
 
-@implementation Test
+@implementation TestViewController
 
 @synthesize textFieldOne = _textFieldOne,
 textFieldTwo = _textFieldTwo,
@@ -57,5 +57,6 @@ textFour = _textFour;
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
+
 
 @end

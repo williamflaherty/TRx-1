@@ -8,21 +8,21 @@
 
 #import "TestViewController.h"
 
-@interface TestViewController (){
+@interface TestViewController ()
+
+@end
+
+@implementation TestViewController{
     NSString *_textOne;
     NSString *_textTwo;
     NSString *_textThree;
     NSString *_textFour;
-
+    
     UITextField *_textFieldOne;
     UITextField *_textFieldTwo;
     UITextField *_textFieldThree;
     UITextField *_textFieldFour;
 }
-
-@end
-
-@implementation TestViewController
 
 #pragma mark - Init and Load Methods
 

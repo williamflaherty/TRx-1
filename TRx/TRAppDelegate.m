@@ -7,6 +7,8 @@
 //
 
 #import "TRAppDelegate.h"
+#import "TRPatientListViewController.h"
+#import "TestViewController.h"
 
 @implementation TRAppDelegate
 
@@ -17,8 +19,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Override point for customization after application launch.
+    //TRPatientListViewController *rootViewController = [[TRPatientListViewController alloc] init];
+    TestViewController *rootViewController = [[TestViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc]
+                                 initWithRootViewController:rootViewController];
+    [self.window setRootViewController:self.navigationController];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

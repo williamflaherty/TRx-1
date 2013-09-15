@@ -8,32 +8,28 @@
 
 #import "TestViewController.h"
 
-@interface TestViewController ()
+@interface TestViewController (){
+    NSString *_textOne;
+    NSString *_textTwo;
+    NSString *_textThree;
+    NSString *_textFour;
+
+    UITextField *_textFieldOne;
+    UITextField *_textFieldTwo;
+    UITextField *_textFieldThree;
+    UITextField *_textFieldFour;
+}
 
 @end
 
 @implementation TestViewController
 
-@synthesize textFieldOne = _textFieldOne,
-textFieldTwo = _textFieldTwo,
-textFieldThree = _textFieldThree,
-textFieldFour = _textFieldFour,
-textOne = _textOne,
-textTwo = _textTwo,
-textThree = _textThree,
-textFour = _textFour;
-
-#pragma mark - Init and Loan Methods
+#pragma mark - Init and Load Methods
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
-        
-        _textOne = @"";
-        _textTwo = @"";
-        _textThree = @"";
-        _textFour = @"";
     }
     return self;
 }
@@ -44,12 +40,29 @@ textFour = _textFour;
 }
 
 - (void) loadTextFields{
-    _textFieldOne = [[UITextField alloc] initWithFrame:CGRectMake(125, 257, 200, 30)];
+    _textFieldOne = [[UITextField alloc] initWithFrame:CGRectMake(104, 296, 200, 30)];
+    _textFieldOne.borderStyle = UITextBorderStyleRoundedRect;
+    _textFieldOne.placeholder = @"TextFieldOne";
     _textFieldOne.delegate = self;
     [self.view addSubview:_textFieldOne];
-    _textFieldOne.delegate = self;
- 
     
+    _textFieldTwo = [[UITextField alloc] initWithFrame:CGRectMake(442, 296, 200, 30)];
+    _textFieldTwo.borderStyle = UITextBorderStyleRoundedRect;
+    _textFieldTwo.placeholder = @"TextFieldTwo";
+    _textFieldTwo.delegate = self;
+    [self.view addSubview:_textFieldTwo];
+    
+    _textFieldThree = [[UITextField alloc] initWithFrame:CGRectMake(104, 372, 200, 30)];
+    _textFieldThree.borderStyle = UITextBorderStyleRoundedRect;
+    _textFieldThree.placeholder = @"TextFieldThree";
+    _textFieldThree.delegate = self;
+    [self.view addSubview:_textFieldThree];
+    
+    _textFieldFour = [[UITextField alloc] initWithFrame:CGRectMake(442, 372, 200, 30)];
+    _textFieldFour.borderStyle = UITextBorderStyleRoundedRect;
+    _textFieldFour.placeholder = @"TextFieldFour";
+    _textFieldFour.delegate = self;
+    [self.view addSubview:_textFieldFour];
 }
 
 #pragma mark - UITextFiedDelegate Methods

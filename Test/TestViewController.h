@@ -15,9 +15,9 @@
 @property(nonatomic, readonly) NSString *textThree;
 @property(nonatomic, readonly) NSString *textFour;
 
-@property(nonatomic, readwrite) IBOutlet UITextField *textFieldOne;
-@property(nonatomic, readwrite) IBOutlet UITextField *textFieldTwo;
-@property(nonatomic, readwrite) IBOutlet UITextField *textFieldThree;
-@property(nonatomic, readwrite) IBOutlet UITextField *textFieldFour;
+@property(nonatomic, readwrite) UITextField *textFieldOne;
+@property(nonatomic, readwrite) UITextField *textFieldTwo;
+@property(nonatomic, readwrite) UITextField *textFieldThree;
+@property(nonatomic, readwrite) UITextField *textFieldFour;
 
 @end

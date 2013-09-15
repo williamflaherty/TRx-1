@@ -28,6 +28,8 @@ textFour = _textFour;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.view.backgroundColor = [UIColor whiteColor];
+        
         _textOne = @"";
         _textTwo = @"";
         _textThree = @"";
@@ -38,18 +40,50 @@ textFour = _textFour;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [self loadTextFields];
+}
+
+- (void) loadTextFields{
+    _textFieldOne = [[UITextField alloc] initWithFrame:CGRectMake(125, 257, 200, 30)];
+    _textFieldOne.delegate = self;
+    [self.view addSubview:_textFieldOne];
+    _textFieldOne.delegate = self;
+ 
+    
 }
 
 #pragma mark - UITextFiedDelegate Methods
 
+-(void) textFieldDidEndEditing:(UITextField *)textField{
+    if(textField == _textFieldOne){
+        _textOne = _textFieldOne.text;
+    }
+    else if(textField == _textFieldTwo){
+        _textTwo = _textFieldTwo.text;
+    }
+    else if(textField == _textFieldThree){
+        _textThree = _textFieldThree.text;
+    }
+    else if(textField == _textFieldFour){
+        _textFour = _textFieldFour.text;
+    }
+}
 
 #pragma mark - Touch Handling Methods
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [_textFieldOne resignFirstResponder];
-    [_textFieldTwo resignFirstResponder];
-    [_textFieldThree resignFirstResponder];
-    [_textFieldFour resignFirstResponder];
+    if(_textFieldOne.isEditing){
+        [_textFieldOne resignFirstResponder];
+    }
+    else if(_textFieldTwo.isEditing){
+        [_textFieldTwo resignFirstResponder];
+    }
+    else if(_textFieldThree.isEditing){
+        [_textFieldThree resignFirstResponder];
+    }
+    else if(_textFieldFour.isEditing){
+        [_textFieldFour resignFirstResponder];
+    }
 }
 
 #pragma mark - Memory Handling Methods

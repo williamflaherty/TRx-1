@@ -7,192 +7,195 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C4A58EC717E4F92D00977E74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A58EC617E4F92D00977E74 /* Foundation.framework */; };
-		C4A58EC917E4F92D00977E74 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A58EC817E4F92D00977E74 /* CoreGraphics.framework */; };
-		C4A58ECB17E4F92D00977E74 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A58ECA17E4F92D00977E74 /* UIKit.framework */; };
-		C4A58ED117E4F92D00977E74 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4A58ECF17E4F92D00977E74 /* InfoPlist.strings */; };
-		C4A58ED317E4F92D00977E74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A58ED217E4F92D00977E74 /* main.m */; };
-		C4A58ED717E4F92D00977E74 /* TRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A58ED617E4F92D00977E74 /* TRAppDelegate.m */; };
-		C4A58EDA17E4F92D00977E74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4A58ED817E4F92D00977E74 /* Main.storyboard */; };
-		C4A58EDF17E4F92D00977E74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A58EDE17E4F92D00977E74 /* Images.xcassets */; };
-		C4A58EE617E4F92D00977E74 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A58EE517E4F92D00977E74 /* XCTest.framework */; };
-		C4A58EE717E4F92D00977E74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A58EC617E4F92D00977E74 /* Foundation.framework */; };
-		C4A58EE817E4F92D00977E74 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A58ECA17E4F92D00977E74 /* UIKit.framework */; };
-		C4A58EF017E4F92D00977E74 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4A58EEE17E4F92D00977E74 /* InfoPlist.strings */; };
-		C4A58EF217E4F92D00977E74 /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A58EF117E4F92D00977E74 /* TRxTests.m */; };
-		C4A58F0417E4FAE000977E74 /* TRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4A58F0217E4FAE000977E74 /* TRx.xcdatamodeld */; };
-		C4A58F0717E4FAE800977E74 /* TRPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A58F0617E4FAE800977E74 /* TRPatient.m */; };
-		C4A58F0A17E4FAF000977E74 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A58F0917E4FAF000977E74 /* TestViewController.m */; };
-		C4A58F0D17E4FAF800977E74 /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A58F0C17E4FAF800977E74 /* TRPatientListViewController.m */; };
+		C48C6E2D17E661700065ABBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2C17E661700065ABBE /* Foundation.framework */; };
+		C48C6E2F17E661700065ABBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2E17E661700065ABBE /* CoreGraphics.framework */; };
+		C48C6E3117E661700065ABBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E3017E661700065ABBE /* UIKit.framework */; };
+		C48C6E3317E661700065ABBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E3217E661700065ABBE /* CoreData.framework */; };
+		C48C6E3917E661700065ABBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C48C6E3717E661700065ABBE /* InfoPlist.strings */; };
+		C48C6E3B17E661700065ABBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E3A17E661700065ABBE /* main.m */; };
+		C48C6E3F17E661700065ABBE /* TRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E3E17E661700065ABBE /* TRAppDelegate.m */; };
+		C48C6E4417E661700065ABBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48C6E4317E661700065ABBE /* Images.xcassets */; };
+		C48C6E4B17E661700065ABBE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E4A17E661700065ABBE /* XCTest.framework */; };
+		C48C6E4C17E661700065ABBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2C17E661700065ABBE /* Foundation.framework */; };
+		C48C6E4D17E661700065ABBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E3017E661700065ABBE /* UIKit.framework */; };
+		C48C6E4E17E661700065ABBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E3217E661700065ABBE /* CoreData.framework */; };
+		C48C6E5617E661700065ABBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C48C6E5417E661700065ABBE /* InfoPlist.strings */; };
+		C48C6E5817E661700065ABBE /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E5717E661700065ABBE /* TRxTests.m */; };
+		C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */; };
+		C48C6E6A17E662280065ABBE /* TRPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6917E662280065ABBE /* TRPatient.m */; };
+		C48C6E6D17E6622F0065ABBE /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6C17E6622F0065ABBE /* TestViewController.m */; };
+		C48C6E7017E662450065ABBE /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6F17E662450065ABBE /* TRPatientListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C4A58EE917E4F92D00977E74 /* PBXContainerItemProxy */ = {
+		C48C6E4F17E661700065ABBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C4A58EBB17E4F92D00977E74 /* Project object */;
+			containerPortal = C48C6E2117E661700065ABBE /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C4A58EC217E4F92D00977E74;
+			remoteGlobalIDString = C48C6E2817E661700065ABBE;
 			remoteInfo = TRx;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C4A58EC317E4F92D00977E74 /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4A58EC617E4F92D00977E74 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C4A58EC817E4F92D00977E74 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C4A58ECA17E4F92D00977E74 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C4A58ECE17E4F92D00977E74 /* TRx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TRx-Info.plist"; sourceTree = "<group>"; };
-		C4A58ED017E4F92D00977E74 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C4A58ED217E4F92D00977E74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C4A58ED417E4F92D00977E74 /* TRx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TRx-Prefix.pch"; sourceTree = "<group>"; };
-		C4A58ED517E4F92D00977E74 /* TRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRAppDelegate.h; sourceTree = "<group>"; };
-		C4A58ED617E4F92D00977E74 /* TRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRAppDelegate.m; sourceTree = "<group>"; };
-		C4A58ED917E4F92D00977E74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C4A58EDE17E4F92D00977E74 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C4A58EE417E4F92D00977E74 /* TRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4A58EE517E4F92D00977E74 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C4A58EED17E4F92D00977E74 /* TRxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TRxTests-Info.plist"; sourceTree = "<group>"; };
-		C4A58EEF17E4F92D00977E74 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C4A58EF117E4F92D00977E74 /* TRxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRxTests.m; sourceTree = "<group>"; };
-		C4A58F0317E4FAE000977E74 /* TRx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TRx.xcdatamodel; sourceTree = "<group>"; };
-		C4A58F0517E4FAE800977E74 /* TRPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatient.h; path = Models/TRPatient.h; sourceTree = SOURCE_ROOT; };
-		C4A58F0617E4FAE800977E74 /* TRPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatient.m; path = Models/TRPatient.m; sourceTree = SOURCE_ROOT; };
-		C4A58F0817E4FAF000977E74 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = Test/TestViewController.h; sourceTree = SOURCE_ROOT; };
-		C4A58F0917E4FAF000977E74 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = Test/TestViewController.m; sourceTree = SOURCE_ROOT; };
-		C4A58F0B17E4FAF800977E74 /* TRPatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListViewController.h; path = ViewControllers/TRPatientListViewController.h; sourceTree = SOURCE_ROOT; };
-		C4A58F0C17E4FAF800977E74 /* TRPatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatientListViewController.m; path = ViewControllers/TRPatientListViewController.m; sourceTree = SOURCE_ROOT; };
+		C48C6E2917E661700065ABBE /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C48C6E2C17E661700065ABBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C48C6E2E17E661700065ABBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C48C6E3017E661700065ABBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C48C6E3217E661700065ABBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C48C6E3617E661700065ABBE /* TRx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TRx-Info.plist"; sourceTree = "<group>"; };
+		C48C6E3817E661700065ABBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C48C6E3A17E661700065ABBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C48C6E3C17E661700065ABBE /* TRx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TRx-Prefix.pch"; sourceTree = "<group>"; };
+		C48C6E3D17E661700065ABBE /* TRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRAppDelegate.h; sourceTree = "<group>"; };
+		C48C6E3E17E661700065ABBE /* TRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRAppDelegate.m; sourceTree = "<group>"; };
+		C48C6E4317E661700065ABBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C48C6E4917E661700065ABBE /* TRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C48C6E4A17E661700065ABBE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C48C6E5317E661700065ABBE /* TRxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TRxTests-Info.plist"; sourceTree = "<group>"; };
+		C48C6E5517E661700065ABBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C48C6E5717E661700065ABBE /* TRxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRxTests.m; sourceTree = "<group>"; };
+		C48C6E6617E662220065ABBE /* TRx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TRx.xcdatamodel; sourceTree = "<group>"; };
+		C48C6E6817E662280065ABBE /* TRPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatient.h; path = Models/TRPatient.h; sourceTree = SOURCE_ROOT; };
+		C48C6E6917E662280065ABBE /* TRPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatient.m; path = Models/TRPatient.m; sourceTree = SOURCE_ROOT; };
+		C48C6E6B17E6622F0065ABBE /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = Test/TestViewController.h; sourceTree = SOURCE_ROOT; };
+		C48C6E6C17E6622F0065ABBE /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = Test/TestViewController.m; sourceTree = SOURCE_ROOT; };
+		C48C6E6E17E662450065ABBE /* TRPatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListViewController.h; path = ViewControllers/TRPatientListViewController.h; sourceTree = SOURCE_ROOT; };
+		C48C6E6F17E662450065ABBE /* TRPatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatientListViewController.m; path = ViewControllers/TRPatientListViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C4A58EC017E4F92D00977E74 /* Frameworks */ = {
+		C48C6E2617E661700065ABBE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A58EC917E4F92D00977E74 /* CoreGraphics.framework in Frameworks */,
-				C4A58ECB17E4F92D00977E74 /* UIKit.framework in Frameworks */,
-				C4A58EC717E4F92D00977E74 /* Foundation.framework in Frameworks */,
+				C48C6E2F17E661700065ABBE /* CoreGraphics.framework in Frameworks */,
+				C48C6E3317E661700065ABBE /* CoreData.framework in Frameworks */,
+				C48C6E3117E661700065ABBE /* UIKit.framework in Frameworks */,
+				C48C6E2D17E661700065ABBE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4A58EE117E4F92D00977E74 /* Frameworks */ = {
+		C48C6E4617E661700065ABBE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A58EE617E4F92D00977E74 /* XCTest.framework in Frameworks */,
-				C4A58EE817E4F92D00977E74 /* UIKit.framework in Frameworks */,
-				C4A58EE717E4F92D00977E74 /* Foundation.framework in Frameworks */,
+				C48C6E4B17E661700065ABBE /* XCTest.framework in Frameworks */,
+				C48C6E4E17E661700065ABBE /* CoreData.framework in Frameworks */,
+				C48C6E4D17E661700065ABBE /* UIKit.framework in Frameworks */,
+				C48C6E4C17E661700065ABBE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C4A58EBA17E4F92D00977E74 = {
+		C48C6E2017E661700065ABBE = {
 			isa = PBXGroup;
 			children = (
-				C4A58ECC17E4F92D00977E74 /* TRx */,
-				C4A58EEB17E4F92D00977E74 /* TRxTests */,
-				C4A58EC517E4F92D00977E74 /* Frameworks */,
-				C4A58EC417E4F92D00977E74 /* Products */,
+				C48C6E3417E661700065ABBE /* TRx */,
+				C48C6E5117E661700065ABBE /* TRxTests */,
+				C48C6E2B17E661700065ABBE /* Frameworks */,
+				C48C6E2A17E661700065ABBE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C4A58EC417E4F92D00977E74 /* Products */ = {
+		C48C6E2A17E661700065ABBE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58EC317E4F92D00977E74 /* TRx.app */,
-				C4A58EE417E4F92D00977E74 /* TRxTests.xctest */,
+				C48C6E2917E661700065ABBE /* TRx.app */,
+				C48C6E4917E661700065ABBE /* TRxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C4A58EC517E4F92D00977E74 /* Frameworks */ = {
+		C48C6E2B17E661700065ABBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58EC617E4F92D00977E74 /* Foundation.framework */,
-				C4A58EC817E4F92D00977E74 /* CoreGraphics.framework */,
-				C4A58ECA17E4F92D00977E74 /* UIKit.framework */,
-				C4A58EE517E4F92D00977E74 /* XCTest.framework */,
+				C48C6E2C17E661700065ABBE /* Foundation.framework */,
+				C48C6E2E17E661700065ABBE /* CoreGraphics.framework */,
+				C48C6E3017E661700065ABBE /* UIKit.framework */,
+				C48C6E3217E661700065ABBE /* CoreData.framework */,
+				C48C6E4A17E661700065ABBE /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C4A58ECC17E4F92D00977E74 /* TRx */ = {
+		C48C6E3417E661700065ABBE /* TRx */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58EFB17E4F96300977E74 /* Test */,
-				C4A58EFC17E4F96D00977E74 /* Data */,
-				C4A58EFD17E4F97500977E74 /* Models */,
-				C4A58EFE17E4F98100977E74 /* ViewControllers */,
-				C4A58ED517E4F92D00977E74 /* TRAppDelegate.h */,
-				C4A58ED617E4F92D00977E74 /* TRAppDelegate.m */,
-				C4A58ED817E4F92D00977E74 /* Main.storyboard */,
-				C4A58EDE17E4F92D00977E74 /* Images.xcassets */,
-				C4A58ECD17E4F92D00977E74 /* Supporting Files */,
+				C48C6E6117E661E70065ABBE /* Test */,
+				C48C6E6217E661F10065ABBE /* Data */,
+				C48C6E6317E661F90065ABBE /* Models */,
+				C48C6E6417E6620E0065ABBE /* ViewControllers */,
+				C48C6E3D17E661700065ABBE /* TRAppDelegate.h */,
+				C48C6E3E17E661700065ABBE /* TRAppDelegate.m */,
+				C48C6E4317E661700065ABBE /* Images.xcassets */,
+				C48C6E3517E661700065ABBE /* Supporting Files */,
 			);
 			path = TRx;
 			sourceTree = "<group>";
 		};
-		C4A58ECD17E4F92D00977E74 /* Supporting Files */ = {
+		C48C6E3517E661700065ABBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58ECE17E4F92D00977E74 /* TRx-Info.plist */,
-				C4A58ECF17E4F92D00977E74 /* InfoPlist.strings */,
-				C4A58ED217E4F92D00977E74 /* main.m */,
-				C4A58ED417E4F92D00977E74 /* TRx-Prefix.pch */,
+				C48C6E3617E661700065ABBE /* TRx-Info.plist */,
+				C48C6E3717E661700065ABBE /* InfoPlist.strings */,
+				C48C6E3A17E661700065ABBE /* main.m */,
+				C48C6E3C17E661700065ABBE /* TRx-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C4A58EEB17E4F92D00977E74 /* TRxTests */ = {
+		C48C6E5117E661700065ABBE /* TRxTests */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58EF117E4F92D00977E74 /* TRxTests.m */,
-				C4A58EEC17E4F92D00977E74 /* Supporting Files */,
+				C48C6E5717E661700065ABBE /* TRxTests.m */,
+				C48C6E5217E661700065ABBE /* Supporting Files */,
 			);
 			path = TRxTests;
 			sourceTree = "<group>";
 		};
-		C4A58EEC17E4F92D00977E74 /* Supporting Files */ = {
+		C48C6E5217E661700065ABBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58EED17E4F92D00977E74 /* TRxTests-Info.plist */,
-				C4A58EEE17E4F92D00977E74 /* InfoPlist.strings */,
+				C48C6E5317E661700065ABBE /* TRxTests-Info.plist */,
+				C48C6E5417E661700065ABBE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C4A58EFB17E4F96300977E74 /* Test */ = {
+		C48C6E6117E661E70065ABBE /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58F0817E4FAF000977E74 /* TestViewController.h */,
-				C4A58F0917E4FAF000977E74 /* TestViewController.m */,
+				C48C6E6B17E6622F0065ABBE /* TestViewController.h */,
+				C48C6E6C17E6622F0065ABBE /* TestViewController.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
 		};
-		C4A58EFC17E4F96D00977E74 /* Data */ = {
+		C48C6E6217E661F10065ABBE /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58F0217E4FAE000977E74 /* TRx.xcdatamodeld */,
+				C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */,
 			);
 			name = Data;
 			sourceTree = "<group>";
 		};
-		C4A58EFD17E4F97500977E74 /* Models */ = {
+		C48C6E6317E661F90065ABBE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58F0517E4FAE800977E74 /* TRPatient.h */,
-				C4A58F0617E4FAE800977E74 /* TRPatient.m */,
+				C48C6E6817E662280065ABBE /* TRPatient.h */,
+				C48C6E6917E662280065ABBE /* TRPatient.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		C4A58EFE17E4F98100977E74 /* ViewControllers */ = {
+		C48C6E6417E6620E0065ABBE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4A58F0B17E4FAF800977E74 /* TRPatientListViewController.h */,
-				C4A58F0C17E4FAF800977E74 /* TRPatientListViewController.m */,
+				C48C6E6E17E662450065ABBE /* TRPatientListViewController.h */,
+				C48C6E6F17E662450065ABBE /* TRPatientListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -200,13 +203,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4A58EC217E4F92D00977E74 /* TRx */ = {
+		C48C6E2817E661700065ABBE /* TRx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4A58EF517E4F92D00977E74 /* Build configuration list for PBXNativeTarget "TRx" */;
+			buildConfigurationList = C48C6E5B17E661700065ABBE /* Build configuration list for PBXNativeTarget "TRx" */;
 			buildPhases = (
-				C4A58EBF17E4F92D00977E74 /* Sources */,
-				C4A58EC017E4F92D00977E74 /* Frameworks */,
-				C4A58EC117E4F92D00977E74 /* Resources */,
+				C48C6E2517E661700065ABBE /* Sources */,
+				C48C6E2617E661700065ABBE /* Frameworks */,
+				C48C6E2717E661700065ABBE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -214,135 +217,125 @@
 			);
 			name = TRx;
 			productName = TRx;
-			productReference = C4A58EC317E4F92D00977E74 /* TRx.app */;
+			productReference = C48C6E2917E661700065ABBE /* TRx.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C4A58EE317E4F92D00977E74 /* TRxTests */ = {
+		C48C6E4817E661700065ABBE /* TRxTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4A58EF817E4F92D00977E74 /* Build configuration list for PBXNativeTarget "TRxTests" */;
+			buildConfigurationList = C48C6E5E17E661700065ABBE /* Build configuration list for PBXNativeTarget "TRxTests" */;
 			buildPhases = (
-				C4A58EE017E4F92D00977E74 /* Sources */,
-				C4A58EE117E4F92D00977E74 /* Frameworks */,
-				C4A58EE217E4F92D00977E74 /* Resources */,
+				C48C6E4517E661700065ABBE /* Sources */,
+				C48C6E4617E661700065ABBE /* Frameworks */,
+				C48C6E4717E661700065ABBE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C4A58EEA17E4F92D00977E74 /* PBXTargetDependency */,
+				C48C6E5017E661700065ABBE /* PBXTargetDependency */,
 			);
 			name = TRxTests;
 			productName = TRxTests;
-			productReference = C4A58EE417E4F92D00977E74 /* TRxTests.xctest */;
+			productReference = C48C6E4917E661700065ABBE /* TRxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C4A58EBB17E4F92D00977E74 /* Project object */ = {
+		C48C6E2117E661700065ABBE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TR;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = TeamHaiti;
 				TargetAttributes = {
-					C4A58EE317E4F92D00977E74 = {
-						TestTargetID = C4A58EC217E4F92D00977E74;
+					C48C6E4817E661700065ABBE = {
+						TestTargetID = C48C6E2817E661700065ABBE;
 					};
 				};
 			};
-			buildConfigurationList = C4A58EBE17E4F92D00977E74 /* Build configuration list for PBXProject "TRx" */;
+			buildConfigurationList = C48C6E2417E661700065ABBE /* Build configuration list for PBXProject "TRx" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = C4A58EBA17E4F92D00977E74;
-			productRefGroup = C4A58EC417E4F92D00977E74 /* Products */;
+			mainGroup = C48C6E2017E661700065ABBE;
+			productRefGroup = C48C6E2A17E661700065ABBE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C4A58EC217E4F92D00977E74 /* TRx */,
-				C4A58EE317E4F92D00977E74 /* TRxTests */,
+				C48C6E2817E661700065ABBE /* TRx */,
+				C48C6E4817E661700065ABBE /* TRxTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C4A58EC117E4F92D00977E74 /* Resources */ = {
+		C48C6E2717E661700065ABBE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A58EDF17E4F92D00977E74 /* Images.xcassets in Resources */,
-				C4A58ED117E4F92D00977E74 /* InfoPlist.strings in Resources */,
-				C4A58EDA17E4F92D00977E74 /* Main.storyboard in Resources */,
+				C48C6E3917E661700065ABBE /* InfoPlist.strings in Resources */,
+				C48C6E4417E661700065ABBE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4A58EE217E4F92D00977E74 /* Resources */ = {
+		C48C6E4717E661700065ABBE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A58EF017E4F92D00977E74 /* InfoPlist.strings in Resources */,
+				C48C6E5617E661700065ABBE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C4A58EBF17E4F92D00977E74 /* Sources */ = {
+		C48C6E2517E661700065ABBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A58F0417E4FAE000977E74 /* TRx.xcdatamodeld in Sources */,
-				C4A58F0717E4FAE800977E74 /* TRPatient.m in Sources */,
-				C4A58F0D17E4FAF800977E74 /* TRPatientListViewController.m in Sources */,
-				C4A58ED717E4F92D00977E74 /* TRAppDelegate.m in Sources */,
-				C4A58ED317E4F92D00977E74 /* main.m in Sources */,
-				C4A58F0A17E4FAF000977E74 /* TestViewController.m in Sources */,
+				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
+				C48C6E6A17E662280065ABBE /* TRPatient.m in Sources */,
+				C48C6E7017E662450065ABBE /* TRPatientListViewController.m in Sources */,
+				C48C6E3F17E661700065ABBE /* TRAppDelegate.m in Sources */,
+				C48C6E3B17E661700065ABBE /* main.m in Sources */,
+				C48C6E6D17E6622F0065ABBE /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4A58EE017E4F92D00977E74 /* Sources */ = {
+		C48C6E4517E661700065ABBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A58EF217E4F92D00977E74 /* TRxTests.m in Sources */,
+				C48C6E5817E661700065ABBE /* TRxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C4A58EEA17E4F92D00977E74 /* PBXTargetDependency */ = {
+		C48C6E5017E661700065ABBE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C4A58EC217E4F92D00977E74 /* TRx */;
-			targetProxy = C4A58EE917E4F92D00977E74 /* PBXContainerItemProxy */;
+			target = C48C6E2817E661700065ABBE /* TRx */;
+			targetProxy = C48C6E4F17E661700065ABBE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C4A58ECF17E4F92D00977E74 /* InfoPlist.strings */ = {
+		C48C6E3717E661700065ABBE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C4A58ED017E4F92D00977E74 /* en */,
+				C48C6E3817E661700065ABBE /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		C4A58ED817E4F92D00977E74 /* Main.storyboard */ = {
+		C48C6E5417E661700065ABBE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C4A58ED917E4F92D00977E74 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C4A58EEE17E4F92D00977E74 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4A58EEF17E4F92D00977E74 /* en */,
+				C48C6E5517E661700065ABBE /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -350,7 +343,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C4A58EF317E4F92D00977E74 /* Debug */ = {
+		C48C6E5917E661700065ABBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -390,7 +383,7 @@
 			};
 			name = Debug;
 		};
-		C4A58EF417E4F92D00977E74 /* Release */ = {
+		C48C6E5A17E661700065ABBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -424,7 +417,7 @@
 			};
 			name = Release;
 		};
-		C4A58EF617E4F92D00977E74 /* Debug */ = {
+		C48C6E5C17E661700065ABBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -437,7 +430,7 @@
 			};
 			name = Debug;
 		};
-		C4A58EF717E4F92D00977E74 /* Release */ = {
+		C48C6E5D17E661700065ABBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -450,7 +443,7 @@
 			};
 			name = Release;
 		};
-		C4A58EF917E4F92D00977E74 /* Debug */ = {
+		C48C6E5F17E661700065ABBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -473,7 +466,7 @@
 			};
 			name = Debug;
 		};
-		C4A58EFA17E4F92D00977E74 /* Release */ = {
+		C48C6E6017E661700065ABBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
@@ -495,29 +488,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4A58EBE17E4F92D00977E74 /* Build configuration list for PBXProject "TRx" */ = {
+		C48C6E2417E661700065ABBE /* Build configuration list for PBXProject "TRx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C4A58EF317E4F92D00977E74 /* Debug */,
-				C4A58EF417E4F92D00977E74 /* Release */,
+				C48C6E5917E661700065ABBE /* Debug */,
+				C48C6E5A17E661700065ABBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4A58EF517E4F92D00977E74 /* Build configuration list for PBXNativeTarget "TRx" */ = {
+		C48C6E5B17E661700065ABBE /* Build configuration list for PBXNativeTarget "TRx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C4A58EF617E4F92D00977E74 /* Debug */,
-				C4A58EF717E4F92D00977E74 /* Release */,
+				C48C6E5C17E661700065ABBE /* Debug */,
+				C48C6E5D17E661700065ABBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4A58EF817E4F92D00977E74 /* Build configuration list for PBXNativeTarget "TRxTests" */ = {
+		C48C6E5E17E661700065ABBE /* Build configuration list for PBXNativeTarget "TRxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C4A58EF917E4F92D00977E74 /* Debug */,
-				C4A58EFA17E4F92D00977E74 /* Release */,
+				C48C6E5F17E661700065ABBE /* Debug */,
+				C48C6E6017E661700065ABBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -525,12 +518,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C4A58F0217E4FAE000977E74 /* TRx.xcdatamodeld */ = {
+		C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C4A58F0317E4FAE000977E74 /* TRx.xcdatamodel */,
+				C48C6E6617E662220065ABBE /* TRx.xcdatamodel */,
 			);
-			currentVersion = C4A58F0317E4FAE000977E74 /* TRx.xcdatamodel */;
+			currentVersion = C48C6E6617E662220065ABBE /* TRx.xcdatamodel */;
 			name = TRx.xcdatamodeld;
 			path = ../Data/TRx.xcdatamodeld;
 			sourceTree = "<group>";
@@ -538,5 +531,5 @@
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = C4A58EBB17E4F92D00977E74 /* Project object */;
+	rootObject = C48C6E2117E661700065ABBE /* Project object */;
 }

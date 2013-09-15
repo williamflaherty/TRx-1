@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C4A58EC217E4F92D00977E74"
+               BlueprintIdentifier = "C48C6E2817E661700065ABBE"
                BuildableName = "TRx.app"
                BlueprintName = "TRx"
                ReferencedContainer = "container:TRx.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C4A58EE317E4F92D00977E74"
+               BlueprintIdentifier = "C48C6E4817E661700065ABBE"
                BuildableName = "TRxTests.xctest"
                BlueprintName = "TRxTests"
                ReferencedContainer = "container:TRx.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C4A58EC217E4F92D00977E74"
+            BlueprintIdentifier = "C48C6E2817E661700065ABBE"
             BuildableName = "TRx.app"
             BlueprintName = "TRx"
             ReferencedContainer = "container:TRx.xcodeproj">
@@ -61,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C4A58EC217E4F92D00977E74"
+            BlueprintIdentifier = "C48C6E2817E661700065ABBE"
             BuildableName = "TRx.app"
             BlueprintName = "TRx"
             ReferencedContainer = "container:TRx.xcodeproj">
@@ -79,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C4A58EC217E4F92D00977E74"
+            BlueprintIdentifier = "C48C6E2817E661700065ABBE"
             BuildableName = "TRx.app"
             BlueprintName = "TRx"
             ReferencedContainer = "container:TRx.xcodeproj">

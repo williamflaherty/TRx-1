@@ -2,7 +2,7 @@
 //  TRAppDelegate.h
 //  TRx
 //
-//  Created by Mark Bellott on 9/14/13.
+//  Created by Mark Bellott on 9/15/13.
 //  Copyright (c) 2013 TeamHaiti. All rights reserved.
 //
 
@@ -11,5 +11,12 @@
 @interface TRAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+- (void)saveContext;
+- (NSURL *)applicationDocumentsDirectory;
 
 @end

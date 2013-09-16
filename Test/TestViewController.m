@@ -22,6 +22,8 @@
     UITextField *_textFieldTwo;
     UITextField *_textFieldThree;
     UITextField *_textFieldFour;
+    
+    UIButton *_submitButton;
 }
 
 #pragma mark - Init and Load Methods
@@ -37,6 +39,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self loadTextFields];
+    [self loadButtons];
 }
 
 - (void) loadTextFields{
@@ -65,6 +68,14 @@
     [self.view addSubview:_textFieldFour];
 }
 
+- (void) loadButtons{
+    _submitButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_submitButton addTarget:self action:@selector(submitButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_submitButton setFrame: CGRectMake(284, 497, 200, 30)];
+    [_submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    [self.view addSubview:_submitButton];
+}
+
 #pragma mark - UITextFiedDelegate Methods
 
 -(void) textFieldDidEndEditing:(UITextField *)textField{
@@ -80,6 +91,12 @@
     else if(textField == _textFieldFour){
         _textFour = _textFieldFour.text;
     }
+}
+
+#pragma mark - Submit Methods
+
+- (void) submitButtonPressed{
+    NSLog(@"Submit Button Pressed.");
 }
 
 #pragma mark - Touch Handling Methods

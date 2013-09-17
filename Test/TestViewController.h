@@ -10,4 +10,6 @@
 
 @interface TestViewController : UIViewController <UITextFieldDelegate>
 
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+
 @end

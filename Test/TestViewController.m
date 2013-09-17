@@ -7,6 +7,9 @@
 //
 
 #import "TestViewController.h"
+#import "TestEntity.h"
+#import "TestEntityRelated.h"
+#import "TRAppDelegate.h"
 
 @interface TestViewController ()
 
@@ -24,7 +27,9 @@
     UITextField *_textFieldFour;
     
     UIButton *_submitButton;
+
 }
+@synthesize managedObjectContext;
 
 #pragma mark - Init and Load Methods
 
@@ -96,7 +101,13 @@
 #pragma mark - Submit Methods
 
 - (void) submitButtonPressed{
+    
+    //starting with fresh local store each time
+    [self deletePersistentStore];
     NSLog(@"Submit Button Pressed.");
+    [self saveToCoreData];
+    [self fetchData];
+    //[self sendToServer];
 }
 
 #pragma mark - Touch Handling Methods
@@ -122,5 +133,99 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Data Methods
+
+- (void)saveToCoreData{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    TestEntity *testEntity      = [NSEntityDescription
+                                   insertNewObjectForEntityForName:@"TestEntity"
+                                   inManagedObjectContext:context];
+    
+    testEntity.textFieldOne     = _textOne;
+    testEntity.textFieldTwo     = _textTwo;
+    testEntity.textFieldThree   = _textThree;
+    
+    TestEntityRelated *testEntityRelated = [NSEntityDescription
+                                        insertNewObjectForEntityForName:@"TestEntityRelated"
+                                        inManagedObjectContext:context];
+    testEntityRelated.textFieldFour = _textFour;
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Unable to save: %@", [error localizedDescription]);
+    }
+}
+
+- (void)fetchData{
+    NSError *error;
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TestEntity" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    for (TestEntity *obj in fetchedObjects) {
+        NSLog(@"Field One: %@", obj.textFieldOne);
+        NSLog(@"Field Two: %@", obj.textFieldTwo);
+        NSLog(@"Field Three: %@", obj.textFieldThree);
+        NSLog(@"Field Four: %@", obj.relatedField.textFieldFour);
+    }
+    
+    entity = [NSEntityDescription entityForName:@"TestEntityRelated" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (TestEntityRelated *obj in fetchedObjects) {
+        NSLog(@"Manual Retrieval Field Four: %@", obj.textFieldFour);
+    }
+}
+
+- (void)sendToServer{
+    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+}
+
+/* in dev it will be handy to delete SQLite persistent store 
+ * probably want a button for this
+ * SO: http://stackoverflow.com/questions/2375888/how-do-i-delete-all-objects-from-my-persistent-store-in-core-data?lq=1
+ */
+- (void)deletePersistentStore{
+    NSError *error;
+    NSURL *storeURL = [[managedObjectContext persistentStoreCoordinator] URLForPersistentStore:
+                        [[[managedObjectContext persistentStoreCoordinator] persistentStores] lastObject] ];
+    [managedObjectContext lock];    //lock context
+    [managedObjectContext reset];   //drop pending changes
+    
+    if ([[managedObjectContext persistentStoreCoordinator] removePersistentStore:[[[managedObjectContext persistentStoreCoordinator] persistentStores] lastObject] error:&error]) {
+        //remove the data file
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
+        //recreate the store
+        [[managedObjectContext persistentStoreCoordinator] addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+    }
+    [managedObjectContext unlock];
+}
+
+
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

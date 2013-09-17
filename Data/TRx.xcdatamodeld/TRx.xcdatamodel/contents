@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="TestEntity" representedClassName="TestEntity" syncable="YES">
+        <attribute name="textFieldOne" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="textFieldThree" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="textFieldTwo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relatedField" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TestEntityRelated" inverseName="relatedToMainFields" inverseEntity="TestEntityRelated" syncable="YES"/>
+    </entity>
+    <entity name="TestEntityRelated" representedClassName="TestEntityRelated" syncable="YES">
+        <attribute name="textFieldFour" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relatedToMainFields" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TestEntity" inverseName="relatedField" inverseEntity="TestEntity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TestEntity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TestEntityRelated" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
 </model>

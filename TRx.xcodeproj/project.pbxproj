@@ -108,10 +108,10 @@
 		C47B527E17EF79420044E0A7 /* PatientList */ = {
 			isa = PBXGroup;
 			children = (
-				C47B528217EF7A450044E0A7 /* TRPatientListCell.h */,
-				C47B528317EF7A450044E0A7 /* TRPatientListCell.m */,
 				C47B528417EF7A450044E0A7 /* TRPatientListViewController.h */,
 				C47B528517EF7A450044E0A7 /* TRPatientListViewController.m */,
+				C47B528217EF7A450044E0A7 /* TRPatientListCell.h */,
+				C47B528317EF7A450044E0A7 /* TRPatientListCell.m */,
 			);
 			name = PatientList;
 			sourceTree = "<group>";

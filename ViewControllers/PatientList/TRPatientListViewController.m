@@ -14,9 +14,9 @@
 
 @end
 
-@implementation TRPatientListViewController{
-    UITableView *_patientListTableView;
-}
+@implementation TRPatientListViewController
+
+@synthesize patientListTableView;
 
 #pragma mark - Init and Load Methods
 
@@ -30,20 +30,36 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self initialSetup];
+    [self resizeViewsForOrientation:self.interfaceOrientation];
 }
      
 - (void) initialSetup{
     [self loadConstants];
-    [self loadTalbeView];
 }
 
 - (void) loadConstants{
     winSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 }
 
-- (void)loadTalbeView{
-    _patientListTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, winSize.width, winSize.height)];
-    [self.view addSubview:_patientListTableView];
+
+#pragma mark - Orientation Handling Methods
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    [self resizeViewsForOrientation:toInterfaceOrientation];
+}
+
+-(void) resizeViewsForOrientation:(UIInterfaceOrientation)newOrientation{
+    if(newOrientation == UIInterfaceOrientationPortrait
+       || newOrientation == UIInterfaceOrientationPortraitUpsideDown){
+        patientListTableView.frame = CGRectMake(0, 0, 20, 20);
+    }
+    else if(newOrientation == UIInterfaceOrientationLandscapeLeft
+       || newOrientation == UIInterfaceOrientationLandscapeRight){
+        patientListTableView.frame = CGRectMake(0, 0, 10, 10);
+    }
+    else{
+        NSLog(@"Unsupported Orientation Switch: %d", newOrientation);
+    }
 }
 
 #pragma mark - Memory Methods

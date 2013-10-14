@@ -10,4 +10,6 @@
 
 @interface TRPatientListViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *patientListTableView;
+
 @end

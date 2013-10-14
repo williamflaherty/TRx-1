@@ -8,31 +8,48 @@
 
 #import "TRPatientListViewController.h"
 
-@interface TRPatientListViewController ()
+@interface TRPatientListViewController (){
+    CGSize winSize;
+}
 
 @end
 
-@implementation TRPatientListViewController
+@implementation TRPatientListViewController{
+    UITableView *_patientListTableView;
+}
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+#pragma mark - Init and Load Methods
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self initialSetup];
+}
+     
+- (void) initialSetup{
+    [self loadConstants];
+    [self loadTalbeView];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void) loadConstants{
+    winSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+}
+
+- (void)loadTalbeView{
+    _patientListTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, winSize.width, winSize.height)];
+    [self.view addSubview:_patientListTableView];
+}
+
+#pragma mark - Memory Methods
+
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TRPatientListViewController : UIViewController
+@interface TRPatientListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITableView *patientListTableView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *refreshPatientListButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addPatientButton;
+
+- (IBAction)refreshPatientList:(id)sender;
+- (IBAction)addNewPatient:(id)sender;
 
 @end

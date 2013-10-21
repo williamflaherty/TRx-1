@@ -14,6 +14,7 @@
 		C46B4816180C3854002CF789 /* TRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B4815180C3854002CF789 /* TRNavigationController.m */; };
 		C47B528617EF7A450044E0A7 /* TRPatientListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528317EF7A450044E0A7 /* TRPatientListCell.m */; };
 		C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528517EF7A450044E0A7 /* TRPatientListViewController.m */; };
+		C482B0C318159660001B0B20 /* Thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C482B0C218159660001B0B20 /* Thumb.jpg */; };
 		C48C6E2D17E661700065ABBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2C17E661700065ABBE /* Foundation.framework */; };
 		C48C6E2F17E661700065ABBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2E17E661700065ABBE /* CoreGraphics.framework */; };
 		C48C6E3117E661700065ABBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E3017E661700065ABBE /* UIKit.framework */; };
@@ -56,6 +57,7 @@
 		C47B528317EF7A450044E0A7 /* TRPatientListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatientListCell.m; path = ViewControllers/PatientList/TRPatientListCell.m; sourceTree = SOURCE_ROOT; };
 		C47B528417EF7A450044E0A7 /* TRPatientListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListViewController.h; path = ViewControllers/PatientList/TRPatientListViewController.h; sourceTree = SOURCE_ROOT; };
 		C47B528517EF7A450044E0A7 /* TRPatientListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatientListViewController.m; path = ViewControllers/PatientList/TRPatientListViewController.m; sourceTree = SOURCE_ROOT; };
+		C482B0C218159660001B0B20 /* Thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Thumb.jpg; path = ../../../../Desktop/Thumb.jpg; sourceTree = "<group>"; };
 		C48C6E2917E661700065ABBE /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48C6E2C17E661700065ABBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C48C6E2E17E661700065ABBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +165,7 @@
 				C48C6E3D17E661700065ABBE /* TRAppDelegate.h */,
 				C48C6E3E17E661700065ABBE /* TRAppDelegate.m */,
 				C48C6E4317E661700065ABBE /* Images.xcassets */,
+				C482B0C218159660001B0B20 /* Thumb.jpg */,
 				C48C6E3517E661700065ABBE /* Supporting Files */,
 			);
 			path = TRx;
@@ -315,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C482B0C318159660001B0B20 /* Thumb.jpg in Resources */,
 				C46B4810180C36B3002CF789 /* MainStoryboard.storyboard in Resources */,
 				C48C6E3917E661700065ABBE /* InfoPlist.strings in Resources */,
 				C48C6E4417E661700065ABBE /* Images.xcassets in Resources */,

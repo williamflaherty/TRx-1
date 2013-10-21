@@ -8,6 +8,7 @@
         <scene sceneID="Ol4-zY-ljs">
             <objects>
                 <navigationController definesPresentationContext="YES" id="K6j-5o-uim" customClass="TRNavigationController" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CF2-nN-x69">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -28,25 +29,79 @@
                         <viewControllerLayoutGuide type="bottom" id="jhu-Z1-efV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="14z-bv-dYi">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Fz-af-YIn">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="210" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Fz-af-YIn">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="patientListCell" rowHeight="210" id="aZP-A7-GCa" customClass="TRPatientListCell">
+                                        <rect key="frame" x="0.0" y="86" width="1024" height="210"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aZP-A7-GCa" id="xzc-we-G0G">
+                                            <rect key="frame" x="0.0" y="0.0" width="991" height="209"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhP-7O-XmM">
+                                                    <rect key="frame" x="20" y="5" width="200" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSZ-uY-fAh">
+                                                    <rect key="frame" x="284" y="5" width="740" height="75"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAb-DB-Mae">
+                                                    <rect key="frame" x="284" y="88" width="740" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="patientCellComplaint" destination="wAb-DB-Mae" id="eRa-AB-9Ov"/>
+                                            <outlet property="patientCellName" destination="nSZ-uY-fAh" id="NoR-Ds-49h"/>
+                                            <outlet property="patientCellPhoto" destination="OhP-7O-XmM" id="xHR-ac-IBU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2rm-5E-Hef" id="ANj-wD-M9w"/>
+                                    <outlet property="delegate" destination="2rm-5E-Hef" id="o1H-qi-jH1"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xIY-pu-9L0"/>
+                    <navigationItem key="navigationItem" id="MaY-dM-V4Q">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="hzU-Nr-LoG">
+                            <connections>
+                                <action selector="refreshPatientList:" destination="2rm-5E-Hef" id="HYA-tY-S5q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add Patient" id="MHb-4C-JAP">
+                            <connections>
+                                <action selector="addNewPatient:" destination="2rm-5E-Hef" id="b73-KY-YNI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="addPatientButton" destination="MHb-4C-JAP" id="mf3-fU-GHp"/>
                         <outlet property="patientListTableView" destination="0Fz-af-YIn" id="1ps-1J-Z8M"/>
+                        <outlet property="refreshPatientListButton" destination="hzU-Nr-LoG" id="phb-LS-wWL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bJ-QK-cC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="-83"/>
+            <point key="canvasLocation" x="926" y="129"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

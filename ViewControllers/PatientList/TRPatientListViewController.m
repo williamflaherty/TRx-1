@@ -33,7 +33,7 @@ addPatientButton = _addPatientButton;
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self initialSetup];
-//    [self resizeViewsForOrientation:self.interfaceOrientation];
+    [self resizeViewsForOrientation:self.interfaceOrientation];
 }
      
 - (void)initialSetup{
@@ -50,7 +50,6 @@ addPatientButton = _addPatientButton;
 }
 
 - (void)laodBarButtons{
-    
 }
 
 #pragma mark - Bar Button Actions
@@ -65,14 +64,6 @@ addPatientButton = _addPatientButton;
 
 #pragma mark - UITableViewDelegate Methods
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 50;
-//}
-//
-//-(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    return 10;
-//}
-
 #pragma mark - UITableViewDataSource Methods
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
@@ -80,7 +71,7 @@ addPatientButton = _addPatientButton;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    return 5;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -102,7 +93,7 @@ addPatientButton = _addPatientButton;
 #pragma mark - Orientation Handling Methods
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-//    [self resizeViewsForOrientation:toInterfaceOrientation];
+    [self resizeViewsForOrientation:toInterfaceOrientation];
 }
 
 - (void)resizeViewsForOrientation:(UIInterfaceOrientation)newOrientation{

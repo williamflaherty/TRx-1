@@ -18,9 +18,36 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CsN-qS-MUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-291" y="129"/>
+            <point key="canvasLocation" x="-2655" y="-2091"/>
         </scene>
-        <!--Patient List View Controller-->
+        <!--Add Patient View Controller - New Patient-->
+        <scene sceneID="LqR-qT-QQb">
+            <objects>
+                <viewController id="Kp6-Xa-YDx" customClass="TRAddPatientViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cc3-st-MFn"/>
+                        <viewControllerLayoutGuide type="bottom" id="TmA-ve-EcJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nqx-bh-Pxt">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Patient" id="Rhj-K7-Hc5">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="CV8-jN-feH">
+                            <connections>
+                                <segue destination="cvu-OF-qDH" kind="push" id="Mo4-Lt-yl4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2P2-WO-jWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1380" y="-1626"/>
+        </scene>
+        <!--Patient List View Controller - Patients-->
         <scene sceneID="5SE-4S-xvi">
             <objects>
                 <viewController id="2rm-5E-Hef" customClass="TRPatientListViewController" sceneMemberID="viewController">
@@ -68,6 +95,7 @@
                                             <outlet property="patientCellComplaint" destination="wAb-DB-Mae" id="eRa-AB-9Ov"/>
                                             <outlet property="patientCellName" destination="nSZ-uY-fAh" id="NoR-Ds-49h"/>
                                             <outlet property="patientCellPhoto" destination="OhP-7O-XmM" id="xHR-ac-IBU"/>
+                                            <segue destination="cvu-OF-qDH" kind="push" id="qoA-OH-dQd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -80,7 +108,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MaY-dM-V4Q">
+                    <navigationItem key="navigationItem" title="Patients" id="MaY-dM-V4Q">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="hzU-Nr-LoG">
                             <connections>
                                 <action selector="refreshPatientList:" destination="2rm-5E-Hef" id="HYA-tY-S5q"/>
@@ -89,6 +117,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Add Patient" id="MHb-4C-JAP">
                             <connections>
                                 <action selector="addNewPatient:" destination="2rm-5E-Hef" id="b73-KY-YNI"/>
+                                <segue destination="Kp6-Xa-YDx" kind="push" id="9mK-sF-7Nt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -101,7 +130,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bJ-QK-cC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="129"/>
+            <point key="canvasLocation" x="-2646" y="-1179"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ojX-A1-uzY">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="cvu-OF-qDH" customClass="TRTabBarController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aMi-Fg-FOQ"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Hng-Db-pln">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="lPU-KO-buI" kind="relationship" relationship="viewControllers" id="sDi-3P-zrW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVV-bJ-Y0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1380" y="-432"/>
+        </scene>
+        <!--Patient Summary View Controller - Summary-->
+        <scene sceneID="h1d-Gd-mHf">
+            <objects>
+                <viewController id="lPU-KO-buI" customClass="TRPatientSummaryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hvH-50-Cfr"/>
+                        <viewControllerLayoutGuide type="bottom" id="X2y-yy-Rwc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lL7-Qm-jnd">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Summary" id="ad7-hB-qTL"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfx-Bk-9sF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-128" y="-432"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -109,4 +178,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="qoA-OH-dQd"/>
+    </inferredMetricsTieBreakers>
 </document>

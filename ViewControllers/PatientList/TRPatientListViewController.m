@@ -17,9 +17,9 @@
 
 @implementation TRPatientListViewController
 
-@synthesize patientListTableView = _patientListTableView,
-refreshPatientListButton = _refreshPatientListButton,
-addPatientButton = _addPatientButton;
+@synthesize patientListTableView = _patientListTableView;
+@synthesize refreshPatientListButton = _refreshPatientListButton;
+@synthesize addPatientButton = _addPatientButton;
 
 #pragma mark - Init and Load Methods
 
@@ -38,18 +38,10 @@ addPatientButton = _addPatientButton;
      
 - (void)initialSetup{
     [self loadConstants];
-    [self loadTableView];
-    [self laodBarButtons];
 }
 
 - (void)loadConstants{
     winSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
-}
-
-- (void) loadTableView{
-}
-
-- (void)laodBarButtons{
 }
 
 #pragma mark - Bar Button Actions
@@ -63,6 +55,11 @@ addPatientButton = _addPatientButton;
 }
 
 #pragma mark - UITableViewDelegate Methods
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    TRPatientListCell *cell = (TRPatientListCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
+}
 
 #pragma mark - UITableViewDataSource Methods
 
@@ -85,7 +82,7 @@ addPatientButton = _addPatientButton;
     patientNameLabel.text = @"Mark Bellott";
     
     UILabel *patientComplaintLabel = (UILabel*)[cell viewWithTag:102];
-    patientComplaintLabel.text = @"Stress";
+    patientComplaintLabel.text = @"Complaint";
     
     return cell;
 }

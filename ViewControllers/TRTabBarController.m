@@ -7,6 +7,7 @@
 //
 
 #import "TRTabBarController.h"
+#import "TRNavigationController.h"
 
 @interface TRTabBarController ()
 
@@ -14,23 +15,31 @@
 
 @implementation TRTabBarController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	[self setUpNavItems];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void) setUpNavItems{
+    [self.navigationItem.backBarButtonItem setTitle:@"Patient List"];
+    [self.navigationItem.backBarButtonItem setTarget:self];
+    [self.navigationItem.backBarButtonItem setAction:@selector(backButtonPressed)];
+}
+
+- (void)backButtonPressed{
+    
+}
+
+#pragma mark - Memory Management Methods
+
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

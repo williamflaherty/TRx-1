@@ -17,6 +17,7 @@
 		C482B0C6181598C4001B0B20 /* TRAddPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C482B0C5181598C4001B0B20 /* TRAddPatientViewController.m */; };
 		C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C482B0CB18159A4A001B0B20 /* TRPatientSummaryViewController.m */; };
 		C482B0D418159B4A001B0B20 /* TRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C482B0D318159B4A001B0B20 /* TRTabBarController.m */; };
+		C48506E1181DC8A3001119FD /* TRBorderedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C48506E0181DC8A3001119FD /* TRBorderedImageView.m */; };
 		C48C6E2D17E661700065ABBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2C17E661700065ABBE /* Foundation.framework */; };
 		C48C6E2F17E661700065ABBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2E17E661700065ABBE /* CoreGraphics.framework */; };
 		C48C6E3117E661700065ABBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E3017E661700065ABBE /* UIKit.framework */; };
@@ -70,6 +71,8 @@
 		C482B0CB18159A4A001B0B20 /* TRPatientSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatientSummaryViewController.m; path = ViewControllers/PatientSummary/TRPatientSummaryViewController.m; sourceTree = SOURCE_ROOT; };
 		C482B0D218159B4A001B0B20 /* TRTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRTabBarController.h; path = ViewControllers/TRTabBarController.h; sourceTree = SOURCE_ROOT; };
 		C482B0D318159B4A001B0B20 /* TRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRTabBarController.m; path = ViewControllers/TRTabBarController.m; sourceTree = SOURCE_ROOT; };
+		C48506DF181DC8A3001119FD /* TRBorderedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRBorderedImageView.h; path = CustomClasses/UI/TRBorderedImageView.h; sourceTree = SOURCE_ROOT; };
+		C48506E0181DC8A3001119FD /* TRBorderedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRBorderedImageView.m; path = CustomClasses/UI/TRBorderedImageView.m; sourceTree = SOURCE_ROOT; };
 		C48C6E2917E661700065ABBE /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48C6E2C17E661700065ABBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C48C6E2E17E661700065ABBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -343,6 +346,8 @@
 			children = (
 				C4EDCF13181C454A00256DE5 /* TRBorderedButton.h */,
 				C4EDCF14181C454A00256DE5 /* TRBorderedButton.m */,
+				C48506DF181DC8A3001119FD /* TRBorderedImageView.h */,
+				C48506E0181DC8A3001119FD /* TRBorderedImageView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
+				C48506E1181DC8A3001119FD /* TRBorderedImageView.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
 				C4EDCF15181C454A00256DE5 /* TRBorderedButton.m in Sources */,
 				C48C6E6A17E662280065ABBE /* TRPatient.m in Sources */,

@@ -1,38 +1,30 @@
 //
-//  TRBorderedButton.m
+//  TRBorderedImageView.m
 //  TRx
 //
-//  Created by Mark Bellott on 10/26/13.
+//  Created by Mark Bellott on 10/27/13.
 //  Copyright (c) 2013 TeamHaiti. All rights reserved.
 //
 
-#import "TRBorderedButton.h"
+#import "TRBorderedImageView.h"
 
-@implementation TRBorderedButton
+@implementation TRBorderedImageView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-    }
-    return self;
-}
-
-- (id) initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    if(self){
+        // Initialization code
     }
     return self;
 }
 
 - (void)drawBorderWithColor:(UIColor *)borderColor{
-    //Note: Due to Autotlayout no changes can be made to the frame here.
-    //It is recomended you add 20 to your buttons width.
-
-    self.titleLabel.textColor = borderColor;
+    
     self.layer.borderColor = borderColor.CGColor;
-    self.layer.borderWidth = 1.0f;
-    self.layer.cornerRadius = 4;
+    self.layer.borderWidth = 1.5f;
+    self.layer.cornerRadius = 10;
+    self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1.0];
     
     [self setNeedsDisplay];
 }

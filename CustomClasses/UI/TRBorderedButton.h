@@ -10,6 +10,6 @@
 
 @interface TRBorderedButton : UIButton
 
-- (void)drawBorderWithColor:(UIColor*)buttonCollor;
+- (void)drawBorderWithColor:(UIColor*)borderCollor;
 
 @end

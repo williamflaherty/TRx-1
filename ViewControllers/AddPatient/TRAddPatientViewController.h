@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @class TRBorderedButton;
+@class TRBorderedImageView;
 
-@interface TRAddPatientViewController : UIViewController
+@interface TRAddPatientViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+//IBOutlets
 @property(nonatomic, strong) IBOutlet TRBorderedButton *takePictureButton;
+@property(nonatomic, strong) IBOutlet TRBorderedImageView *photoIDImageView;
 
+//IBActions
 -(IBAction)takePicturePressed:(id)sender;
 
 @end

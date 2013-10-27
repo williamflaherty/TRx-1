@@ -10,6 +10,7 @@
 
 @interface TRPatientListCell : UITableViewCell
 
+//IBOutlets
 @property(nonatomic,strong) IBOutlet UIImageView *patientCellPhoto;
 @property(nonatomic,strong) IBOutlet UILabel *patientCellName;
 @property(nonatomic,strong) IBOutlet UILabel *patientCellComplaint;

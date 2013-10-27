@@ -21,17 +21,22 @@
 - (id) initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if(self){
-//        self.frame = CGRectMake(self.frame.origin.x - 10, self.frame.origin.y,
-//                                self.frame.size.width + 20, self.frame.size.height);
-        self.layer.borderColor = [UIColor colorWithRed:(25.0/255) green:(148.0/255) blue:(251.0/255) alpha:1.0].CGColor;
-        self.layer.borderWidth = 1.0f;
-        self.layer.cornerRadius = 4;
-        
     }
     return self;
 }
 
+- (void)drawBorderWithColor:(UIColor *)buttonColor{
+    // Note -- This has no effect if using autolayout.
+    // Add 20 to the frame in Storyboards if this is the case.
+    self.frame = CGRectMake(self.frame.origin.x - 10, self.frame.origin.y,
+                            self.frame.size.width + 20, self.frame.size.height);
 
+    self.layer.borderColor = buttonColor.CGColor;
+    self.layer.borderWidth = 1.0f;
+    self.layer.cornerRadius = 4;
+    
+    [self setNeedsDisplay];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

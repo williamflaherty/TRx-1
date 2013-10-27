@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class TRBorderedButton;
+
 @interface TRAddPatientViewController : UIViewController
+
+@property(nonatomic, strong) IBOutlet TRBorderedButton *takePictureButton;
+
+-(IBAction)takePicturePressed:(id)sender;
 
 @end

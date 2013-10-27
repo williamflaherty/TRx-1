@@ -10,8 +10,8 @@
 
 @interface TRPatientListCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *patientCellPhoto;
-@property (weak, nonatomic) IBOutlet UILabel *patientCellName;
-@property (weak, nonatomic) IBOutlet UILabel *patientCellComplaint;
+@property(nonatomic,strong) IBOutlet UIImageView *patientCellPhoto;
+@property(nonatomic,strong) IBOutlet UILabel *patientCellName;
+@property(nonatomic,strong) IBOutlet UILabel *patientCellComplaint;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "TRAddPatientViewController.h"
+#import "TRBorderedButton.h"
 
 @interface TRAddPatientViewController ()
 
@@ -14,25 +15,36 @@
 
 @implementation TRAddPatientViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+@synthesize takePictureButton;
+
+#pragma mark - Init and Load Methods
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self drawButtons];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)drawButtons{
+    [takePictureButton drawBorderWithColor:self.view.tintColor];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)takePicturePressed:(id)sender{
+    
+}
+
+#pragma mark - Memory Management Methods
+
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

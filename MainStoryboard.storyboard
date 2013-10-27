@@ -24,8 +24,8 @@
             <objects>
                 <viewController id="Kp6-Xa-YDx" customClass="TRAddPatientViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jqf-qL-hyr"/>
-                        <viewControllerLayoutGuide type="bottom" id="3d7-uL-aZz"/>
+                        <viewControllerLayoutGuide type="top" id="LjV-rg-6YW"/>
+                        <viewControllerLayoutGuide type="bottom" id="VGL-Nh-2Rn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nqx-bh-Pxt">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -36,13 +36,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbY-90-Hm4" customClass="TRBorderedButton">
-                                <rect key="frame" x="346" y="469" width="77" height="30"/>
+                                <rect key="frame" x="336" y="469" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Take Photo">
                                     <color key="titleColor" red="0.09803922474" green="0.58039218189999997" blue="0.98431378599999997" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="takePicturePressed:" destination="Kp6-Xa-YDx" eventType="touchUpInside" id="3Es-nH-Zer"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -55,6 +58,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="takePictureButton" destination="AbY-90-Hm4" id="MtU-BD-hvE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2P2-WO-jWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,14 +71,14 @@
             <objects>
                 <viewController id="2rm-5E-Hef" customClass="TRPatientListViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YDa-SO-ePA"/>
-                        <viewControllerLayoutGuide type="bottom" id="5Ax-DM-7mm"/>
+                        <viewControllerLayoutGuide type="top" id="PHd-y4-hgy"/>
+                        <viewControllerLayoutGuide type="bottom" id="vTk-uh-Wsw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="14z-bv-dYi">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Fz-af-YIn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Fz-af-YIn">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,9 +111,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="patientCellComplaint" destination="wAb-DB-Mae" id="eRa-AB-9Ov"/>
-                                            <outlet property="patientCellName" destination="nSZ-uY-fAh" id="NoR-Ds-49h"/>
-                                            <outlet property="patientCellPhoto" destination="OhP-7O-XmM" id="xHR-ac-IBU"/>
+                                            <outlet property="_patientCellComplaint" destination="wAb-DB-Mae" id="Dkv-4Y-LJ5"/>
+                                            <outlet property="_patientCellName" destination="nSZ-uY-fAh" id="DHV-c1-19G"/>
+                                            <outlet property="_patientCellPhoto" destination="OhP-7O-XmM" id="TWT-rk-CGx"/>
                                             <segue destination="cvu-OF-qDH" kind="push" id="qoA-OH-dQd"/>
                                         </connections>
                                     </tableViewCell>
@@ -119,12 +125,6 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="0Fz-af-YIn" secondAttribute="trailing" id="1pq-PD-qRW"/>
-                            <constraint firstItem="0Fz-af-YIn" firstAttribute="leading" secondItem="14z-bv-dYi" secondAttribute="leading" id="2Dh-j5-UVt"/>
-                            <constraint firstAttribute="bottom" secondItem="0Fz-af-YIn" secondAttribute="bottom" id="DS5-yo-4T9"/>
-                            <constraint firstItem="0Fz-af-YIn" firstAttribute="top" secondItem="14z-bv-dYi" secondAttribute="top" id="rui-ef-jDS"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Patients" id="MaY-dM-V4Q">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="hzU-Nr-LoG">
@@ -140,9 +140,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addPatientButton" destination="MHb-4C-JAP" id="mf3-fU-GHp"/>
-                        <outlet property="patientListTableView" destination="0Fz-af-YIn" id="1ps-1J-Z8M"/>
-                        <outlet property="refreshPatientListButton" destination="hzU-Nr-LoG" id="phb-LS-wWL"/>
+                        <outlet property="addPatientButton" destination="MHb-4C-JAP" id="v3i-Sc-oEE"/>
+                        <outlet property="patientListTableView" destination="0Fz-af-YIn" id="avo-ry-DQP"/>
+                        <outlet property="refreshPatientListButton" destination="hzU-Nr-LoG" id="u9a-HT-G1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bJ-QK-cC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,8 +178,8 @@
             <objects>
                 <viewController id="lPU-KO-buI" customClass="TRPatientSummaryViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2Ss-gO-CF6"/>
-                        <viewControllerLayoutGuide type="bottom" id="h4T-l7-rHB"/>
+                        <viewControllerLayoutGuide type="top" id="5Ax-q0-Ltf"/>
+                        <viewControllerLayoutGuide type="bottom" id="SbH-tx-ueU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lL7-Qm-jnd">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -197,8 +197,8 @@
             <objects>
                 <viewController id="IKb-Bf-Ccm" customClass="TRHistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MbQ-8U-Y66"/>
-                        <viewControllerLayoutGuide type="bottom" id="LJB-bM-nez"/>
+                        <viewControllerLayoutGuide type="top" id="woQ-eE-2on"/>
+                        <viewControllerLayoutGuide type="bottom" id="12a-Bc-KIW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pTO-xk-Ouh">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -216,8 +216,8 @@
             <objects>
                 <viewController id="ouH-Eb-zUZ" customClass="TRPhysicalViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zIQ-Ko-as6"/>
-                        <viewControllerLayoutGuide type="bottom" id="abF-xu-nep"/>
+                        <viewControllerLayoutGuide type="top" id="ld1-9N-oxZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="mN2-BE-fi9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y0l-bT-wPB">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -235,8 +235,8 @@
             <objects>
                 <viewController id="4AS-lK-r0u" customClass="TRSurgeryViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="un5-vq-ZNz"/>
-                        <viewControllerLayoutGuide type="bottom" id="x2g-VV-Uto"/>
+                        <viewControllerLayoutGuide type="top" id="dXq-qg-lSs"/>
+                        <viewControllerLayoutGuide type="bottom" id="N7z-mP-9ex"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZUX-vi-6Oh">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>

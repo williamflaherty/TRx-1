@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CB999C613134C2DB5524417 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA35FE7EB0304591A19109D4 /* libPods.a */; };
+		1374F163185A453C003CB138 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374F162185A453C003CB138 /* Patient.m */; };
 		13C221D917E80081006A3391 /* TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C221D817E80081006A3391 /* TestEntity.m */; };
 		13C221DC17E80082006A3391 /* TestEntityRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C221DB17E80082006A3391 /* TestEntityRelated.m */; };
 		C46B4810180C36B3002CF789 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46B480F180C36B3002CF789 /* MainStoryboard.storyboard */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1374F161185A453C003CB138 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = SOURCE_ROOT; };
+		1374F162185A453C003CB138 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Models/Patient.m; sourceTree = SOURCE_ROOT; };
 		13C221D717E80081006A3391 /* TestEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntity.h; sourceTree = "<group>"; };
 		13C221D817E80081006A3391 /* TestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestEntity.m; sourceTree = "<group>"; };
 		13C221DA17E80082006A3391 /* TestEntityRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntityRelated.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */,
+				1374F161185A453C003CB138 /* Patient.h */,
+				1374F162185A453C003CB138 /* Patient.m */,
 				13C221DA17E80082006A3391 /* TestEntityRelated.h */,
 				13C221DB17E80082006A3391 /* TestEntityRelated.m */,
 				13C221D717E80081006A3391 /* TestEntity.h */,
@@ -487,6 +492,7 @@
 			files = (
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
 				C48506E1181DC8A3001119FD /* TRBorderedImageView.m in Sources */,
+				1374F163185A453C003CB138 /* Patient.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
 				C4EDCF15181C454A00256DE5 /* TRBorderedButton.m in Sources */,
 				C48C6E6A17E662280065ABBE /* TRPatient.m in Sources */,

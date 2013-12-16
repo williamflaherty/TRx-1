@@ -18,6 +18,7 @@
 @property(nonatomic, strong) IBOutlet TRBorderedImageView *photoIDImageView;
 
 //IBActions
--(IBAction)takePicturePressed:(id)sender;
+- (IBAction)submitPressed:(id)sender;
+- (IBAction)takePicturePressed:(id)sender;
 
 @end

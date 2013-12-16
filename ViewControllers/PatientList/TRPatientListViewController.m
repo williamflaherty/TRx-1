@@ -8,6 +8,8 @@
 
 #import "TRPatientListViewController.h"
 #import "TRPatientListCell.h"
+#import "TRAddPatientViewController.h"
+#import "TRTabBarController.h"
 
 @interface TRPatientListViewController (){
     CGSize winSize;
@@ -34,6 +36,7 @@
     [super viewDidLoad];
     [self initialSetup];
     [self resizeViewsForOrientation:self.interfaceOrientation];
+    
 }
      
 - (void)initialSetup{
@@ -52,6 +55,10 @@
 
 - (IBAction)addNewPatient:(id)sender{
     NSLog(@"Add New Patient Pressed");
+    
+    TRAddPatientViewController *addPatientVC =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"TRAddPatientViewController"];
+    [self.navigationController pushViewController:addPatientVC animated:YES];
 }
 
 #pragma mark - UITableViewDelegate Methods
@@ -59,6 +66,10 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TRPatientListCell *cell = (TRPatientListCell*)[tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO];
+    
+    TRTabBarController *patientTC =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"TRTabBarController"];
+    [self.navigationController pushViewController:patientTC animated:YES];
 }
 
 #pragma mark - UITableViewDataSource Methods

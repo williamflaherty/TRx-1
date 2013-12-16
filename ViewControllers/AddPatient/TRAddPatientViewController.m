@@ -7,6 +7,7 @@
 //
 
 #import "TRAddPatientViewController.h"
+#import "TRTabBarController.h"
 #import "TRBorderedButton.h"
 #import "TRBorderedImageView.h"
 
@@ -34,7 +35,7 @@
     [super viewDidLoad];
     [self drawButtons];
     [self drawImageView];
-    
+    [self setUpButtons];
 }
 
 - (void)drawButtons{
@@ -43,6 +44,18 @@
 
 - (void)drawImageView{
     [_photoIDImageView drawBorderWithColor:self.view.tintColor];
+}
+
+- (void)setUpButtons{
+    UIBarButtonItem *submit = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(submitPressed:)];
+    self.navigationItem.rightBarButtonItem = submit;
+}
+
+#pragma mark - IBActions
+- (IBAction)submitPressed:(id)sender{
+    TRTabBarController *patientTC =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"TRTabBarController"];
+    [self.navigationController pushViewController:patientTC animated:YES];
 }
 
 #pragma mark - Camera Methods

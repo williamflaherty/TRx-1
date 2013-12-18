@@ -20,6 +20,8 @@
 }
 
 @synthesize takePictureButton = _takePictureButton;
+@synthesize birthdateButton = _birthdateButton;
+@synthesize chiefComplaintButton = _chiefComplaintButton;
 @synthesize photoIDImageView = _photoIDImageView;
 
 #pragma mark - Init and Load Methods
@@ -40,6 +42,9 @@
 
 - (void)drawButtons{
     [_takePictureButton drawBorderWithColor:self.view.tintColor];
+    [_birthdateButton drawBorderWithColor:self.view.tintColor];
+    [_chiefComplaintButton drawBorderWithColor:self.view.tintColor];
+
 }
 
 - (void)drawImageView{
@@ -52,7 +57,7 @@
 }
 
 #pragma mark - IBActions
-- (IBAction)submitPressed:(id)sender{
+- (void)submitPressed:(id)sender{
     TRTabBarController *patientTC =
     [self.storyboard instantiateViewControllerWithIdentifier:@"TRTabBarController"];
     [self.navigationController pushViewController:patientTC animated:YES];

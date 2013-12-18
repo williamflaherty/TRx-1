@@ -93,7 +93,10 @@
     patientNameLabel.text = @"Mark Bellott";
     
     UILabel *patientComplaintLabel = (UILabel*)[cell viewWithTag:102];
-    patientComplaintLabel.text = @"Complaint";
+    patientComplaintLabel.text = @"Complaint:";
+    
+    UILabel *patienBirthdateLabel = (UILabel*)[cell viewWithTag:103];
+    patienBirthdateLabel.text = @"Birthdate:";
     
     return cell;
 }

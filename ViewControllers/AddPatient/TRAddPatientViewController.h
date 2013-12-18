@@ -15,10 +15,11 @@
 
 //IBOutlets
 @property(nonatomic, strong) IBOutlet TRBorderedButton *takePictureButton;
+@property(nonatomic, strong) IBOutlet TRBorderedButton *birthdateButton;
+@property(nonatomic, strong) IBOutlet TRBorderedButton *chiefComplaintButton;
 @property(nonatomic, strong) IBOutlet TRBorderedImageView *photoIDImageView;
 
 //IBActions
-- (IBAction)submitPressed:(id)sender;
 - (IBAction)takePicturePressed:(id)sender;
 
 @end

@@ -10,13 +10,4 @@
 
 @interface TRPatientListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-//IBOutlets
-@property (strong, nonatomic) IBOutlet UITableView *patientListTableView;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *refreshPatientListButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *addPatientButton;
-
-//IBActions
-- (IBAction)refreshPatientList:(id)sender;
-- (IBAction)addNewPatient:(id)sender;
-
 @end

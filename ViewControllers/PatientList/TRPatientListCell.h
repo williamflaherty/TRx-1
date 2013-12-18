@@ -10,10 +10,13 @@
 
 @interface TRPatientListCell : UITableViewCell
 
-//IBOutlets
-@property(nonatomic,strong) IBOutlet UIImageView *patientCellPhoto;
-@property(nonatomic,strong) IBOutlet UILabel *patientCellName;
-@property(nonatomic,strong) IBOutlet UILabel *patientCellComplaint;
-@property(nonatomic,strong) IBOutlet UILabel *patientBirthdate;
+//Properties
+@property(nonatomic,strong) UIImageView *patientCellPhoto;
+@property(nonatomic,strong) UILabel *patientCellName;
+@property(nonatomic,strong) UILabel *patientCellComplaint;
+@property(nonatomic,strong) UILabel *patientCellBirthdate;
+
+//Methods
+- (void)setUpCellItems;
 
 @end

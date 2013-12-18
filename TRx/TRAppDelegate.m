@@ -8,6 +8,7 @@
 
 #import "TRAppDelegate.h"
 #import "TRPatientListViewController.h"
+#import "TRNavigationController.h"
 #import "TestViewController.h"
 
 @implementation TRAppDelegate
@@ -18,18 +19,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    
-//    // Override point for customization after application launch.
-//    TRPatientListViewController *rootViewController = [[TRPatientListViewController alloc] init];
-//    //TestViewController *rootViewController = [[TestViewController alloc] init];
-//    //rootViewController.managedObjectContext = self.managedObjectContext;
-//    self.navigationController = [[UINavigationController alloc]
-//                                 initWithRootViewController:rootViewController];
-//    [self.window setRootViewController:self.navigationController];
-//    
-//    [self.window makeKeyAndVisible];
+    
+    //Test View Controller (uncomment, and comment out  TRPatientListViewController)
+    //TestViewController *rootViewController = [[TestViewController alloc] init];
+    //rootViewController.managedObjectContext = self.managedObjectContext;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Override point for customization after application launch.
+    TRPatientListViewController *rootViewController = [[TRPatientListViewController alloc] init];
+    self.navigationController = [[TRNavigationController alloc]
+                                 initWithRootViewController:rootViewController];
+    [self.window setRootViewController:self.navigationController];
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

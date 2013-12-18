@@ -137,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C43EEED318620D54000E3E12 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C4F90D8718159CDE0004578A /* Thumb.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		C47B527E17EF79420044E0A7 /* PatientList */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,8 +236,9 @@
 				C46B480F180C36B3002CF789 /* MainStoryboard.storyboard */,
 				C48C6E3D17E661700065ABBE /* TRAppDelegate.h */,
 				C48C6E3E17E661700065ABBE /* TRAppDelegate.m */,
+				C48C6E3617E661700065ABBE /* TRx-Info.plist */,
 				C48C6E4317E661700065ABBE /* Images.xcassets */,
-				C4F90D8718159CDE0004578A /* Thumb.jpg */,
+				C43EEED318620D54000E3E12 /* Images */,
 				C48C6E3517E661700065ABBE /* Supporting Files */,
 			);
 			path = TRx;
@@ -238,7 +247,6 @@
 		C48C6E3517E661700065ABBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C48C6E3617E661700065ABBE /* TRx-Info.plist */,
 				C48C6E3717E661700065ABBE /* InfoPlist.strings */,
 				C48C6E3A17E661700065ABBE /* main.m */,
 				C48C6E3C17E661700065ABBE /* TRx-Prefix.pch */,

@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="-3807" y="-475"/>
         </scene>
-        <!--Add Patient View Controller - New Patient-->
+        <!--View Controller - New Patient-->
         <scene sceneID="LqR-qT-QQb">
             <objects>
-                <viewController storyboardIdentifier="TRAddPatientViewController" id="Kp6-Xa-YDx" customClass="TRAddPatientViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TRAddPatientViewController" id="Kp6-Xa-YDx" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ct9-3V-2su"/>
                         <viewControllerLayoutGuide type="bottom" id="xYw-3A-Q3C"/>

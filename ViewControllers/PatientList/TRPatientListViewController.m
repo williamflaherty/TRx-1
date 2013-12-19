@@ -13,15 +13,15 @@
 
 @interface TRPatientListViewController (){
     CGSize winSize;
-    
-    UITableView *_patientListTableView;
-    UIBarButtonItem *_refreshPatientListButton;
-    UIBarButtonItem *_addPatientButton;
 }
 
 @end
 
-@implementation TRPatientListViewController
+@implementation TRPatientListViewController{
+    UITableView *_patientListTableView;
+    UIBarButtonItem *_refreshPatientListButton;
+    UIBarButtonItem *_addPatientButton;
+}
 
 #pragma mark - Init and Load Methods
 
@@ -73,7 +73,7 @@
 - (void)addNewPatient:(id)sender{
     NSLog(@"Add New Patient Pressed");
     
-    TRAddPatientViewController *addPatientVC = [[TRAddPatientViewController alloc] init];
+    TRAddPatientViewController *addPatientVC = [[TRAddPatientViewController alloc]init];
     [self.navigationController pushViewController:addPatientVC animated:YES];
 }
 

@@ -1,0 +1,6 @@
+
+<h1>Home</h1>
+
+<a href="{% url 'questions:newProject' %}">Add Project</a><br>
+<a href="{% url 'questions:existingProject' %}">Existing Project</a><br>
+<a href="{% url 'questions:index' %}">Question Index</a><br>

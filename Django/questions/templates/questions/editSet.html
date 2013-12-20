@@ -1,0 +1,54 @@
+<h1>Edit Page</h1><br>
+{{ project_name }}
+{{ index }}
+
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+ <!---<script src="../jquery.sortable.js"></script> -->
+ {% load staticfiles %}
+
+  <form action="addChain/" method="post"> {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+  </form>
+
+ <script src="{% static "TRx_question_app/jquery.sortable.min.js" %}"></script>
+ <button onclick="popupName()">Add Chain</button>
+ <div style="width: 200px;height: 100px; overflow-y:scroll;">
+   <table border="2">
+    <tr>
+      <td>
+        <ul class="sortable" id="stack" style="list-style:none">
+            <li>Item 1
+            <li>Item 2
+            <li>Item 3
+            <li>Item 4
+            <li>
+        </ul>
+      </td>
+      <td>
+        <ul class="sortable" id="non-stack" style="list-style:none">
+            <li>Item 5
+            <li>Item 6
+            <li>Item 7
+            <li>Item 8
+            <li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+<script>
+    $('#stack, #non-stack').sortable({ connectWith: '.connected' });
+</script>
+
+<script>
+  function popupName() {
+    var name;
+    var tmp = prompt("Please enter a name for the chain: ")
+    if (tmp !=null) {
+        $.post("/questions/addChain/", {chain_name:name})
+    }
+  }
+</script>
+

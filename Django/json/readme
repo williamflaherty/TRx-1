@@ -1,0 +1,36 @@
+
+Ok, so this describes the example.json file that we'll be running with. It has an example of each of the types of questions. I'm leaving multiple choice and multiple choice with a blank in as possible options, but I think for the time being we'll just need fill-in-the blank, check box, check box with fill-in-the-blank, and yes-no.
+
+
+The file is divided into questions that will be on the main stack and questions that aren't.
+
+The JSON has a dictionary with two fields: "language" and "questions"
+questions points to an array of dictionaries. Each of these dictionaries contains the following keys and values
+
+question_type => short string that identifies the type; not all types have options
+                  - "mc", "mcb", "fib", "yn", "cb", 
+question_id   => all questions have a unique integer id
+question_text => the question string
+chain_id      => unique integer identifier for a question chain (small stack)
+chain_index   => a questions index in the chain (small stack)  of questions
+display_text  => short text string for summary display
+display_group => tags so that summary display can be organized into groups
+stack_index   => either an integer >= 0, indicating a position in the main stack
+                 or -1, indicating the question does not go on the stack
+
+options is a key that points to an array of dictionaries with the following keys and values
+
+text          => the text to display for the option
+display_text  => short text string for summary
+highlight     => if "y", highlight or bold this in summary 
+  *note: highlight might be re-done in the future to link it to the surgery type. This would probably involve listing surgery types in this JSON file (which probably should be done anyway) and linking to highlight code. Could also color code rather than just bold.*
+branch_id     => integer id of chain_id to link to; -1 if no branch
+
+
+
+
+make a dictionary of stacks (or arrays) 
+put stack small stacks in order on a stack
+if position == -1, put in a dictionary of stacks (can work with arrays, too), keyed on stack_id
+
+

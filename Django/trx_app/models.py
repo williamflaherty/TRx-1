@@ -1,6 +1,11 @@
 from django.db import models
 import uuid
 
+#TODO: pluralize model names correctly
+
+#TODO: add a table to store trip + file (Text) + language
+#TODO: add sync config api call. returns approp question file, doctors, surgery types, etc (based on trip/language)
+
 def file_path(instance, filename):
     extension = filename.rsplit(".", 1)[1]
     return str(uuid.uuid1()) + "." + extension

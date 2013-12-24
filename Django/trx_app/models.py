@@ -1,10 +1,8 @@
 from django.db import models
 import uuid
 
-#TODO: pluralize model names correctly
-
-#TODO: add a table to store trip + file (Text) + language
 #TODO: add sync config api call. returns approp question file, doctors, surgery types, etc (based on trip/language)
+#TODO: because of different languages, we need to check the encoding on the tables (for now just use romance lang)
 
 def file_path(instance, filename):
     extension = filename.rsplit(".", 1)[1]
@@ -12,7 +10,7 @@ def file_path(instance, filename):
 
 class SurgeryType(models.Model):
     name = models.CharField(max_length = 255, unique = True)
-    isCurrent = models.BooleanField()
+    # isCurrent = models.BooleanField() #TODO: no more isCurrent here too?
 
     def __unicode__(self):
         return self.name
@@ -33,7 +31,8 @@ class Location(models.Model):
     city = models.CharField(max_length = 255)
     region = models.CharField(max_length = 255)
     country = models.CharField(max_length = 255)
-    isCurrent = models.BooleanField(default = True)
+    # TODO: go through and pull out all necessary isCurrents, will be handled in other API
+    # isCurrent = models.BooleanField(default = True)
 
     def __unicode__(self):
         return "{0} {1}, {2}".format(self.city, self.region, self.country)
@@ -45,7 +44,7 @@ class Doctor(models.Model):
     firstName = models.CharField(max_length = 255)
     middleName = models.CharField(max_length = 255, null = True, blank = True)
     lastName = models.CharField(max_length = 255)
-    isCurrent = models.BooleanField()
+    # isCurrent = models.BooleanField()
 
     def __unicode__(self):
         return "{0} {1}".format(self.firstName, self.lastName)
@@ -97,12 +96,13 @@ class Audio(models.Model):
     
     class Meta:
         unique_together = ('patient', 'name')
-
+        verbose_name_plural = "Audio"
+     
 class Image(models.Model):
     name = models.CharField(max_length = 255)
     patient = models.ForeignKey(Patient)
     record = models.FileField(upload_to = file_path)
-    IsProfile = models.BooleanField(default = True)
+    isProfile = models.BooleanField(default = True)
     lastModified = models.DateTimeField(auto_now = True)
     created = models.DateTimeField(auto_now_add = True)
 
@@ -133,22 +133,23 @@ class OrderTemplate(models.Model):
     text = models.TextField()
     index = models.IntegerField()
     isEditable = models.BooleanField()
-    isCurrent = models.BooleanField()
+    # isCurrent = models.BooleanField() # TODO: no more isCurrent?
 
     def __unicode__(self):
         return "{0} for {1} ({2})".format(self.OrderType, self.surgeryType, self.index)
 
-    # this is a custom save ensuring there is only one current record for an orderType/surgerType/index combo
-    # TODO: this needs to be tested
-    def save(self, *args, **kwargs):
+    #TODO: if we are doing away with the isCurrent, this save method is invalid + prolly just letting them store blindly
+    # # this is a custom save ensuring there is only one current record for an orderType/surgerType/index combo
+    # # TODO: this needs to be tested
+    # def save(self, *args, **kwargs):
 
-        templates = OrderTemplate.objects.filter(surgeryType=self.surgeryType, orderType=self.orderType, index=self.index, 
-            isCurrent=True).exclude(pk=self.pk)
+    #     templates = OrderTemplate.objects.filter(surgeryType=self.surgeryType, orderType=self.orderType, index=self.index, 
+    #         isCurrent=True).exclude(pk=self.pk)
         
-        if not templates:
-            super(OrderTemplate, self).save(*args, **kwargs)
-        else:
-            raise Exception, "There can only be one current order template for this surgery type at this index."
+    #     if not templates:
+    #         super(OrderTemplate, self).save(*args, **kwargs)
+    #     else:
+    #         raise Exception, "There can only be one current order template for this surgery type at this index."
 
 class PhysicalExam(models.Model):
     patient = models.ForeignKey(Patient)
@@ -175,28 +176,32 @@ class Recovery(models.Model):
     created = models.DateTimeField(auto_now_add = True)
 
     def __unicode__(self):
-        return "Recovery for {1}".format(self.patient)
+        return "Recovery for {1}'s {2}".format(self.patient.lastName, self.patient.surgeryType)
 
+    class Meta:
+        verbose_name_plural = "Recoveries"
+     
 class Video(models.Model):
     surgeryType = models.ForeignKey(SurgeryType)
     videoType = models.ForeignKey(VideoType)
     record = models.FileField(upload_to = file_path)
     name = models.CharField(max_length = 255)
-    isCurrent = models.BooleanField()
+    # isCurrent = models.BooleanField() #TODO: see all the other isCurrent todos
 
     def __unicode__(self):
         return self.name
     
-    # this is a custom save ensuring there is only one current record for a videoType/surgeryType combo
-    # TODO: this needs to be tested
-    def save(self, *args, **kwargs):
+    # TODO: no longer have isCurrent...what logic needs to change
+    # # this is a custom save ensuring there is only one current record for a videoType/surgeryType combo
+    # # TODO: this needs to be tested
+    # def save(self, *args, **kwargs):
 
-        videos = Video.objects.filter(surgeryType=self.surgeryType, videoType=self.videoType, isCurrent=True).exclude(pk=self.pk)
+    #     videos = Video.objects.filter(surgeryType=self.surgeryType, videoType=self.videoType, isCurrent=True).exclude(pk=self.pk)
         
-        if not videos:
-            super(Video, self).save(*args, **kwargs)
-        else:
-            raise Exception, "There can only be one current video for this surgery type and video type."
+    #     if not videos:
+    #         super(Video, self).save(*args, **kwargs)
+    #     else:
+            # raise Exception, "There can only be one current video for this surgery type and video type."
 
 class History(models.Model):
     patient = models.ForeignKey(Patient)
@@ -206,11 +211,12 @@ class History(models.Model):
     created = models.DateTimeField(auto_now_add = True)
 
     def __unicode__(self):
-        return "{0} for {1}".format(self.key, self.patient)
+        return "{0} for {1}".format(self.key, self.patient.lastName)
 
     class Meta:
         unique_together = ('patient', 'key')
-
+        verbose_name_plural = "Histories"
+     
 # TODO: I need the official names of the 5 hieroglyphs
 class LaboratoryData(models.Model):
     patient = models.OneToOneField(Patient)
@@ -221,3 +227,27 @@ class LaboratoryData(models.Model):
     x = models.CharField(max_length = 255, null = True)
     lastModified = models.DateTimeField(auto_now = True)
     created = models.DateTimeField(auto_now_add = True)
+
+    class Meta:
+        verbose_name_plural = "LaboratoryData"
+     
+class Language(models.Model):
+    name = models.CharField(max_length = 255, unique = True)
+
+#TODO: ask John what is needed to identify a trip
+#TODO: I don't know that a full start - end date is necessary (or useful?)
+class AppData(models.Model):
+    name = models.CharField(max_length = 255, unique = True)
+    location = models.ForeignKey(Location)
+    language = models.ForeignKey(Language)
+    data = models.TextField()
+    start = models.DateField()
+    end = models.DateField()
+
+    class Meta:
+        verbose_name_plural = "AppData"
+
+
+
+
+     

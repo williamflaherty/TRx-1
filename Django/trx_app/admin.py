@@ -1,11 +1,13 @@
 from django.contrib import admin
 from trx_app.models import *
 
+admin.site.register(AppData)
 admin.site.register(Audio)
 admin.site.register(Doctor)
 admin.site.register(History)
 admin.site.register(Image)
 admin.site.register(LaboratoryData)
+admin.site.register(Language)
 admin.site.register(Location)
 admin.site.register(Order)
 admin.site.register(OrderTemplate)

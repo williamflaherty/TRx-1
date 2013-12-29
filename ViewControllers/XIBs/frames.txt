@@ -1,0 +1,34 @@
+
+--- PatientListCell.xib ---
+
+_patientCellPhoto.frame = CGRectMake(20, 15, 150, 150);
+_patientCellName.frame = CGRectMake(231, 15, 504, 55);
+_patientCellBirthdate.frame = CGRectMake(231, 108, 504, 21);
+_patientCellComplaint.frame = CGRectMake(231, 79, 504, 21);
+
+--- AddPatient.xib ---
+
+_photoIDImageView.frame = CGRectMake(20, 307, 352, 352);
+_firstNameTextField.frame = CGRectMake(398, 382, 350, 30);
+_lastNameTextField.frame = CGRectMake(398, 449, 350, 30);
+_firstNameLabel.frame = CGRectMake(531, 353, 84, 21);
+_lastNameLabel.frame = CGRectMake(532, 420, 83, 21);
+_birthdateTextField.frame = CGRectMake(398, 516, 350, 30);
+_chiefComplaintTextField.frame = CGRectMake(398, 583, 350, 30);
+_birthdateLabel.frame = CGRectMake(538, 487, 71, 21);
+_chiefComplaintLabel.frame = CGRectMake(511, 554, 124, 21);
+_takePictureButton.frame = CGRectMake(148, 667, 97, 30);
+
+--- AddPatient-Landscape.xib ---
+
+_photoIDImageView.frame = CGRectMake(148, 189, 352, 352);
+_firstNameTextField.frame = CGRectMake(526, 264, 350, 30);
+_lastNameTextField.frame = CGRectMake(526, 331, 350, 30);
+_firstNameLabel.frame = CGRectMake(659, 235, 84, 21);
+_lastNameLabel.frame = CGRectMake(660, 302, 83, 21);
+_birthdateTextField.frame = CGRectMake(526, 398, 350, 30);
+_chiefComplaintTextField.frame = CGRectMake(526, 465, 350, 30);
+_birthdateLabel.frame = CGRectMake(666, 369, 71, 21);
+_chiefComplaintLabel.frame = CGRectMake(639, 436, 124, 21);
+_takePictureButton.frame = CGRectMake(276, 549, 97, 30);
+

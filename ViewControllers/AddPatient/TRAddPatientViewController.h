@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TRAddPatientViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TRAddPatientViewController : UIViewController
+<UINavigationControllerDelegate,
+UIImagePickerControllerDelegate,
+UIPickerViewDelegate>
 
 @end

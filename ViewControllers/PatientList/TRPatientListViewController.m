@@ -14,7 +14,6 @@
 @interface TRPatientListViewController (){
     CGSize winSize;
 }
-
 @end
 
 @implementation TRPatientListViewController{
@@ -28,13 +27,13 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self initialSetup];
     }
     return self;
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [self initialSetup];
     [self resizeViewsForOrientation:self.interfaceOrientation];
     
 }
@@ -74,6 +73,7 @@
     NSLog(@"Add New Patient Pressed");
     
     TRAddPatientViewController *addPatientVC = [[TRAddPatientViewController alloc]init];
+    NSLog(@"HELLO");
     [self.navigationController pushViewController:addPatientVC animated:YES];
 }
 
@@ -128,15 +128,23 @@
 - (void)resizeViewsForOrientation:(UIInterfaceOrientation)newOrientation{
     if(newOrientation == UIInterfaceOrientationPortrait
        || newOrientation == UIInterfaceOrientationPortraitUpsideDown){
-        _patientListTableView.frame = CGRectMake(0, 0, winSize.width, winSize.height);
+        [self resizeFramesForPortrait];
     }
     else if(newOrientation == UIInterfaceOrientationLandscapeLeft
        || newOrientation == UIInterfaceOrientationLandscapeRight){
-        _patientListTableView.frame = CGRectMake(0, 0, winSize.height, winSize.width);
+        [self resizeFramesForLandscape];
     }
     else{
         NSLog(@"Unsupported Orientation Switch: %d", newOrientation);
     }
+}
+
+- (void)resizeFramesForPortrait{
+    _patientListTableView.frame = CGRectMake(0, 0, winSize.width, winSize.height);
+}
+
+- (void)resizeFramesForLandscape{
+    _patientListTableView.frame = CGRectMake(0, 0, winSize.height, winSize.width);
 }
 
 #pragma mark - Memory Methods

@@ -16,8 +16,6 @@
 @end
 
 @implementation TRAddPatientViewController{
-    UIImage *_photoID;
-    
     TRBorderedImageView *_photoIDImageView;
     
     TRBorderedButton *_takePictureButton;
@@ -157,8 +155,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    _photoID = image;
-    _photoIDImageView.image = _photoID;
+    _photoIDImageView.image = image;;
 }
 
 #pragma mark - UIPicker Delegate Methods
@@ -177,7 +174,7 @@
     
 }
 
-#pragma mark - Orientation Handling Methods
+#pragma mark - Orientation and Frame Methods
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     [self resizeViewsForOrientation:toInterfaceOrientation];

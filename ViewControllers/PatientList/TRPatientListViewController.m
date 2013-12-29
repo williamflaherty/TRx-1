@@ -54,6 +54,8 @@
     
     _addPatientButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Patient" style:UIBarButtonItemStylePlain target:self action:@selector(addNewPatient:)];
     self.navigationItem.rightBarButtonItem = _addPatientButton;
+    
+    self.navigationItem.title = @"Patient List";
 }
 
 - (void) loadTableView{

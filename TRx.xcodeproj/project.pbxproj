@@ -38,6 +38,8 @@
 		C4CD8DC1186F496E0016E371 /* PatientListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC0186F496E0016E371 /* PatientListCell.xib */; };
 		C4CD8DC4186F49780016E371 /* AddPatient-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC2186F49780016E371 /* AddPatient-Landscape.xib */; };
 		C4CD8DC5186F49780016E371 /* AddPatient.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC3186F49780016E371 /* AddPatient.xib */; };
+		C4CD8DC71870D3D60016E371 /* PatientSummary.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC61870D3D60016E371 /* PatientSummary.xib */; };
+		C4CD8DCB1870D4290016E371 /* PatientSummary-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DCA1870D4290016E371 /* PatientSummary-Landscape.xib */; };
 		C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDCF03181C3A2300256DE5 /* TRHistoryViewController.m */; };
 		C4EDCF07181C3A4000256DE5 /* TRPhysicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDCF06181C3A4000256DE5 /* TRPhysicalViewController.m */; };
 		C4EDCF0A181C3A5800256DE5 /* TRSurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDCF09181C3A5800256DE5 /* TRSurgeryViewController.m */; };
@@ -102,6 +104,8 @@
 		C4CD8DC0186F496E0016E371 /* PatientListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PatientListCell.xib; path = ViewControllers/XIBs/PatientListCell.xib; sourceTree = SOURCE_ROOT; };
 		C4CD8DC2186F49780016E371 /* AddPatient-Landscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "AddPatient-Landscape.xib"; path = "ViewControllers/XIBs/AddPatient-Landscape.xib"; sourceTree = SOURCE_ROOT; };
 		C4CD8DC3186F49780016E371 /* AddPatient.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddPatient.xib; path = ViewControllers/XIBs/AddPatient.xib; sourceTree = SOURCE_ROOT; };
+		C4CD8DC61870D3D60016E371 /* PatientSummary.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PatientSummary.xib; path = ViewControllers/XIBs/PatientSummary.xib; sourceTree = SOURCE_ROOT; };
+		C4CD8DCA1870D4290016E371 /* PatientSummary-Landscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PatientSummary-Landscape.xib"; path = "ViewControllers/XIBs/PatientSummary-Landscape.xib"; sourceTree = SOURCE_ROOT; };
 		C4EDCF02181C3A2300256DE5 /* TRHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRHistoryViewController.h; path = ViewControllers/History/TRHistoryViewController.h; sourceTree = SOURCE_ROOT; };
 		C4EDCF03181C3A2300256DE5 /* TRHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryViewController.m; path = ViewControllers/History/TRHistoryViewController.m; sourceTree = SOURCE_ROOT; };
 		C4EDCF05181C3A4000256DE5 /* TRPhysicalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPhysicalViewController.h; path = ViewControllers/Physical/TRPhysicalViewController.h; sourceTree = SOURCE_ROOT; };
@@ -175,7 +179,6 @@
 		C482B0C8181598E0001B0B20 /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				C48C6E6317E661F90065ABBE /* Models */,
 				C46B4814180C3854002CF789 /* TRNavigationController.h */,
 				C46B4815180C3854002CF789 /* TRNavigationController.m */,
 			);
@@ -187,6 +190,8 @@
 			children = (
 				C482B0CA18159A4A001B0B20 /* TRPatientSummaryViewController.h */,
 				C482B0CB18159A4A001B0B20 /* TRPatientSummaryViewController.m */,
+				C4CD8DC61870D3D60016E371 /* PatientSummary.xib */,
+				C4CD8DCA1870D4290016E371 /* PatientSummary-Landscape.xib */,
 			);
 			name = "Patient Summary";
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 		C48C6E6217E661F10065ABBE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C48C6E6317E661F90065ABBE /* Models */,
 				C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */,
 				1374F161185A453C003CB138 /* Patient.h */,
 				1374F162185A453C003CB138 /* Patient.m */,
@@ -449,10 +455,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CD8DCB1870D4290016E371 /* PatientSummary-Landscape.xib in Resources */,
 				C4F90D8818159CDE0004578A /* Thumb.jpg in Resources */,
 				C4CD8DC1186F496E0016E371 /* PatientListCell.xib in Resources */,
 				C4CD8DC4186F49780016E371 /* AddPatient-Landscape.xib in Resources */,
 				C48C6E3917E661700065ABBE /* InfoPlist.strings in Resources */,
+				C4CD8DC71870D3D60016E371 /* PatientSummary.xib in Resources */,
 				C48C6E4417E661700065ABBE /* Images.xcassets in Resources */,
 				C4CD8DC5186F49780016E371 /* AddPatient.xib in Resources */,
 			);

@@ -7,9 +7,10 @@
 //
 
 #import "TRTabBarController.h"
-#import "TRNavigationController.h"
 #import "TRPatientSummaryViewController.h"
 #import "TRHistoryViewController.h"
+#import "TRPhysicalViewController.h"
+#import "TRSurgeryViewController.h"
 
 @interface TRTabBarController ()
 
@@ -18,6 +19,8 @@
 @implementation TRTabBarController{
     TRPatientSummaryViewController *_summaryTabVC;
     TRHistoryViewController *_historyTabVC;
+    TRPhysicalViewController *_physicalTabVC;
+    TRSurgeryViewController *_surgeryTabVC;
 }
 
 #pragma mark - Init and Load Methods
@@ -32,6 +35,7 @@
 
 - (void)initialSetup{
     self.view.backgroundColor = [UIColor whiteColor];
+    self.delegate = self;
     [self loadViewControllers];
     [self setUpNavItems];
 }
@@ -43,14 +47,20 @@
 - (void)loadViewControllers{
     _summaryTabVC = [[TRPatientSummaryViewController alloc] init];
     _historyTabVC = [[TRHistoryViewController alloc] init];
+    _physicalTabVC = [[TRPhysicalViewController alloc] init];
+    _surgeryTabVC = [[TRSurgeryViewController alloc] init];
     
     _summaryTabVC.title = @"Patient Summary";
     _historyTabVC.title = @"Medical History";
+    _physicalTabVC.title = @"Physical Exam";
+    _surgeryTabVC.title = @"Surgery";
     
     _summaryTabVC.tabBarItem.title = @"Summary";
     _historyTabVC.tabBarItem.title = @"History";
+    _physicalTabVC.tabBarItem.title = @"Physical";
+    _surgeryTabVC.tabBarItem.title = @"Surgery";
     
-    [self setViewControllers:@[_summaryTabVC, _historyTabVC]];
+    [self setViewControllers:@[_summaryTabVC, _historyTabVC, _physicalTabVC, _surgeryTabVC]];
 }
 
 - (void) setUpNavItems{
@@ -58,6 +68,7 @@
                                              initWithTitle:@"Patient List" style:UIBarButtonItemStyleBordered
                                              target:self action:@selector(backButtonPressed)];
     self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.title = self.selectedViewController.title;
 }
 
 - (void)setUpNavigationController{
@@ -73,6 +84,13 @@
 - (void)backButtonPressed{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - Tab Bar Controller Methods
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    self.navigationItem.title = viewController.title;
+}
+
 
 #pragma mark - Memory Management Methods
 

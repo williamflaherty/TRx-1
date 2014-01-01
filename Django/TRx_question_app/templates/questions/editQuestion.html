@@ -1,0 +1,29 @@
+{% include "questions/questionsBase.html" %}
+
+<h1>Edit Question</h1><br>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+ <!---<script src="../jquery.sortable.js"></script> -->
+{% load staticfiles %}
+<script src="{% static "TRx_question_app/jquery.sortable.min.js" %}"></script>
+
+<form action="" method="post"> {% csrf_token %}
+  {{ form.as_table }}
+  <input type="submit" value="Save" />
+</form>
+
+<form action="editOptions" method="post"> {% csrf_token %}
+  <input type="submit" value="Add Options" />
+</form>
+<!--
+{% comment %}
+{% if form.question_type %}
+  {% with template_name=foo.question_type|add:".html" %}
+    {% include "questions/partials/"|add:template_name %}
+  {% endwith 5}
+{% endif %}
+{% endcomment %}
+-->
+
+

@@ -26,17 +26,15 @@
 }
 
 - (void)drawBorderWithColor:(UIColor *)borderColor{
-    //Note: Due to Autotlayout no changes can be made to the frame here.
-    //It is recomended you add 20 to your buttons width.
 
-    self.titleLabel.textColor = borderColor;
     self.layer.borderColor = borderColor.CGColor;
     self.layer.backgroundColor = borderColor.CGColor;
     self.layer.borderWidth = 1.0f;
     self.layer.cornerRadius = 6;
     
-    [self setNeedsDisplay];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self setNeedsDisplay];
 }
 
 /*

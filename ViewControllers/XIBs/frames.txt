@@ -1,17 +1,11 @@
 
---- PatientSummary.xib ---
+--- History.xib ---
 
-_photoIDImageView.frame = CGRectMake(32, 336, 352, 352);
-_firstNameLabel.frame = CGRectMake(437, 458, 300, 21);
-_lastNameLabel.frame = CGRectMake(437, 487, 300, 21);
-_birthdateLabel.frame = CGRectMake(437, 516, 300, 21);
-_chiefComplaintLabel.frame = CGRectMake(437, 545, 300, 21);
+_nextQuestionButton.frame = CGRectMake(648, 477, 100, 50);
+_previousQuestionButton.frame = CGRectMake(20, 477, 100, 50);
 
---- PatientSummary-Landscape.xib ---
+--- History-Landscape.xib ---
 
-_photoIDImageView.frame = CGRectMake(160, 208, 352, 352);
-_firstNameLabel.frame = CGRectMake(565, 330, 300, 21);
-_lastNameLabel.frame = CGRectMake(565, 359, 300, 21);
-_birthdateLabel.frame = CGRectMake(565, 388, 300, 21);
-_chiefComplaintLabel.frame = CGRectMake(565, 417, 300, 21);
+_nextQuestionButton.frame = CGRectMake(904, 359, 100, 50);
+_previousQuestionButton.frame = CGRectMake(20, 359, 100, 50);
 

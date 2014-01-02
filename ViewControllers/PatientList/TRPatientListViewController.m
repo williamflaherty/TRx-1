@@ -18,9 +18,11 @@
 @end
 
 @implementation TRPatientListViewController{
-    UITableView *_patientListTableView;
     UIBarButtonItem *_settingsButton;
     UIBarButtonItem *_addPatientButton;
+    
+    UITableView *_patientListTableView;
+    UIRefreshControl *_patientListRefreshControl;
 }
 
 #pragma mark - Init and Load Methods
@@ -50,7 +52,6 @@
 }
 
 - (void) loadBarButtonItems{
-    
     _settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsPressed)];
     self.navigationItem.leftBarButtonItem = _settingsButton;
     
@@ -65,13 +66,14 @@
     _patientListTableView.dataSource = self;
     _patientListTableView.delegate = self;
     [self.view addSubview:_patientListTableView];
+    
+    _patientListRefreshControl = [[UIRefreshControl alloc] init];
+    [_patientListRefreshControl addTarget:self action:@selector(handlePatientListRefresh)
+                         forControlEvents:UIControlEventValueChanged];
+    [_patientListTableView addSubview:_patientListRefreshControl];
 }
 
 #pragma mark - Bar Button Actions
-
-- (void)refreshPatientList{
-    NSLog(@"Refresh Patient List Pulled Down");
-}
 
 - (void)settingsPressed{
      NSLog(@"Settings Pressed");
@@ -85,6 +87,16 @@
     
     TRAddPatientViewController *addPatientVC = [[TRAddPatientViewController alloc]init];
     [self.navigationController pushViewController:addPatientVC animated:YES];
+}
+
+#pragma mark - Refresh Methods
+
+- (void)handlePatientListRefresh{
+    [_patientListRefreshControl beginRefreshing];
+    NSLog(@"Refresh Begun");
+    
+    [_patientListRefreshControl endRefreshing];
+    NSLog(@"Refresh Completed");
 }
 
 #pragma mark - UITableViewDelegate Methods

@@ -299,7 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				C48C6E6117E661E70065ABBE /* Test */,
-				C48C6E6217E661F10065ABBE /* Data */,
+				C48C6E6217E661F10065ABBE /* Data / Models */,
 				C403259918761062003D8159 /* Settings / Config */,
 				C48C6E6417E6620E0065ABBE /* ViewControllers */,
 				C403257A1874C8F6003D8159 /* TRQ - Question Items */,
@@ -351,7 +351,7 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
-		C48C6E6217E661F10065ABBE /* Data */ = {
+		C48C6E6217E661F10065ABBE /* Data / Models */ = {
 			isa = PBXGroup;
 			children = (
 				C48C6E6317E661F90065ABBE /* Models */,
@@ -363,7 +363,7 @@
 				13C221D717E80081006A3391 /* TestEntity.h */,
 				13C221D817E80081006A3391 /* TestEntity.m */,
 			);
-			name = Data;
+			name = "Data / Models";
 			sourceTree = "<group>";
 		};
 		C48C6E6317E661F90065ABBE /* Models */ = {

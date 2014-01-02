@@ -4,7 +4,7 @@ from django import forms
 from django.forms.formsets import formset_factory
 from django.db.models import Q
 from django.core import serializers
-from questions.models import QuestionProject, QuestionChain, Question, Option, QuestionProjectToChain, ChainToQuestion, SurgeryType, JSONFiles
+from questions.models import QuestionProject, QuestionChain, Question, Option, QuestionProjectToChain, ChainToQuestion, SurgeryType, JSONFiles, Doctor
 import json
 
 #################################### Home Pages ######################################
@@ -62,6 +62,22 @@ def surgeryHome(request):
   context["menu_location"] = "surgery"
   context["previous_page"] = previous_page(request.path)
   return render(request, 'questions/surgeryHome.html', context)
+
+
+def doctorHome(request):
+  context = {}
+  if request.method == 'POST':
+    form = NewDoctorForm(request.POST)
+    if form.is_valid():
+      name = request.POST['name']
+      ob = Doctor(doctor_name=name)
+      ob.save()
+
+  context["doctors"] = Doctor.objects.all()
+  context["form"] = NewDoctorForm()
+  context["menu_location"] = "doctor"
+  context["previous_page"] = previous_page(request.path)
+  return render(request, 'questions/doctorHome.html', context)
 
 
 def fileHome(request, project_index=-1):
@@ -151,7 +167,8 @@ def editQuestion(request, question_index):
         option.save()
         
       #redirect to options page unless fill in the blank
-      return HttpResponseRedirect(previous_page(request.path))
+      #return HttpResponseRedirect(previous_page(request.path))
+      return HttpResponseRedirect('/questions/questionHome')
       
   else: # render page
     if question_index == -1:
@@ -162,6 +179,10 @@ def editQuestion(request, question_index):
       question = get_object_or_404(Question, id=question_index)
       options =  Option.objects.all().filter(question=question).values()
 
+      #branch select couldn't find option['branch_id'] so insert option['branch']
+      for option in options:
+        option['branch'] = option['branch_id']
+
       if not options:
         NewOptionsFormset = formset_factory(NewOptionForm, max_num=15, extra=1)
       else:
@@ -170,6 +191,7 @@ def editQuestion(request, question_index):
       question_form = NewQuestionForm(instance=question)
       print("options ===> ", options)
       options_formset = NewOptionsFormset(initial=options)
+      print(options_formset)
   context = { 'question_form': question_form, 'options_formset': options_formset}
   context['previous_page'] = previous_page(request.path)
   return render(request, 'questions/addQuestion.html', context)
@@ -292,6 +314,11 @@ def deleteSurgery(request, surgery_index):
   surgery.delete()
   return HttpResponseRedirect('/questions/surgeryHome/')
 
+def deleteDoctor(request, doctor_index):
+  doctor = Doctor.objects.get(id = doctor_index)
+  doctor.delete()
+  return HttpResponseRedirect('/questions/doctorHome/')
+
 def deleteFile(request, file_index):
   json = JSONFiles.objects.get(id = file_index)
   json.delete()
@@ -304,6 +331,8 @@ class NewProjectForm(forms.Form):
 class NewChainForm(forms.Form):
   name = forms.CharField(max_length=50)
 class NewSurgeryForm(forms.Form):
+  name = forms.CharField(max_length=40)
+class NewDoctorForm(forms.Form):
   name = forms.CharField(max_length=40)
 
 class NewQuestionForm(forms.ModelForm):
@@ -352,6 +381,7 @@ def generateJSON(request, project_index):
 
   #question_project["surgeries"] = SurgeryType.objects..values()
   question_project["surgeries"] = list(SurgeryType.objects.all().values())
+  question_project["doctors"] = list(Doctor.objects.all().values())
 
   s =  json.dumps(question_project, sort_keys=True, indent=4).splitlines()
   return '\n'.join([l.rstrip() for l in s])

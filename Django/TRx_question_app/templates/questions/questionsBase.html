@@ -15,6 +15,7 @@
     <li {% if menu_location and menu_location == "chain" %}class="active"{% endif %}><a href="{% url "questions:chainHome" %}">Chain Home</a></li>
     <li {% if menu_location and menu_location == "questions" %}class="active"{% endif %}><a href="{% url "questions:questionHome" %}">Question Home</a></li>
     <li {% if menu_location and menu_location == "surgery" %}class="active"{% endif %}><a href="{% url "questions:surgeryHome" %}">Surgery Home</a></li>
+    <li {% if menu_location and menu_location == "doctor" %}class="active"{% endif %}><a href="{% url "questions:doctorHome" %}">Doctor Home</a></li>
     <li {% if menu_location and menu_location == "file" %}class="active"{% endif %}><a href="{% url "questions:fileHome" %}">File Home</a></li>
   </ul>
 </div>

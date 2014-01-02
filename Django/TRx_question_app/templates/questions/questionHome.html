@@ -19,7 +19,7 @@
         {% for question in questions %}
         <li class="list-group-item" onclick="update_selected(this);" question_id="{{ question.id }}">
           <span class="badge">{{ question.id }}</span>
-          {{ question.question_text|truncatechars:40}}
+          {{ question.question_text|truncatechars:80}}
         </li>
       {% endfor %}
     </ul>

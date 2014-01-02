@@ -31,6 +31,10 @@ urlpatterns = patterns('',
     #surgery
     url(r'^surgeryHome/$', views.surgeryHome, name='surgeryHome'),
     url(r'^deleteSurgery/(?P<surgery_index>\d+)/$', views.deleteSurgery, name='deleteSurgery'),
+
+    #doctor
+    url(r'^doctorHome/$', views.doctorHome, name='doctorHome'),
+    url(r'^deleteDoctor/(?P<doctor_index>\d+)/$', views.deleteDoctor, name='deleteDoctor'),
     
     #json file
     url(r'^fileHome/$', views.fileHome, name='fileHome'),

@@ -24,6 +24,9 @@ highlight_colors = (
     ('r', 'red'),
     ('b', 'bold'),)
 
+branch_choice = (
+    (None, 'No branch'),)
+
 class Question(models.Model):
   question_type = models.CharField(max_length=5,choices=question_types)
   question_text = models.CharField(max_length=300)
@@ -36,7 +39,7 @@ class Question(models.Model):
 
 class Option(models.Model):
   question = models.ForeignKey(Question)
-  branch = models.ForeignKey(QuestionChain, blank=True, null=True)
+  branch = models.ForeignKey(QuestionChain, blank= True, null=True, default=None)
   text = models.CharField(max_length=50)
   translation = models.CharField(max_length=50, null=True)
   display_text = models.CharField(max_length=30, null=True)
@@ -57,6 +60,9 @@ class QuestionProjectToChain(models.Model):
 
 class SurgeryType(models.Model):
   surgery_name = models.CharField(max_length=30, unique=True)
+
+class Doctor(models.Model):
+  doctor_name = models.CharField(max_length=30, unique=True)
 
 class JSONFiles(models.Model):
   file_name = models.CharField(max_length=40)

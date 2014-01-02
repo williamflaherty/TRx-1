@@ -19,6 +19,9 @@
 		C403258F1874CAA7003D8159 /* TRQYesNoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C403258E1874CAA7003D8159 /* TRQYesNoButton.m */; };
 		C40325941874CF4E003D8159 /* TRBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325911874CF4E003D8159 /* TRBorderedButton.m */; };
 		C40325951874CF4E003D8159 /* TRBorderedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325931874CF4E003D8159 /* TRBorderedImageView.m */; };
+		C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325971876105B003D8159 /* TRSettingsViewController.m */; };
+		C403259B18761096003D8159 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403259A18761096003D8159 /* Settings.xib */; };
+		C403259D187610B3003D8159 /* Settings-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403259C187610B3003D8159 /* Settings-Landscape.xib */; };
 		C46B4816180C3854002CF789 /* TRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B4815180C3854002CF789 /* TRNavigationController.m */; };
 		C47B528617EF7A450044E0A7 /* TRPatientListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528317EF7A450044E0A7 /* TRPatientListCell.m */; };
 		C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528517EF7A450044E0A7 /* TRPatientListViewController.m */; };
@@ -89,6 +92,10 @@
 		C40325911874CF4E003D8159 /* TRBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRBorderedButton.m; path = CustomUI/TRBorderedButton.m; sourceTree = SOURCE_ROOT; };
 		C40325921874CF4E003D8159 /* TRBorderedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRBorderedImageView.h; path = CustomUI/TRBorderedImageView.h; sourceTree = SOURCE_ROOT; };
 		C40325931874CF4E003D8159 /* TRBorderedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRBorderedImageView.m; path = CustomUI/TRBorderedImageView.m; sourceTree = SOURCE_ROOT; };
+		C40325961876105B003D8159 /* TRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRSettingsViewController.h; path = ViewControllers/Settings/TRSettingsViewController.h; sourceTree = SOURCE_ROOT; };
+		C40325971876105B003D8159 /* TRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRSettingsViewController.m; path = ViewControllers/Settings/TRSettingsViewController.m; sourceTree = SOURCE_ROOT; };
+		C403259A18761096003D8159 /* Settings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Settings.xib; path = ViewControllers/XIBs/Settings.xib; sourceTree = SOURCE_ROOT; };
+		C403259C187610B3003D8159 /* Settings-Landscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Settings-Landscape.xib"; path = "ViewControllers/XIBs/Settings-Landscape.xib"; sourceTree = SOURCE_ROOT; };
 		C46B4814180C3854002CF789 /* TRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRNavigationController.h; path = ViewControllers/TRNavigationController.h; sourceTree = SOURCE_ROOT; };
 		C46B4815180C3854002CF789 /* TRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRNavigationController.m; path = ViewControllers/TRNavigationController.m; sourceTree = SOURCE_ROOT; };
 		C47B528217EF7A450044E0A7 /* TRPatientListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListCell.h; path = ViewControllers/PatientList/TRPatientListCell.h; sourceTree = SOURCE_ROOT; };
@@ -182,6 +189,17 @@
 				C403258E1874CAA7003D8159 /* TRQYesNoButton.m */,
 			);
 			name = "TRQ - Question Items";
+			sourceTree = "<group>";
+		};
+		C403259918761062003D8159 /* Settings / Config */ = {
+			isa = PBXGroup;
+			children = (
+				C40325961876105B003D8159 /* TRSettingsViewController.h */,
+				C40325971876105B003D8159 /* TRSettingsViewController.m */,
+				C403259A18761096003D8159 /* Settings.xib */,
+				C403259C187610B3003D8159 /* Settings-Landscape.xib */,
+			);
+			name = "Settings / Config";
 			sourceTree = "<group>";
 		};
 		C43EEED318620D54000E3E12 /* Images */ = {
@@ -282,6 +300,7 @@
 			children = (
 				C48C6E6117E661E70065ABBE /* Test */,
 				C48C6E6217E661F10065ABBE /* Data */,
+				C403259918761062003D8159 /* Settings / Config */,
 				C48C6E6417E6620E0065ABBE /* ViewControllers */,
 				C403257A1874C8F6003D8159 /* TRQ - Question Items */,
 				C4EDCF0B181C43E400256DE5 /* Custom UI */,
@@ -493,11 +512,13 @@
 			files = (
 				C4CD8DCB1870D4290016E371 /* PatientSummary-Landscape.xib in Resources */,
 				C4F90D8818159CDE0004578A /* Thumb.jpg in Resources */,
+				C403259B18761096003D8159 /* Settings.xib in Resources */,
 				C4CD8DC1186F496E0016E371 /* PatientListCell.xib in Resources */,
 				C4FC4229187245BA00792E1A /* History.xib in Resources */,
 				C4CD8DC4186F49780016E371 /* AddPatient-Landscape.xib in Resources */,
 				C48C6E3917E661700065ABBE /* InfoPlist.strings in Resources */,
 				C4CD8DC71870D3D60016E371 /* PatientSummary.xib in Resources */,
+				C403259D187610B3003D8159 /* Settings-Landscape.xib in Resources */,
 				C48C6E4417E661700065ABBE /* Images.xcassets in Resources */,
 				C4FC422B1872460500792E1A /* History-Landscape.xib in Resources */,
 				C4CD8DC5186F49780016E371 /* AddPatient.xib in Resources */,
@@ -555,6 +576,7 @@
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
 				1374F163185A453C003CB138 /* Patient.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
+				C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */,
 				C48C6E6A17E662280065ABBE /* TRPatient.m in Sources */,
 				C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */,
 				C48C6E3F17E661700065ABBE /* TRAppDelegate.m in Sources */,

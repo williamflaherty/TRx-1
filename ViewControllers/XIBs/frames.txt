@@ -1,11 +1,9 @@
 
---- History.xib ---
+--- Settings.xib ---
 
-_nextQuestionButton.frame = CGRectMake(648, 477, 100, 50);
-_previousQuestionButton.frame = CGRectMake(20, 477, 100, 50);
+_configureButton.frame = CGRectMake(309, 477, 150, 50);
 
---- History-Landscape.xib ---
+--- Settings-Landscape.xib ---
 
-_nextQuestionButton.frame = CGRectMake(904, 359, 100, 50);
-_previousQuestionButton.frame = CGRectMake(20, 359, 100, 50);
+_configureButton.frame = CGRectMake(437, 359, 150, 50);
 

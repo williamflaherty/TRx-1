@@ -9,6 +9,7 @@
 #import "TRPatientListViewController.h"
 #import "TRPatientListCell.h"
 #import "TRAddPatientViewController.h"
+#import "TRSettingsViewController.h"
 #import "TRTabBarController.h"
 
 @interface TRPatientListViewController (){
@@ -18,7 +19,7 @@
 
 @implementation TRPatientListViewController{
     UITableView *_patientListTableView;
-    UIBarButtonItem *_refreshPatientListButton;
+    UIBarButtonItem *_settingsButton;
     UIBarButtonItem *_addPatientButton;
 }
 
@@ -49,10 +50,11 @@
 }
 
 - (void) loadBarButtonItems{
-    _refreshPatientListButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshPatientList:)];
-    self.navigationItem.leftBarButtonItem = _refreshPatientListButton;
     
-    _addPatientButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Patient" style:UIBarButtonItemStylePlain target:self action:@selector(addNewPatient:)];
+    _settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsPressed)];
+    self.navigationItem.leftBarButtonItem = _settingsButton;
+    
+    _addPatientButton = [[UIBarButtonItem alloc] initWithTitle:@"Add Patient" style:UIBarButtonItemStylePlain target:self action:@selector(addNewPatientPressed)];
     self.navigationItem.rightBarButtonItem = _addPatientButton;
     
     self.navigationItem.title = @"Patient List";
@@ -67,15 +69,21 @@
 
 #pragma mark - Bar Button Actions
 
-- (void)refreshPatientList:(id)sender{
-    NSLog(@"Refresh Patient List Pressed");
+- (void)refreshPatientList{
+    NSLog(@"Refresh Patient List Pulled Down");
 }
 
-- (void)addNewPatient:(id)sender{
+- (void)settingsPressed{
+     NSLog(@"Settings Pressed");
+    
+    TRSettingsViewController *settingsVC = [[TRSettingsViewController alloc]init];
+    [self.navigationController pushViewController:settingsVC animated:YES];
+}
+
+- (void)addNewPatientPressed{
     NSLog(@"Add New Patient Pressed");
     
     TRAddPatientViewController *addPatientVC = [[TRAddPatientViewController alloc]init];
-    NSLog(@"HELLO");
     [self.navigationController pushViewController:addPatientVC animated:YES];
 }
 

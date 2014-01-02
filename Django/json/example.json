@@ -1,195 +1,182 @@
 {
-  "language"  : "English",
-  "questions" : [
-    {
-      "question_type" : "mc",
-      "question_id"   : "0",
-      "question_text" : "This is an example multiple choice question",
-      "chain_id"      : "0",
-      "chain_index"   : "0",
-      "display_text"  : "Example mc: ",
-      "display_group" : "lungs",
-      "stack_index"   : "0",
-      "options"       : [
+    "branch_questions": [
         {
-          "text"        : "option 1",
-          "display_text": "opt1",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
-        },
-        {
-          "text"        : "option 2",
-          "display_text": "opt2",
-          "branch_id"   : "5",
-          "highlight"   : "n"
-        },
-        {
-          "text"        : "option 3",
-          "display_text": "opt3",
-          "branch_id"   : "5",
-          "highlight"   : "n"
-        },
-        {
-          "text"        : "option 4",
-          "display_text": "opt4",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
+            "id": 2,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#silly",
+                    "display_text": "lucky:",
+                    "id": 4,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 29,
+                            "question_id": 4,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
+                    "question_text": "Do you feeling lucky?",
+                    "question_type": "fib",
+                    "translation_text": "Well, do ya, punk?"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "#silly",
+                    "display_text": "like: ",
+                    "id": 3,
+                    "options": [
+                        {
+                            "branch_id": 2,
+                            "display_text": "Y",
+                            "highlight": "n",
+                            "id": 23,
+                            "question_id": 3,
+                            "text": "Yes",
+                            "translation": "Si"
+                        },
+                        {
+                            "branch_id": 2,
+                            "display_text": "N",
+                            "highlight": null,
+                            "id": 24,
+                            "question_id": 3,
+                            "text": "No",
+                            "translation": "No"
+                        }
+                    ],
+                    "question_text": "Do you like this question?",
+                    "question_type": "yn",
+                    "translation_text": "Te gusta esta pregunta?"
+                }
+            ]
         }
-      ]  
-    },
-    {
-      "question_type" : "fib",
-      "question_id"   : "1",
-      "question_text" : "This is an example fill in the blank question",
-      "chain_id"      : "0",
-      "chain_index"   : "1",
-      "display_text"  : "Example fib: ",
-      "display_group" : "lungs",
-      "stack_index"   : "0"
-    },
-    {
-      "question_type" : "yn",
-      "question_id"   : "2",
-      "question_text" : "This is an example yes/no question",
-      "chain_id"      : "0",
-      "chain_index"   : "2",
-      "display_group" : "lungs",
-      "display_text"  : "Example tf: ",
-      "y_branch_id"   : "5",
-      "n_branch_id"   : "",
-      "stack_index"   : "0"
-    },
-    {
-      "question_type" : "cb",
-      "question_id"   : "3",
-      "question_text" : "This is an example check box question",
-      "chain_id"      : "0",
-      "chain_index"   : "3",
-      "display_group" : "lungs",
-      "display_text"  : "Example cb: ",
-      "stack_index"   : "0",
-      "options"     : [
+    ],
+    "doctors": [
         {
-          "text"        : "check box 1",
-          "display_text": "cb 1",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
+            "doctor_name": "John Cotham",
+            "id": 1
         },
         {
-          "text"        : "check box 2",
-          "display_text": "cb 2",
-          "branch_id"   : "5",
-          "highlight"   : "n"
+            "doctor_name": "Mark Bellot",
+            "id": 2
         },
         {
-          "text"        : "check box 3",
-          "display_text": "cb 3",
-          "branch_id"   : "5",
-          "highlight"   : "n"
+            "doctor_name": "Willie Flaherty",
+            "id": 3
         },
         {
-          "text"        : "check box 4",
-          "display_text": "cb 4",
-          "branch_id"   : "2",
-          "highlight"   : "n"
+            "doctor_name": "Mischa Buckler",
+            "id": 4
+        },
+        {
+            "doctor_name": "David Dahl",
+            "id": 5
         }
-      ]
-    },
-    {
-      "question_type" : "mcb",
-      "question_id"   : "4",
-      "question_text" : "This is an example multiple choice with a blank",
-      "chain_id"      : "1",
-      "chain_index"   : "0",
-      "display_group" : "heart",
-      "display_text"  : "Example mcb: ",
-      "stack_index"   : "2",
-      "options"       : [
+    ],
+    "stack_questions": [
         {
-          "text"        : "option 1",
-          "display_text": "opt 1",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
-        },
-        {
-          "text"        : "option 2",
-          "display_text": "opt 2",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
-        },
-        {
-          "text"        : "option 3",
-          "display_text": "opt 3",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
-        },
-        {
-          "text"        : "option 4",
-          "display_text": "opt 4",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
+            "id": 1,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#basic",
+                    "display_text": "surgery type: ",
+                    "id": 2,
+                    "options": [
+                        {
+                            "branch_id": 1,
+                            "display_text": "h",
+                            "highlight": "n",
+                            "id": 17,
+                            "question_id": 2,
+                            "text": "Hernia",
+                            "translation": "Hernia"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "c",
+                            "highlight": "r",
+                            "id": 18,
+                            "question_id": 2,
+                            "text": "Cataract",
+                            "translation": "catarata"
+                        }
+                    ],
+                    "question_text": "What type of surgery do you need?",
+                    "question_type": "cb",
+                    "translation_text": "\u00bfQu\u00e9 tipo de cirug\u00eda se puede pedir?"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "#basic",
+                    "display_text": "How long: ",
+                    "id": 1,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": " < 1 month",
+                            "highlight": "n",
+                            "id": 25,
+                            "question_id": 1,
+                            "text": "Less than a month",
+                            "translation": "menos de un mes"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "< 6 months",
+                            "highlight": "b",
+                            "id": 26,
+                            "question_id": 1,
+                            "text": "Less than six months",
+                            "translation": "menos des seis meses"
+                        },
+                        {
+                            "branch_id": 2,
+                            "display_text": ">> 1 year",
+                            "highlight": null,
+                            "id": 27,
+                            "question_id": 1,
+                            "text": "Longer than one year",
+                            "translation": "m\u00e1s de un a\u00f1o"
+                        },
+                        {
+                            "branch_id": 1,
+                            "display_text": "??? ??",
+                            "highlight": "r",
+                            "id": 28,
+                            "question_id": 1,
+                            "text": "I'm not sure",
+                            "translation": "no seguro"
+                        }
+                    ],
+                    "question_text": "How long have you been having this problem?",
+                    "question_type": "cbb",
+                    "translation_text": "\u00bfCu\u00e1nto tiempo ha estado teniendo este problema?"
+                }
+            ],
+            "stack_index": 0
         }
-      ]
-    },
-
-    {
-      "question_type" : "fib",
-      "question_id"   : "5",
-      "question_text" : "This is an example fill in the blank question (branch)",
-      "chain_id"      : "2",
-      "chain_index"   : "0",
-      "display_group" : "heart",
-      "display_text": "Example fib (branch): ",
-      "stack_index"   : "1"
-    },
-    {
-      "question_type" : "yn",
-      "question_id"   : "6",
-      "question_text" : "This is an example yes/no question (branch)",
-      "chain_id"      : "3",
-      "chain_index"   : "0",
-      "display_group" : "heart",
-      "display_text"  : "Example tf (branch): ",
-      "stack_index"   : "-1",
-      "yn_answer"     : "y",
-      "y_branch_id"   : "-1",
-      "n_branch_id"   : "-1"
-    },
-    {
-      "question_type" : "cb",
-      "question_id"   : "7",
-      "question_text" : "This is an example check box question (branch)",
-      "chain_id"      : "3",
-      "chain_index"   : "1",
-      "display_group" : "kidney",
-      "display_text"  : "Example cb: ",
-      "stack_index"   : "-1",
-      "options"       : [
+    ],
+    "surgeries": [
         {
-          "text"        : "check box 1",
-          "display_text": "cb 1",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
+            "id": 1,
+            "surgery_name": "Hernia"
         },
         {
-          "text"        : "check box 2",
-          "display_text": "cb 2",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
+            "id": 2,
+            "surgery_name": "Cataract"
         },
         {
-          "text"        : "check box 3",
-          "display_text": "cb 3",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
+            "id": 3,
+            "surgery_name": "Hysterectomy"
         },
         {
-          "text"        : "check box 4",
-          "display_text": "cb 4",
-          "branch_id"   : "-1",
-          "highlight"   : "n"
+            "id": 4,
+            "surgery_name": "Laparascopy"
         }
-      ] 
-    }
-  ]
+    ]
 }

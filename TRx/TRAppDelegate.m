@@ -10,6 +10,7 @@
 #import "TRPatientListViewController.h"
 #import "TRNavigationController.h"
 #import "TestViewController.h"
+#import "TRSettingsViewController.h"
 
 @implementation TRAppDelegate
 
@@ -25,6 +26,9 @@
     //Test View Controller (uncomment, and comment out  TRPatientListViewController)
     //TestViewController *rootViewController = [[TestViewController alloc] init];
     //rootViewController.managedObjectContext = self.managedObjectContext;
+    
+    //needed for every Controller that wants to access CoreData
+    [[TRSettingsViewController alloc] init].managedObjectContext = self.managedObjectContext;
     
     // Override point for customization after application launch.
     TRPatientListViewController *rootViewController = [[TRPatientListViewController alloc] init];

@@ -1,0 +1,182 @@
+{
+    "branch_questions": [
+        {
+            "id": 2,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#silly",
+                    "display_text": "lucky:",
+                    "id": 4,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 29,
+                            "question_id": 4,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
+                    "question_text": "Do you feeling lucky?",
+                    "question_type": "fib",
+                    "translation_text": "Well, do ya, punk?"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "#silly",
+                    "display_text": "like: ",
+                    "id": 3,
+                    "options": [
+                        {
+                            "branch_id": 2,
+                            "display_text": "Y",
+                            "highlight": "n",
+                            "id": 23,
+                            "question_id": 3,
+                            "text": "Yes",
+                            "translation": "Si"
+                        },
+                        {
+                            "branch_id": 2,
+                            "display_text": "N",
+                            "highlight": null,
+                            "id": 24,
+                            "question_id": 3,
+                            "text": "No",
+                            "translation": "No"
+                        }
+                    ],
+                    "question_text": "Do you like this question?",
+                    "question_type": "yn",
+                    "translation_text": "Te gusta esta pregunta?"
+                }
+            ]
+        }
+    ],
+    "doctors": [
+        {
+            "doctor_name": "John Cotham",
+            "id": 1
+        },
+        {
+            "doctor_name": "Mark Bellot",
+            "id": 2
+        },
+        {
+            "doctor_name": "Willie Flaherty",
+            "id": 3
+        },
+        {
+            "doctor_name": "Mischa Buckler",
+            "id": 4
+        },
+        {
+            "doctor_name": "David Dahl",
+            "id": 5
+        }
+    ],
+    "stack_questions": [
+        {
+            "id": 1,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#basic",
+                    "display_text": "surgery type: ",
+                    "id": 2,
+                    "options": [
+                        {
+                            "branch_id": 1,
+                            "display_text": "h",
+                            "highlight": "n",
+                            "id": 17,
+                            "question_id": 2,
+                            "text": "Hernia",
+                            "translation": "Hernia"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "c",
+                            "highlight": "r",
+                            "id": 18,
+                            "question_id": 2,
+                            "text": "Cataract",
+                            "translation": "catarata"
+                        }
+                    ],
+                    "question_text": "What type of surgery do you need?",
+                    "question_type": "cb",
+                    "translation_text": "\u00bfQu\u00e9 tipo de cirug\u00eda se puede pedir?"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "#basic",
+                    "display_text": "How long: ",
+                    "id": 1,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": " < 1 month",
+                            "highlight": "n",
+                            "id": 25,
+                            "question_id": 1,
+                            "text": "Less than a month",
+                            "translation": "menos de un mes"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "< 6 months",
+                            "highlight": "b",
+                            "id": 26,
+                            "question_id": 1,
+                            "text": "Less than six months",
+                            "translation": "menos des seis meses"
+                        },
+                        {
+                            "branch_id": 2,
+                            "display_text": ">> 1 year",
+                            "highlight": null,
+                            "id": 27,
+                            "question_id": 1,
+                            "text": "Longer than one year",
+                            "translation": "m\u00e1s de un a\u00f1o"
+                        },
+                        {
+                            "branch_id": 1,
+                            "display_text": "??? ??",
+                            "highlight": "r",
+                            "id": 28,
+                            "question_id": 1,
+                            "text": "I'm not sure",
+                            "translation": "no seguro"
+                        }
+                    ],
+                    "question_text": "How long have you been having this problem?",
+                    "question_type": "cbb",
+                    "translation_text": "\u00bfCu\u00e1nto tiempo ha estado teniendo este problema?"
+                }
+            ],
+            "stack_index": 0
+        }
+    ],
+    "surgeries": [
+        {
+            "id": 1,
+            "surgery_name": "Hernia"
+        },
+        {
+            "id": 2,
+            "surgery_name": "Cataract"
+        },
+        {
+            "id": 3,
+            "surgery_name": "Hysterectomy"
+        },
+        {
+            "id": 4,
+            "surgery_name": "Laparascopy"
+        }
+    ]
+}

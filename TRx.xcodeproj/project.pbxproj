@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		0CB999C613134C2DB5524417 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA35FE7EB0304591A19109D4 /* libPods.a */; };
 		1374F163185A453C003CB138 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374F162185A453C003CB138 /* Patient.m */; };
-		13D985C0187673EF00304324 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D985BF187673EF00304324 /* Question.m */; };
+		13D985C418768CAC00304324 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 13D985C318768CAC00304324 /* example.json */; };
+		13D985C618768D9600304324 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D985C518768D9600304324 /* Question.m */; };
 		C403257D1874C943003D8159 /* TRHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C403257C1874C943003D8159 /* TRHistoryHelper.m */; };
 		C40325831874C9CD003D8159 /* TRQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325821874C9CD003D8159 /* TRQLabel.m */; };
 		C40325861874C9EB003D8159 /* TRQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325851874C9EB003D8159 /* TRQTextField.m */; };
@@ -69,8 +70,9 @@
 /* Begin PBXFileReference section */
 		1374F161185A453C003CB138 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = SOURCE_ROOT; };
 		1374F162185A453C003CB138 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Models/Patient.m; sourceTree = SOURCE_ROOT; };
-		13D985BE187673EF00304324 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		13D985BF187673EF00304324 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		13D985C318768CAC00304324 /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		13D985C518768D9600304324 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		13D985C718768DA400304324 /* Question.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		520D5244C93F431DA0DBD15B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C403257B1874C943003D8159 /* TRHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRHistoryHelper.h; path = ViewControllers/History/TRHistoryHelper.h; sourceTree = SOURCE_ROOT; };
 		C403257C1874C943003D8159 /* TRHistoryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryHelper.m; path = ViewControllers/History/TRHistoryHelper.m; sourceTree = SOURCE_ROOT; };
@@ -190,6 +192,7 @@
 			children = (
 				C40325961876105B003D8159 /* TRSettingsViewController.h */,
 				C40325971876105B003D8159 /* TRSettingsViewController.m */,
+				13D985C318768CAC00304324 /* example.json */,
 				C403259A18761096003D8159 /* Settings.xib */,
 				C403259C187610B3003D8159 /* Settings-Landscape.xib */,
 			);
@@ -357,8 +360,8 @@
 		C48C6E6317E661F90065ABBE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				13D985BE187673EF00304324 /* Question.h */,
-				13D985BF187673EF00304324 /* Question.m */,
+				13D985C718768DA400304324 /* Question.h */,
+				13D985C518768D9600304324 /* Question.m */,
 				1374F161185A453C003CB138 /* Patient.h */,
 				1374F162185A453C003CB138 /* Patient.m */,
 			);
@@ -506,6 +509,7 @@
 				C4CD8DC1186F496E0016E371 /* PatientListCell.xib in Resources */,
 				C4FC4229187245BA00792E1A /* History.xib in Resources */,
 				C4CD8DC4186F49780016E371 /* AddPatient-Landscape.xib in Resources */,
+				13D985C418768CAC00304324 /* example.json in Resources */,
 				C48C6E3917E661700065ABBE /* InfoPlist.strings in Resources */,
 				C4CD8DC71870D3D60016E371 /* PatientSummary.xib in Resources */,
 				C403259D187610B3003D8159 /* Settings-Landscape.xib in Resources */,
@@ -565,7 +569,7 @@
 			files = (
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
 				1374F163185A453C003CB138 /* Patient.m in Sources */,
-				13D985C0187673EF00304324 /* Question.m in Sources */,
+				13D985C618768D9600304324 /* Question.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
 				C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */,
 				C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */,

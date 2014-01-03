@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		0CB999C613134C2DB5524417 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA35FE7EB0304591A19109D4 /* libPods.a */; };
 		1374F163185A453C003CB138 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374F162185A453C003CB138 /* Patient.m */; };
-		13C221D917E80081006A3391 /* TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C221D817E80081006A3391 /* TestEntity.m */; };
-		13C221DC17E80082006A3391 /* TestEntityRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C221DB17E80082006A3391 /* TestEntityRelated.m */; };
+		13D985C0187673EF00304324 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D985BF187673EF00304324 /* Question.m */; };
 		C403257D1874C943003D8159 /* TRHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C403257C1874C943003D8159 /* TRHistoryHelper.m */; };
 		C40325831874C9CD003D8159 /* TRQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325821874C9CD003D8159 /* TRQLabel.m */; };
 		C40325861874C9EB003D8159 /* TRQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325851874C9EB003D8159 /* TRQTextField.m */; };
@@ -43,7 +42,6 @@
 		C48C6E5617E661700065ABBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C48C6E5417E661700065ABBE /* InfoPlist.strings */; };
 		C48C6E5817E661700065ABBE /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E5717E661700065ABBE /* TRxTests.m */; };
 		C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */; };
-		C48C6E6A17E662280065ABBE /* TRPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6917E662280065ABBE /* TRPatient.m */; };
 		C48C6E6D17E6622F0065ABBE /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6C17E6622F0065ABBE /* TestViewController.m */; };
 		C4CD8DC1186F496E0016E371 /* PatientListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC0186F496E0016E371 /* PatientListCell.xib */; };
 		C4CD8DC4186F49780016E371 /* AddPatient-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC2186F49780016E371 /* AddPatient-Landscape.xib */; };
@@ -71,10 +69,8 @@
 /* Begin PBXFileReference section */
 		1374F161185A453C003CB138 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = SOURCE_ROOT; };
 		1374F162185A453C003CB138 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Models/Patient.m; sourceTree = SOURCE_ROOT; };
-		13C221D717E80081006A3391 /* TestEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntity.h; sourceTree = "<group>"; };
-		13C221D817E80081006A3391 /* TestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestEntity.m; sourceTree = "<group>"; };
-		13C221DA17E80082006A3391 /* TestEntityRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntityRelated.h; sourceTree = "<group>"; };
-		13C221DB17E80082006A3391 /* TestEntityRelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestEntityRelated.m; sourceTree = "<group>"; };
+		13D985BE187673EF00304324 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		13D985BF187673EF00304324 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		520D5244C93F431DA0DBD15B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C403257B1874C943003D8159 /* TRHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRHistoryHelper.h; path = ViewControllers/History/TRHistoryHelper.h; sourceTree = SOURCE_ROOT; };
 		C403257C1874C943003D8159 /* TRHistoryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryHelper.m; path = ViewControllers/History/TRHistoryHelper.m; sourceTree = SOURCE_ROOT; };
@@ -126,8 +122,6 @@
 		C48C6E5517E661700065ABBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C48C6E5717E661700065ABBE /* TRxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRxTests.m; sourceTree = "<group>"; };
 		C48C6E6617E662220065ABBE /* TRx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TRx.xcdatamodel; sourceTree = "<group>"; };
-		C48C6E6817E662280065ABBE /* TRPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatient.h; path = Models/TRPatient.h; sourceTree = SOURCE_ROOT; };
-		C48C6E6917E662280065ABBE /* TRPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPatient.m; path = Models/TRPatient.m; sourceTree = SOURCE_ROOT; };
 		C48C6E6B17E6622F0065ABBE /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = Test/TestViewController.h; sourceTree = SOURCE_ROOT; };
 		C48C6E6C17E6622F0065ABBE /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = Test/TestViewController.m; sourceTree = SOURCE_ROOT; };
 		C4CD8DC0186F496E0016E371 /* PatientListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PatientListCell.xib; path = ViewControllers/XIBs/PatientListCell.xib; sourceTree = SOURCE_ROOT; };
@@ -356,12 +350,6 @@
 			children = (
 				C48C6E6317E661F90065ABBE /* Models */,
 				C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */,
-				1374F161185A453C003CB138 /* Patient.h */,
-				1374F162185A453C003CB138 /* Patient.m */,
-				13C221DA17E80082006A3391 /* TestEntityRelated.h */,
-				13C221DB17E80082006A3391 /* TestEntityRelated.m */,
-				13C221D717E80081006A3391 /* TestEntity.h */,
-				13C221D817E80081006A3391 /* TestEntity.m */,
 			);
 			name = "Data / Models";
 			sourceTree = "<group>";
@@ -369,8 +357,10 @@
 		C48C6E6317E661F90065ABBE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C48C6E6817E662280065ABBE /* TRPatient.h */,
-				C48C6E6917E662280065ABBE /* TRPatient.m */,
+				13D985BE187673EF00304324 /* Question.h */,
+				13D985BF187673EF00304324 /* Question.m */,
+				1374F161185A453C003CB138 /* Patient.h */,
+				1374F162185A453C003CB138 /* Patient.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -575,14 +565,13 @@
 			files = (
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
 				1374F163185A453C003CB138 /* Patient.m in Sources */,
+				13D985C0187673EF00304324 /* Question.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
 				C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */,
-				C48C6E6A17E662280065ABBE /* TRPatient.m in Sources */,
 				C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */,
 				C48C6E3F17E661700065ABBE /* TRAppDelegate.m in Sources */,
 				C40325951874CF4E003D8159 /* TRBorderedImageView.m in Sources */,
 				C403257D1874C943003D8159 /* TRHistoryHelper.m in Sources */,
-				13C221DC17E80082006A3391 /* TestEntityRelated.m in Sources */,
 				C48C6E3B17E661700065ABBE /* main.m in Sources */,
 				C403258F1874CAA7003D8159 /* TRQYesNoButton.m in Sources */,
 				C40325891874CA0E003D8159 /* TRQView.m in Sources */,
@@ -598,7 +587,6 @@
 				C482B0D418159B4A001B0B20 /* TRTabBarController.m in Sources */,
 				C403258C1874CA7C003D8159 /* TRQCheckBox.m in Sources */,
 				C40325941874CF4E003D8159 /* TRBorderedButton.m in Sources */,
-				13C221D917E80081006A3391 /* TestEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

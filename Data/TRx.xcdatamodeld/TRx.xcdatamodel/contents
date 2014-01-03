@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ChainList" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="chains" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionChain" inverseName="list" inverseEntity="QuestionChain" syncable="YES"/>
+    </entity>
+    <entity name="History" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="history" inverseEntity="Patient" syncable="YES"/>
+    </entity>
+    <entity name="Image" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="isProfile" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Item" syncable="YES">
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemList" inverseName="items" inverseEntity="ItemList" syncable="YES"/>
+    </entity>
+    <entity name="ItemList" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
+    </entity>
+    <entity name="Option" syncable="YES">
+        <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="display_text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="highlight" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="translation" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="options" inverseEntity="Question" syncable="YES"/>
+    </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="doctor" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,21 +40,32 @@
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="middleName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="surgeryType" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TestEntity" syncable="YES"/>
+        <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="patient" inverseEntity="History" syncable="YES"/>
     </entity>
-    <entity name="TestEntity" representedClassName="TestEntity" syncable="YES">
-        <attribute name="textFieldOne" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="textFieldThree" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="textFieldTwo" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relatedField" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TestEntityRelated" inverseName="relatedToMainFields" inverseEntity="TestEntityRelated" syncable="YES"/>
+    <entity name="Question" representedClassName="Question" syncable="YES">
+        <attribute name="chain_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="display_group" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="display_text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question_text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="translation_text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="chain" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionChain" inverseName="questions" inverseEntity="QuestionChain" syncable="YES"/>
+        <relationship name="options" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Option" inverseName="question" inverseEntity="Option" syncable="YES"/>
     </entity>
-    <entity name="TestEntityRelated" representedClassName="TestEntityRelated" syncable="YES">
-        <attribute name="textFieldFour" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relatedToMainFields" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="TestEntity" inverseName="relatedField" inverseEntity="TestEntity" syncable="YES"/>
+    <entity name="QuestionChain" syncable="YES">
+        <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChainList" inverseName="chains" inverseEntity="ChainList" syncable="YES"/>
+        <relationship name="questions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="chain" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
+        <element name="ChainList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Image" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ItemList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Option" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Patient" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TestEntity" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TestEntityRelated" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Question" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QuestionChain" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="History" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

@@ -11,6 +11,8 @@
 @interface TRAddPatientViewController : UIViewController
 <UINavigationControllerDelegate,
 UIImagePickerControllerDelegate,
-UIPickerViewDelegate>
+UITextFieldDelegate,
+UIPickerViewDelegate,
+UIActionSheetDelegate>
 
 @end

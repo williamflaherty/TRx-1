@@ -25,6 +25,10 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+//    [self resizeViewsForOrientation:self.interfaceOrientation];
+}
+
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }

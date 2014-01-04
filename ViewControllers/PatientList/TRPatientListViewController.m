@@ -38,7 +38,10 @@
     [super viewDidLoad];
     [self initialSetup];
     [self resizeViewsForOrientation:self.interfaceOrientation];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self resizeViewsForOrientation:self.interfaceOrientation];
 }
      
 - (void)initialSetup{
@@ -133,6 +136,7 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     [cell setUpCellItems];
+    
     cell.patientCellPhoto.image = [UIImage imageNamed:@"Thumb.jpg"];
     cell.patientCellName.text = @"Mark Bellott";
     cell.patientCellComplaint.text = @"Complaint:";

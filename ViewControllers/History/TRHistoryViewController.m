@@ -32,6 +32,10 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [self resizeViewsForOrientation:self.interfaceOrientation];
+}
+
 - (void)initialSetup{
     [self loadButtons];
     [self resizeViewsForOrientation:self.interfaceOrientation];

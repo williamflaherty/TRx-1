@@ -41,10 +41,8 @@
     UIPickerView *_chiefComplaintPicker;
     UIPickerView *_doctorPicker;
     
-    UIActionSheet *_birthdateActionSheet;
-    UIActionSheet *_chiefComplaintActionSheet;
-    UIActionSheet *_doctorActionSheet;
-
+    UIViewController *_pickerViewController;
+    UIPopoverController *_pickerPopoverController;
 }
 
 #pragma mark - Init and Load Methods
@@ -72,6 +70,7 @@
     [self loadButtons];
     [self loadImageView];
     [self loadPickerData];
+    [self loadPickers];
 
     [self resizeViewsForOrientation:self.interfaceOrientation];
 }
@@ -156,6 +155,19 @@
     _doctorPickerData = @[@"Jim", @"Frank", @"Bob", @"David", @"Unkown"];
 }
 
+- (void)loadPickers{
+    _birthdatePicker = [[UIDatePicker alloc] init];
+    [_birthdatePicker setDatePickerMode:UIDatePickerModeDate];
+    
+    _chiefComplaintPicker = [[UIPickerView alloc] init];
+    _chiefComplaintPicker.delegate = self;
+    _chiefComplaintPicker.dataSource = self;
+    
+    _doctorPicker = [[UIPickerView alloc] init];
+    _doctorPicker.delegate = self;
+    _doctorPicker.dataSource = self;
+}
+
 #pragma mark - Button Methods
 
 - (void)submitPressed{
@@ -213,37 +225,66 @@
 - (void)selectBirthdate{
     NSLog(@"Birthdate!");
     
-    _birthdateActionSheet = [[UIActionSheet alloc] init];
+    _pickerViewController = [[UIViewController alloc] init];
+    [_pickerViewController.view addSubview:_birthdatePicker];
     
-    _birthdatePicker = [[UIDatePicker alloc] init];
-    [_birthdatePicker setDatePickerMode:UIDatePickerModeDate];
-    [_birthdateActionSheet addSubview:_birthdatePicker];
+    _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
+    [_pickerPopoverController presentPopoverFromRect:_birthdateTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
-    [_birthdateActionSheet showInView:self.view];
 }
 
 - (void)selectChiefComplaint{
     NSLog(@"Chief Complaint!");
+    
+    _pickerViewController = [[UIViewController alloc] init];
+    [_pickerViewController.view addSubview:_chiefComplaintPicker];
+    
+    _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
+    [_pickerPopoverController presentPopoverFromRect:_chiefComplaintTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
 }
 
 - (void)selectDoctor{
     NSLog(@"Doctor!");
+    
+    _pickerViewController = [[UIViewController alloc] init];
+    [_pickerViewController.view addSubview:_doctorPicker];
+    
+    _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
+    [_pickerPopoverController presentPopoverFromRect:_doctorTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
 }
 
-#pragma mark - UIPicker Delegate Methods
+#pragma mark - UIPicker Delegate and Datasource Methods
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return 2;
+    if(pickerView == _chiefComplaintPicker){
+        return [_chiefComplaintPickerData count];
+    }
+    else if(pickerView == _doctorPicker){
+        return [_doctorPickerData count];
+    }
+    
+    return 0;
 }
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    if(pickerView == _chiefComplaintPicker){
+        return [_chiefComplaintPickerData objectAtIndex:row];
+    }
+    else if(pickerView == _doctorPicker){
+        return [_doctorPickerData objectAtIndex:row];
+    }
     
-    return @"Test!";
-    
+    return nil;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
+    NSLog(@"Pciked!");
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
 }
 
 #pragma mark - Orientation and Frame Methods

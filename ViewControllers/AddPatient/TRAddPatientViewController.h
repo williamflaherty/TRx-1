@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface TRAddPatientViewController : UIViewController
+
 <UINavigationControllerDelegate,
 UIImagePickerControllerDelegate,
 UITextFieldDelegate,
 UIPickerViewDelegate,
-UIActionSheetDelegate>
+UIPickerViewDataSource,
+UIPopoverControllerDelegate>
 
 @end

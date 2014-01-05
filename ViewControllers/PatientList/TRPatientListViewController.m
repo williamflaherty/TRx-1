@@ -145,7 +145,7 @@
     return cell;
 }
 
-#pragma mark - Orientation Handling Methods
+#pragma mark - Orientation and Frame Methods
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     [self resizeViewsForOrientation:toInterfaceOrientation];

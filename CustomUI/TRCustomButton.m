@@ -1,17 +1,16 @@
 //
-//  TRBorderedButton.m
+//  TRCustomButton.m
 //  TRx
 //
-//  Created by Mark Bellott on 10/26/13.
-//  Copyright (c) 2013 TeamHaiti. All rights reserved.
+//  Created by Mark Bellott on 1/5/14.
+//  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
-#import "TRBorderedButton.h"
+#import "TRCustomButton.h"
 
-@implementation TRBorderedButton
+@implementation TRCustomButton
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
     }
@@ -26,7 +25,7 @@
 }
 
 - (void)drawBorderWithColor:(UIColor *)borderColor{
-
+    
     self.layer.borderColor = borderColor.CGColor;
     self.layer.backgroundColor = borderColor.CGColor;
     self.layer.borderWidth = 1.0f;

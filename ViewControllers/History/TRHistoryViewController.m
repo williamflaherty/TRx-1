@@ -7,15 +7,15 @@
 //
 
 #import "TRHistoryViewController.h"
-#import "TRBorderedButton.h"
+#import "TRCustomButton.h"
 
 @interface TRHistoryViewController ()
 
 @end
 
 @implementation TRHistoryViewController{
-    TRBorderedButton *_previousQuestionButton;
-    TRBorderedButton *_nextQuestionButton;
+    TRCustomButton *_previousQuestionButton;
+    TRCustomButton *_nextQuestionButton;
 }
 
 #pragma mark - Init and Load Methods
@@ -42,12 +42,12 @@
 }
 
 - (void)loadButtons{
-    _previousQuestionButton = [TRBorderedButton buttonWithType:UIButtonTypeSystem];
+    _previousQuestionButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_previousQuestionButton setTitle:@"Back" forState:UIControlStateNormal];
     [_previousQuestionButton addTarget:self action:@selector(previousQuestionPressed) forControlEvents:UIControlEventTouchUpInside];
     [_previousQuestionButton drawBorderWithColor:self.view.tintColor];
     
-    _nextQuestionButton = [TRBorderedButton buttonWithType:UIButtonTypeSystem];
+    _nextQuestionButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_nextQuestionButton setTitle:@"Next" forState:UIControlStateNormal];
     [_nextQuestionButton addTarget:self action:@selector(nextQuestionPreseed) forControlEvents:UIControlEventTouchUpInside];
     [_nextQuestionButton drawBorderWithColor:self.view.tintColor];

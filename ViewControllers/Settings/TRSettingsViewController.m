@@ -7,7 +7,7 @@
 //
 
 #import "TRSettingsViewController.h"
-#import "TRBorderedButton.h"
+#import "TRCustomButton.h"
 
 
 @interface TRSettingsViewController ()
@@ -15,7 +15,7 @@
 @end
 
 @implementation TRSettingsViewController{
-    TRBorderedButton *_configureButton;
+    TRCustomButton *_configureButton;
 }
 
 #pragma mark Init and Load Methods
@@ -43,7 +43,7 @@
 }
 
 - (void)loadButtons{
-    _configureButton = [TRBorderedButton buttonWithType:UIButtonTypeSystem];
+    _configureButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_configureButton addTarget:self action:@selector(configureButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [_configureButton setTitle:@"Configure" forState:UIControlStateNormal];
     [_configureButton drawBorderWithColor:self.view.tintColor];

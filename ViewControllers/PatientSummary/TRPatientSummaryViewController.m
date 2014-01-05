@@ -81,7 +81,7 @@
     [self.view addSubview:_doctorLabel];
 }
 
-#pragma mark - Orientation Handling Methods
+#pragma mark - Orientation and Frame Methods
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     [self resizeViewsForOrientation:toInterfaceOrientation];
@@ -102,8 +102,6 @@
         
     }
 }
-
-#pragma mark - Frame Sizing Methods
 
 - (void)resizeFramesForPortrait{
     _photoIDImageView.frame = CGRectMake(32, 336, 352, 352);

@@ -8,8 +8,10 @@
 
 #import "TRAddPatientViewController.h"
 #import "TRTabBarController.h"
-#import "TRBorderedButton.h"
+#import "TRCustomButton.h"
 #import "TRBorderedImageView.h"
+
+#define kPopoverHeightBuffer 100.0f
 
 @interface TRAddPatientViewController ()
 
@@ -18,7 +20,7 @@
 @implementation TRAddPatientViewController{
     TRBorderedImageView *_photoIDImageView;
     
-    TRBorderedButton *_takePictureButton;
+    TRCustomButton *_takePictureButton;
     UIBarButtonItem *_submitButton;
     
     UILabel *_firstNameLabel;
@@ -43,6 +45,7 @@
     
     UIViewController *_pickerViewController;
     UIPopoverController *_pickerPopoverController;
+    TRCustomButton *_popoverSubmitButton;
 }
 
 #pragma mark - Init and Load Methods
@@ -132,7 +135,7 @@
 }
 
 - (void)loadButtons{
-    _takePictureButton = [TRBorderedButton buttonWithType:UIButtonTypeSystem];
+    _takePictureButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_takePictureButton setTitle:@"Take Photo" forState:UIControlStateNormal];
     [_takePictureButton addTarget:self action:@selector(takePicturePressed)
                  forControlEvents:UIControlEventTouchUpInside];
@@ -142,6 +145,11 @@
     self.navigationItem.rightBarButtonItem = _submitButton;
     
     [self.view addSubview:_takePictureButton];
+    
+    _popoverSubmitButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
+    [_popoverSubmitButton setTitle:@"OK" forState:UIControlStateNormal];
+    [_popoverSubmitButton addTarget:self action:@selector(popoverSubmitPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_popoverSubmitButton drawBorderWithColor:self.view.tintColor];
 }
 
 - (void)loadImageView{
@@ -173,6 +181,10 @@
 - (void)submitPressed{
     TRTabBarController *patientTC =[[TRTabBarController alloc] init];
     [self.navigationController pushViewController:patientTC animated:YES];
+}
+
+- (void)popoverSubmitPressed{
+    
 }
 
 #pragma mark - Camera Methods
@@ -226,7 +238,13 @@
     NSLog(@"Birthdate!");
     
     _pickerViewController = [[UIViewController alloc] init];
+    _pickerViewController.preferredContentSize =
+    CGSizeMake(_birthdatePicker.frame.size.width, _birthdatePicker.frame.size.height + kPopoverHeightBuffer);
     [_pickerViewController.view addSubview:_birthdatePicker];
+    
+    _popoverSubmitButton.frame = CGRectMake(0, 0, 150, 50);
+    _popoverSubmitButton.center = CGPointMake(160, 266);
+    [_pickerViewController.view addSubview:_popoverSubmitButton];
     
     _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
     [_pickerPopoverController presentPopoverFromRect:_birthdateTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
@@ -237,7 +255,18 @@
     NSLog(@"Chief Complaint!");
     
     _pickerViewController = [[UIViewController alloc] init];
+    _pickerViewController.preferredContentSize =
+    CGSizeMake(_chiefComplaintPicker.frame.size.width, _chiefComplaintPicker.frame.size.height + kPopoverHeightBuffer);
     [_pickerViewController.view addSubview:_chiefComplaintPicker];
+
+    NSLog(@"Width: %f", _chiefComplaintPicker.frame.size.width);
+    NSLog(@"Height: %f", _chiefComplaintPicker.frame.size.height);
+    
+    
+    _popoverSubmitButton.frame = CGRectMake(0, 0, 150, 50);
+    _popoverSubmitButton.center = CGPointMake(160, 266);
+    [_pickerViewController.view addSubview:_popoverSubmitButton];
+    
     
     _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
     [_pickerPopoverController presentPopoverFromRect:_chiefComplaintTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
@@ -248,7 +277,13 @@
     NSLog(@"Doctor!");
     
     _pickerViewController = [[UIViewController alloc] init];
+    _pickerViewController.preferredContentSize =
+    CGSizeMake(_doctorPicker.frame.size.width, _doctorPicker.frame.size.height + kPopoverHeightBuffer);
     [_pickerViewController.view addSubview:_doctorPicker];
+    
+    _popoverSubmitButton.frame = CGRectMake(0, 0, 150, 50);
+    _popoverSubmitButton.center = CGPointMake(160, 266);
+    [_pickerViewController.view addSubview:_popoverSubmitButton];
     
     _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
     [_pickerPopoverController presentPopoverFromRect:_doctorTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];

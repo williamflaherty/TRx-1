@@ -44,7 +44,9 @@
     UIPickerView *_doctorPicker;
     
     UIViewController *_pickerViewController;
-    UIPopoverController *_pickerPopoverController;
+    UIPopoverController *_birthdatePopoverController;
+    UIPopoverController *_chiefComplaintPopoverController;
+    UIPopoverController *_doctorPopoverController;
     TRCustomButton *_popoverSubmitButton;
 }
 
@@ -184,7 +186,21 @@
 }
 
 - (void)popoverSubmitPressed{
-    
+    if(_birthdatePopoverController.isPopoverVisible){
+        [_birthdatePopoverController dismissPopoverAnimated:YES];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM/DD/YYYY"];
+        [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
+    }
+    else if (_chiefComplaintPopoverController.isPopoverVisible){
+        [_chiefComplaintPopoverController dismissPopoverAnimated:YES];
+        [_chiefComplaintTextField setText:[_chiefComplaintPickerData objectAtIndex:[_chiefComplaintPicker selectedRowInComponent:0]]];
+    }
+    else if(_doctorPopoverController.isPopoverVisible){
+        [_doctorPopoverController dismissPopoverAnimated:YES];
+        [_doctorTextField setText:[_doctorPickerData objectAtIndex:[_doctorPicker selectedRowInComponent:0]]];
+    }
 }
 
 #pragma mark - Camera Methods
@@ -234,6 +250,8 @@
     [_doctorTextField resignFirstResponder];
 }
 
+#pragma mark - Popoever Methods
+
 - (void)selectBirthdate{
     NSLog(@"Birthdate!");
     
@@ -245,10 +263,10 @@
     _popoverSubmitButton.frame = CGRectMake(0, 0, 150, 50);
     _popoverSubmitButton.center = CGPointMake(160, 266);
     [_pickerViewController.view addSubview:_popoverSubmitButton];
-    
-    _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
-    [_pickerPopoverController presentPopoverFromRect:_birthdateTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    
+
+    _birthdatePopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
+    _birthdatePopoverController.delegate = self;
+    [_birthdatePopoverController presentPopoverFromRect:_birthdateTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)selectChiefComplaint{
@@ -267,10 +285,9 @@
     _popoverSubmitButton.center = CGPointMake(160, 266);
     [_pickerViewController.view addSubview:_popoverSubmitButton];
     
-    
-    _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
-    [_pickerPopoverController presentPopoverFromRect:_chiefComplaintTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-
+    _chiefComplaintPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
+    _chiefComplaintPopoverController.delegate = self;
+    [_chiefComplaintPopoverController presentPopoverFromRect:_chiefComplaintTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)selectDoctor{
@@ -285,9 +302,23 @@
     _popoverSubmitButton.center = CGPointMake(160, 266);
     [_pickerViewController.view addSubview:_popoverSubmitButton];
     
-    _pickerPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
-    [_pickerPopoverController presentPopoverFromRect:_doctorTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    _doctorPopoverController = [[UIPopoverController alloc] initWithContentViewController:_pickerViewController];
+    _doctorPopoverController.delegate = self;
+    [_doctorPopoverController presentPopoverFromRect:_doctorTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
 
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
+    if(popoverController == _birthdatePopoverController){
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM/DD/YYYY"];
+        [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
+    }
+    else if(popoverController == _chiefComplaintPopoverController){
+        [_chiefComplaintTextField setText:[_chiefComplaintPickerData objectAtIndex:[_chiefComplaintPicker selectedRowInComponent:0]]];
+    }
+    else if(popoverController == _doctorPopoverController){
+        [_doctorTextField setText:[_doctorPickerData objectAtIndex:[_doctorPicker selectedRowInComponent:0]]];
+    }
 }
 
 #pragma mark - UIPicker Delegate and Datasource Methods

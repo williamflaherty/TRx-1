@@ -373,6 +373,8 @@
         [self resizeFramesForLandscape];
         
     }
+    
+    [self handlePopoeverOnSwitch];
 }
 
 - (void)resizeFramesForPortrait{
@@ -403,6 +405,18 @@
     _takePictureButton.frame = CGRectMake(276, 549, 97, 30);
     _doctorTextField.frame = CGRectMake(530, 498, 350, 30);
     _doctorLabel.frame = CGRectMake(679, 469, 53, 21);
+}
+
+- (void)handlePopoeverOnSwitch{
+    if(_birthdatePopoverController.isPopoverVisible){
+        [_birthdatePopoverController presentPopoverFromRect:_birthdateTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else if(_chiefComplaintPopoverController.isPopoverVisible){
+        [_chiefComplaintPopoverController presentPopoverFromRect:_chiefComplaintTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else if(_doctorPopoverController.isPopoverVisible){
+        [_doctorPopoverController presentPopoverFromRect:_doctorTextField.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
 
 

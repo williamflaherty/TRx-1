@@ -28,6 +28,9 @@
 		C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C482B0CB18159A4A001B0B20 /* TRPatientSummaryViewController.m */; };
 		C482B0D418159B4A001B0B20 /* TRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C482B0D318159B4A001B0B20 /* TRTabBarController.m */; };
 		C4839E19187A1BF9002990E0 /* TRCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4839E18187A1BF9002990E0 /* TRCustomButton.m */; };
+		C4839E1D187AB284002990E0 /* mark.png in Resources */ = {isa = PBXBuildFile; fileRef = C4839E1A187AB284002990E0 /* mark.png */; };
+		C4839E1E187AB284002990E0 /* mischa.png in Resources */ = {isa = PBXBuildFile; fileRef = C4839E1B187AB284002990E0 /* mischa.png */; };
+		C4839E1F187AB284002990E0 /* willie.png in Resources */ = {isa = PBXBuildFile; fileRef = C4839E1C187AB284002990E0 /* willie.png */; };
 		C48C6E2D17E661700065ABBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2C17E661700065ABBE /* Foundation.framework */; };
 		C48C6E2F17E661700065ABBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2E17E661700065ABBE /* CoreGraphics.framework */; };
 		C48C6E3117E661700065ABBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E3017E661700065ABBE /* UIKit.framework */; };
@@ -106,6 +109,9 @@
 		C482B0D318159B4A001B0B20 /* TRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRTabBarController.m; path = ViewControllers/TRTabBarController.m; sourceTree = SOURCE_ROOT; };
 		C4839E17187A1BF9002990E0 /* TRCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRCustomButton.h; path = CustomUI/TRCustomButton.h; sourceTree = SOURCE_ROOT; };
 		C4839E18187A1BF9002990E0 /* TRCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRCustomButton.m; path = CustomUI/TRCustomButton.m; sourceTree = SOURCE_ROOT; };
+		C4839E1A187AB284002990E0 /* mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mark.png; sourceTree = SOURCE_ROOT; };
+		C4839E1B187AB284002990E0 /* mischa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mischa.png; sourceTree = SOURCE_ROOT; };
+		C4839E1C187AB284002990E0 /* willie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = willie.png; sourceTree = SOURCE_ROOT; };
 		C48C6E2917E661700065ABBE /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48C6E2C17E661700065ABBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C48C6E2E17E661700065ABBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -203,6 +209,9 @@
 			isa = PBXGroup;
 			children = (
 				C4F90D8718159CDE0004578A /* Thumb.jpg */,
+				C4839E1A187AB284002990E0 /* mark.png */,
+				C4839E1B187AB284002990E0 /* mischa.png */,
+				C4839E1C187AB284002990E0 /* willie.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -506,11 +515,14 @@
 				C4CD8DCB1870D4290016E371 /* PatientSummary-Landscape.xib in Resources */,
 				C4F90D8818159CDE0004578A /* Thumb.jpg in Resources */,
 				C403259B18761096003D8159 /* Settings.xib in Resources */,
+				C4839E1F187AB284002990E0 /* willie.png in Resources */,
 				C4CD8DC1186F496E0016E371 /* PatientListCell.xib in Resources */,
 				C4FC4229187245BA00792E1A /* History.xib in Resources */,
+				C4839E1E187AB284002990E0 /* mischa.png in Resources */,
 				C4CD8DC4186F49780016E371 /* AddPatient-Landscape.xib in Resources */,
 				13D985C418768CAC00304324 /* example.json in Resources */,
 				C48C6E3917E661700065ABBE /* InfoPlist.strings in Resources */,
+				C4839E1D187AB284002990E0 /* mark.png in Resources */,
 				C4CD8DC71870D3D60016E371 /* PatientSummary.xib in Resources */,
 				C403259D187610B3003D8159 /* Settings-Landscape.xib in Resources */,
 				C48C6E4417E661700065ABBE /* Images.xcassets in Resources */,

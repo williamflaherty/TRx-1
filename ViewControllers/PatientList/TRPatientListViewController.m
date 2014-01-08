@@ -119,7 +119,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -136,11 +136,24 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     [cell setUpCellItems];
-    
-    cell.patientCellPhoto.image = [UIImage imageNamed:@"Thumb.jpg"];
-    cell.patientCellName.text = @"Mark Bellott";
-    cell.patientCellComplaint.text = @"Complaint:";
-    cell.patientCellBirthdate.text = @"Birthdate:";
+    if([indexPath row] == 0){
+        cell.patientCellPhoto.image = [UIImage imageNamed:@"mark.png"];
+        cell.patientCellName.text = @"Mark Bellott";
+        cell.patientCellComplaint.text = @"Complaint: Cataracts";
+        cell.patientCellBirthdate.text = @"Birthdate: 09/17/1990";
+    }
+    if([indexPath row] == 1){
+        cell.patientCellPhoto.image = [UIImage imageNamed:@"willie.png"];
+        cell.patientCellName.text = @"Willie Flaherty";
+        cell.patientCellComplaint.text = @"Complaint: Cataracts";
+        cell.patientCellBirthdate.text = @"Birthdate: 06/18/1989";
+    }
+    if([indexPath row] == 2){
+        cell.patientCellPhoto.image = [UIImage imageNamed:@"mischa.png"];
+        cell.patientCellName.text = @"Mischa Buckler";
+        cell.patientCellComplaint.text = @"Complaint: Cataracts";
+        cell.patientCellBirthdate.text = @"Birthdate: 04/13/1991";
+    }
     
     return cell;
 }

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TRPatientListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TRPatientListViewController : UIViewController
+<UITableViewDelegate,
+UITableViewDataSource>
 
 @end

@@ -1,0 +1,42 @@
+{% include "questions/questionsBase.html" %}
+
+<head>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static "TRx_question_app/dual_pane.css" %}" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="{% static "questions/setup_ajax.js" %}"></script>
+  <script src="{% static "questions/package_selection.js" %}"></script>
+
+</head>
+
+<body>
+  <div class="html_list">
+    <h1>Question Home</h1>
+
+    <div>
+      <ul class="sortable" class="list-group">
+        {% for question in questions %}
+        <li class="list-group-item" onclick="update_selected(this);" question_id="{{ question.id }}">
+          <span class="badge">{{ question.id }}</span>
+          {{ question.question_text|truncatechars:80}}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <form action="{% url 'questions:questionHome' %}" method="post" style="display: inline"> {% csrf_token %}
+    {{ form }}
+  </form>
+    <form action="{% url 'questions:addQuestion' %}" method="get" style="display: inline"> {% csrf_token %}
+    <input type="submit" value="add question" />
+  </form>
+  <form onsubmit="return redirect_to_edit_page('editQuestion/', this, 'question_id');" action="" method="get" style="display: inline"> {% csrf_token %}
+    <input type="submit" value="edit question" />
+  </form>
+  <form onsubmit="return confirm_and_delete('/questions/deleteQuestion/', this, 'question_id');" action="" method="get" style="display: inline"> {% csrf_token %}
+    <input type="submit" value="delete question" />
+  </form>
+
+
+</div>
+</body>

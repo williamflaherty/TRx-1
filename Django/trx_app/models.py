@@ -1,6 +1,9 @@
 from django.db import models
 import uuid
 
+###########################
+# API
+###########################
 #TODO: because of different languages, we need to check the encoding on the tables (for now just use romance lang)
 def file_path(instance, filename):
     extension = filename.rsplit(".", 1)[1]
@@ -277,6 +280,81 @@ class AppData(models.Model):
     
     class Meta:
         verbose_name_plural = "AppData"
+
+###########################
+# Config # CONVTAG
+###########################
+class QuestionProject(models.Model):
+  project_name = models.CharField(max_length=50, unique=True)
+
+  def __str__(self):
+    return self.set_name
+
+class QuestionChain(models.Model):
+  chain_name = models.CharField(max_length=50)
+
+  def __str__(self):
+    return self.chain_name
+
+question_types = (
+    ('fib', 'fill-in-the-blank'),
+    ('yn', 'yes/no'),
+    ('cb', 'check box'),
+    ('cbb', 'check box with blank'),)
+
+highlight_colors = (
+    ('n', 'no highlight'),
+    ('r', 'red'),
+    ('b', 'bold'),)
+
+branch_choice = (
+    (None, 'No branch'),)
+
+class Question(models.Model):
+  question_type = models.CharField(max_length=5,choices=question_types)
+  question_text = models.CharField(max_length=300)
+  translation_text = models.CharField(max_length=300, null=True)
+  display_text = models.CharField(max_length=100)
+  display_group = models.CharField(max_length=30)
+
+  def __str__(self):
+    return self.question_text
+
+class Option(models.Model):
+  question = models.ForeignKey(Question)
+  branch = models.ForeignKey(QuestionChain, blank= True, null=True, default=None)
+  text = models.CharField(max_length=50)
+  translation = models.CharField(max_length=50, null=True)
+  display_text = models.CharField(max_length=30, null=True)
+  highlight = models.CharField(max_length=2,choices=highlight_colors, blank=True,null=True, default='n')
+
+  def __str__(self):
+    return self.text
+
+class ChainToQuestion(models.Model):
+  chain = models.ForeignKey(QuestionChain)
+  question = models.ForeignKey(Question)
+  chain_index = models.IntegerField()
+
+class QuestionProjectToChain(models.Model):
+  question_set = models.ForeignKey(QuestionProject)
+  question_chain = models.ForeignKey(QuestionChain)
+  stack_index = models.IntegerField()
+
+# CONVTAG
+class SurgeryType_Config(models.Model):
+  surgery_name = models.CharField(max_length=30, unique=True)
+
+# CONVTAG
+class Doctor_Config(models.Model):
+  doctor_name = models.CharField(max_length=30, unique=True)
+
+class JSONFiles(models.Model):
+  file_name = models.CharField(max_length=40)
+  file_text = models.TextField()
+  isLive = models.BooleanField(default = True)
+
+
 
 
 

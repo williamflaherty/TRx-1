@@ -19,5 +19,10 @@ admin.site.register(SurgeryType)
 admin.site.register(Video)
 admin.site.register(VideoType)
 
+admin.site.register(Question)
+admin.site.register(Option)
+admin.site.register(QuestionChain)
+admin.site.register(QuestionProject)
+
 #TODO: since you can add, for example, not current doctors to a patient/pr, it would be nice to maybe have a note or something?
 #	idk, don't enter bad data vis the admin is the point

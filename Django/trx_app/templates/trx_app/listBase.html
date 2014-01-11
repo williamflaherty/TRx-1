@@ -1,0 +1,31 @@
+{% include "trx_app/questionsBase.html" %}
+
+<head>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static "trx_app/dual_pane.css" %}" />
+  <script src="{% static "trx_app/setup_ajax.js" %}"></script>
+  <script src="{% static "trx_app/package_selection.js" %}"></script>
+
+</head>
+
+<body>
+  <div class="html_list">
+    {% block title %}
+    <h1>Title Here: </h1>
+    {% endblock %}
+
+    <div>
+      <ul class="sortable" class="list-group">
+        {% block pane %}
+        {% endblock %}
+      </ul>
+    </div>
+    {% block add_button%}
+    {% endblock %}
+
+    {% block delete_button %}
+    {% endblock %}
+
+
+  </div>
+</body>

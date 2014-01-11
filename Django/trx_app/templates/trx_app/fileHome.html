@@ -1,0 +1,28 @@
+{% extends "trx_app/listBase.html" %}
+
+{% block title %}
+  <h1>File Home</h1>
+{% endblock %}
+
+{% block pane %}
+  {% for file in files %}
+  <li class="list-group-item" onclick="update_selected(this);" file_id="{{ file.id }}">
+    {{ file.file_name }}
+  </li>
+{% endfor %}
+
+{% endblock %}
+
+{% block add_button %}
+  <!--- This is actually a view button -->
+  <form onsubmit="return redirect_to_edit_page('/trx_app/fileView/', this, 'file_id');" action="" method="get" style="display: inline"> {% csrf_token %}
+    <input type="submit" value="view file" />
+  </form>
+{% endblock %}
+
+{% block delete_button %}
+  <form onsubmit="return confirm_and_delete('/trx_app/deleteFile/', this, 'file_id');" action="" method="get" style="display: inline"> {% csrf_token %}
+    <input type="submit" value="delete file" />
+  </form>
+{% endblock %}
+

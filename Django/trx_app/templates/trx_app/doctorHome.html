@@ -1,0 +1,28 @@
+{% extends "trx_app/listBase.html" %}
+
+{% block title %}
+  <h1>Doctor Home</h1>
+{% endblock %}
+
+{% block pane %}
+  {% for doctor in doctors %}
+  <li class="list-group-item" onclick="update_selected(this);" doctor_id="{{ doctor.id }}">
+    {{ doctor.doctor_name }}
+  </li>
+{% endfor %}
+
+{% endblock %}
+
+{% block add_button %}
+  <form action="{% url 'trx_app:doctorHome' %}" method="post" style="display: inline"> {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="add doctor" />
+  </form>
+{% endblock %}
+
+{% block delete_button %}
+  <form onsubmit="return confirm_and_delete('/trx_app/deleteDoctor/', this, 'doctor_id');" action="" method="get" style="display: inline"> {% csrf_token %}
+    <input type="submit" value="delete doctor" />
+  </form>
+{% endblock %}
+

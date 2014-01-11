@@ -1,0 +1,52 @@
+{% include "trx_app/questionsBase.html" %}
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "trx_app/dual_pane.css" %}" />
+		<script src="{% static "trx_app/jquery.sortable.min.js" %}"></script>
+		<script src="{% static "trx_app/setup_ajax.js" %}"></script>
+		<script src="{% static "trx_app/package_selection.js" %}"></script>
+		<!-- <script src="../jquery.sortable.js"></script> -->
+	</head>
+
+	<body>
+		<div class="dual_layout">
+                  {% block title %}
+			<h1>Title Here: "{{ project_name }}"</h1>
+		  {% endblock %}
+
+
+
+			<div class="pane_holder">
+				<div class="pane_entry">
+					<ul class="sortable" id="stack" style="list-style:none;padding:10px;">
+                                          {% block pane1 %}
+					  {% endblock %}
+					</ul>
+				</div>
+
+				<div class="pane_entry">
+					<ul class="sortable" id="non-stack" style="list-style:none;padding:10px;">
+                                          {% block pane2 %}
+					  {% endblock %}
+					</ul>
+				</div>
+			</div>
+
+      <!-- Make sure to save project anytime you edit an existing chain or add a new chain -->
+	  <!-- Should we include csrf_token if we don't change pages, like in the following form? -->
+          {% block add_form %}
+          {% endblock %}
+
+
+	  {% block edit_button %}
+          {% endblock %}
+
+	  {% block save_button %}
+          {% endblock %}
+	  <script> $('#stack, #non-stack').sortable({ connectWith: '.connected' }); </script>
+  </div>
+
+  </body>
+</html>
+

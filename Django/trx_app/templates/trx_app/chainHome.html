@@ -1,0 +1,40 @@
+{% include "trx_app/questionsBase.html" %}
+
+<head>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static "trx_app/dual_pane.css" %}" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="{% static "trx_app/setup_ajax.js" %}"></script>
+  <script src="{% static "trx_app/package_selection.js" %}"></script>
+
+</head>
+
+<body>
+<div class="html_list">
+    <h1>Chain Home</h1>
+
+	<div>
+      <ul class="sortable">
+        {% for chain in chains %}
+        	<li onclick="update_selected(this);" chain_id="{{ chain.id }}">{{ chain.chain_name }}</a>
+        {% endfor %}
+    </ul>
+  </div>
+
+  <form action="{% url 'trx_app:chainHome' %}" method="post" style="display: inline"> {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="add chain" />
+  </form>
+
+  <form onsubmit="return redirect_to_edit_page('editChain/', this, 'chain_id');" action="" method="get" style="display: inline"> {% csrf_token %}
+    <input type="submit" value="edit chain" />
+  </form>
+
+  <form onsubmit="return confirm_and_delete('deleteChain/', this, 'chain_id');" action="" method="get" style="display: inline"> {% csrf_token %}
+    <input type="submit" value="delete chain" />
+  </form>
+
+
+</div>
+</body>

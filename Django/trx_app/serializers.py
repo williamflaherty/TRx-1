@@ -1,9 +1,7 @@
-# from django.contrib.auth.models import User
 from rest_framework import serializers
 from trx_app import models
 
 # TODO: should probably be more strict with the required tag
-
 class DynamicFieldsModelSerializer(serializers.ModelSerializer):
     """
     A ModelSerializer that takes an additional `fields` argument that
@@ -24,17 +22,24 @@ class DynamicFieldsModelSerializer(serializers.ModelSerializer):
             for field_name in existing - allowed:
                 self.fields.pop(field_name)
  
-class PatientSerializer(serializers.ModelSerializer):
-    
-    # user = UserSerializer(many=False, required=False, fields=('id', 'email', 'setting_set'))
-    # surgeryType = models.ForeignKey(SurgeryType)
-    # doctor = models.ForeignKey(Doctor)
-    # location = models.ForeignKey(Location)
-    
+class PatientSerializer(DynamicFieldsModelSerializer):
+
     class Meta:
         model = models.Patient
-        fields = ('id', 'firstName', 'middleName', 'lastName', 'birthday', 'hasTimeout', 'isCurrent', 'lastModified', 'created')
 
+class AudioSerializer(DynamicFieldsModelSerializer):
 
+    class Meta:
+        model = models.Audio
+
+class ImageSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = models.Image
+
+class OrderSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = models.Order
 
 

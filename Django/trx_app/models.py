@@ -1,9 +1,7 @@
 from django.db import models
 import uuid
 
-#TODO: add sync config api call. returns approp question file, doctors, surgery types, etc (based on trip/language)
 #TODO: because of different languages, we need to check the encoding on the tables (for now just use romance lang)
-
 def file_path(instance, filename):
     extension = filename.rsplit(".", 1)[1]
     return str(uuid.uuid1()) + "." + extension
@@ -29,13 +27,16 @@ class VideoType(models.Model):
 
 class Location(models.Model):
     city = models.CharField(max_length = 255)
-    region = models.CharField(max_length = 255)
+    region = models.CharField(max_length = 255, blank = True)
     country = models.CharField(max_length = 255)
     # TODO: go through and pull out all necessary isCurrents, will be handled in other API
     # isCurrent = models.BooleanField(default = True)
 
     def __unicode__(self):
-        return "{0} {1}, {2}".format(self.city, self.region, self.country)
+        if self.region:        
+            return "{0} {1}, {2}".format(self.city, self.region, self.country)
+        else:
+            return "{0}, {1}".format(self.city, self.country)
 
     class Meta:
         unique_together = ('city', 'region', 'country')
@@ -122,10 +123,21 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add = True)
 
     def __unicode__(self):
-        return "{0} for {1) ({2})".format(self.orderType, self.patient, self.index)
+        return "{0} for {1} ({2})".format(self.orderType, self.patient, self.index)
 
-    class Meta:
-        unique_together = ('orderType', 'patient', 'index')
+    # class Meta:
+        # unique_together = ('orderType', 'patient', 'index')
+
+    # this is a custom save method so that there is only one ordertype/patient/index combo cuz Django Rest Framework is a bitch
+    # TODO: this needs to be tested
+    def save(self, *args, **kwargs):
+
+        order = Order.objects.filter(orderType=self.orderType, patient=self.patient, index=self.index).exclude(pk=self.pk)
+        
+        if not order:
+            super(Order, self).save(*args, **kwargs)
+        else:
+            raise Exception, "This is a duplicate order entry."
 
 class OrderTemplate(models.Model):
     surgeryType = models.ForeignKey(SurgeryType)
@@ -161,8 +173,18 @@ class PhysicalExam(models.Model):
     def __unicode__(self):
         return "{0} for {1}".format(self.key, self.patient)
 
-    class Meta:
-        unique_together = ('patient', 'key')
+    # class Meta:
+    #     unique_together = ('patient', 'key')
+
+    # TODO: this is a custom save method to ensure only one key entry per patient (because DRF is stupid)
+    def save(self, *args, **kwargs):
+
+        physical = PhysicalExam.objects.filter(key=self.key, patient=self.patient).exclude(pk=self.pk)
+        
+        if not physical:
+            super(PhysicalExam, self).save(*args, **kwargs)
+        else:
+            raise Exception, "This is a duplicate physical exam entry."
 
 class Recovery(models.Model):
     patient = models.OneToOneField(Patient)
@@ -228,11 +250,17 @@ class LaboratoryData(models.Model):
     lastModified = models.DateTimeField(auto_now = True)
     created = models.DateTimeField(auto_now_add = True)
 
+    def __unicode__(self):
+        return self.patient
+    
     class Meta:
         verbose_name_plural = "LaboratoryData"
      
 class Language(models.Model):
     name = models.CharField(max_length = 255, unique = True)
+
+    def __unicode__(self):
+        return self.name
 
 #TODO: ask John what is needed to identify a trip
 #TODO: I don't know that a full start - end date is necessary (or useful?)
@@ -244,6 +272,9 @@ class AppData(models.Model):
     start = models.DateField()
     end = models.DateField()
 
+    def __unicode__(self):
+        return self.name
+    
     class Meta:
         verbose_name_plural = "AppData"
 

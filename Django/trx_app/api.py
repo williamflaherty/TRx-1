@@ -15,7 +15,6 @@ from trx_app.serializers import *
 # SATTODO: api method to return list of isLive jsonfiles
 # SATTODO: configure server
 # SATTODO: history api methods get/set
-
 class JSONResponse(HttpResponse):
     """
     An HttpResponse that renders its content into JSON.

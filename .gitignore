@@ -139,3 +139,5 @@ Podfile.lock
 # ...none. Everything is now explained.
 *.pyc
 Django/trx/settings.py
+
+TRx.xcworkspace/xcuserdata/johncotham.xcuserdatad/UserInterfaceState.xcuserstate

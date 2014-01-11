@@ -19,6 +19,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
+//        self.navigugationBar.backgroundColor = [UIColor blueColor];
+//        self.navigationBar.barTintColor = [UIColor whiteColor];
+//        self.navigationBar.barStyle = UIBarStyleDefault;
     }
     return self;
 }

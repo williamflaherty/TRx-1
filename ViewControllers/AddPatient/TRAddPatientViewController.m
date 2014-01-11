@@ -141,7 +141,7 @@
     [_takePictureButton setTitle:@"Take Photo" forState:UIControlStateNormal];
     [_takePictureButton addTarget:self action:@selector(takePicturePressed)
                  forControlEvents:UIControlEventTouchUpInside];
-    [_takePictureButton drawBorderWithColor:self.view.tintColor];
+    [_takePictureButton drawButtonWithColor:self.view.tintColor];
     
     _submitButton = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(submitPressed)];
     self.navigationItem.rightBarButtonItem = _submitButton;
@@ -151,7 +151,7 @@
     _popoverSubmitButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_popoverSubmitButton setTitle:@"OK" forState:UIControlStateNormal];
     [_popoverSubmitButton addTarget:self action:@selector(popoverSubmitPressed) forControlEvents:UIControlEventTouchUpInside];
-    [_popoverSubmitButton drawBorderWithColor:self.view.tintColor];
+    [_popoverSubmitButton drawButtonWithColor:self.view.tintColor];
 }
 
 - (void)loadImageView{

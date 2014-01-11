@@ -46,7 +46,7 @@
     _configureButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_configureButton addTarget:self action:@selector(configureButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [_configureButton setTitle:@"Configure" forState:UIControlStateNormal];
-    [_configureButton drawBorderWithColor:self.view.tintColor];
+    [_configureButton drawButtonWithColor:self.view.tintColor];
     
     [self.view addSubview:_configureButton];
 }

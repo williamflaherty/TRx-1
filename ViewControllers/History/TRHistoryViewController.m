@@ -45,12 +45,12 @@
     _previousQuestionButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_previousQuestionButton setTitle:@"Back" forState:UIControlStateNormal];
     [_previousQuestionButton addTarget:self action:@selector(previousQuestionPressed) forControlEvents:UIControlEventTouchUpInside];
-    [_previousQuestionButton drawBorderWithColor:self.view.tintColor];
+    [_previousQuestionButton drawButtonWithColor:self.view.tintColor];
     
     _nextQuestionButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_nextQuestionButton setTitle:@"Next" forState:UIControlStateNormal];
     [_nextQuestionButton addTarget:self action:@selector(nextQuestionPreseed) forControlEvents:UIControlEventTouchUpInside];
-    [_nextQuestionButton drawBorderWithColor:self.view.tintColor];
+    [_nextQuestionButton drawButtonWithColor:self.view.tintColor];
     
     [self.view addSubview:_previousQuestionButton];
     [self.view addSubview:_nextQuestionButton];

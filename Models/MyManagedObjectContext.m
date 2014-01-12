@@ -8,9 +8,15 @@
 
 #import "MyManagedObjectContext.h"
 #import "TRAppDelegate.h"
+#import "Item.h"
+#import "ItemList.h"
+#import "ChainList.h"
+#import "Question.h"
+#import "QuestionList.h"
+#import "Option.h"
+
 
 @implementation MyManagedObjectContext
-
 
 + (MyManagedObjectContext *)mainThreadContext;
 {
@@ -25,8 +31,6 @@
 }
 
 #pragma mark - Core Data stack
-
-
 
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.

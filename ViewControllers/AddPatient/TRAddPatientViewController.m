@@ -11,10 +11,18 @@
 #import "TRCustomButton.h"
 #import "TRBorderedImageView.h"
 #import "MyManagedObjectContext.h"
+#import "Item.h"
+#import "ItemList.h"
+#import "ChainList.h"
+#import "Question.h"
+#import "QuestionList.h"
+#import "Option.h"
 
 #define kPopoverHeightBuffer 100.0f
 
 @interface TRAddPatientViewController ()
+
+@property (nonatomic, strong) MyManagedObjectContext  *managedObjectContext;
 
 @end
 
@@ -64,6 +72,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [self loadObjectContext];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -75,10 +84,31 @@
     [self loadTextFields];
     [self loadButtons];
     [self loadImageView];
-    [self loadPickerData];
     [self loadPickers];
 
     [self resizeViewsForOrientation:self.interfaceOrientation];
+}
+
+- (void)loadObjectContext{
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_group_t group = dispatch_group_create();
+    
+    // Add a task to the group
+    dispatch_group_async(group, queue, ^{
+        self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
+    });
+    
+    // Add a handler function for when the entire group completes
+    // It's possible that this will happen immediately if the other methods have already finished
+    dispatch_group_notify(group, queue, ^{
+        [self fetchItemsFromCoreData];
+    });
+}
+
+- (void)fetchItemsFromCoreData{
+    _doctorPickerData = [[ItemList getList:@"DoctorList" inContext:[self managedObjectContext]] array];
+    _chiefComplaintPickerData = [[ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]] array];
 }
 
 - (void)loadLabels{
@@ -159,11 +189,6 @@
     _photoIDImageView = [[TRBorderedImageView alloc] init];
     [_photoIDImageView drawBorderWithColor:self.view.tintColor];
     [self.view addSubview:_photoIDImageView];
-}
-
-- (void)loadPickerData{
-    _chiefComplaintPickerData = @[@"Cataracts", @"Hernia", @"Unknown"];
-    _doctorPickerData = @[@"Jim", @"Frank", @"Bob", @"David", @"Unkown"];
 }
 
 - (void)loadPickers{
@@ -315,10 +340,12 @@
         [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
     }
     else if(popoverController == _chiefComplaintPopoverController){
-        [_chiefComplaintTextField setText:[_chiefComplaintPickerData objectAtIndex:[_chiefComplaintPicker selectedRowInComponent:0]]];
+        Item *selectedItem = [_chiefComplaintPickerData objectAtIndex:[_chiefComplaintPicker selectedRowInComponent:0]];
+        [_chiefComplaintTextField setText:selectedItem.value];
     }
     else if(popoverController == _doctorPopoverController){
-        [_doctorTextField setText:[_doctorPickerData objectAtIndex:[_doctorPicker selectedRowInComponent:0]]];
+        Item *selectedItem = [_doctorPickerData objectAtIndex:[_chiefComplaintPicker selectedRowInComponent:0]];
+        [_doctorTextField setText:selectedItem.value];
     }
 }
 
@@ -337,10 +364,12 @@
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     if(pickerView == _chiefComplaintPicker){
-        return [_chiefComplaintPickerData objectAtIndex:row];
+        Item *returnItem = [_chiefComplaintPickerData objectAtIndex:row];
+        return returnItem.value;
     }
     else if(pickerView == _doctorPicker){
-        return [_doctorPickerData objectAtIndex:row];
+        Item *returnItem = [_doctorPickerData objectAtIndex:row];
+        return returnItem.value;
     }
     
     return nil;

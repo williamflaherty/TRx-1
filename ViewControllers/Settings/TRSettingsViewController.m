@@ -8,10 +8,17 @@
 
 #import "TRSettingsViewController.h"
 #import "TRCustomButton.h"
-
-
+#import "MyManagedObjectContext.h"
+#import "Item.h"
+#import "ItemList.h"
+#import "ChainList.h"
+#import "Question.h"
+#import "QuestionList.h"
+#import "Option.h"
 
 @interface TRSettingsViewController ()
+
+@property (nonatomic, strong) MyManagedObjectContext  *managedObjectContext;
 
 @end
 

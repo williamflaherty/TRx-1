@@ -8,8 +8,7 @@
 
 #import "TRSettingsViewController.h"
 #import "TRCustomButton.h"
-#import "Item.h"
-#import "ItemList.h"
+
 
 
 @interface TRSettingsViewController ()
@@ -121,56 +120,54 @@
     return data;
 }
 
-//#TODO - delete data before creating new objects
+//Persist Data for doctors, surgeries, and questions
+//creates entities and saves them in CoreData
+// jsonData keys are known to be ["doctors", "branch_questions", "surgeries", and "stack_questions"]
 -(BOOL)persistData:(NSDictionary *)jsonData{
-    // Dictionary keys are known to be ["doctors", "branch_questions", "surgeries", and "stack_questions"]
     
     NSManagedObjectContext *context = self.managedObjectContext;
     
     NSString *itemName = @"Item";
     NSString *itemListName = @"ItemList";
     
-
-    
-    //persist doctors
+    //retrieve doctor data from json file
     NSArray *doctors = jsonData[@"doctors"];
     if (!doctors || [doctors count] == 0) {
-        NSLog(@"Error: No doctors provided");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Config error" message:@"No doctors provided in config file" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
-        [alert show];
+        [self alertConfigFailure:@"doctors"];
         return false;
     }
     
-    ItemList *list2 = [NSEntityDescription
+    //create list entity for doctors
+    ItemList *list = [NSEntityDescription
             insertNewObjectForEntityForName:itemListName
             inManagedObjectContext:context];
-    list2.name = @"doctors";
+    list.name = @"doctors";
     
+    //create item for each name and relate it to doctor list entity
     for (NSDictionary *doctor in doctors) {
         Item *d = [NSEntityDescription
                    insertNewObjectForEntityForName:itemName
                    inManagedObjectContext:context];
         d.value = doctor[@"doctor_name"];
-        d.list = list2;
+        d.list = list;
     }
     
     
-    //persist surgeries
+    //retrieve surgery names from json file
     NSArray *surgeries = jsonData[@"surgeries"];
     if (!surgeries || [surgeries count] == 0) {
-        NSLog(@"Error: No surgeries provided");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Config error" message:@"No surgeries provided in config file" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
-        [alert show];
+        [self alertConfigFailure:@"surgeries"];
         return false;
     }
     
-    ItemList *list = [NSEntityDescription
+    //create list entity for surgeries
+    list = [NSEntityDescription
                       insertNewObjectForEntityForName:itemListName
                       inManagedObjectContext:context];
     list.name = @"surgeries";
     
-    
-    for (NSDictionary *surgery in surgeries) {  //add each surgery to ItemList named 'surgeries'
+    //create item for each surgery and relate it to surgery list entity
+    for (NSDictionary *surgery in surgeries) {
         Item *s = [NSEntityDescription
                    insertNewObjectForEntityForName:itemName
                    inManagedObjectContext:context];
@@ -179,13 +176,123 @@
         s.list = list;
     }
     
+    //persist questions
+    if (![self persistQuestions:jsonData forQuestionKey:@"stack_questions"]) {
+        [self alertConfigFailure:@"stack questions"];
+        return false;
+    }
+    
+    if (![self persistQuestions:jsonData forQuestionKey:@"branch_questions"]) {
+        [self alertConfigFailure:@"branch questions"];
+        return false;
+    }
+    
     return true;
 }
+
+-(BOOL)persistQuestions:(NSDictionary *)jsonData forQuestionKey:(NSString *)key {
+    MyManagedObjectContext *context = self.managedObjectContext;
+    //retrieve stack question chains from json file
+    NSArray *list = jsonData[key];       //NSArray of dictionaries
+    if (!list || [list count] == 0) {
+        [self alertConfigFailure:key];
+        return false;
+    }
+    
+    //create ChainList entity that will store the question chains in order
+    ChainList *cList = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"ChainList"
+                        inManagedObjectContext:self.managedObjectContext];
+    cList.name = key;
+    
+    //get each chain within the list
+    for (NSDictionary *chainDic in list) {
+        //NSInteger *chainID = chainDic[@"id"];
+        //NSInteger *stack_index = chainDic[@"stack_index"];
+        NSArray *questions = chainDic[@"questions"];
+        QuestionList *qList = [NSEntityDescription insertNewObjectForEntityForName:@"QuestionList" inManagedObjectContext:context];
+        
+        //get each question in the chain
+        for (NSDictionary *question in questions) {
+            Question *q = [NSEntityDescription insertNewObjectForEntityForName:@"Question"inManagedObjectContext:context];
+            
+            //get each option in the question
+            NSArray *options = question[@"options"];
+            for (NSDictionary *option in options) {
+                Option *o = [NSEntityDescription insertNewObjectForEntityForName:@"Option" inManagedObjectContext:context];
+                [self packOption:o intoQuestion:q withData:option];
+            }
+            [self packQuestion:q intoQuestionList:qList withData:question];
+        }
+        [self packQuestionList:qList intoChainList:cList withData:chainDic];
+        
+    } 
+    return true;
+}
+
+
+// 3 methods for packing up questions when parsing the json
+-(void)packQuestionList:(QuestionList *)qList intoChainList:(ChainList *)cList withData:(NSDictionary *)dic {
+    qList.stack_index = dic[@"stack_index"];
+    qList.branch_id = dic[@"id"];
+    qList.list = cList;
+}
+
+-(void)packQuestion:(Question *)q intoQuestionList:(QuestionList *)qList withData:(NSDictionary *)dic {
+    q.list_index = dic[@"chain_index"];
+    q.display_group = dic[@"display_group"];
+    q.display_text = dic[@"display_text"];
+    q.question_text = dic[@"question_text"];
+    q.question_type = dic[@"question_type"];
+    q.list = qList;
+}
+
+-(void)packOption:(Option *)o intoQuestion:(Question *)q withData:(NSDictionary *)dic {
+    NSNumber *branch_id = dic[@"branch_id"];
+    if ([branch_id isEqual:[NSNull null]]) {
+        branch_id = [NSNumber numberWithInt:-1];
+    }
+    o.branch_id = branch_id;
+    
+    NSString *translation = dic[@"translation"];
+    if ([translation isEqual:[NSNull null]]) {
+        translation = dic[@"text"];
+    }
+    o.translation = translation;
+    o.text  = dic[@"text"];
+    
+    NSString *display_text = dic[@"display_text"]; //display empty string if none given
+    if ([display_text isEqual:[NSNull null]]) {
+        display_text = @"";
+    }
+    o.display_text = display_text;
+    o.question = q;
+}
+
+// pop up alert and NSLog if config failure
+-(void)alertConfigFailure:(NSString *)key {
+    NSString *message = [NSString stringWithFormat:@"No %@ provided in config file", key];
+    NSLog(@"%@", message);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Config error" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+    [alert show];
+}
+
+//not being used
+//-(void)alertQuestionParsingFailure:(NSString *)key {
+//    NSString *message = [NSString stringWithFormat:@"Error parsing json question data: %@", key];
+//    NSLog(@"%@", message);
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parsing error" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+//    [alert show];
+//}
 
 -(void)clearTables {
     NSLog(@"Clearing tables");
     [self deleteAllObjects:@"Item"];
     [self deleteAllObjects:@"ItemList"];
+    [self deleteAllObjects:@"Option"];
+    [self deleteAllObjects:@"Question"];
+    [self deleteAllObjects:@"QuestionList"];
+    [self deleteAllObjects:@"ChainList"];
     NSLog(@"Tables cleared");
 }
 

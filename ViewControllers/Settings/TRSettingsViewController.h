@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MyManagedObjectContext.h"
+#import "Item.h"
+#import "ItemList.h"
+#import "ChainList.h"
+#import "Question.h"
+#import "QuestionList.h"
+#import "Option.h"
 
 @interface TRSettingsViewController : UIViewController
 @property (nonatomic, strong) MyManagedObjectContext  *managedObjectContext;

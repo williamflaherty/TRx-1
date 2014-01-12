@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyManagedObjectContext.h"
 
 @interface TRSettingsViewController : UIViewController
-@property (nonatomic, strong) NSManagedObjectContext  *managedObjectContext;
+@property (nonatomic, strong) MyManagedObjectContext  *managedObjectContext;
 @end

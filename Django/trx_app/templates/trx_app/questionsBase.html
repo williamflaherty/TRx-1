@@ -11,12 +11,12 @@
     {% else %}
       <li class="disabled"><a href="#">Back</a></li>
     {% endif %}
-    <li {% if menu_location and menu_location == "project" %}class="active"{% endif %}><a href="{% url "trx_app:projectHome" %}">Project Home</a></li>
-    <li {% if menu_location and menu_location == "chain" %}class="active"{% endif %}><a href="{% url "trx_app:chainHome" %}">Chain Home</a></li>
-    <li {% if menu_location and menu_location == "questions" %}class="active"{% endif %}><a href="{% url "trx_app:questionHome" %}">Question Home</a></li>
-    <li {% if menu_location and menu_location == "surgery" %}class="active"{% endif %}><a href="{% url "trx_app:surgeryHome" %}">Surgery Home</a></li>
-    <li {% if menu_location and menu_location == "doctor" %}class="active"{% endif %}><a href="{% url "trx_app:doctorHome" %}">Doctor Home</a></li>
-    <li {% if menu_location and menu_location == "file" %}class="active"{% endif %}><a href="{% url "trx_app:fileHome" %}">File Home</a></li>
+    <li {% if menu_location and menu_location == "project" %}class="active"{% endif %}><a href="{% url "trx_app:projectHome" %}">Projects</a></li>
+    <li {% if menu_location and menu_location == "chain" %}class="active"{% endif %}><a href="{% url "trx_app:chainHome" %}">Chains</a></li>
+    <li {% if menu_location and menu_location == "questions" %}class="active"{% endif %}><a href="{% url "trx_app:questionHome" %}">Questions </a></li>
+    <li {% if menu_location and menu_location == "surgery" %}class="active"{% endif %}><a href="{% url "trx_app:surgeryHome" %}">Surgeries </a></li>
+    <li {% if menu_location and menu_location == "doctor" %}class="active"{% endif %}><a href="{% url "trx_app:doctorHome" %}">Doctors</a></li>
+    <li {% if menu_location and menu_location == "file" %}class="active"{% endif %}><a href="{% url "trx_app:fileHome" %}">Files</a></li>
   </ul>
 </div>
 

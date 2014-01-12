@@ -14,13 +14,16 @@
         <attribute name="isProfile" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Item" syncable="YES">
+    <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemList" inverseName="items" inverseEntity="ItemList" syncable="YES"/>
+        <fetchedProperty name="doctors" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Item" predicateString="name LIKE 'doctors'"/>
+        </fetchedProperty>
     </entity>
-    <entity name="ItemList" syncable="YES">
+    <entity name="ItemList" representedClassName="ItemList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Option" syncable="YES">
         <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -57,8 +60,11 @@
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChainList" inverseName="chains" inverseEntity="ChainList" syncable="YES"/>
         <relationship name="questions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="chain" inverseEntity="Question" syncable="YES"/>
     </entity>
+    <fetchRequest name="DoctorList" entity="ItemList" predicateString="name == &quot;doctors&quot;"/>
+    <fetchRequest name="SurgeryList" entity="ItemList" predicateString="name == &quot;surgeries&quot;"/>
     <elements>
         <element name="ChainList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="History" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Image" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
         <element name="ItemList" positionX="0" positionY="0" width="0" height="0"/>
@@ -66,6 +72,5 @@
         <element name="Patient" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Question" positionX="0" positionY="0" width="0" height="0"/>
         <element name="QuestionChain" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="History" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

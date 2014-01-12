@@ -8,6 +8,8 @@
 
 #import "TRSettingsViewController.h"
 #import "TRCustomButton.h"
+#import "Item.h"
+#import "ItemList.h"
 
 
 @interface TRSettingsViewController ()
@@ -31,6 +33,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -71,17 +74,37 @@
         return;
     }
     
+    //clear tables
+    [self clearTables];
+    
     //convert dictionary to Core Data objects
     [self persistData:jsonData];
+    
+    //save context
+    [self.managedObjectContext saveContext];
+    
+    /* Hey, Mark. This is how you can retrieve the Surgeries and the Doctors lists */
+    /* the trickyish part is making sure that the controller has a managedObjectContext that is
+        instantiated in the ViewDidLoad method by calling [MyManagedObjectContext mainThreadContext]
+        as shown above */
+    
+    //test that objects are created and can retrieve them
+    NSLog(@"Listing doctors: ");
+    NSOrderedSet *docs = [ItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
+    for (Item *doc in docs) {
+        NSLog(@"%@", doc.value);
+    }
+    
+    NSLog(@"Listing Surgeries: ");
+    NSOrderedSet *surgeries = [ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
+    for (Item *surgery in surgeries) {
+        NSLog(@"%@", surgery.value);
+    }
+ 
+    //TODO: clear tables on new config press
 }
 
 #pragma mark - Configuration Methods
-
-//
-//  -- John --
-//  Write your configuration methods here,
-//  Call them From configureButtonPressed, above.
-// Thanks! -John
 
 - (NSData *)getConfigContents{
     NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"json"];
@@ -101,29 +124,88 @@
 //#TODO - delete data before creating new objects
 -(BOOL)persistData:(NSDictionary *)jsonData{
     // Dictionary keys are known to be ["doctors", "branch_questions", "surgeries", and "stack_questions"]
+    
     NSManagedObjectContext *context = self.managedObjectContext;
+    
     NSString *itemName = @"Item";
     NSString *itemListName = @"ItemList";
     
+
+    
+    //persist doctors
+    NSArray *doctors = jsonData[@"doctors"];
+    if (!doctors || [doctors count] == 0) {
+        NSLog(@"Error: No doctors provided");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Config error" message:@"No doctors provided in config file" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+        [alert show];
+        return false;
+    }
+    
+    ItemList *list2 = [NSEntityDescription
+            insertNewObjectForEntityForName:itemListName
+            inManagedObjectContext:context];
+    list2.name = @"doctors";
+    
+    for (NSDictionary *doctor in doctors) {
+        Item *d = [NSEntityDescription
+                   insertNewObjectForEntityForName:itemName
+                   inManagedObjectContext:context];
+        d.value = doctor[@"doctor_name"];
+        d.list = list2;
+    }
+    
+    
+    //persist surgeries
     NSArray *surgeries = jsonData[@"surgeries"];
     if (!surgeries || [surgeries count] == 0) {
         NSLog(@"Error: No surgeries provided");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Config error" message:@"No surgeries provided in config file" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
+        [alert show];
         return false;
     }
-    NSEntityDescription *list = [NSEntityDescription insertNewObjectForEntityForName:itemListName inManagedObjectContext:context];
+    
+    ItemList *list = [NSEntityDescription
+                      insertNewObjectForEntityForName:itemListName
+                      inManagedObjectContext:context];
     list.name = @"surgeries";
     
-    for (NSString *surgery in surgeries) {
-        NSEntityDescription *s = [NSEntityDescription insertNewObjectForEntityForName:itemName inManagedObjectContext:context];
-        s.name = surgery;
-        //list.items = s;
-        //list.relationshipsByName
-        //[list relationshipsByName][@"items"] = s;
+    
+    for (NSDictionary *surgery in surgeries) {  //add each surgery to ItemList named 'surgeries'
+        Item *s = [NSEntityDescription
+                   insertNewObjectForEntityForName:itemName
+                   inManagedObjectContext:context];
+        
+        s.value = surgery[@"surgery_name"];
+        s.list = list;
     }
     
     return true;
 }
 
+-(void)clearTables {
+    NSLog(@"Clearing tables");
+    [self deleteAllObjects:@"Item"];
+    [self deleteAllObjects:@"ItemList"];
+    NSLog(@"Tables cleared");
+}
+
+- (void) deleteAllObjects: (NSString *) entityDescription  {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *items = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    for (NSManagedObject *managedObject in items) {
+    	[_managedObjectContext deleteObject:managedObject];
+    	NSLog(@"%@ object deleted",entityDescription);
+    }
+    if (![_managedObjectContext save:&error]) {
+    	NSLog(@"Error deleting %@ - error:%@",entityDescription,error);
+    }
+    
+}
 
 #pragma mark - Orientation Handling Methods
 

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0CB999C613134C2DB5524417 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA35FE7EB0304591A19109D4 /* libPods.a */; };
+		1318E1F8188202EE000146FC /* ItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1F7188202EE000146FC /* ItemList.m */; };
+		1318E1FB188202EE000146FC /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FA188202EE000146FC /* Item.m */; };
+		1318E1FE18823795000146FC /* MyManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FD18823795000146FC /* MyManagedObjectContext.m */; };
 		1374F163185A453C003CB138 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374F162185A453C003CB138 /* Patient.m */; };
 		13D985C418768CAC00304324 /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 13D985C318768CAC00304324 /* example.json */; };
 		13D985C618768D9600304324 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D985C518768D9600304324 /* Question.m */; };
@@ -72,6 +75,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1318E1F6188202EE000146FC /* ItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemList.h; path = Models/ItemList.h; sourceTree = SOURCE_ROOT; };
+		1318E1F7188202EE000146FC /* ItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemList.m; path = Models/ItemList.m; sourceTree = SOURCE_ROOT; };
+		1318E1F9188202EE000146FC /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Models/Item.h; sourceTree = SOURCE_ROOT; };
+		1318E1FA188202EE000146FC /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Models/Item.m; sourceTree = SOURCE_ROOT; };
+		1318E1FC18823795000146FC /* MyManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyManagedObjectContext.h; path = Models/MyManagedObjectContext.h; sourceTree = SOURCE_ROOT; };
+		1318E1FD18823795000146FC /* MyManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyManagedObjectContext.m; path = Models/MyManagedObjectContext.m; sourceTree = SOURCE_ROOT; };
 		1374F161185A453C003CB138 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/Patient.h; sourceTree = SOURCE_ROOT; };
 		1374F162185A453C003CB138 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Models/Patient.m; sourceTree = SOURCE_ROOT; };
 		13D985C318768CAC00304324 /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
@@ -371,10 +380,16 @@
 		C48C6E6317E661F90065ABBE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1318E1F9188202EE000146FC /* Item.h */,
+				1318E1FA188202EE000146FC /* Item.m */,
+				1318E1F6188202EE000146FC /* ItemList.h */,
+				1318E1F7188202EE000146FC /* ItemList.m */,
 				13D985C718768DA400304324 /* Question.h */,
 				13D985C518768D9600304324 /* Question.m */,
 				1374F161185A453C003CB138 /* Patient.h */,
 				1374F162185A453C003CB138 /* Patient.m */,
+				1318E1FC18823795000146FC /* MyManagedObjectContext.h */,
+				1318E1FD18823795000146FC /* MyManagedObjectContext.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -583,11 +598,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1318E1FB188202EE000146FC /* Item.m in Sources */,
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
 				1374F163185A453C003CB138 /* Patient.m in Sources */,
 				13D985C618768D9600304324 /* Question.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
 				C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */,
+				1318E1F8188202EE000146FC /* ItemList.m in Sources */,
 				C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */,
 				C48C6E3F17E661700065ABBE /* TRAppDelegate.m in Sources */,
 				C40325951874CF4E003D8159 /* TRBorderedImageView.m in Sources */,
@@ -598,6 +615,7 @@
 				C4839E19187A1BF9002990E0 /* TRCustomButton.m in Sources */,
 				C4EDCF07181C3A4000256DE5 /* TRPhysicalViewController.m in Sources */,
 				C46B4816180C3854002CF789 /* TRNavigationController.m in Sources */,
+				1318E1FE18823795000146FC /* MyManagedObjectContext.m in Sources */,
 				C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */,
 				C4EDCF0A181C3A5800256DE5 /* TRSurgeryViewController.m in Sources */,
 				C40325861874C9EB003D8159 /* TRQTextField.m in Sources */,

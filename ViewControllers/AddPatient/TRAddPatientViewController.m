@@ -10,6 +10,7 @@
 #import "TRTabBarController.h"
 #import "TRCustomButton.h"
 #import "TRBorderedImageView.h"
+#import "MyManagedObjectContext.h"
 
 #define kPopoverHeightBuffer 100.0f
 

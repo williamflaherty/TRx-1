@@ -2,7 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="ChainList" representedClassName="ChainList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="chains" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionList" inverseName="list" inverseEntity="QuestionList" syncable="YES"/>
+        <relationship name="chains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionList" inverseName="list" inverseEntity="QuestionList" syncable="YES"/>
     </entity>
     <entity name="History" syncable="YES">
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
@@ -61,7 +61,9 @@
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChainList" inverseName="chains" inverseEntity="ChainList" syncable="YES"/>
         <relationship name="questions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="list" inverseEntity="Question" syncable="YES"/>
     </entity>
+    <fetchRequest name="BranchList" entity="ChainList" predicateString="name == &quot;branch_questions&quot;"/>
     <fetchRequest name="DoctorList" entity="ItemList" predicateString="name == &quot;doctors&quot;"/>
+    <fetchRequest name="StackList" entity="ChainList" predicateString="name == &quot;stack_questions&quot;"/>
     <fetchRequest name="SurgeryList" entity="ItemList" predicateString="name == &quot;surgeries&quot;"/>
     <elements>
         <element name="ChainList" positionX="0" positionY="0" width="0" height="0"/>

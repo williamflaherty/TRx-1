@@ -15,6 +15,7 @@
 #import "CDQuestion.h"
 #import "CDQuestionList.h"
 #import "CDOption.h"
+#import "CDPatient.h"
 
 @interface TRSettingsViewController ()
 
@@ -85,6 +86,7 @@
     
     //convert dictionary to Core Data objects
     [self persistData:jsonData];
+    [self patientTestData];
     
     //save context
     [self.managedObjectContext saveContext];
@@ -157,6 +159,27 @@
 }
 
 #pragma mark - Configuration Methods
+
+- (void)patientTestData{
+    CDPatient *pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
+                                                       inManagedObjectContext:self.managedObjectContext];
+    pateint.firstName = @"Mark";
+    pateint.lastName = @"Bellott";
+    pateint.surgeryType = @"Cataract";
+    
+    pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
+                                                        inManagedObjectContext:self.managedObjectContext];
+    pateint.firstName = @"Willie";
+    pateint.lastName = @"Flaherty";
+    pateint.surgeryType = @"Hernia";
+    
+    pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
+                                                        inManagedObjectContext:self.managedObjectContext];
+    pateint.firstName = @"Mischa";
+    pateint.lastName = @"Buckler";
+    pateint.surgeryType = @"Cataract";
+    
+}
 
 - (NSData *)getConfigContents{
     NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"json"];
@@ -337,6 +360,7 @@
     [self deleteAllObjects:@"CDQuestion"];
     [self deleteAllObjects:@"CDQuestionList"];
     [self deleteAllObjects:@"CDChainList"];
+    [self deleteAllObjects:@"CDPatient"];
     NSLog(@"Tables cleared");
 }
 

@@ -14,6 +14,7 @@
 #import "CDQuestion.h"
 #import "CDQuestionList.h"
 #import "CDOption.h"
+#import "CDPatient.h"
 
 
 @implementation TRManagedObjectContext

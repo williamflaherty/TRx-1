@@ -12,6 +12,7 @@
 #import "TRSettingsViewController.h"
 #import "TRTabBarController.h"
 #import "TRManagedObjectContext.h"
+#import "CDPatient.h"
 
 @interface TRPatientListViewController (){
     CGSize winSize;
@@ -27,6 +28,8 @@
     
     UITableView *_patientListTableView;
     UIRefreshControl *_patientListRefreshControl;
+    
+    NSArray *_patientArray;
 }
 
 #pragma mark - Init and Load Methods
@@ -53,6 +56,7 @@
     [self loadConstants];
     [self loadBarButtonItems];
     [self loadTableView];
+    [self fetchPatietData];
 }
 
 - (void)loadConstants{
@@ -81,6 +85,19 @@
     [_patientListTableView addSubview:_patientListRefreshControl];
 }
 
+- (void)fetchPatietData{
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDPatient"];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects;
+    
+    if(fetchRequest){
+        fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    }
+    _patientArray = [[NSArray alloc] initWithArray:fetchedObjects];
+}
+
 #pragma mark - Bar Button Actions
 
 - (void)settingsPressed{
@@ -105,6 +122,8 @@
     
     [_patientListRefreshControl endRefreshing];
     NSLog(@"Refresh Completed");
+    
+    [self fetchPatietData];
 }
 
 #pragma mark - UITableViewDelegate Methods
@@ -124,7 +143,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return [_patientArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -142,23 +161,23 @@
     
     [cell setUpCellItems];
     if([indexPath row] == 0){
-        cell.patientCellPhoto.image = [UIImage imageNamed:@"mark.png"];
-        cell.patientCellName.text = @"Mark Bellott";
-        cell.patientCellComplaint.text = @"Complaint: Cataracts";
+        cell.patientCellPhoto.image = [UIImage imageNamed:@"mischa.png"];
         cell.patientCellBirthdate.text = @"Birthdate: 09/17/1990";
     }
     if([indexPath row] == 1){
         cell.patientCellPhoto.image = [UIImage imageNamed:@"willie.png"];
-        cell.patientCellName.text = @"Willie Flaherty";
-        cell.patientCellComplaint.text = @"Complaint: Cataracts";
         cell.patientCellBirthdate.text = @"Birthdate: 06/18/1989";
     }
     if([indexPath row] == 2){
-        cell.patientCellPhoto.image = [UIImage imageNamed:@"mischa.png"];
-        cell.patientCellName.text = @"Mischa Buckler";
-        cell.patientCellComplaint.text = @"Complaint: Cataracts";
+        cell.patientCellPhoto.image = [UIImage imageNamed:@"mark.png"];
         cell.patientCellBirthdate.text = @"Birthdate: 04/13/1991";
     }
+    
+    CDPatient *patient = [_patientArray objectAtIndex:[indexPath row]];
+    cell.patientCellName.text = [patient.firstName stringByAppendingString:
+                                 [@" " stringByAppendingString:patient.lastName]];
+    cell.patientCellComplaint.text =[@"Complaint: " stringByAppendingString:patient.surgeryType];
+    
     
     return cell;
 }

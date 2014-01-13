@@ -17,6 +17,7 @@
 #import "CDQuestion.h"
 #import "CDQuestionList.h"
 #import "CDOption.h"
+#import "CDPatient.h"
 
 #define kPopoverHeightBuffer 100.0f
 
@@ -217,6 +218,14 @@
 - (void)submitPressed{
     TRTabBarController *patientTC =[[TRTabBarController alloc] init];
     [self.navigationController pushViewController:patientTC animated:YES];
+    
+    CDPatient *patient = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
+                                                       inManagedObjectContext:self.managedObjectContext];
+    patient.firstName = _firstNameTextField.text;
+    patient.lastName = _lastNameTextField.text;
+    patient.surgeryType = _chiefComplaintTextField.text;
+    
+    [self.managedObjectContext saveContext];
 }
 
 - (void)popoverSubmitPressed{

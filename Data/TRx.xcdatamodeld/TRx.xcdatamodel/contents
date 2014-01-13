@@ -1,36 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="ChainList" representedClassName="ChainList" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CDChainList" representedClassName="CDChainList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="chains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionList" inverseName="list" inverseEntity="QuestionList" syncable="YES"/>
     </entity>
-    <entity name="History" syncable="YES">
-        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="CDItem" representedClassName="CDItem" syncable="YES">
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="history" inverseEntity="Patient" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDItemList" inverseName="items" inverseEntity="CDItemList" syncable="YES"/>
     </entity>
-    <entity name="Image" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="isProfile" optional="YES" attributeType="Boolean" syncable="YES"/>
+    <entity name="CDItemList" representedClassName="CDItemList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDItem" inverseName="list" inverseEntity="CDItem" syncable="YES"/>
     </entity>
-    <entity name="Item" representedClassName="Item" syncable="YES">
-        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemList" inverseName="items" inverseEntity="ItemList" syncable="YES"/>
-    </entity>
-    <entity name="ItemList" representedClassName="ItemList" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
-    </entity>
-    <entity name="Option" representedClassName="Option" syncable="YES">
+    <entity name="CDOption" representedClassName="CDOption" syncable="YES">
         <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="display_text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="highlight" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translation" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="options" inverseEntity="Question" syncable="YES"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuestion" inverseName="options" inverseEntity="CDQuestion" syncable="YES"/>
     </entity>
-    <entity name="Patient" representedClassName="Patient" syncable="YES">
+    <entity name="CDPatient" representedClassName="CDPatient" syncable="YES">
         <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="doctor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,7 +32,7 @@
         <attribute name="surgeryType" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="patient" inverseEntity="History" syncable="YES"/>
     </entity>
-    <entity name="Question" representedClassName="Question" syncable="YES">
+    <entity name="CDQuestion" representedClassName="CDQuestion" syncable="YES">
         <attribute name="display_group" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="display_text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="list_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -50,28 +40,38 @@
         <attribute name="question_type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translation_text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionList" inverseName="questions" inverseEntity="QuestionList" syncable="YES"/>
-        <relationship name="options" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Option" inverseName="question" inverseEntity="Option" syncable="YES"/>
+        <relationship name="options" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDOption" inverseName="question" inverseEntity="CDOption" syncable="YES"/>
+    </entity>
+    <entity name="History" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPatient" inverseName="history" inverseEntity="CDPatient" syncable="YES"/>
+    </entity>
+    <entity name="Image" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="isProfile" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="QuestionList" representedClassName="QuestionChain" syncable="YES">
         <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stack_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChainList" inverseName="chains" inverseEntity="ChainList" syncable="YES"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="list" inverseEntity="Question" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDChainList" inverseName="chains" inverseEntity="CDChainList" syncable="YES"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDQuestion" inverseName="list" inverseEntity="CDQuestion" syncable="YES"/>
     </entity>
-    <fetchRequest name="BranchList" entity="ChainList" predicateString="name == &quot;branch_questions&quot;"/>
-    <fetchRequest name="DoctorList" entity="ItemList" predicateString="name == &quot;doctors&quot;"/>
-    <fetchRequest name="PatientList" entity="Patient"/>
-    <fetchRequest name="StackList" entity="ChainList" predicateString="name == &quot;stack_questions&quot;"/>
-    <fetchRequest name="SurgeryList" entity="ItemList" predicateString="name == &quot;surgeries&quot;"/>
+    <fetchRequest name="BranchList" entity="CDChainList" predicateString="name == &quot;branch_questions&quot;"/>
+    <fetchRequest name="DoctorList" entity="CDItemList" predicateString="name == &quot;doctors&quot;"/>
+    <fetchRequest name="PatientList" entity="CDPatient"/>
+    <fetchRequest name="StackList" entity="CDChainList" predicateString="name == &quot;stack_questions&quot;"/>
+    <fetchRequest name="SurgeryList" entity="CDItemList" predicateString="name == &quot;surgeries&quot;"/>
     <elements>
-        <element name="ChainList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDChainList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDItemList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDOption" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDQuestion" positionX="0" positionY="0" width="0" height="0"/>
         <element name="History" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Image" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ItemList" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Option" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Patient" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Question" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDPatient" positionX="0" positionY="0" width="0" height="0"/>
         <element name="QuestionList" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

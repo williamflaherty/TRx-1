@@ -2,7 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CDChainList" representedClassName="CDChainList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="chains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QuestionList" inverseName="list" inverseEntity="QuestionList" syncable="YES"/>
+        <relationship name="chains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDQuestionList" inverseName="list" inverseEntity="CDQuestionList" syncable="YES"/>
     </entity>
     <entity name="CDItem" representedClassName="CDItem" syncable="YES">
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,8 +39,14 @@
         <attribute name="question_text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question_type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translation_text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionList" inverseName="questions" inverseEntity="QuestionList" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuestionList" inverseName="questions" inverseEntity="CDQuestionList" syncable="YES"/>
         <relationship name="options" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDOption" inverseName="question" inverseEntity="CDOption" syncable="YES"/>
+    </entity>
+    <entity name="CDQuestionList" representedClassName="QuestionChain" syncable="YES">
+        <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="stack_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDChainList" inverseName="chains" inverseEntity="CDChainList" syncable="YES"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDQuestion" inverseName="list" inverseEntity="CDQuestion" syncable="YES"/>
     </entity>
     <entity name="History" syncable="YES">
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
@@ -52,12 +58,6 @@
         <attribute name="isProfile" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="QuestionList" representedClassName="QuestionChain" syncable="YES">
-        <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="stack_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDChainList" inverseName="chains" inverseEntity="CDChainList" syncable="YES"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDQuestion" inverseName="list" inverseEntity="CDQuestion" syncable="YES"/>
-    </entity>
     <fetchRequest name="BranchList" entity="CDChainList" predicateString="name == &quot;branch_questions&quot;"/>
     <fetchRequest name="DoctorList" entity="CDItemList" predicateString="name == &quot;doctors&quot;"/>
     <fetchRequest name="PatientList" entity="CDPatient"/>
@@ -68,10 +68,10 @@
         <element name="CDItem" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDItemList" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDOption" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDPatient" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDQuestion" positionX="0" positionY="0" width="0" height="0"/>
         <element name="History" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Image" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CDPatient" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="QuestionList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDQuestionList" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

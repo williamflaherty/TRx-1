@@ -11,7 +11,7 @@
 @interface TRManagedObjectContext : NSManagedObjectContext
 + (TRManagedObjectContext *)mainThreadContext;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
--(void)saveContext;
+- (void)saveContext;
 
 
 @property (nonatomic, readonly, retain) NSManagedObjectModel *objectModel;

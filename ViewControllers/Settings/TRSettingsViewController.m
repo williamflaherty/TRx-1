@@ -180,8 +180,8 @@
     
     NSManagedObjectContext *context = self.managedObjectContext;
     
-    NSString *itemName = @"Item";
-    NSString *itemListName = @"ItemList";
+    NSString *itemName = @"CDItem";
+    NSString *itemListName = @"CDItemList";
     
     //retrieve doctor data from json file
     NSArray *doctors = jsonData[@"doctors"];
@@ -254,23 +254,23 @@
     
     //create ChainList entity that will store the question chains in order
     CDChainList *cList = [NSEntityDescription
-                        insertNewObjectForEntityForName:@"ChainList"
+                        insertNewObjectForEntityForName:@"CDChainList"
                         inManagedObjectContext:self.managedObjectContext];
     cList.name = key;
     
     //get each chain within the list
     for (NSDictionary *chainDic in list) {
         NSArray *questions = chainDic[@"questions"];
-        CDQuestionList *qList = [NSEntityDescription insertNewObjectForEntityForName:@"QuestionList" inManagedObjectContext:context];
+        CDQuestionList *qList = [NSEntityDescription insertNewObjectForEntityForName:@"CDQuestionList" inManagedObjectContext:context];
         
         //get each question in the chain
         for (NSDictionary *question in questions) {
-            CDQuestion *q = [NSEntityDescription insertNewObjectForEntityForName:@"Question"inManagedObjectContext:context];
+            CDQuestion *q = [NSEntityDescription insertNewObjectForEntityForName:@"CDQuestion"inManagedObjectContext:context];
             
             //get each option in the question
             NSArray *options = question[@"options"];
             for (NSDictionary *option in options) {
-                CDOption *o = [NSEntityDescription insertNewObjectForEntityForName:@"Option" inManagedObjectContext:context];
+                CDOption *o = [NSEntityDescription insertNewObjectForEntityForName:@"CDOption" inManagedObjectContext:context];
                 [self packOption:o intoQuestion:q withData:option];
             }
             [self packQuestion:q intoQuestionList:qList withData:question];
@@ -331,12 +331,12 @@
 
 -(void)clearTables {
     NSLog(@"Clearing tables");
-    [self deleteAllObjects:@"Item"];
-    [self deleteAllObjects:@"ItemList"];
-    [self deleteAllObjects:@"Option"];
-    [self deleteAllObjects:@"Question"];
-    [self deleteAllObjects:@"QuestionList"];
-    [self deleteAllObjects:@"ChainList"];
+    [self deleteAllObjects:@"CDItem"];
+    [self deleteAllObjects:@"CDItemList"];
+    [self deleteAllObjects:@"CDOption"];
+    [self deleteAllObjects:@"CDQuestion"];
+    [self deleteAllObjects:@"CDQuestionList"];
+    [self deleteAllObjects:@"CDChainList"];
     NSLog(@"Tables cleared");
 }
 

@@ -90,20 +90,22 @@
 }
 
 - (void)loadObjectContext{
+    self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
+    [self fetchItemsFromCoreData];
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_group_t group = dispatch_group_create();
-    
-    // Add a task to the group
-    dispatch_group_async(group, queue, ^{
-        self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
-    });
-    
-    // Add a handler function for when the entire group completes
-    // It's possible that this will happen immediately if the other methods have already finished
-    dispatch_group_notify(group, queue, ^{
-        [self fetchItemsFromCoreData];
-    });
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    dispatch_group_t group = dispatch_group_create();
+//    
+//    // Add a task to the group
+//    dispatch_group_async(group, queue, ^{
+//        self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
+//    });
+//    
+//    // Add a handler function for when the entire group completes
+//    // It's possible that this will happen immediately if the other methods have already finished
+//    dispatch_group_notify(group, queue, ^{
+//        [self fetchItemsFromCoreData];
+//    });
 }
 
 /* so, this is a bit of a workaround. CoreData does Lazy Fetching, so the set doesn't have

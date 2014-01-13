@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TRPatientListViewController : UIViewController
-<UITableViewDelegate,
-UITableViewDataSource>
+< UITableViewDelegate,
+UITableViewDataSource >
 
 @end

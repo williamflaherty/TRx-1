@@ -10,11 +10,11 @@
 
 @interface TRAddPatientViewController : UIViewController
 
-<UINavigationControllerDelegate,
+< UINavigationControllerDelegate,
 UIImagePickerControllerDelegate,
 UITextFieldDelegate,
 UIPickerViewDelegate,
 UIPickerViewDataSource,
-UIPopoverControllerDelegate>
+UIPopoverControllerDelegate >
 
 @end

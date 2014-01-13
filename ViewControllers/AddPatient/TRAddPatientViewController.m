@@ -90,32 +90,33 @@
 }
 
 - (void)loadObjectContext{
+    self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
+    [self fetchItemsFromCoreData];
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_group_t group = dispatch_group_create();
-    
-    // Add a task to the group
-    dispatch_group_async(group, queue, ^{
-        self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
-    });
-    
-    // Add a handler function for when the entire group completes
-    // It's possible that this will happen immediately if the other methods have already finished
-    dispatch_group_notify(group, queue, ^{
-        [self fetchItemsFromCoreData];
-    });
 }
 
-/* so, this is a bit of a workaround. CoreData does Lazy Fetching, so the set doesn't have
-   a size until you try to access one of its elements, and then it loads. */
 - (void)fetchItemsFromCoreData{
-    NSOrderedSet *set = [ItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
-    set[0];
-    _doctorPickerData = [set array];
     
-    set = [ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
-    set[0];
-    _chiefComplaintPickerData = [set array];
+    //
+    // NOTE: It is necessary to load the picker data in this way
+    //  as a result of Core Data's "lazy fetch" behavior
+    //
+    
+    NSMutableArray *setArray = [[NSMutableArray alloc] init];
+    
+    NSOrderedSet *doctorSet = [ItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
+    for(Item *i in doctorSet){
+        [setArray addObject:i.value];
+    }
+    _doctorPickerData = [[NSArray alloc] initWithArray:setArray];
+    
+    setArray = [[NSMutableArray alloc] init];
+    
+    NSOrderedSet *surgerySet = [ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
+    for(Item *i in surgerySet){
+        [setArray addObject:i.value];
+    }
+    _chiefComplaintPickerData = [[NSArray alloc] initWithArray:setArray];
 }
 
 - (void)loadLabels{
@@ -347,12 +348,10 @@
         [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
     }
     else if(popoverController == _chiefComplaintPopoverController){
-        Item *selectedItem = [_chiefComplaintPickerData objectAtIndex:[_chiefComplaintPicker selectedRowInComponent:0]];
-        [_chiefComplaintTextField setText:selectedItem.value];
+        [_chiefComplaintTextField setText:[_chiefComplaintPickerData objectAtIndex:[_chiefComplaintPicker selectedRowInComponent:0]]];
     }
     else if(popoverController == _doctorPopoverController){
-        Item *selectedItem = [_doctorPickerData objectAtIndex:[_chiefComplaintPicker selectedRowInComponent:0]];
-        [_doctorTextField setText:selectedItem.value];
+        [_doctorTextField setText:[_doctorPickerData objectAtIndex:[_doctorPicker selectedRowInComponent:0]]];
     }
 }
 
@@ -371,12 +370,10 @@
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     if(pickerView == _chiefComplaintPicker){
-        Item *returnItem = [_chiefComplaintPickerData objectAtIndex:row];
-        return returnItem.value;
+        return [_chiefComplaintPickerData objectAtIndex:row];
     }
     else if(pickerView == _doctorPicker){
-        Item *returnItem = [_doctorPickerData objectAtIndex:row];
-        return returnItem.value;
+        return [_doctorPickerData objectAtIndex:row];
     }
     
     return nil;

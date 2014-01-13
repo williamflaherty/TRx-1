@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
-#import "MyManagedObjectContext.h"
+#import "TRManagedObjectContext.h"
 #import "TRAppDelegate.h"
 #import "CDItem.h"
 #import "CDItemList.h"
@@ -16,11 +16,11 @@
 #import "CDOption.h"
 
 
-@implementation MyManagedObjectContext
+@implementation TRManagedObjectContext
 
-+ (MyManagedObjectContext *)mainThreadContext;
++ (TRManagedObjectContext *)mainThreadContext;
 {
-    static MyManagedObjectContext *moc;
+    static TRManagedObjectContext *moc;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         moc = [[self alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
@@ -90,7 +90,7 @@
 -(void)saveContext
 {
     NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = [MyManagedObjectContext mainThreadContext];
+    NSManagedObjectContext *managedObjectContext = [TRManagedObjectContext mainThreadContext];
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
             // Replace this implementation with code to handle the error appropriately.

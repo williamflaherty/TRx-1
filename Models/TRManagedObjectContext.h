@@ -8,14 +8,14 @@
 
 #import <CoreData/CoreData.h>
 
-@interface MyManagedObjectContext : NSManagedObjectContext
-+ (MyManagedObjectContext *)mainThreadContext;
+@interface TRManagedObjectContext : NSManagedObjectContext
++ (TRManagedObjectContext *)mainThreadContext;
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
 -(void)saveContext;
 
 
 @property (nonatomic, readonly, retain) NSManagedObjectModel *objectModel;
-@property (nonatomic, readonly, retain) MyManagedObjectContext *mainObjectContext;
+@property (nonatomic, readonly, retain) TRManagedObjectContext *mainObjectContext;
 @property (nonatomic, readonly, retain) NSPersistentStoreCoordinator *myPersistentStoreCoordinator;
 
 @end

@@ -19,6 +19,6 @@
 @property (nonatomic, retain) NSString * question_type;
 @property (nonatomic, retain) NSString * translation_text;
 @property (nonatomic, retain) NSManagedObject *list;
-@property (nonatomic, retain) NSManagedObject *options;
+@property (nonatomic, retain) NSOrderedSet *options;
 
 @end

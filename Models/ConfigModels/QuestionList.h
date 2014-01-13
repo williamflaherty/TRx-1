@@ -16,6 +16,6 @@
 @property (nonatomic, retain) NSNumber * branch_id;
 @property (nonatomic, retain) NSNumber * stack_index;
 @property (nonatomic, retain) ChainList *list;
-@property (nonatomic, retain) Question *questions;
+@property (nonatomic, retain) NSOrderedSet *questions;
 
 @end

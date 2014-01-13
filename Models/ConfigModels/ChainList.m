@@ -14,18 +14,22 @@
 @dynamic name;
 @dynamic chains;
 
-/*
-+(NSOrderedSet *)getStackListFromContext:(NSManagedObjectContext *)context {
-    NSFetchRequest *fetchRequest = [[[context persistentStoreCoordinator] managedObjectModel] fetchRequestTemplateForName:@"StackList"];
+
+
++(NSOrderedSet *)getChainsForRequestName:(NSString *)name fromContext:(NSManagedObjectContext *)context {
+    NSFetchRequest *fetchRequest = [[[context persistentStoreCoordinator] managedObjectModel] fetchRequestTemplateForName:name];
+    
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     if (fetchedObjects == nil) {
-        NSLog(@"Error retrieving %@ list: %@", @"StackList", error);
+        NSLog(@"Error retrieving %@ list: %@", name, error);
         return nil;
     }
     ChainList *list = [fetchedObjects objectAtIndex:0];
     
     return list.chains;
-}*/
+}
+
+
 
 @end

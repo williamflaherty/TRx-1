@@ -95,19 +95,65 @@
         as shown above */
     
     //test that objects are created and can retrieve them
-    NSLog(@"Listing doctors: ");
+    //NSLog(@"Listing doctors: ");
     NSOrderedSet *docs = [ItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
     for (Item *doc in docs) {
-        NSLog(@"%@", doc.value);
+        //NSLog(@"%@", doc.value);
     }
     
-    NSLog(@"Listing Surgeries: ");
+    //NSLog(@"Listing Surgeries: ");
     NSOrderedSet *surgeries = [ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
     for (Item *surgery in surgeries) {
-        NSLog(@"%@", surgery.value);
+        //NSLog(@"%@", surgery.value);
     }
  
-    //TODO: clear tables on new config press
+    //test retrieving questions
+    /*
+     
+     I apologize for not being better at naming things.
+     
+     ChainList      -- a list of question chains. 
+                    -- There are two ChainLists, stack_questions and branch_questions. 
+                    -- To grab them from CoreData, use the Fetch Requests "StackList" and "BranchList" as seen below
+     
+        --once you have a ChainList, you can follow the relations down, as shown below
+            -- each group has a to-many relationship with the items below it. That is, ChainList hasMany QuestionLists which can be reached by using the relationship property. A to-many relationship returns an NSOrderedSet of NSManagedObjects of whatever type. A to-one relationship just returns an NSManagedObject.
+                ChainList -- has-many --> QuestionList -- has-many --> Question --has-many--> Option
+                Option --has-one --> Question --has-one--> QuestionList --has-one --> ChainList
+     
+     
+
+     You can retrieve the ChainList object that holds the mandatory stack
+     
+     NSOrderedSet *stack_chains = [ChainList getChainsForRequestName:@"StackList" fromContext:[self managedObjectContext]];
+     
+     Sort these by stack_index, and then pop the questions onto the stack
+     
+     Branching could be done in different ways. Maybe the best would be to, at the end of configuration, to set up branch links between options and the QuestionLists they link to
+     
+     
+     I'm not sure if that made anything clearer...
+     
+     */
+    
+    NSOrderedSet *stack_chains = [ChainList getChainsForRequestName:@"StackList" fromContext:[self managedObjectContext]];
+    for (QuestionList *qList in stack_chains) {
+        
+        NSLog(@"stack_index: %@", qList.stack_index);
+        
+        NSOrderedSet *questions = qList.questions;
+        for (Question *q in questions) {
+            NSLog(@"question: %@", q.question_text);
+            
+            NSOrderedSet *options = q.options;
+            for (Option *o in options) {
+                NSLog(@"option: %@", o.text);
+            }
+        }
+        
+        
+        //NSLog(@"%@", qList);
+    }
 }
 
 #pragma mark - Configuration Methods
@@ -214,8 +260,6 @@
     
     //get each chain within the list
     for (NSDictionary *chainDic in list) {
-        //NSInteger *chainID = chainDic[@"id"];
-        //NSInteger *stack_index = chainDic[@"stack_index"];
         NSArray *questions = chainDic[@"questions"];
         QuestionList *qList = [NSEntityDescription insertNewObjectForEntityForName:@"QuestionList" inManagedObjectContext:context];
         
@@ -284,13 +328,6 @@
     [alert show];
 }
 
-//not being used
-//-(void)alertQuestionParsingFailure:(NSString *)key {
-//    NSString *message = [NSString stringWithFormat:@"Error parsing json question data: %@", key];
-//    NSLog(@"%@", message);
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Parsing error" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:Nil, nil];
-//    [alert show];
-//}
 
 -(void)clearTables {
     NSLog(@"Clearing tables");
@@ -313,7 +350,7 @@
     
     for (NSManagedObject *managedObject in items) {
     	[_managedObjectContext deleteObject:managedObject];
-    	NSLog(@"%@ object deleted",entityDescription);
+    	//NSLog(@"%@ object deleted",entityDescription);
     }
     if (![_managedObjectContext save:&error]) {
     	NSLog(@"Error deleting %@ - error:%@",entityDescription,error);

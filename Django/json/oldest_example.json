@@ -1,28 +1,5 @@
 {
-    "branch_questions": [],
-    "doctors": [
-        {
-            "doctor_name": "John Cotham",
-            "id": 1
-        },
-        {
-            "doctor_name": "Mark Bellot",
-            "id": 2
-        },
-        {
-            "doctor_name": "Willie Flaherty",
-            "id": 3
-        },
-        {
-            "doctor_name": "Mischa Buckler",
-            "id": 4
-        },
-        {
-            "doctor_name": "David Dahl",
-            "id": 5
-        }
-    ],
-    "stack_questions": [
+    "branch_questions": [
         {
             "id": 2,
             "questions": [
@@ -75,64 +52,32 @@
                     "question_type": "yn",
                     "translation_text": "Te gusta esta pregunta?"
                 }
-            ],
-            "stack_index": 0
+            ]
+        }
+    ],
+    "doctors": [
+        {
+            "doctor_name": "John Cotham",
+            "id": 1
         },
         {
-            "id": 3,
-            "questions": [
-                {
-                    "chain_index": 0,
-                    "display_group": "#basic",
-                    "display_text": "surgery type: ",
-                    "id": 2,
-                    "options": [
-                        {
-                            "branch_id": 1,
-                            "display_text": "h",
-                            "highlight": "n",
-                            "id": 17,
-                            "question_id": 2,
-                            "text": "Hernia",
-                            "translation": "Hernia"
-                        },
-                        {
-                            "branch_id": null,
-                            "display_text": "c",
-                            "highlight": "r",
-                            "id": 18,
-                            "question_id": 2,
-                            "text": "Cataract",
-                            "translation": "catarata"
-                        }
-                    ],
-                    "question_text": "What type of surgery do you need?",
-                    "question_type": "cb",
-                    "translation_text": "\u00bfQu\u00e9 tipo de cirug\u00eda se puede pedir?"
-                },
-                {
-                    "chain_index": 1,
-                    "display_group": "#silly",
-                    "display_text": "lucky:",
-                    "id": 4,
-                    "options": [
-                        {
-                            "branch_id": null,
-                            "display_text": null,
-                            "highlight": "n",
-                            "id": 29,
-                            "question_id": 4,
-                            "text": "",
-                            "translation": null
-                        }
-                    ],
-                    "question_text": "Do you feeling lucky?",
-                    "question_type": "fib",
-                    "translation_text": "Well, do ya, punk?"
-                }
-            ],
-            "stack_index": 1
+            "doctor_name": "Mark Bellot",
+            "id": 2
         },
+        {
+            "doctor_name": "Willie Flaherty",
+            "id": 3
+        },
+        {
+            "doctor_name": "Mischa Buckler",
+            "id": 4
+        },
+        {
+            "doctor_name": "David Dahl",
+            "id": 5
+        }
+    ],
+    "stack_questions": [
         {
             "id": 1,
             "questions": [
@@ -213,7 +158,7 @@
                     "translation_text": "\u00bfCu\u00e1nto tiempo ha estado teniendo este problema?"
                 }
             ],
-            "stack_index": 2
+            "stack_index": 0
         }
     ],
     "surgeries": [

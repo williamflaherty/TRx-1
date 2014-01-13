@@ -1,5 +1,144 @@
 {
-    "branch_questions": [],
+    "branch_questions": [
+        {
+            "id": 5,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#group5",
+                    "display_text": "branch1: ",
+                    "id": 12,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 44,
+                            "question_id": 12,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
+                    "question_text": "This is a branch question for branch chain 1",
+                    "question_type": "fib",
+                    "translation_text": "This is a branch question for branch chain 1"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#group6",
+                    "display_text": "bc2: ",
+                    "id": 13,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 45,
+                            "question_id": 13,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
+                    "question_text": "Branch question for branch chain 2",
+                    "question_type": "fib",
+                    "translation_text": "Branch question for branch chain 2"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#group7",
+                    "display_text": "bc3: ",
+                    "id": 14,
+                    "options": [
+                        {
+                            "branch_id": 5,
+                            "display_text": "ok",
+                            "highlight": "n",
+                            "id": 46,
+                            "question_id": 14,
+                            "text": "This could branch back to bc1",
+                            "translation": "This could branch back to bc1"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "not ok",
+                            "highlight": "r",
+                            "id": 47,
+                            "question_id": 14,
+                            "text": "This isn't ok",
+                            "translation": "This isn't ok"
+                        }
+                    ],
+                    "question_text": "branch chain 3 question",
+                    "question_type": "cb",
+                    "translation_text": "branch chain 3 question"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "#group7",
+                    "display_text": "abc3",
+                    "id": 15,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 48,
+                            "question_id": 15,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
+                    "question_text": "Another branch chain 3 question",
+                    "question_type": "fib",
+                    "translation_text": "Another branch chain 3 question"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#group8",
+                    "display_text": "bc4",
+                    "id": 16,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": "Y",
+                            "highlight": "n",
+                            "id": 49,
+                            "question_id": 16,
+                            "text": "Yes",
+                            "translation": "Si"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "N",
+                            "highlight": null,
+                            "id": 50,
+                            "question_id": 16,
+                            "text": "No",
+                            "translation": "no"
+                        }
+                    ],
+                    "question_text": "Branch chain 4",
+                    "question_type": "yn",
+                    "translation_text": "Branch chain 4"
+                }
+            ]
+        }
+    ],
     "doctors": [
         {
             "doctor_name": "John Cotham",
@@ -24,196 +163,220 @@
     ],
     "stack_questions": [
         {
+            "id": 1,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "#group1",
+                    "display_text": "qsc1: ",
+                    "id": 6,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": "c1",
+                            "highlight": "n",
+                            "id": 30,
+                            "question_id": 6,
+                            "text": "Choice 1",
+                            "translation": "Choice 1"
+                        },
+                        {
+                            "branch_id": 5,
+                            "display_text": "c2",
+                            "highlight": null,
+                            "id": 31,
+                            "question_id": 6,
+                            "text": "Choice 2",
+                            "translation": "Choice 2"
+                        }
+                    ],
+                    "question_text": "Question for stack chain 1",
+                    "question_type": "cb",
+                    "translation_text": "Question for stack chain 1"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "#group1",
+                    "display_text": "sqsc1: ",
+                    "id": 7,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": "c1",
+                            "highlight": "n",
+                            "id": 32,
+                            "question_id": 7,
+                            "text": "Check 1",
+                            "translation": "Check 1"
+                        },
+                        {
+                            "branch_id": 5,
+                            "display_text": "c2",
+                            "highlight": null,
+                            "id": 33,
+                            "question_id": 7,
+                            "text": "Check 2",
+                            "translation": "Check 2"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "c3",
+                            "highlight": null,
+                            "id": 34,
+                            "question_id": 7,
+                            "text": "Check 3",
+                            "translation": "Check 3"
+                        }
+                    ],
+                    "question_text": "Second question for stack chain 1",
+                    "question_type": "cbb",
+                    "translation_text": "Second question for stack chain 1"
+                }
+            ],
+            "stack_index": 0
+        },
+        {
             "id": 2,
             "questions": [
                 {
                     "chain_index": 0,
-                    "display_group": "#silly",
-                    "display_text": "lucky:",
-                    "id": 4,
+                    "display_group": "#group2",
+                    "display_text": "qsc2: ",
+                    "id": 8,
                     "options": [
                         {
-                            "branch_id": null,
-                            "display_text": null,
-                            "highlight": "n",
-                            "id": 29,
-                            "question_id": 4,
-                            "text": "",
-                            "translation": null
-                        }
-                    ],
-                    "question_text": "Do you feeling lucky?",
-                    "question_type": "fib",
-                    "translation_text": "Well, do ya, punk?"
-                },
-                {
-                    "chain_index": 1,
-                    "display_group": "#silly",
-                    "display_text": "like: ",
-                    "id": 3,
-                    "options": [
-                        {
-                            "branch_id": 2,
+                            "branch_id": 5,
                             "display_text": "Y",
                             "highlight": "n",
-                            "id": 23,
-                            "question_id": 3,
+                            "id": 35,
+                            "question_id": 8,
                             "text": "Yes",
                             "translation": "Si"
                         },
                         {
-                            "branch_id": 2,
+                            "branch_id": 6,
                             "display_text": "N",
                             "highlight": null,
-                            "id": 24,
-                            "question_id": 3,
+                            "id": 36,
+                            "question_id": 8,
                             "text": "No",
-                            "translation": "No"
+                            "translation": "no"
                         }
                     ],
-                    "question_text": "Do you like this question?",
+                    "question_text": "Question for stack chain 2",
                     "question_type": "yn",
-                    "translation_text": "Te gusta esta pregunta?"
+                    "translation_text": "question for stack chain 2"
                 }
             ],
-            "stack_index": 0
+            "stack_index": 1
         },
         {
             "id": 3,
             "questions": [
                 {
                     "chain_index": 0,
-                    "display_group": "#basic",
-                    "display_text": "surgery type: ",
-                    "id": 2,
+                    "display_group": "#group3",
+                    "display_text": "qsc3",
+                    "id": 9,
                     "options": [
                         {
-                            "branch_id": 1,
-                            "display_text": "h",
+                            "branch_id": null,
+                            "display_text": "p1",
                             "highlight": "n",
-                            "id": 17,
-                            "question_id": 2,
-                            "text": "Hernia",
-                            "translation": "Hernia"
+                            "id": 37,
+                            "question_id": 9,
+                            "text": "Pick 1",
+                            "translation": "pick 1"
                         },
                         {
                             "branch_id": null,
-                            "display_text": "c",
-                            "highlight": "r",
-                            "id": 18,
-                            "question_id": 2,
-                            "text": "Cataract",
-                            "translation": "catarata"
+                            "display_text": "p2",
+                            "highlight": null,
+                            "id": 38,
+                            "question_id": 9,
+                            "text": "Pick 2",
+                            "translation": "pick 2"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "p3",
+                            "highlight": null,
+                            "id": 39,
+                            "question_id": 9,
+                            "text": "Pick 3",
+                            "translation": "pick 3"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "p4",
+                            "highlight": null,
+                            "id": 40,
+                            "question_id": 9,
+                            "text": "Pick 4",
+                            "translation": "pick 4"
                         }
                     ],
-                    "question_text": "What type of surgery do you need?",
+                    "question_text": "Question for stack chain 3",
                     "question_type": "cb",
-                    "translation_text": "\u00bfQu\u00e9 tipo de cirug\u00eda se puede pedir?"
-                },
+                    "translation_text": "question for stack chain 3"
+                }
+            ],
+            "stack_index": 2
+        },
+        {
+            "id": 4,
+            "questions": [
                 {
-                    "chain_index": 1,
-                    "display_group": "#silly",
-                    "display_text": "lucky:",
-                    "id": 4,
+                    "chain_index": 0,
+                    "display_group": "#group4",
+                    "display_text": "fib:",
+                    "id": 10,
                     "options": [
                         {
                             "branch_id": null,
                             "display_text": null,
                             "highlight": "n",
-                            "id": 29,
-                            "question_id": 4,
+                            "id": 41,
+                            "question_id": 10,
                             "text": "",
                             "translation": null
                         }
                     ],
-                    "question_text": "Do you feeling lucky?",
+                    "question_text": "Stack Chain 4 starts with a fill in the blank",
                     "question_type": "fib",
-                    "translation_text": "Well, do ya, punk?"
-                }
-            ],
-            "stack_index": 1
-        },
-        {
-            "id": 1,
-            "questions": [
-                {
-                    "chain_index": 0,
-                    "display_group": "#basic",
-                    "display_text": "surgery type: ",
-                    "id": 2,
-                    "options": [
-                        {
-                            "branch_id": 1,
-                            "display_text": "h",
-                            "highlight": "n",
-                            "id": 17,
-                            "question_id": 2,
-                            "text": "Hernia",
-                            "translation": "Hernia"
-                        },
-                        {
-                            "branch_id": null,
-                            "display_text": "c",
-                            "highlight": "r",
-                            "id": 18,
-                            "question_id": 2,
-                            "text": "Cataract",
-                            "translation": "catarata"
-                        }
-                    ],
-                    "question_text": "What type of surgery do you need?",
-                    "question_type": "cb",
-                    "translation_text": "\u00bfQu\u00e9 tipo de cirug\u00eda se puede pedir?"
+                    "translation_text": "This is a fill in the blank"
                 },
                 {
                     "chain_index": 1,
-                    "display_group": "#basic",
-                    "display_text": "How long: ",
-                    "id": 1,
+                    "display_group": "#group4",
+                    "display_text": "qsc4: ",
+                    "id": 11,
                     "options": [
                         {
-                            "branch_id": null,
-                            "display_text": " < 1 month",
+                            "branch_id": 7,
+                            "display_text": "s1",
                             "highlight": "n",
-                            "id": 25,
-                            "question_id": 1,
-                            "text": "Less than a month",
-                            "translation": "menos de un mes"
+                            "id": 42,
+                            "question_id": 11,
+                            "text": "Selection 1",
+                            "translation": "selection 1"
                         },
                         {
-                            "branch_id": null,
-                            "display_text": "< 6 months",
-                            "highlight": "b",
-                            "id": 26,
-                            "question_id": 1,
-                            "text": "Less than six months",
-                            "translation": "menos des seis meses"
-                        },
-                        {
-                            "branch_id": 2,
-                            "display_text": ">> 1 year",
+                            "branch_id": 8,
+                            "display_text": "s2",
                             "highlight": null,
-                            "id": 27,
-                            "question_id": 1,
-                            "text": "Longer than one year",
-                            "translation": "m\u00e1s de un a\u00f1o"
-                        },
-                        {
-                            "branch_id": 1,
-                            "display_text": "??? ??",
-                            "highlight": "r",
-                            "id": 28,
-                            "question_id": 1,
-                            "text": "I'm not sure",
-                            "translation": "no seguro"
+                            "id": 43,
+                            "question_id": 11,
+                            "text": "Selection 2",
+                            "translation": "selection 2"
                         }
                     ],
-                    "question_text": "How long have you been having this problem?",
-                    "question_type": "cbb",
-                    "translation_text": "\u00bfCu\u00e1nto tiempo ha estado teniendo este problema?"
+                    "question_text": "Another question for stack chain 4",
+                    "question_type": "cb",
+                    "translation_text": "another question for stack chain 4"
                 }
             ],
-            "stack_index": 2
+            "stack_index": 3
         }
     ],
     "surgeries": [

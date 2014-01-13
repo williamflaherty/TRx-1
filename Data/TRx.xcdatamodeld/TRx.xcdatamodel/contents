@@ -50,16 +50,17 @@
         <attribute name="question_type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translation_text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QuestionList" inverseName="questions" inverseEntity="QuestionList" syncable="YES"/>
-        <relationship name="options" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Option" inverseName="question" inverseEntity="Option" syncable="YES"/>
+        <relationship name="options" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Option" inverseName="question" inverseEntity="Option" syncable="YES"/>
     </entity>
     <entity name="QuestionList" representedClassName="QuestionChain" syncable="YES">
         <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stack_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChainList" inverseName="chains" inverseEntity="ChainList" syncable="YES"/>
-        <relationship name="questions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="list" inverseEntity="Question" syncable="YES"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="list" inverseEntity="Question" syncable="YES"/>
     </entity>
     <fetchRequest name="BranchList" entity="ChainList" predicateString="name == &quot;branch_questions&quot;"/>
     <fetchRequest name="DoctorList" entity="ItemList" predicateString="name == &quot;doctors&quot;"/>
+    <fetchRequest name="PatientList" entity="Patient"/>
     <fetchRequest name="StackList" entity="ChainList" predicateString="name == &quot;stack_questions&quot;"/>
     <fetchRequest name="SurgeryList" entity="ItemList" predicateString="name == &quot;surgeries&quot;"/>
     <elements>

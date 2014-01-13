@@ -13,6 +13,6 @@
 @interface ChainList : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSManagedObject *chains;
-
+@property (nonatomic, retain) NSOrderedSet *chains;
++(NSOrderedSet *)getChainsForRequestName:(NSString *)name fromContext:(NSManagedObjectContext *)context;
 @end

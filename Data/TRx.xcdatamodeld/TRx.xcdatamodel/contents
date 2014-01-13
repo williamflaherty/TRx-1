@@ -17,9 +17,6 @@
     <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemList" inverseName="items" inverseEntity="ItemList" syncable="YES"/>
-        <fetchedProperty name="doctors" optional="YES" syncable="YES">
-            <fetchRequest name="fetchedPropertyFetchRequest" entity="Item" predicateString="name LIKE 'doctors'"/>
-        </fetchedProperty>
     </entity>
     <entity name="ItemList" representedClassName="ItemList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

@@ -21,6 +21,7 @@
 // fetchName is either "DoctorList" or "SurgeryList" -- as specified in datamodel fetch requests
 
 +(NSOrderedSet *)getList:(NSString *)fetchName inContext:(NSManagedObjectContext *)context {
+    
     NSFetchRequest *fetchRequest = [[[context persistentStoreCoordinator] managedObjectModel] fetchRequestTemplateForName:fetchName];
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];

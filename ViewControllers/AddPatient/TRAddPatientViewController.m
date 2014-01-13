@@ -106,9 +106,16 @@
     });
 }
 
+/* so, this is a bit of a workaround. CoreData does Lazy Fetching, so the set doesn't have
+   a size until you try to access one of its elements, and then it loads. */
 - (void)fetchItemsFromCoreData{
-    _doctorPickerData = [[ItemList getList:@"DoctorList" inContext:[self managedObjectContext]] array];
-    _chiefComplaintPickerData = [[ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]] array];
+    NSOrderedSet *set = [ItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
+    set[0];
+    _doctorPickerData = [set array];
+    
+    set = [ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
+    set[0];
+    _chiefComplaintPickerData = [set array];
 }
 
 - (void)loadLabels{

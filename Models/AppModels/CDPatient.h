@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Patient : NSManagedObject
+@interface CDPatient : NSManagedObject
 
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * middleName;

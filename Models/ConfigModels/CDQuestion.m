@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
-#import "Question.h"
+#import "CDQuestion.h"
 
 
-@implementation Question
+@implementation CDQuestion
 
 @dynamic list_index;
 @dynamic display_group;

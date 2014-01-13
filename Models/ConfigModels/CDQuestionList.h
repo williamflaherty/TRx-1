@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class ChainList, Question;
+@class CDChainList, CDQuestion;
 
-@interface QuestionList : NSManagedObject
+@interface CDQuestionList : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * branch_id;
 @property (nonatomic, retain) NSNumber * stack_index;
-@property (nonatomic, retain) ChainList *list;
+@property (nonatomic, retain) CDChainList *list;
 @property (nonatomic, retain) NSOrderedSet *questions;
 
 @end

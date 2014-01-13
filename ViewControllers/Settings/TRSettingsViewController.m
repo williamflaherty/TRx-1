@@ -9,12 +9,12 @@
 #import "TRSettingsViewController.h"
 #import "TRCustomButton.h"
 #import "MyManagedObjectContext.h"
-#import "Item.h"
-#import "ItemList.h"
-#import "ChainList.h"
-#import "Question.h"
-#import "QuestionList.h"
-#import "Option.h"
+#import "CDItem.h"
+#import "CDItemList.h"
+#import "CDChainList.h"
+#import "CDQuestion.h"
+#import "CDQuestionList.h"
+#import "CDOption.h"
 
 @interface TRSettingsViewController ()
 
@@ -96,14 +96,14 @@
     
     //test that objects are created and can retrieve them
     //NSLog(@"Listing doctors: ");
-    NSOrderedSet *docs = [ItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
-    for (Item *doc in docs) {
+    NSOrderedSet *docs = [CDItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
+    for (CDItem *doc in docs) {
         //NSLog(@"%@", doc.value);
     }
     
     //NSLog(@"Listing Surgeries: ");
-    NSOrderedSet *surgeries = [ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
-    for (Item *surgery in surgeries) {
+    NSOrderedSet *surgeries = [CDItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
+    for (CDItem *surgery in surgeries) {
         //NSLog(@"%@", surgery.value);
     }
  
@@ -136,17 +136,17 @@
      
      */
     
-    NSOrderedSet *stack_chains = [ChainList getChainsForRequestName:@"StackList" fromContext:[self managedObjectContext]];
-    for (QuestionList *qList in stack_chains) {
+    NSOrderedSet *stack_chains = [CDChainList getChainsForRequestName:@"StackList" fromContext:[self managedObjectContext]];
+    for (CDQuestionList *qList in stack_chains) {
         
         NSLog(@"stack_index: %@", qList.stack_index);
         
         NSOrderedSet *questions = qList.questions;
-        for (Question *q in questions) {
+        for (CDQuestion *q in questions) {
             NSLog(@"question: %@", q.question_text);
             
             NSOrderedSet *options = q.options;
-            for (Option *o in options) {
+            for (CDOption *o in options) {
                 NSLog(@"option: %@", o.text);
             }
         }
@@ -191,14 +191,14 @@
     }
     
     //create list entity for doctors
-    ItemList *list = [NSEntityDescription
+    CDItemList *list = [NSEntityDescription
             insertNewObjectForEntityForName:itemListName
             inManagedObjectContext:context];
     list.name = @"doctors";
     
     //create item for each name and relate it to doctor list entity
     for (NSDictionary *doctor in doctors) {
-        Item *d = [NSEntityDescription
+        CDItem *d = [NSEntityDescription
                    insertNewObjectForEntityForName:itemName
                    inManagedObjectContext:context];
         d.value = doctor[@"doctor_name"];
@@ -221,7 +221,7 @@
     
     //create item for each surgery and relate it to surgery list entity
     for (NSDictionary *surgery in surgeries) {
-        Item *s = [NSEntityDescription
+        CDItem *s = [NSEntityDescription
                    insertNewObjectForEntityForName:itemName
                    inManagedObjectContext:context];
         
@@ -253,7 +253,7 @@
     }
     
     //create ChainList entity that will store the question chains in order
-    ChainList *cList = [NSEntityDescription
+    CDChainList *cList = [NSEntityDescription
                         insertNewObjectForEntityForName:@"ChainList"
                         inManagedObjectContext:self.managedObjectContext];
     cList.name = key;
@@ -261,16 +261,16 @@
     //get each chain within the list
     for (NSDictionary *chainDic in list) {
         NSArray *questions = chainDic[@"questions"];
-        QuestionList *qList = [NSEntityDescription insertNewObjectForEntityForName:@"QuestionList" inManagedObjectContext:context];
+        CDQuestionList *qList = [NSEntityDescription insertNewObjectForEntityForName:@"QuestionList" inManagedObjectContext:context];
         
         //get each question in the chain
         for (NSDictionary *question in questions) {
-            Question *q = [NSEntityDescription insertNewObjectForEntityForName:@"Question"inManagedObjectContext:context];
+            CDQuestion *q = [NSEntityDescription insertNewObjectForEntityForName:@"Question"inManagedObjectContext:context];
             
             //get each option in the question
             NSArray *options = question[@"options"];
             for (NSDictionary *option in options) {
-                Option *o = [NSEntityDescription insertNewObjectForEntityForName:@"Option" inManagedObjectContext:context];
+                CDOption *o = [NSEntityDescription insertNewObjectForEntityForName:@"Option" inManagedObjectContext:context];
                 [self packOption:o intoQuestion:q withData:option];
             }
             [self packQuestion:q intoQuestionList:qList withData:question];
@@ -283,13 +283,13 @@
 
 
 // 3 methods for packing up questions when parsing the json
--(void)packQuestionList:(QuestionList *)qList intoChainList:(ChainList *)cList withData:(NSDictionary *)dic {
+-(void)packQuestionList:(CDQuestionList *)qList intoChainList:(CDChainList *)cList withData:(NSDictionary *)dic {
     qList.stack_index = dic[@"stack_index"];
     qList.branch_id = dic[@"id"];
     qList.list = cList;
 }
 
--(void)packQuestion:(Question *)q intoQuestionList:(QuestionList *)qList withData:(NSDictionary *)dic {
+-(void)packQuestion:(CDQuestion *)q intoQuestionList:(CDQuestionList *)qList withData:(NSDictionary *)dic {
     q.list_index = dic[@"chain_index"];
     q.display_group = dic[@"display_group"];
     q.display_text = dic[@"display_text"];
@@ -298,7 +298,7 @@
     q.list = qList;
 }
 
--(void)packOption:(Option *)o intoQuestion:(Question *)q withData:(NSDictionary *)dic {
+-(void)packOption:(CDOption *)o intoQuestion:(CDQuestion *)q withData:(NSDictionary *)dic {
     NSNumber *branch_id = dic[@"branch_id"];
     if ([branch_id isEqual:[NSNull null]]) {
         branch_id = [NSNumber numberWithInt:-1];

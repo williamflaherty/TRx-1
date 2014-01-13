@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Question : NSManagedObject
+@interface CDQuestion : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * list_index;
 @property (nonatomic, retain) NSString * display_group;

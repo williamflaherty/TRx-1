@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
-#import "Item.h"
-#import "ItemList.h"
+#import "CDItem.h"
+#import "CDItemList.h"
 
 
-@implementation Item
+@implementation CDItem
 
 @dynamic value;
 @dynamic list;

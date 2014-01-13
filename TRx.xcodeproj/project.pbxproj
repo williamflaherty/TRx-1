@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0CB999C613134C2DB5524417 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA35FE7EB0304591A19109D4 /* libPods.a */; };
-		1318E1F8188202EE000146FC /* ItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1F7188202EE000146FC /* ItemList.m */; };
-		1318E1FB188202EE000146FC /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FA188202EE000146FC /* Item.m */; };
+		1318E1F8188202EE000146FC /* CDItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1F7188202EE000146FC /* CDItemList.m */; };
+		1318E1FB188202EE000146FC /* CDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FA188202EE000146FC /* CDItem.m */; };
 		1318E1FE18823795000146FC /* MyManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FD18823795000146FC /* MyManagedObjectContext.m */; };
-		1318E20118826B11000146FC /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20018826B11000146FC /* Question.m */; };
-		1318E20418826B12000146FC /* ChainList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20318826B12000146FC /* ChainList.m */; };
-		1318E20A18826B12000146FC /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20918826B12000146FC /* Option.m */; };
-		1318E21018827193000146FC /* QuestionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20F18827193000146FC /* QuestionList.m */; };
+		1318E20118826B11000146FC /* CDQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20018826B11000146FC /* CDQuestion.m */; };
+		1318E20418826B12000146FC /* CDChainList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20318826B12000146FC /* CDChainList.m */; };
+		1318E20A18826B12000146FC /* CDOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20918826B12000146FC /* CDOption.m */; };
+		1318E21018827193000146FC /* CDQuestionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20F18827193000146FC /* CDQuestionList.m */; };
 		1318E2151883B876000146FC /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 1318E2141883B876000146FC /* example.json */; };
-		1374F163185A453C003CB138 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374F162185A453C003CB138 /* Patient.m */; };
+		1374F163185A453C003CB138 /* CDPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374F162185A453C003CB138 /* CDPatient.m */; };
 		C403257D1874C943003D8159 /* TRHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C403257C1874C943003D8159 /* TRHistoryHelper.m */; };
 		C40325831874C9CD003D8159 /* TRQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325821874C9CD003D8159 /* TRQLabel.m */; };
 		C40325861874C9EB003D8159 /* TRQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325851874C9EB003D8159 /* TRQTextField.m */; };
@@ -78,23 +78,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1318E1F6188202EE000146FC /* ItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemList.h; path = Models/ConfigModels/ItemList.h; sourceTree = SOURCE_ROOT; };
-		1318E1F7188202EE000146FC /* ItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemList.m; path = Models/ConfigModels/ItemList.m; sourceTree = SOURCE_ROOT; };
-		1318E1F9188202EE000146FC /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Models/ConfigModels/Item.h; sourceTree = SOURCE_ROOT; };
-		1318E1FA188202EE000146FC /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Models/ConfigModels/Item.m; sourceTree = SOURCE_ROOT; };
+		1318E1F6188202EE000146FC /* CDItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDItemList.h; path = Models/ConfigModels/CDItemList.h; sourceTree = SOURCE_ROOT; };
+		1318E1F7188202EE000146FC /* CDItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDItemList.m; path = Models/ConfigModels/CDItemList.m; sourceTree = SOURCE_ROOT; };
+		1318E1F9188202EE000146FC /* CDItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDItem.h; path = Models/ConfigModels/CDItem.h; sourceTree = SOURCE_ROOT; };
+		1318E1FA188202EE000146FC /* CDItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDItem.m; path = Models/ConfigModels/CDItem.m; sourceTree = SOURCE_ROOT; };
 		1318E1FC18823795000146FC /* MyManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyManagedObjectContext.h; path = Models/MyManagedObjectContext.h; sourceTree = SOURCE_ROOT; };
 		1318E1FD18823795000146FC /* MyManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyManagedObjectContext.m; path = Models/MyManagedObjectContext.m; sourceTree = SOURCE_ROOT; };
-		1318E1FF18826B11000146FC /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = Models/ConfigModels/Question.h; sourceTree = SOURCE_ROOT; };
-		1318E20018826B11000146FC /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = Models/ConfigModels/Question.m; sourceTree = SOURCE_ROOT; };
-		1318E20218826B12000146FC /* ChainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChainList.h; path = Models/ConfigModels/ChainList.h; sourceTree = SOURCE_ROOT; };
-		1318E20318826B12000146FC /* ChainList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChainList.m; path = Models/ConfigModels/ChainList.m; sourceTree = SOURCE_ROOT; };
-		1318E20818826B12000146FC /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Option.h; path = Models/ConfigModels/Option.h; sourceTree = SOURCE_ROOT; };
-		1318E20918826B12000146FC /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Option.m; path = Models/ConfigModels/Option.m; sourceTree = SOURCE_ROOT; };
-		1318E20E18827193000146FC /* QuestionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionList.h; path = Models/ConfigModels/QuestionList.h; sourceTree = SOURCE_ROOT; };
-		1318E20F18827193000146FC /* QuestionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionList.m; path = Models/ConfigModels/QuestionList.m; sourceTree = SOURCE_ROOT; };
+		1318E1FF18826B11000146FC /* CDQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDQuestion.h; path = Models/ConfigModels/CDQuestion.h; sourceTree = SOURCE_ROOT; };
+		1318E20018826B11000146FC /* CDQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDQuestion.m; path = Models/ConfigModels/CDQuestion.m; sourceTree = SOURCE_ROOT; };
+		1318E20218826B12000146FC /* CDChainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDChainList.h; path = Models/ConfigModels/CDChainList.h; sourceTree = SOURCE_ROOT; };
+		1318E20318826B12000146FC /* CDChainList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDChainList.m; path = Models/ConfigModels/CDChainList.m; sourceTree = SOURCE_ROOT; };
+		1318E20818826B12000146FC /* CDOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDOption.h; path = Models/ConfigModels/CDOption.h; sourceTree = SOURCE_ROOT; };
+		1318E20918826B12000146FC /* CDOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDOption.m; path = Models/ConfigModels/CDOption.m; sourceTree = SOURCE_ROOT; };
+		1318E20E18827193000146FC /* CDQuestionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDQuestionList.h; path = Models/ConfigModels/CDQuestionList.h; sourceTree = SOURCE_ROOT; };
+		1318E20F18827193000146FC /* CDQuestionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDQuestionList.m; path = Models/ConfigModels/CDQuestionList.m; sourceTree = SOURCE_ROOT; };
 		1318E2141883B876000146FC /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
-		1374F161185A453C003CB138 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patient.h; path = Models/AppModels/Patient.h; sourceTree = SOURCE_ROOT; };
-		1374F162185A453C003CB138 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Patient.m; path = Models/AppModels/Patient.m; sourceTree = SOURCE_ROOT; };
+		1374F161185A453C003CB138 /* CDPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDPatient.h; path = Models/AppModels/CDPatient.h; sourceTree = SOURCE_ROOT; };
+		1374F162185A453C003CB138 /* CDPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDPatient.m; path = Models/AppModels/CDPatient.m; sourceTree = SOURCE_ROOT; };
 		520D5244C93F431DA0DBD15B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C403257B1874C943003D8159 /* TRHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRHistoryHelper.h; path = ViewControllers/History/TRHistoryHelper.h; sourceTree = SOURCE_ROOT; };
 		C403257C1874C943003D8159 /* TRHistoryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryHelper.m; path = ViewControllers/History/TRHistoryHelper.m; sourceTree = SOURCE_ROOT; };
@@ -199,18 +199,18 @@
 		1318E211188271D3000146FC /* ConfigModels */ = {
 			isa = PBXGroup;
 			children = (
-				1318E1F9188202EE000146FC /* Item.h */,
-				1318E1FA188202EE000146FC /* Item.m */,
-				1318E1F6188202EE000146FC /* ItemList.h */,
-				1318E1F7188202EE000146FC /* ItemList.m */,
-				1318E20818826B12000146FC /* Option.h */,
-				1318E20918826B12000146FC /* Option.m */,
-				1318E20218826B12000146FC /* ChainList.h */,
-				1318E20318826B12000146FC /* ChainList.m */,
-				1318E1FF18826B11000146FC /* Question.h */,
-				1318E20018826B11000146FC /* Question.m */,
-				1318E20E18827193000146FC /* QuestionList.h */,
-				1318E20F18827193000146FC /* QuestionList.m */,
+				1318E1F9188202EE000146FC /* CDItem.h */,
+				1318E1FA188202EE000146FC /* CDItem.m */,
+				1318E1F6188202EE000146FC /* CDItemList.h */,
+				1318E1F7188202EE000146FC /* CDItemList.m */,
+				1318E20818826B12000146FC /* CDOption.h */,
+				1318E20918826B12000146FC /* CDOption.m */,
+				1318E20218826B12000146FC /* CDChainList.h */,
+				1318E20318826B12000146FC /* CDChainList.m */,
+				1318E1FF18826B11000146FC /* CDQuestion.h */,
+				1318E20018826B11000146FC /* CDQuestion.m */,
+				1318E20E18827193000146FC /* CDQuestionList.h */,
+				1318E20F18827193000146FC /* CDQuestionList.m */,
 			);
 			name = ConfigModels;
 			sourceTree = "<group>";
@@ -409,8 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				1318E211188271D3000146FC /* ConfigModels */,
-				1374F161185A453C003CB138 /* Patient.h */,
-				1374F162185A453C003CB138 /* Patient.m */,
+				1374F161185A453C003CB138 /* CDPatient.h */,
+				1374F162185A453C003CB138 /* CDPatient.m */,
 				1318E1FC18823795000146FC /* MyManagedObjectContext.h */,
 				1318E1FD18823795000146FC /* MyManagedObjectContext.m */,
 			);
@@ -621,12 +621,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1318E1FB188202EE000146FC /* Item.m in Sources */,
+				1318E1FB188202EE000146FC /* CDItem.m in Sources */,
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
-				1374F163185A453C003CB138 /* Patient.m in Sources */,
+				1374F163185A453C003CB138 /* CDPatient.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
 				C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */,
-				1318E1F8188202EE000146FC /* ItemList.m in Sources */,
+				1318E1F8188202EE000146FC /* CDItemList.m in Sources */,
 				C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */,
 				C48C6E3F17E661700065ABBE /* TRAppDelegate.m in Sources */,
 				C40325951874CF4E003D8159 /* TRBorderedImageView.m in Sources */,
@@ -634,10 +634,10 @@
 				C48C6E3B17E661700065ABBE /* main.m in Sources */,
 				C403258F1874CAA7003D8159 /* TRQYesNoButton.m in Sources */,
 				C40325891874CA0E003D8159 /* TRQView.m in Sources */,
-				1318E21018827193000146FC /* QuestionList.m in Sources */,
+				1318E21018827193000146FC /* CDQuestionList.m in Sources */,
 				C4839E19187A1BF9002990E0 /* TRCustomButton.m in Sources */,
 				C4EDCF07181C3A4000256DE5 /* TRPhysicalViewController.m in Sources */,
-				1318E20418826B12000146FC /* ChainList.m in Sources */,
+				1318E20418826B12000146FC /* CDChainList.m in Sources */,
 				C46B4816180C3854002CF789 /* TRNavigationController.m in Sources */,
 				1318E1FE18823795000146FC /* MyManagedObjectContext.m in Sources */,
 				C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */,
@@ -647,10 +647,10 @@
 				C40325831874C9CD003D8159 /* TRQLabel.m in Sources */,
 				C48C6E6D17E6622F0065ABBE /* TestViewController.m in Sources */,
 				C482B0C6181598C4001B0B20 /* TRAddPatientViewController.m in Sources */,
-				1318E20118826B11000146FC /* Question.m in Sources */,
+				1318E20118826B11000146FC /* CDQuestion.m in Sources */,
 				C482B0D418159B4A001B0B20 /* TRTabBarController.m in Sources */,
 				C403258C1874CA7C003D8159 /* TRQCheckBox.m in Sources */,
-				1318E20A18826B12000146FC /* Option.m in Sources */,
+				1318E20A18826B12000146FC /* CDOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

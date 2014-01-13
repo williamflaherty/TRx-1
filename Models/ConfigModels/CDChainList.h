@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface ChainList : NSManagedObject
+@interface CDChainList : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSOrderedSet *chains;

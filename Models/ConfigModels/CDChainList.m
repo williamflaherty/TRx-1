@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
-#import "ChainList.h"
+#import "CDChainList.h"
 
 
-@implementation ChainList
+@implementation CDChainList
 
 @dynamic name;
 @dynamic chains;
@@ -25,7 +25,7 @@
         NSLog(@"Error retrieving %@ list: %@", name, error);
         return nil;
     }
-    ChainList *list = [fetchedObjects objectAtIndex:0];
+    CDChainList *list = [fetchedObjects objectAtIndex:0];
     
     return list.chains;
 }

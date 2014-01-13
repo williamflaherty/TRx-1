@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
-#import "ItemList.h"
+#import "CDItemList.h"
 
 
-@implementation ItemList
+@implementation CDItemList
 
 @dynamic name;
 @dynamic items;
@@ -29,7 +29,7 @@
         NSLog(@"Error retrieving %@ list: %@", fetchName, error);
         return nil;
     }
-    ItemList *list = [fetchedObjects objectAtIndex:0];
+    CDItemList *list = [fetchedObjects objectAtIndex:0];
     
     return list.items;
 }

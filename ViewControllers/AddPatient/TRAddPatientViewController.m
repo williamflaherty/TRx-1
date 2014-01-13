@@ -11,12 +11,12 @@
 #import "TRCustomButton.h"
 #import "TRBorderedImageView.h"
 #import "MyManagedObjectContext.h"
-#import "Item.h"
-#import "ItemList.h"
-#import "ChainList.h"
-#import "Question.h"
-#import "QuestionList.h"
-#import "Option.h"
+#import "CDItem.h"
+#import "CDItemList.h"
+#import "CDChainList.h"
+#import "CDQuestion.h"
+#import "CDQuestionList.h"
+#import "CDOption.h"
 
 #define kPopoverHeightBuffer 100.0f
 
@@ -104,16 +104,16 @@
     
     NSMutableArray *setArray = [[NSMutableArray alloc] init];
     
-    NSOrderedSet *doctorSet = [ItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
-    for(Item *i in doctorSet){
+    NSOrderedSet *doctorSet = [CDItemList getList:@"DoctorList" inContext:[self managedObjectContext]];
+    for(CDItem *i in doctorSet){
         [setArray addObject:i.value];
     }
     _doctorPickerData = [[NSArray alloc] initWithArray:setArray];
     
     setArray = [[NSMutableArray alloc] init];
     
-    NSOrderedSet *surgerySet = [ItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
-    for(Item *i in surgerySet){
+    NSOrderedSet *surgerySet = [CDItemList getList:@"SurgeryList" inContext:[self managedObjectContext]];
+    for(CDItem *i in surgerySet){
         [setArray addObject:i.value];
     }
     _chiefComplaintPickerData = [[NSArray alloc] initWithArray:setArray];

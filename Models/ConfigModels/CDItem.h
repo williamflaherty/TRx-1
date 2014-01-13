@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class ItemList;
+@class CDItemList;
 
-@interface Item : NSManagedObject
+@interface CDItem : NSManagedObject
 
 @property (nonatomic, retain) NSString * value;
-@property (nonatomic, retain) ItemList *list;
+@property (nonatomic, retain) CDItemList *list;
 
 @end

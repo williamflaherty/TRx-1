@@ -10,13 +10,13 @@
 #import <CoreData/CoreData.h>
 
 
-@interface ItemList : NSManagedObject
+@interface CDItemList : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSOrderedSet *items;
 @end
 
-@interface ItemList (CoreDataGeneratedAccessors)
+@interface CDItemList (CoreDataGeneratedAccessors)
 
 
 +(NSOrderedSet *)getList:(NSString *)fetchName inContext:(NSManagedObjectContext *)context;

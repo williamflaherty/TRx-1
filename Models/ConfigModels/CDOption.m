@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
-#import "Option.h"
-#import "Question.h"
+#import "CDOption.h"
+#import "CDQuestion.h"
 
 
-@implementation Option
+@implementation CDOption
 
 @dynamic branch_id;
 @dynamic display_text;

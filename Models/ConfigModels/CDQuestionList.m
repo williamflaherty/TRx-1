@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
-#import "QuestionList.h"
-#import "ChainList.h"
-#import "Question.h"
+#import "CDQuestionList.h"
+#import "CDChainList.h"
+#import "CDQuestion.h"
 
 
-@implementation QuestionList
+@implementation CDQuestionList
 
 @dynamic branch_id;
 @dynamic stack_index;

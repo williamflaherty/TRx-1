@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Question;
+@class CDQuestion;
 
-@interface Option : NSManagedObject
+@interface CDOption : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * branch_id;
 @property (nonatomic, retain) NSString * display_text;
 @property (nonatomic, retain) NSString * highlight;
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSString * translation;
-@property (nonatomic, retain) Question *question;
+@property (nonatomic, retain) CDQuestion *question;
 
 @end

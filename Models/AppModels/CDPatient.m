@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 TeamHaiti. All rights reserved.
 //
 
-#import "Patient.h"
+#import "CDPatient.h"
 
 
-@implementation Patient
+@implementation CDPatient
 
 @dynamic firstName;
 @dynamic middleName;

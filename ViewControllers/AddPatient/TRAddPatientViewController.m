@@ -10,7 +10,7 @@
 #import "TRTabBarController.h"
 #import "TRCustomButton.h"
 #import "TRBorderedImageView.h"
-#import "MyManagedObjectContext.h"
+#import "TRManagedObjectContext.h"
 #import "CDItem.h"
 #import "CDItemList.h"
 #import "CDChainList.h"
@@ -22,7 +22,7 @@
 
 @interface TRAddPatientViewController ()
 
-@property (nonatomic, strong) MyManagedObjectContext  *managedObjectContext;
+@property (nonatomic, strong) TRManagedObjectContext  *managedObjectContext;
 
 @end
 
@@ -90,7 +90,7 @@
 }
 
 - (void)loadObjectContext{
-    self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
+    self.managedObjectContext = [TRManagedObjectContext mainThreadContext];
     [self fetchItemsFromCoreData];
     
 }

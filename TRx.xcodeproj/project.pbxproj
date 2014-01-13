@@ -10,7 +10,7 @@
 		0CB999C613134C2DB5524417 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA35FE7EB0304591A19109D4 /* libPods.a */; };
 		1318E1F8188202EE000146FC /* CDItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1F7188202EE000146FC /* CDItemList.m */; };
 		1318E1FB188202EE000146FC /* CDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FA188202EE000146FC /* CDItem.m */; };
-		1318E1FE18823795000146FC /* MyManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FD18823795000146FC /* MyManagedObjectContext.m */; };
+		1318E1FE18823795000146FC /* TRManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FD18823795000146FC /* TRManagedObjectContext.m */; };
 		1318E20118826B11000146FC /* CDQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20018826B11000146FC /* CDQuestion.m */; };
 		1318E20418826B12000146FC /* CDChainList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20318826B12000146FC /* CDChainList.m */; };
 		1318E20A18826B12000146FC /* CDOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20918826B12000146FC /* CDOption.m */; };
@@ -82,8 +82,8 @@
 		1318E1F7188202EE000146FC /* CDItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDItemList.m; path = Models/ConfigModels/CDItemList.m; sourceTree = SOURCE_ROOT; };
 		1318E1F9188202EE000146FC /* CDItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDItem.h; path = Models/ConfigModels/CDItem.h; sourceTree = SOURCE_ROOT; };
 		1318E1FA188202EE000146FC /* CDItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDItem.m; path = Models/ConfigModels/CDItem.m; sourceTree = SOURCE_ROOT; };
-		1318E1FC18823795000146FC /* MyManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyManagedObjectContext.h; path = Models/MyManagedObjectContext.h; sourceTree = SOURCE_ROOT; };
-		1318E1FD18823795000146FC /* MyManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyManagedObjectContext.m; path = Models/MyManagedObjectContext.m; sourceTree = SOURCE_ROOT; };
+		1318E1FC18823795000146FC /* TRManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRManagedObjectContext.h; path = Models/TRManagedObjectContext.h; sourceTree = SOURCE_ROOT; };
+		1318E1FD18823795000146FC /* TRManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRManagedObjectContext.m; path = Models/TRManagedObjectContext.m; sourceTree = SOURCE_ROOT; };
 		1318E1FF18826B11000146FC /* CDQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDQuestion.h; path = Models/ConfigModels/CDQuestion.h; sourceTree = SOURCE_ROOT; };
 		1318E20018826B11000146FC /* CDQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDQuestion.m; path = Models/ConfigModels/CDQuestion.m; sourceTree = SOURCE_ROOT; };
 		1318E20218826B12000146FC /* CDChainList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDChainList.h; path = Models/ConfigModels/CDChainList.h; sourceTree = SOURCE_ROOT; };
@@ -411,8 +411,8 @@
 				1318E211188271D3000146FC /* ConfigModels */,
 				1374F161185A453C003CB138 /* CDPatient.h */,
 				1374F162185A453C003CB138 /* CDPatient.m */,
-				1318E1FC18823795000146FC /* MyManagedObjectContext.h */,
-				1318E1FD18823795000146FC /* MyManagedObjectContext.m */,
+				1318E1FC18823795000146FC /* TRManagedObjectContext.h */,
+				1318E1FD18823795000146FC /* TRManagedObjectContext.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -639,7 +639,7 @@
 				C4EDCF07181C3A4000256DE5 /* TRPhysicalViewController.m in Sources */,
 				1318E20418826B12000146FC /* CDChainList.m in Sources */,
 				C46B4816180C3854002CF789 /* TRNavigationController.m in Sources */,
-				1318E1FE18823795000146FC /* MyManagedObjectContext.m in Sources */,
+				1318E1FE18823795000146FC /* TRManagedObjectContext.m in Sources */,
 				C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */,
 				C4EDCF0A181C3A5800256DE5 /* TRSurgeryViewController.m in Sources */,
 				C40325861874C9EB003D8159 /* TRQTextField.m in Sources */,

@@ -11,13 +11,13 @@
 #import "TRAddPatientViewController.h"
 #import "TRSettingsViewController.h"
 #import "TRTabBarController.h"
-#import "MyManagedObjectContext.h"
+#import "TRManagedObjectContext.h"
 
 @interface TRPatientListViewController (){
     CGSize winSize;
 }
 
-@property (nonatomic, strong) MyManagedObjectContext  *managedObjectContext;
+@property (nonatomic, strong) TRManagedObjectContext  *managedObjectContext;
 
 @end
 
@@ -49,7 +49,7 @@
 }
      
 - (void)initialSetup{
-    self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
+    self.managedObjectContext = [TRManagedObjectContext mainThreadContext];
     [self loadConstants];
     [self loadBarButtonItems];
     [self loadTableView];

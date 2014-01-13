@@ -8,7 +8,7 @@
 
 #import "TRSettingsViewController.h"
 #import "TRCustomButton.h"
-#import "MyManagedObjectContext.h"
+#import "TRManagedObjectContext.h"
 #import "CDItem.h"
 #import "CDItemList.h"
 #import "CDChainList.h"
@@ -18,7 +18,7 @@
 
 @interface TRSettingsViewController ()
 
-@property (nonatomic, strong) MyManagedObjectContext  *managedObjectContext;
+@property (nonatomic, strong) TRManagedObjectContext  *managedObjectContext;
 
 @end
 
@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.managedObjectContext = [MyManagedObjectContext mainThreadContext];
+    self.managedObjectContext = [TRManagedObjectContext mainThreadContext];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -244,7 +244,7 @@
 }
 
 -(BOOL)persistQuestions:(NSDictionary *)jsonData forQuestionKey:(NSString *)key {
-    MyManagedObjectContext *context = self.managedObjectContext;
+    TRManagedObjectContext *context = self.managedObjectContext;
     //retrieve stack question chains from json file
     NSArray *list = jsonData[key];       //NSArray of dictionaries
     if (!list || [list count] == 0) {

@@ -16,7 +16,6 @@
 		1318E20A18826B12000146FC /* CDOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20918826B12000146FC /* CDOption.m */; };
 		1318E21018827193000146FC /* CDQuestionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20F18827193000146FC /* CDQuestionList.m */; };
 		1318E2151883B876000146FC /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 1318E2141883B876000146FC /* example.json */; };
-		1374F163185A453C003CB138 /* CDPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1374F162185A453C003CB138 /* CDPatient.m */; };
 		C403257D1874C943003D8159 /* TRHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C403257C1874C943003D8159 /* TRHistoryHelper.m */; };
 		C40325831874C9CD003D8159 /* TRQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325821874C9CD003D8159 /* TRQLabel.m */; };
 		C40325861874C9EB003D8159 /* TRQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325851874C9EB003D8159 /* TRQTextField.m */; };
@@ -29,6 +28,7 @@
 		C403259D187610B3003D8159 /* Settings-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403259C187610B3003D8159 /* Settings-Landscape.xib */; };
 		C4677E221885959900BD7588 /* CDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E211885959900BD7588 /* CDImage.m */; };
 		C4677E25188595C300BD7588 /* CDHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E24188595C300BD7588 /* CDHistory.m */; };
+		C4677E2B1885966700BD7588 /* CDPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E2A1885966700BD7588 /* CDPatient.m */; };
 		C46B4816180C3854002CF789 /* TRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B4815180C3854002CF789 /* TRNavigationController.m */; };
 		C47B528617EF7A450044E0A7 /* TRPatientListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528317EF7A450044E0A7 /* TRPatientListCell.m */; };
 		C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528517EF7A450044E0A7 /* TRPatientListViewController.m */; };
@@ -95,8 +95,6 @@
 		1318E20E18827193000146FC /* CDQuestionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDQuestionList.h; path = Models/ConfigModels/CDQuestionList.h; sourceTree = SOURCE_ROOT; };
 		1318E20F18827193000146FC /* CDQuestionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDQuestionList.m; path = Models/ConfigModels/CDQuestionList.m; sourceTree = SOURCE_ROOT; };
 		1318E2141883B876000146FC /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
-		1374F161185A453C003CB138 /* CDPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDPatient.h; path = Models/AppModels/CDPatient.h; sourceTree = SOURCE_ROOT; };
-		1374F162185A453C003CB138 /* CDPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDPatient.m; path = Models/AppModels/CDPatient.m; sourceTree = SOURCE_ROOT; };
 		520D5244C93F431DA0DBD15B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C403257B1874C943003D8159 /* TRHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRHistoryHelper.h; path = ViewControllers/History/TRHistoryHelper.h; sourceTree = SOURCE_ROOT; };
 		C403257C1874C943003D8159 /* TRHistoryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryHelper.m; path = ViewControllers/History/TRHistoryHelper.m; sourceTree = SOURCE_ROOT; };
@@ -120,6 +118,8 @@
 		C4677E211885959900BD7588 /* CDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDImage.m; path = Models/ConfigModels/CDImage.m; sourceTree = SOURCE_ROOT; };
 		C4677E23188595C300BD7588 /* CDHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDHistory.h; path = Models/ConfigModels/CDHistory.h; sourceTree = SOURCE_ROOT; };
 		C4677E24188595C300BD7588 /* CDHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDHistory.m; path = Models/ConfigModels/CDHistory.m; sourceTree = SOURCE_ROOT; };
+		C4677E291885966700BD7588 /* CDPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDPatient.h; path = ../Models/AppModels/CDPatient.h; sourceTree = "<group>"; };
+		C4677E2A1885966700BD7588 /* CDPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDPatient.m; path = ../Models/AppModels/CDPatient.m; sourceTree = "<group>"; };
 		C46B4814180C3854002CF789 /* TRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRNavigationController.h; path = ViewControllers/TRNavigationController.h; sourceTree = SOURCE_ROOT; };
 		C46B4815180C3854002CF789 /* TRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRNavigationController.m; path = ViewControllers/TRNavigationController.m; sourceTree = SOURCE_ROOT; };
 		C47B528217EF7A450044E0A7 /* TRPatientListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListCell.h; path = ViewControllers/PatientList/TRPatientListCell.h; sourceTree = SOURCE_ROOT; };
@@ -419,8 +419,8 @@
 			isa = PBXGroup;
 			children = (
 				1318E211188271D3000146FC /* ConfigModels */,
-				1374F161185A453C003CB138 /* CDPatient.h */,
-				1374F162185A453C003CB138 /* CDPatient.m */,
+				C4677E291885966700BD7588 /* CDPatient.h */,
+				C4677E2A1885966700BD7588 /* CDPatient.m */,
 				1318E1FC18823795000146FC /* TRManagedObjectContext.h */,
 				1318E1FD18823795000146FC /* TRManagedObjectContext.m */,
 			);
@@ -633,8 +633,8 @@
 			files = (
 				1318E1FB188202EE000146FC /* CDItem.m in Sources */,
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
+				C4677E2B1885966700BD7588 /* CDPatient.m in Sources */,
 				C4677E221885959900BD7588 /* CDImage.m in Sources */,
-				1374F163185A453C003CB138 /* CDPatient.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
 				C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */,
 				1318E1F8188202EE000146FC /* CDItemList.m in Sources */,

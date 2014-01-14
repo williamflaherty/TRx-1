@@ -1,24 +1,29 @@
 //
-//  Patient.m
+//  CDPatient.m
 //  TRx
 //
-//  Created by John Cotham on 12/12/13.
-//  Copyright (c) 2013 TeamHaiti. All rights reserved.
+//  Created by Mark Bellott on 1/14/14.
+//  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
 #import "CDPatient.h"
+#import "CDHistory.h"
+#import "CDImage.h"
 
 
 @implementation CDPatient
 
-@dynamic firstName;
-@dynamic middleName;
-@dynamic lastName;
 @dynamic birthday;
-@dynamic surgeryType;
 @dynamic doctor;
-@dynamic location;
+@dynamic firstName;
 @dynamic hasTimeout;
 @dynamic isCurrent;
+@dynamic lastName;
+@dynamic location;
+@dynamic middleName;
+@dynamic surgeryType;
+@dynamic history;
+@dynamic images;
+@dynamic profileImage;
 
 @end

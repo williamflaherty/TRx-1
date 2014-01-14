@@ -16,6 +16,7 @@
 #import "CDQuestionList.h"
 #import "CDOption.h"
 #import "CDPatient.h"
+#import "CDImage.h"
 
 @interface TRSettingsViewController ()
 
@@ -164,26 +165,50 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"mm/dd/yyyy"];
     
-    CDPatient *pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
+    //Mark
+    
+    CDPatient *patient = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
                                                        inManagedObjectContext:self.managedObjectContext];
-    pateint.firstName = @"Mark";
-    pateint.lastName = @"Bellott";
-    pateint.surgeryType = @"Cataract";
-    pateint.birthday = [formatter dateFromString:@"09/17/1990"];
+    patient.firstName = @"Mark";
+    patient.lastName = @"Bellott";
+    patient.surgeryType = @"Cataract";
+    patient.birthday = [formatter dateFromString:@"09/17/1990"];
     
-    pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
-                                                        inManagedObjectContext:self.managedObjectContext];
-    pateint.firstName = @"Willie";
-    pateint.lastName = @"Flaherty";
-    pateint.surgeryType = @"Hernia";
-    pateint.birthday = [formatter dateFromString:@"06/18/1989"];
+    CDImage *profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
+                                                          inManagedObjectContext:self.managedObjectContext];
+    profileImage.data = UIImagePNGRepresentation([UIImage imageNamed:@"mark.png"]);
+    profileImage.belongsTo = patient;
+    profileImage.belongsToProfile = patient;
     
-    pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
+    //Willie
+    
+    patient = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
                                                         inManagedObjectContext:self.managedObjectContext];
-    pateint.firstName = @"Mischa";
-    pateint.lastName = @"Buckler";
-    pateint.surgeryType = @"Cataract";
-    pateint.birthday = [formatter dateFromString:@"04/13/1991"];
+    patient.firstName = @"Willie";
+    patient.lastName = @"Flaherty";
+    patient.surgeryType = @"Hernia";
+    patient.birthday = [formatter dateFromString:@"06/18/1989"];
+    
+    profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
+                                                          inManagedObjectContext:self.managedObjectContext];
+    profileImage.data = UIImagePNGRepresentation([UIImage imageNamed:@"willie.png"]);
+    profileImage.belongsTo = patient;
+    profileImage.belongsToProfile = patient;
+    
+    //Mischa
+    
+    patient = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
+                                                        inManagedObjectContext:self.managedObjectContext];
+    patient.firstName = @"Mischa";
+    patient.lastName = @"Buckler";
+    patient.surgeryType = @"Cataract";
+    patient.birthday = [formatter dateFromString:@"04/13/1991"];
+    
+    profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
+                                                 inManagedObjectContext:self.managedObjectContext];
+    profileImage.data = UIImagePNGRepresentation([UIImage imageNamed:@"mischa.png"]);
+    profileImage.belongsTo = patient;
+    profileImage.belongsToProfile = patient;
     
 }
 
@@ -367,6 +392,7 @@
     [self deleteAllObjects:@"CDQuestionList"];
     [self deleteAllObjects:@"CDChainList"];
     [self deleteAllObjects:@"CDPatient"];
+    [self deleteAllObjects:@"CDImage"];
     NSLog(@"Tables cleared");
 }
 

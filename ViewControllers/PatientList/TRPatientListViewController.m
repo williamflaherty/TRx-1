@@ -13,6 +13,7 @@
 #import "TRTabBarController.h"
 #import "TRManagedObjectContext.h"
 #import "CDPatient.h"
+#import "CDImage.h"
 
 @interface TRPatientListViewController (){
     CGSize winSize;
@@ -163,17 +164,20 @@
     
     [cell setUpCellItems];
     
-    if([indexPath row] == 0){
-        cell.patientCellPhoto.image = [UIImage imageNamed:@"mischa.png"];
-    }
-    if([indexPath row] == 1){
-        cell.patientCellPhoto.image = [UIImage imageNamed:@"willie.png"];
-    }
-    if([indexPath row] == 2){
-        cell.patientCellPhoto.image = [UIImage imageNamed:@"mark.png"];
-    }
+//    if([indexPath row] == 0){
+//        cell.patientCellPhoto.image = [UIImage imageNamed:@"mischa.png"];
+//    }
+//    if([indexPath row] == 1){
+//        cell.patientCellPhoto.image = [UIImage imageNamed:@"willie.png"];
+//    }
+//    if([indexPath row] == 2){
+//        cell.patientCellPhoto.image = [UIImage imageNamed:@"mark.png"];
+//    }
     
     CDPatient *patient = [_patientArray objectAtIndex:[indexPath row]];
+    CDImage *image = patient.profileImage;
+    
+    cell.patientCellPhoto.image = [UIImage imageWithData:image.data];
     
     cell.patientCellName.text = [patient.firstName stringByAppendingString:
                                  [@" " stringByAppendingString:patient.lastName]];

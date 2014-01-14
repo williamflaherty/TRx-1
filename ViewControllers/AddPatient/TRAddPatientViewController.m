@@ -13,11 +13,8 @@
 #import "TRManagedObjectContext.h"
 #import "CDItem.h"
 #import "CDItemList.h"
-#import "CDChainList.h"
-#import "CDQuestion.h"
-#import "CDQuestionList.h"
-#import "CDOption.h"
 #import "CDPatient.h"
+#import "CDImage.h"
 
 #define kPopoverHeightBuffer 100.0f
 
@@ -216,9 +213,6 @@
 #pragma mark - Button Methods
 
 - (void)submitPressed{
-    TRTabBarController *patientTC =[[TRTabBarController alloc] init];
-    [self.navigationController pushViewController:patientTC animated:YES];
-    
     CDPatient *patient = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
                                                        inManagedObjectContext:self.managedObjectContext];
     patient.firstName = _firstNameTextField.text;
@@ -226,7 +220,16 @@
     patient.surgeryType = _chiefComplaintTextField.text;
     patient.birthday = _birthdatePicker.date;
     
+    CDImage *profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
+                                                       inManagedObjectContext:self.managedObjectContext];
+    profileImage.data = UIImageJPEGRepresentation(_photoIDImageView.image,0.0);
+    profileImage.belongsTo = patient;
+    profileImage.belongsToProfile = patient;
+    
     [self.managedObjectContext saveContext];
+    
+    TRTabBarController *patientTC =[[TRTabBarController alloc] init];
+    [self.navigationController pushViewController:patientTC animated:YES];
 }
 
 - (void)popoverSubmitPressed{

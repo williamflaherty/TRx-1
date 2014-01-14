@@ -1,5 +1,5 @@
 //
-//  Option.m
+//  CDOption.m
 //  TRx
 //
 //  Created by John Cotham on 1/12/14.

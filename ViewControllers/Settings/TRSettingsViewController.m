@@ -127,7 +127,7 @@
 
      You can retrieve the ChainList object that holds the mandatory stack
      
-     NSOrderedSet *stack_chains = [ChainList getChainsForRequestName:@"StackList" fromContext:[self managedObjectContext]];
+     NSOrderedSet *stack_chains = [CDChainList getChainsForRequestName:@"StackList" fromContext:[self managedObjectContext]];
      
      Sort these by stack_index, and then pop the questions onto the stack
      
@@ -161,23 +161,29 @@
 #pragma mark - Configuration Methods
 
 - (void)patientTestData{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"mm/dd/yyyy"];
+    
     CDPatient *pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
                                                        inManagedObjectContext:self.managedObjectContext];
     pateint.firstName = @"Mark";
     pateint.lastName = @"Bellott";
     pateint.surgeryType = @"Cataract";
+    pateint.birthday = [formatter dateFromString:@"09/17/1990"];
     
     pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
                                                         inManagedObjectContext:self.managedObjectContext];
     pateint.firstName = @"Willie";
     pateint.lastName = @"Flaherty";
     pateint.surgeryType = @"Hernia";
+    pateint.birthday = [formatter dateFromString:@"06/18/1989"];
     
     pateint = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
                                                         inManagedObjectContext:self.managedObjectContext];
     pateint.firstName = @"Mischa";
     pateint.lastName = @"Buckler";
     pateint.surgeryType = @"Cataract";
+    pateint.birthday = [formatter dateFromString:@"04/13/1991"];
     
 }
 

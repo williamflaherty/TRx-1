@@ -1,5 +1,5 @@
 //
-//  ItemList.h
+//  CDItemList.h
 //  TRx
 //
 //  Created by John Cotham on 1/11/14.

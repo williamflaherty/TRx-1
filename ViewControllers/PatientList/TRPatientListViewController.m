@@ -49,14 +49,16 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [self resizeViewsForOrientation:self.interfaceOrientation];
+    [self fetchPatietData];
+    [_patientListTableView reloadData];
 }
      
 - (void)initialSetup{
     self.managedObjectContext = [TRManagedObjectContext mainThreadContext];
     [self loadConstants];
     [self loadBarButtonItems];
-    [self loadTableView];
     [self fetchPatietData];
+    [self loadTableView];
 }
 
 - (void)loadConstants{
@@ -120,10 +122,11 @@
     [_patientListRefreshControl beginRefreshing];
     NSLog(@"Refresh Begun");
     
+    [self fetchPatietData];
+    [_patientListTableView reloadData];
+    
     [_patientListRefreshControl endRefreshing];
     NSLog(@"Refresh Completed");
-    
-    [self fetchPatietData];
 }
 
 #pragma mark - UITableViewDelegate Methods
@@ -153,30 +156,33 @@
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* cellIdentifier = @"patientListCell";
     TRPatientListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if(cell == nil){
-        cell = [[TRPatientListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+
+    cell = [[TRPatientListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     [cell setUpCellItems];
+    
     if([indexPath row] == 0){
         cell.patientCellPhoto.image = [UIImage imageNamed:@"mischa.png"];
-        cell.patientCellBirthdate.text = @"Birthdate: 09/17/1990";
     }
     if([indexPath row] == 1){
         cell.patientCellPhoto.image = [UIImage imageNamed:@"willie.png"];
-        cell.patientCellBirthdate.text = @"Birthdate: 06/18/1989";
     }
     if([indexPath row] == 2){
         cell.patientCellPhoto.image = [UIImage imageNamed:@"mark.png"];
-        cell.patientCellBirthdate.text = @"Birthdate: 04/13/1991";
     }
     
     CDPatient *patient = [_patientArray objectAtIndex:[indexPath row]];
+    
     cell.patientCellName.text = [patient.firstName stringByAppendingString:
                                  [@" " stringByAppendingString:patient.lastName]];
-    cell.patientCellComplaint.text =[@"Complaint: " stringByAppendingString:patient.surgeryType];
+    
+    cell.patientCellComplaint.text = patient.surgeryType;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"mm/dd/yyyy"];
+    cell.patientCellBirthdate.text = [formatter stringFromDate:patient.birthday];
     
     
     return cell;

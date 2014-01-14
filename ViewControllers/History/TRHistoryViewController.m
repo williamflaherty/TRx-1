@@ -8,12 +8,15 @@
 
 #import "TRHistoryViewController.h"
 #import "TRCustomButton.h"
+#import "TRHistoryManager.h"
 
 @interface TRHistoryViewController ()
 
 @end
 
 @implementation TRHistoryViewController{
+    TRHistoryManager *_questionManager;
+    
     TRCustomButton *_previousQuestionButton;
     TRCustomButton *_nextQuestionButton;
 }
@@ -38,6 +41,7 @@
 
 - (void)initialSetup{
     [self loadButtons];
+    [self loadManager];
     [self resizeViewsForOrientation:self.interfaceOrientation];
 }
 
@@ -54,6 +58,10 @@
     
     [self.view addSubview:_previousQuestionButton];
     [self.view addSubview:_nextQuestionButton];
+}
+
+- (void)loadManager{
+    _questionManager = [[TRHistoryManager alloc] init];
 }
 
 #pragma mark - Button Methods

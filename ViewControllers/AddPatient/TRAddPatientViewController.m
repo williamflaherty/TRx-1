@@ -224,6 +224,7 @@
     patient.firstName = _firstNameTextField.text;
     patient.lastName = _lastNameTextField.text;
     patient.surgeryType = _chiefComplaintTextField.text;
+    patient.birthday = _birthdatePicker.date;
     
     [self.managedObjectContext saveContext];
 }
@@ -271,14 +272,20 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if(textField == _birthdateTextField){
         [self selectBirthdate];
+        [_firstNameTextField resignFirstResponder];
+        [_lastNameTextField resignFirstResponder];
         return NO;
     }
     else if(textField == _chiefComplaintTextField){
         [self selectChiefComplaint];
+        [_firstNameTextField resignFirstResponder];
+        [_lastNameTextField resignFirstResponder];
         return NO;
     }
     else if(textField == _doctorTextField){
         [self selectDoctor];
+        [_firstNameTextField resignFirstResponder];
+        [_lastNameTextField resignFirstResponder];
         return NO;
     }
     

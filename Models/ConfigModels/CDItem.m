@@ -1,5 +1,5 @@
 //
-//  Item.m
+//  CDItem.m
 //  TRx
 //
 //  Created by John Cotham on 1/11/14.

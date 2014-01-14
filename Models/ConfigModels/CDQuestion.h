@@ -1,5 +1,5 @@
 //
-//  Question.h
+//  CDQuestion.h
 //  TRx
 //
 //  Created by John Cotham on 1/12/14.

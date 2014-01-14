@@ -16,7 +16,7 @@
 		1318E20A18826B12000146FC /* CDOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20918826B12000146FC /* CDOption.m */; };
 		1318E21018827193000146FC /* CDQuestionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E20F18827193000146FC /* CDQuestionList.m */; };
 		1318E2151883B876000146FC /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 1318E2141883B876000146FC /* example.json */; };
-		C403257D1874C943003D8159 /* TRHistoryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C403257C1874C943003D8159 /* TRHistoryHelper.m */; };
+		C403257D1874C943003D8159 /* TRHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C403257C1874C943003D8159 /* TRHistoryManager.m */; };
 		C40325831874C9CD003D8159 /* TRQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325821874C9CD003D8159 /* TRQLabel.m */; };
 		C40325861874C9EB003D8159 /* TRQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325851874C9EB003D8159 /* TRQTextField.m */; };
 		C40325891874CA0E003D8159 /* TRQView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325881874CA0E003D8159 /* TRQView.m */; };
@@ -96,8 +96,8 @@
 		1318E20F18827193000146FC /* CDQuestionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDQuestionList.m; path = Models/ConfigModels/CDQuestionList.m; sourceTree = SOURCE_ROOT; };
 		1318E2141883B876000146FC /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		520D5244C93F431DA0DBD15B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		C403257B1874C943003D8159 /* TRHistoryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRHistoryHelper.h; path = ViewControllers/History/TRHistoryHelper.h; sourceTree = SOURCE_ROOT; };
-		C403257C1874C943003D8159 /* TRHistoryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryHelper.m; path = ViewControllers/History/TRHistoryHelper.m; sourceTree = SOURCE_ROOT; };
+		C403257B1874C943003D8159 /* TRHistoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRHistoryManager.h; path = ViewControllers/History/TRHistoryManager.h; sourceTree = SOURCE_ROOT; };
+		C403257C1874C943003D8159 /* TRHistoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryManager.m; path = ViewControllers/History/TRHistoryManager.m; sourceTree = SOURCE_ROOT; };
 		C40325811874C9CD003D8159 /* TRQLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRQLabel.h; path = ViewControllers/QuestionItems/TRQLabel.h; sourceTree = SOURCE_ROOT; };
 		C40325821874C9CD003D8159 /* TRQLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRQLabel.m; path = ViewControllers/QuestionItems/TRQLabel.m; sourceTree = SOURCE_ROOT; };
 		C40325841874C9EB003D8159 /* TRQTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRQTextField.h; path = ViewControllers/QuestionItems/TRQTextField.h; sourceTree = SOURCE_ROOT; };
@@ -448,8 +448,8 @@
 			children = (
 				C4EDCF02181C3A2300256DE5 /* TRHistoryViewController.h */,
 				C4EDCF03181C3A2300256DE5 /* TRHistoryViewController.m */,
-				C403257B1874C943003D8159 /* TRHistoryHelper.h */,
-				C403257C1874C943003D8159 /* TRHistoryHelper.m */,
+				C403257B1874C943003D8159 /* TRHistoryManager.h */,
+				C403257C1874C943003D8159 /* TRHistoryManager.m */,
 				C4FC4228187245BA00792E1A /* History.xib */,
 				C4FC422A1872460500792E1A /* History-Landscape.xib */,
 			);
@@ -641,7 +641,7 @@
 				C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */,
 				C48C6E3F17E661700065ABBE /* TRAppDelegate.m in Sources */,
 				C40325951874CF4E003D8159 /* TRBorderedImageView.m in Sources */,
-				C403257D1874C943003D8159 /* TRHistoryHelper.m in Sources */,
+				C403257D1874C943003D8159 /* TRHistoryManager.m in Sources */,
 				C48C6E3B17E661700065ABBE /* main.m in Sources */,
 				C403258F1874CAA7003D8159 /* TRQYesNoButton.m in Sources */,
 				C40325891874CA0E003D8159 /* TRQView.m in Sources */,

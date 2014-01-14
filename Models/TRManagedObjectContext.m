@@ -1,5 +1,5 @@
 //
-//  TR.m
+//  TRManagedObjectContext.m
 //  TRx
 //
 //  Created by John Cotham on 1/11/14.

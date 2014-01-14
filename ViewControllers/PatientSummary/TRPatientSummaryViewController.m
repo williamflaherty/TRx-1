@@ -16,11 +16,15 @@
 @implementation TRPatientSummaryViewController{
     TRBorderedImageView *_photoIDImageView;
     
-    UILabel *_firstNameLabel;
-    UILabel *_lastNameLabel;
+    UILabel *_nameLabel;
     UILabel *_birthdateLabel;
     UILabel *_chiefComplaintLabel;
     UILabel *_doctorLabel;
+    
+    UILabel *_patientName;
+    UILabel *_patientBirthdate;
+    UILabel *_patientChiefComplaint;
+    UILabel *_patientDoctor;
 }
 
 #pragma mark - Itit and Load Methods
@@ -54,31 +58,42 @@
 }
 
 -(void)loadLabels{
-    _firstNameLabel = [[UILabel alloc] init];
-    _firstNameLabel.font = [UIFont systemFontOfSize:17];
-    _firstNameLabel.text = @"First Name: ";
-    
-    _lastNameLabel = [[UILabel alloc] init];
-    _lastNameLabel.font = [UIFont systemFontOfSize:17];
-    _lastNameLabel.text = @"Last Name: ";
+    _nameLabel = [[UILabel alloc] init];
+    _nameLabel.font = [UIFont systemFontOfSize:17];
+    _nameLabel.text = @"Name:";
     
     _birthdateLabel = [[UILabel alloc] init];
     _birthdateLabel.font = [UIFont systemFontOfSize:17];
-    _birthdateLabel.text = @"Birthdate: ";
+    _birthdateLabel.text = @"Birthdate:";
     
     _chiefComplaintLabel = [[UILabel alloc] init];
     _chiefComplaintLabel.font = [UIFont systemFontOfSize:17];
-    _chiefComplaintLabel.text = @"Chief Complaint: ";
+    _chiefComplaintLabel.text = @"Complaint:";
     
     _doctorLabel = [[UILabel alloc] init];
     _doctorLabel.font = [UIFont systemFontOfSize:17];
-    _doctorLabel.text = @"Doctor: ";
+    _doctorLabel.text = @"Doctor:";
     
-    [self.view addSubview:_firstNameLabel];
-    [self.view addSubview:_lastNameLabel];
+    _patientName = [[UILabel alloc] init];
+    _patientName.font = [UIFont systemFontOfSize:17];
+    
+    _patientBirthdate = [[UILabel alloc] init];
+    _patientBirthdate.font = [UIFont systemFontOfSize:17];
+    
+    _patientChiefComplaint = [[UILabel alloc] init];
+    _patientChiefComplaint.font = [UIFont systemFontOfSize:17];
+    
+    _patientDoctor = [[UILabel alloc] init];
+    _patientDoctor.font = [UIFont systemFontOfSize:17];
+    
+    [self.view addSubview:_nameLabel];
     [self.view addSubview:_birthdateLabel];
     [self.view addSubview:_chiefComplaintLabel];
     [self.view addSubview:_doctorLabel];
+    [self.view addSubview:_patientName];
+    [self.view addSubview:_patientBirthdate];
+    [self.view addSubview:_patientChiefComplaint];
+    [self.view addSubview:_patientDoctor];
 }
 
 #pragma mark - Orientation and Frame Methods
@@ -104,21 +119,27 @@
 }
 
 - (void)resizeFramesForPortrait{
-    _photoIDImageView.frame = CGRectMake(32, 336, 352, 352);
-    _firstNameLabel.frame = CGRectMake(437, 443, 300, 21);
-    _lastNameLabel.frame = CGRectMake(437, 472, 300, 21);
-    _birthdateLabel.frame = CGRectMake(437, 501, 300, 21);
-    _chiefComplaintLabel.frame = CGRectMake(437, 530, 300, 21);
-    _doctorLabel.frame = CGRectMake(437, 559, 300, 21);
+    _photoIDImageView.frame = CGRectMake(61, 336, 352, 352);
+    _nameLabel.frame = CGRectMake(421, 458, 51, 21);
+    _birthdateLabel.frame = CGRectMake(421, 487, 75, 21);
+    _chiefComplaintLabel.frame = CGRectMake(421, 516, 84, 21);
+    _doctorLabel.frame = CGRectMake(421, 545, 57, 21);
+    _patientChiefComplaint.frame = CGRectMake(513, 516, 235, 21);
+    _patientDoctor.frame = CGRectMake(513, 545, 235, 21);
+    _patientName.frame = CGRectMake(513, 458, 235, 21);
+    _patientBirthdate.frame = CGRectMake(513, 487, 235, 21);
 }
 
 - (void)resizeFramesForLandscape{
-    _photoIDImageView.frame = CGRectMake(160, 208, 352, 352);
-    _firstNameLabel.frame = CGRectMake(565, 315, 300, 21);
-    _lastNameLabel.frame = CGRectMake(565, 344, 300, 21);
-    _birthdateLabel.frame = CGRectMake(565, 373, 300, 21);
-    _chiefComplaintLabel.frame = CGRectMake(565, 402, 300, 21);
-    _doctorLabel.frame = CGRectMake(565, 431, 300, 21);
+    _photoIDImageView.frame = CGRectMake(169, 208, 352, 352);
+    _nameLabel.frame = CGRectMake(529, 330, 51, 21);
+    _birthdateLabel.frame = CGRectMake(529, 359, 75, 21);
+    _chiefComplaintLabel.frame = CGRectMake(529, 388, 84, 21);
+    _doctorLabel.frame = CGRectMake(529, 417, 57, 21);
+    _patientChiefComplaint.frame = CGRectMake(621, 388, 235, 21);
+    _patientDoctor.frame = CGRectMake(621, 417, 235, 21);
+    _patientName.frame = CGRectMake(621, 330, 235, 21);
+    _patientBirthdate.frame = CGRectMake(621, 359, 235, 21);
 }
 
 - (void)didReceiveMemoryWarning{

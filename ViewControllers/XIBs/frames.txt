@@ -1,10 +1,25 @@
 
---- PatientListCell.xib ---
+--- PatientSummary.xib ---
 
-_patientCellPhoto.frame = CGRectMake(20, 15, 150, 150);
-_patientCellName.frame = CGRectMake(231, 15, 504, 55);
-_birthdateLabel.frame = CGRectMake(231, 108, 86, 21);
-_complaintLabel.frame = CGRectMake(231, 79, 86, 21);
-_patientCellComplaint.frame = CGRectMake(325, 79, 410, 21);
-_patientCellBirthdate.frame = CGRectMake(325, 108, 410, 21);
+_photoIDImageView.frame = CGRectMake(61, 336, 352, 352);
+_nameLabel.frame = CGRectMake(421, 458, 51, 21);
+_birthdateLabel.frame = CGRectMake(421, 487, 75, 21);
+_chiefComplaintLabel.frame = CGRectMake(421, 516, 84, 21);
+_doctorLabel.frame = CGRectMake(421, 545, 57, 21);
+_patientChiefComplaint.frame = CGRectMake(513, 516, 235, 21);
+_patientDoctor.frame = CGRectMake(513, 545, 235, 21);
+_patientName.frame = CGRectMake(513, 458, 235, 21);
+_patientBirthdate.frame = CGRectMake(513, 487, 235, 21);
+
+--- PatientSummary-Landscape.xib ---
+
+_photoIDImageView.frame = CGRectMake(169, 208, 352, 352);
+_nameLabel.frame = CGRectMake(529, 330, 51, 21);
+_birthdateLabel.frame = CGRectMake(529, 359, 75, 21);
+_chiefComplaintLabel.frame = CGRectMake(529, 388, 84, 21);
+_doctorLabel.frame = CGRectMake(529, 417, 57, 21);
+_patientChiefComplaint.frame = CGRectMake(621, 388, 235, 21);
+_patientDoctor.frame = CGRectMake(621, 417, 235, 21);
+_patientName.frame = CGRectMake(621, 330, 235, 21);
+_patientBirthdate.frame = CGRectMake(621, 359, 235, 21);
 

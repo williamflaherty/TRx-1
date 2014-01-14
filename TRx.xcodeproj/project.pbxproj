@@ -29,6 +29,7 @@
 		C4677E221885959900BD7588 /* CDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E211885959900BD7588 /* CDImage.m */; };
 		C4677E25188595C300BD7588 /* CDHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E24188595C300BD7588 /* CDHistory.m */; };
 		C4677E2B1885966700BD7588 /* CDPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E2A1885966700BD7588 /* CDPatient.m */; };
+		C4677E2E1885D77F00BD7588 /* TRActivePatientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E2D1885D77F00BD7588 /* TRActivePatientManager.m */; };
 		C46B4816180C3854002CF789 /* TRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B4815180C3854002CF789 /* TRNavigationController.m */; };
 		C47B528617EF7A450044E0A7 /* TRPatientListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528317EF7A450044E0A7 /* TRPatientListCell.m */; };
 		C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528517EF7A450044E0A7 /* TRPatientListViewController.m */; };
@@ -120,6 +121,8 @@
 		C4677E24188595C300BD7588 /* CDHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDHistory.m; path = Models/ConfigModels/CDHistory.m; sourceTree = SOURCE_ROOT; };
 		C4677E291885966700BD7588 /* CDPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDPatient.h; path = ../Models/AppModels/CDPatient.h; sourceTree = "<group>"; };
 		C4677E2A1885966700BD7588 /* CDPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDPatient.m; path = ../Models/AppModels/CDPatient.m; sourceTree = "<group>"; };
+		C4677E2C1885D77F00BD7588 /* TRActivePatientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRActivePatientManager.h; path = ViewControllers/TRActivePatientManager.h; sourceTree = SOURCE_ROOT; };
+		C4677E2D1885D77F00BD7588 /* TRActivePatientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRActivePatientManager.m; path = ViewControllers/TRActivePatientManager.m; sourceTree = SOURCE_ROOT; };
 		C46B4814180C3854002CF789 /* TRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRNavigationController.h; path = ViewControllers/TRNavigationController.h; sourceTree = SOURCE_ROOT; };
 		C46B4815180C3854002CF789 /* TRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRNavigationController.m; path = ViewControllers/TRNavigationController.m; sourceTree = SOURCE_ROOT; };
 		C47B528217EF7A450044E0A7 /* TRPatientListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListCell.h; path = ViewControllers/PatientList/TRPatientListCell.h; sourceTree = SOURCE_ROOT; };
@@ -431,6 +434,8 @@
 			isa = PBXGroup;
 			children = (
 				C4E887631881BEC900B241A6 /* ColorGuide */,
+				C4677E2C1885D77F00BD7588 /* TRActivePatientManager.h */,
+				C4677E2D1885D77F00BD7588 /* TRActivePatientManager.m */,
 				C482B0C8181598E0001B0B20 /* NavigationController */,
 				C47B527E17EF79420044E0A7 /* PatientList */,
 				C482B0C7181598CB001B0B20 /* AddPatient */,
@@ -662,6 +667,7 @@
 				C482B0D418159B4A001B0B20 /* TRTabBarController.m in Sources */,
 				C403258C1874CA7C003D8159 /* TRQCheckBox.m in Sources */,
 				1318E20A18826B12000146FC /* CDOption.m in Sources */,
+				C4677E2E1885D77F00BD7588 /* TRActivePatientManager.m in Sources */,
 				C4677E25188595C300BD7588 /* CDHistory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

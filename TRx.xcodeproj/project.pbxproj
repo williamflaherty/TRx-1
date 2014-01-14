@@ -27,6 +27,8 @@
 		C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325971876105B003D8159 /* TRSettingsViewController.m */; };
 		C403259B18761096003D8159 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403259A18761096003D8159 /* Settings.xib */; };
 		C403259D187610B3003D8159 /* Settings-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403259C187610B3003D8159 /* Settings-Landscape.xib */; };
+		C4677E221885959900BD7588 /* CDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E211885959900BD7588 /* CDImage.m */; };
+		C4677E25188595C300BD7588 /* CDHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = C4677E24188595C300BD7588 /* CDHistory.m */; };
 		C46B4816180C3854002CF789 /* TRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C46B4815180C3854002CF789 /* TRNavigationController.m */; };
 		C47B528617EF7A450044E0A7 /* TRPatientListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528317EF7A450044E0A7 /* TRPatientListCell.m */; };
 		C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47B528517EF7A450044E0A7 /* TRPatientListViewController.m */; };
@@ -114,6 +116,10 @@
 		C40325971876105B003D8159 /* TRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRSettingsViewController.m; path = ViewControllers/Settings/TRSettingsViewController.m; sourceTree = SOURCE_ROOT; };
 		C403259A18761096003D8159 /* Settings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Settings.xib; path = ViewControllers/XIBs/Settings.xib; sourceTree = SOURCE_ROOT; };
 		C403259C187610B3003D8159 /* Settings-Landscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Settings-Landscape.xib"; path = "ViewControllers/XIBs/Settings-Landscape.xib"; sourceTree = SOURCE_ROOT; };
+		C4677E201885959900BD7588 /* CDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDImage.h; path = Models/ConfigModels/CDImage.h; sourceTree = SOURCE_ROOT; };
+		C4677E211885959900BD7588 /* CDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDImage.m; path = Models/ConfigModels/CDImage.m; sourceTree = SOURCE_ROOT; };
+		C4677E23188595C300BD7588 /* CDHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDHistory.h; path = Models/ConfigModels/CDHistory.h; sourceTree = SOURCE_ROOT; };
+		C4677E24188595C300BD7588 /* CDHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDHistory.m; path = Models/ConfigModels/CDHistory.m; sourceTree = SOURCE_ROOT; };
 		C46B4814180C3854002CF789 /* TRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRNavigationController.h; path = ViewControllers/TRNavigationController.h; sourceTree = SOURCE_ROOT; };
 		C46B4815180C3854002CF789 /* TRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRNavigationController.m; path = ViewControllers/TRNavigationController.m; sourceTree = SOURCE_ROOT; };
 		C47B528217EF7A450044E0A7 /* TRPatientListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRPatientListCell.h; path = ViewControllers/PatientList/TRPatientListCell.h; sourceTree = SOURCE_ROOT; };
@@ -211,6 +217,10 @@
 				1318E20018826B11000146FC /* CDQuestion.m */,
 				1318E20E18827193000146FC /* CDQuestionList.h */,
 				1318E20F18827193000146FC /* CDQuestionList.m */,
+				C4677E23188595C300BD7588 /* CDHistory.h */,
+				C4677E24188595C300BD7588 /* CDHistory.m */,
+				C4677E201885959900BD7588 /* CDImage.h */,
+				C4677E211885959900BD7588 /* CDImage.m */,
 			);
 			name = ConfigModels;
 			sourceTree = "<group>";
@@ -623,6 +633,7 @@
 			files = (
 				1318E1FB188202EE000146FC /* CDItem.m in Sources */,
 				C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */,
+				C4677E221885959900BD7588 /* CDImage.m in Sources */,
 				1374F163185A453C003CB138 /* CDPatient.m in Sources */,
 				C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */,
 				C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */,
@@ -651,6 +662,7 @@
 				C482B0D418159B4A001B0B20 /* TRTabBarController.m in Sources */,
 				C403258C1874CA7C003D8159 /* TRQCheckBox.m in Sources */,
 				1318E20A18826B12000146FC /* CDOption.m in Sources */,
+				C4677E25188595C300BD7588 /* CDHistory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

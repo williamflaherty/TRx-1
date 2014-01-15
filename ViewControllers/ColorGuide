@@ -1,3 +1,6 @@
 
-This is a list of the hex values for the colors used throughout the app.
+This is a list of the colors used throughout the app.
 
+Navigation Bar:             [UIColor colorWithRed:0.25 green:0.52 blue:0.76 alpha:1.0]];
+Navigation Tint Color:    [UIColor whiteColor];
+Tint Color:                 [UIColor colorWithRed:0.25 green:0.52 blue:0.76 alpha:1.0]];

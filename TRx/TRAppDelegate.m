@@ -20,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -30,6 +31,10 @@
     [self.window setRootViewController:self.navigationController];
     
     [self.window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] keyWindow].tintColor =
+    [UIColor colorWithRed:0.25 green:0.52 blue:0.76 alpha:1.0];
+    
     return YES;
 }
 

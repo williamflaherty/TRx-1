@@ -112,7 +112,7 @@
     _patientName.text = displayString;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter dateFromString:@"MM/DD/YYYY"];
+    [formatter setDateFormat:@"mm/dd/yyyy"];
     displayString = [formatter stringFromDate:_activePatient.birthday];
     _patientBirthdate.text = displayString;
     
@@ -145,27 +145,27 @@
 }
 
 - (void)resizeFramesForPortrait{
-    _photoIDImageView.frame = CGRectMake(61, 336, 352, 352);
-    _nameLabel.frame = CGRectMake(421, 458, 51, 21);
-    _birthdateLabel.frame = CGRectMake(421, 487, 75, 21);
-    _chiefComplaintLabel.frame = CGRectMake(421, 516, 84, 21);
-    _doctorLabel.frame = CGRectMake(421, 545, 57, 21);
-    _patientChiefComplaint.frame = CGRectMake(513, 516, 235, 21);
-    _patientDoctor.frame = CGRectMake(513, 545, 235, 21);
-    _patientName.frame = CGRectMake(513, 458, 235, 21);
-    _patientBirthdate.frame = CGRectMake(513, 487, 235, 21);
+    _photoIDImageView.frame = CGRectMake(20, 88, 108, 108);
+    _nameLabel.frame = CGRectMake(136, 88, 51, 21);
+    _birthdateLabel.frame = CGRectMake(136, 117, 75, 21);
+    _chiefComplaintLabel.frame = CGRectMake(136, 146, 84, 21);
+    _doctorLabel.frame = CGRectMake(136, 175, 57, 21);
+    _patientChiefComplaint.frame = CGRectMake(228, 146, 300, 21);
+    _patientDoctor.frame = CGRectMake(228, 175, 300, 21);
+    _patientName.frame = CGRectMake(228, 88, 300, 21);
+    _patientBirthdate.frame = CGRectMake(228, 117, 300, 21);
 }
 
 - (void)resizeFramesForLandscape{
-    _photoIDImageView.frame = CGRectMake(169, 208, 352, 352);
-    _nameLabel.frame = CGRectMake(529, 330, 51, 21);
-    _birthdateLabel.frame = CGRectMake(529, 359, 75, 21);
-    _chiefComplaintLabel.frame = CGRectMake(529, 388, 84, 21);
-    _doctorLabel.frame = CGRectMake(529, 417, 57, 21);
-    _patientChiefComplaint.frame = CGRectMake(621, 388, 235, 21);
-    _patientDoctor.frame = CGRectMake(621, 417, 235, 21);
-    _patientName.frame = CGRectMake(621, 330, 235, 21);
-    _patientBirthdate.frame = CGRectMake(621, 359, 235, 21);
+    _photoIDImageView.frame = CGRectMake(20, 88, 108, 108);
+    _nameLabel.frame = CGRectMake(136, 88, 51, 21);
+    _birthdateLabel.frame = CGRectMake(136, 117, 75, 21);
+    _chiefComplaintLabel.frame = CGRectMake(136, 146, 84, 21);
+    _doctorLabel.frame = CGRectMake(136, 175, 57, 21);
+    _patientChiefComplaint.frame = CGRectMake(228, 146, 300, 21);
+    _patientDoctor.frame = CGRectMake(228, 175, 300, 21);
+    _patientName.frame = CGRectMake(228, 88, 300, 21);
+    _patientBirthdate.frame = CGRectMake(228, 117, 300, 21);
 }
 
 - (void)didReceiveMemoryWarning{

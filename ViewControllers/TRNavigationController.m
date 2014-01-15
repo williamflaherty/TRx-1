@@ -19,9 +19,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
-//        self.navigugationBar.backgroundColor = [UIColor blueColor];
-//        self.navigationBar.barTintColor = [UIColor whiteColor];
-//        self.navigationBar.barStyle = UIBarStyleDefault;
+        [self.navigationBar setBarTintColor:[UIColor colorWithRed:0.25 green:0.52 blue:0.76 alpha:1.0]];
+        [self.navigationBar setTintColor:[UIColor whiteColor]];
+        [self.navigationBar setTitleTextAttributes:
+         [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
+        [self.navigationBar setTranslucent:NO];
     }
     return self;
 }

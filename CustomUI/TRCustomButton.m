@@ -23,21 +23,29 @@
     }
     return self;
 }
+//
+//- (void)drawButtonWithColor:(UIColor *)buttonColor{
+//    
+//    self.layer.borderColor = buttonColor.CGColor;
+//    self.layer.backgroundColor = buttonColor.CGColor;
+//    self.layer.borderWidth = 1.0f;
+//    self.layer.cornerRadius = 6;
+//    
+//    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    
+//    [self setNeedsDisplay];
+//}
 
-- (void)drawButtonWithColor:(UIColor *)buttonColor{
+- (void)drawButtonWithDefaultStyle{
     
-    self.layer.borderColor = buttonColor.CGColor;
-    self.layer.backgroundColor = buttonColor.CGColor;
+    self.layer.borderColor = [[UIApplication sharedApplication] keyWindow].tintColor.CGColor;
+    self.layer.backgroundColor = [[UIApplication sharedApplication] keyWindow].tintColor.CGColor;
     self.layer.borderWidth = 1.0f;
     self.layer.cornerRadius = 6;
     
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     [self setNeedsDisplay];
-}
-
-- (void)drawButtonWithSubmitStyle{
-    
 }
 
 - (void)drawButtonWithCancelStlye{

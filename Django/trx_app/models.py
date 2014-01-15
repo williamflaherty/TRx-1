@@ -67,6 +67,7 @@ class Patient(models.Model):
     location = models.ForeignKey(Location)
     hasTimeout = models.BooleanField(default = False)
     isCurrent = models.BooleanField(default = True)
+    appointment = models.DateTimeField(null = True)    # TODO: should this have a start and end?
     lastModified = models.DateTimeField(auto_now = True)
     created = models.DateTimeField(auto_now_add = True)
 

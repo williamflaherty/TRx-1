@@ -53,7 +53,8 @@ def get_patient(request):
                         "doctor", 
                         "location", 
                         "hasTimeout", 
-                        "isCurrent"))).data            
+                        "isCurrent",
+                        "appointment"))).data            
             else:
                 patient = PatientSerializer(data=request.DATA["patient"], fields=('firstName', 'lastName', 'birthday'))
                 patient_valid = patient.is_valid()
@@ -70,7 +71,8 @@ def get_patient(request):
                         "doctor", 
                         "location", 
                         "hasTimeout", 
-                        "isCurrent"))).data
+                        "isCurrent",
+                        "appointment"))).data
                 else:
                     retval["error"] = patient.errors
         else:

@@ -14,6 +14,7 @@
 #import "TRManagedObjectContext.h"
 #import "CDPatient.h"
 #import "CDImage.h"
+#import "TRActivePatientManager.h"
 
 @interface TRPatientListViewController (){
     CGSize winSize;
@@ -31,6 +32,8 @@
     UIRefreshControl *_patientListRefreshControl;
     
     NSArray *_patientArray;
+    
+    TRActivePatientManager *_activePatientManager;
 }
 
 #pragma mark - Init and Load Methods
@@ -38,6 +41,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        _activePatientManager = [TRActivePatientManager sharedInstance];
     }
     return self;
 }
@@ -99,6 +103,8 @@
         fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     }
     _patientArray = [[NSArray alloc] initWithArray:fetchedObjects];
+    
+    _activePatientManager.activePatient = nil;
 }
 
 #pragma mark - Bar Button Actions
@@ -133,6 +139,8 @@
 #pragma mark - UITableViewDelegate Methods
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _activePatientManager.activePatient = [_patientArray objectAtIndex:[indexPath row]];
+    
     TRPatientListCell *cell = (TRPatientListCell*)[tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO];
     
@@ -163,16 +171,6 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     [cell setUpCellItems];
-    
-//    if([indexPath row] == 0){
-//        cell.patientCellPhoto.image = [UIImage imageNamed:@"mischa.png"];
-//    }
-//    if([indexPath row] == 1){
-//        cell.patientCellPhoto.image = [UIImage imageNamed:@"willie.png"];
-//    }
-//    if([indexPath row] == 2){
-//        cell.patientCellPhoto.image = [UIImage imageNamed:@"mark.png"];
-//    }
     
     CDPatient *patient = [_patientArray objectAtIndex:[indexPath row]];
     CDImage *image = patient.profileImage;

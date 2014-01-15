@@ -8,6 +8,9 @@
 
 #import "TRPatientSummaryViewController.h"
 #import "TRBorderedImageView.h"
+#import "TRActivePatientManager.h"
+#import "CDPatient.h"
+#import "CDImage.h"
 
 @interface TRPatientSummaryViewController ()
 
@@ -25,6 +28,9 @@
     UILabel *_patientBirthdate;
     UILabel *_patientChiefComplaint;
     UILabel *_patientDoctor;
+    
+    TRActivePatientManager *_activePatientManager;
+    CDPatient *_activePatient;
 }
 
 #pragma mark - Itit and Load Methods
@@ -46,8 +52,11 @@
 }
 
 - (void)initialSetup{
+    _activePatientManager = [TRActivePatientManager sharedInstance];
+    _activePatient = _activePatientManager.activePatient;
     [self loadImageView];
     [self loadLabels];
+    [self loadActivePatientInfo];
     [self resizeViewsForOrientation:self.interfaceOrientation];
 }
 
@@ -94,6 +103,23 @@
     [self.view addSubview:_patientBirthdate];
     [self.view addSubview:_patientChiefComplaint];
     [self.view addSubview:_patientDoctor];
+}
+
+- (void)loadActivePatientInfo{
+    NSString *displayString = [NSString stringWithString:_activePatient.firstName];
+    displayString = [displayString stringByAppendingString:@" "];
+    displayString = [displayString stringByAppendingString:_activePatient.lastName];
+    _patientName.text = displayString;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter dateFromString:@"MM/DD/YYYY"];
+    displayString = [formatter stringFromDate:_activePatient.birthday];
+    _patientBirthdate.text = displayString;
+    
+    displayString = _activePatient.surgeryType;
+    _patientChiefComplaint.text = displayString;
+    
+    _photoIDImageView.image = [UIImage imageWithData:_activePatient.profileImage.data];
 }
 
 #pragma mark - Orientation and Frame Methods

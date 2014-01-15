@@ -15,6 +15,7 @@
 #import "CDItemList.h"
 #import "CDPatient.h"
 #import "CDImage.h"
+#import "TRActivePatientManager.h"
 
 #define kPopoverHeightBuffer 100.0f
 
@@ -25,6 +26,8 @@
 @end
 
 @implementation TRAddPatientViewController{
+    TRActivePatientManager *_activePatientManager;
+    
     TRBorderedImageView *_photoIDImageView;
     
     TRCustomButton *_takePictureButton;
@@ -78,6 +81,7 @@
 }
 
 - (void)initialSetup{
+    _activePatientManager = [TRActivePatientManager sharedInstance];
     [self loadLabels];
     [self loadTextFields];
     [self loadButtons];
@@ -227,6 +231,8 @@
     profileImage.belongsToProfile = patient;
     
     [self.managedObjectContext saveContext];
+    
+    _activePatientManager.activePatient = patient;
     
     TRTabBarController *patientTC =[[TRTabBarController alloc] init];
     [self.navigationController pushViewController:patientTC animated:YES];

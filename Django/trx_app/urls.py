@@ -26,9 +26,11 @@ urlpatterns = patterns('',
     url(r'^get_order/$', api.get_order, name='get_order'),
     url(r'^save_order/$', api.save_order, name='save_order'),
 
-    # # history
-    # url(r'^get_history/$', api.get_order, name='get_order'),
-    # url(r'^save_history/$', api.save_order, name='save_order'),
+    # history
+    # TODO: we probably don't need get_history and get_history list; confirm with group
+    url(r'^get_history/$', api.get_history, name='get_history'),
+    url(r'^get_history_list/$', api.get_history_list, name='get_history_list'),
+    url(r'^save_history/$', api.save_history, name='save_history'),
 
 	######################
 	# Config # CONVTAG

@@ -42,6 +42,11 @@ class ConfigSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = models.JSONFiles
 
+class HistorySerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = models.History
+
 class PatientSerializer(DynamicFieldsModelSerializer):
 
     image_set = ImageSerializer(many=True, required=False)

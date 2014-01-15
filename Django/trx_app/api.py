@@ -9,7 +9,10 @@ from trx_app.serializers import *
 # TODO: do something about my permission schemes
 # TODO: add sync config api call. returns approp question file, doctors, surgery types, etc (based on trip/language)
 # TODO: figure out why serializers ignore the id field when deserializing (difference between insert and update, but it is stupid)
-
+# TODO: I know there's a note somewhere about the ugly way I'm handling some gets (ex blahblah(retval, None, id))
+#       either clean up the way I'm doing it by finding a better way to do it
+#       figure out the serializers ignoring id problem, which should fix it
+#       or use named parameters so I want to kill myself a little less
 # SATTODO: api method to return config file (pull from jsonfiles) based on file_name
 # SATTODO: api method to return list of isLive jsonfiles
 # SATTODO: configure server
@@ -265,6 +268,75 @@ def get_config(request):
 
     return JSONResponse(retval, status=200)
 
+@csrf_exempt
+@api_view(['POST'])
+def get_history_list(request):
+    
+    """
+    Gets the entire history for a patient by patient id.
+    """    
+    
+    retval = {
+        "success": False, 
+        "data": {}, 
+        "exception": "", 
+        "error": ""
+    }
+
+    try:
+        if request.method == 'POST' and "patient" in request.DATA and "id" in request.DATA["patient"] and request.DATA["patient"]["id"] != 0:
+            retval = controller.get_history_list(retval, request.DATA["patient"]["id"]) 
+            retval["data"]["history"] = (HistorySerializer(retval["data"]["history"], many=True)).data            
+        else:
+            retval["error"] = "Not a valid request."
+    except Exception as e:
+        retval["exception"] += str(e)
+
+    return JSONResponse(retval, status=200)
+
+
+@csrf_exempt
+@api_view(['POST'])
+def get_history(request):
+    
+    # TODO: collapse get_history and get_history list if we do want to keep both
+    #       by if only patient id specified, get whole list
+    #       otherwise get specific based on p_id/h_key or h_id
+
+    """
+    Gets a specific answer based on patient id and history key OR by history id.
+    """    
+    
+    retval = {
+        "success": False, 
+        "data": {}, 
+        "exception": "", 
+        "error": ""
+    }
+
+    try:
+        if request.method == 'POST' and "history" in request.DATA:
+
+            if "id" in request.DATA["history"] and request.DATA["history"]["id"] != 0:        
+                retval = controller.get_history(retval, None, request.DATA["history"]["id"]) 
+                retval["data"]["history"] = (HistorySerializer(retval["data"]["history"])).data    
+            else:
+                history = HistorySerializer(data=request.DATA["history"], fields=('key', 'patient'))
+                history_valid = history.is_valid()
+                
+                if history_valid:      
+                    retval = controller.get_history(retval, history.object, None) 
+                    retval["data"]["history"] = (HistorySerializer(retval["data"]["history"])).data
+                else:
+                    retval["error"] = history.errors
+                
+        else:
+            retval["error"] = "Not a valid request."
+    except Exception as e:
+        retval["exception"] += str(e)
+
+    return JSONResponse(retval, status=200)
+
 # SAVE methods
 
 @csrf_exempt
@@ -445,3 +517,47 @@ def save_order(request):
 
     return JSONResponse(retval, status=200)
 
+@csrf_exempt
+@api_view(['POST'])
+def save_history(request):
+    
+    """
+    Insert or update one or more history answers, so pass it in as a list.
+    To check for success, test every id returned.
+    """
+    
+    retval = {
+        "success": False, 
+        "data": {}, 
+        "exception": "", 
+        "error": ""
+    }
+
+    # TODO: I would like to not hit the db a bajillion times, but I'm tired
+    try:
+        if request.method == 'POST' and "history" in request.DATA:
+            answers = []
+            for answer in request.DATA["history"]:
+
+                history = HistorySerializer(data=answer)
+                history_valid = history.is_valid()
+                if history_valid:
+                    current = retval
+                    if "id" in answer:
+                        history.object.id = answer["id"]
+                    
+                    current = controller.save_history(current, history.object)
+                    answers.append(current["data"]["history"])
+                
+                else:
+                    # TODO: this doesn't do much good unless I associate which history object caused it
+                    retval["error"] = history.errors
+            
+            retval["data"]["history"] = (HistorySerializer(answers, many=True)).data
+
+        else:
+            retval["error"] = "Not a valid request."
+    except Exception as e:
+        retval["exception"] += str(e)
+
+    return JSONResponse(retval, status=200)

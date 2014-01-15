@@ -238,8 +238,18 @@ class History(models.Model):
     def __unicode__(self):
         return "{0} for {1}".format(self.key, self.patient.lastName)
 
+    # this is a custom save method so that there is only one ordertype/patient/index combo cuz Django Rest Framework is a bitch
+    # TODO: this needs to be tested
+    def save(self, *args, **kwargs):
+
+        history = History.objects.filter(patient=self.patient, key=self.key).exclude(pk=self.pk)
+        
+        if not history:
+            super(History, self).save(*args, **kwargs)
+        else:
+            raise Exception, "This is a duplicate history entry."
     class Meta:
-        unique_together = ('patient', 'key')
+        # unique_together = ('patient', 'key')
         verbose_name_plural = "Histories"
      
 # TODO: I need the official names of the 5 hieroglyphs

@@ -170,6 +170,55 @@ def get_config(status, config_id):
 
     return status
 
+def get_history_list(status, patient_id):
+    
+    """
+    Get patient's history.
+    """
+
+    status["success"] = False
+    status["data"]["history"] = {}
+
+    try:
+
+        h = models.History.objects.filter(patient=patient_id)
+    
+        status["data"]["history"] = h
+        status["success"] = True
+
+    except Exception as e:
+        status["exception"] += str(e)
+
+    return status
+
+def get_history(status, history, history_id):
+    
+    """
+    Get a patient's specific history answer by id or by key.
+    """
+
+    status["success"] = False
+    status["data"]["history"] = {}
+
+    try:
+
+        if history_id:
+            h = models.History.objects.filter(pk=history_id)
+        else:
+            h = models.History.objects.filter(patient=history.patient, key=history.key)
+
+        if len(h) == 1:
+            status["data"]["history"] = h[0]
+            status["success"] = True
+        elif h:
+            status["error"] = "More than one record found."
+        else:
+            status["error"] = "No history record found." 
+    except Exception as e:
+        status["exception"] += str(e)
+
+    return status
+
 def save_audio(status, audio, audio_data):
     
     """
@@ -318,6 +367,38 @@ def save_order(status, order):
             status["success"] = True
         else:
             status["error"] = "Order could not be saved."
+    except Exception as e:
+        status["exception"] += str(e)
+
+    return status
+
+def save_history(status, history):
+    
+    """
+    Insert or update a patient's answer to a history question.
+    """
+
+    status["success"] = False
+    status["data"]["history"] = {}
+
+    try:
+
+        h = models.History(key = history.key, patient = history.patient, value = history.value)
+        
+        if history.id:
+            previous = models.History.objects.filter(pk=history.id)
+            if previous:
+                previous = previous[0]
+                h.pk = previous.id
+                h.created = previous.created
+
+        h.save()
+
+        if h.pk:
+            status["data"]["history"] = h
+            status["success"] = True
+        else:
+            status["error"] = "History could not be saved."
     except Exception as e:
         status["exception"] += str(e)
 

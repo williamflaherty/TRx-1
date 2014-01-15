@@ -34,6 +34,27 @@ def get_patient(status, patient, patient_id):
 
     return status
 
+def get_patient_list(status):
+    
+    """
+    Get current patients.
+    """
+
+    status["success"] = False
+    status["data"]["patient"] = {}
+
+    try:
+
+        p = models.Patient.objects.filter(isCurrent=True)
+
+        status["data"]["patient"] = p
+        status["success"] = True
+        
+    except Exception as e:
+        status["exception"] += str(e)
+
+    return status
+
 def get_audio_list(status, patient_id):
     
     """

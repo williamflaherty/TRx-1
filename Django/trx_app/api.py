@@ -45,16 +45,67 @@ def get_patient(request):
                         
             if "id" in request.DATA["patient"] and request.DATA["patient"]["id"] != 0:
                 retval = controller.get_patient(retval, None, request.DATA["patient"]["id"]) 
-                retval["data"]["patient"] = (PatientSerializer(retval["data"]["patient"])).data
+                retval["data"]["patient"] = (PatientSerializer(retval["data"]["patient"], fields=(
+                        "id", 
+                        "firstName",
+                        "middleName",
+                        "lastName", 
+                        "birthday", 
+                        "surgeryType", 
+                        "doctor", 
+                        "location", 
+                        "hasTimeout", 
+                        "isCurrent"))).data            
             else:
                 patient = PatientSerializer(data=request.DATA["patient"], fields=('firstName', 'lastName', 'birthday'))
                 patient_valid = patient.is_valid()
             
                 if patient_valid:
                     retval = controller.get_patient(retval, patient.object, None) 
-                    retval["data"]["patient"] = (PatientSerializer(retval["data"]["patient"])).data
+                    retval["data"]["patient"] = (PatientSerializer(retval["data"]["patient"], fields=(
+                        "id", 
+                        "firstName",
+                        "middleName",
+                        "lastName", 
+                        "birthday", 
+                        "surgeryType", 
+                        "doctor", 
+                        "location", 
+                        "hasTimeout", 
+                        "isCurrent"))).data
                 else:
                     retval["error"] = patient.errors
+        else:
+            retval["error"] = "Not a valid request."
+    except Exception as e:
+        retval["exception"] += str(e)
+
+    return JSONResponse(retval, status=200)
+
+@csrf_exempt
+@api_view(['POST'])
+def get_patient_list(request):
+    
+    """
+    Gets all current patient records.
+    """    
+    
+    retval = {
+        "success": False, 
+        "data": {}, 
+        "exception": "", 
+        "error": ""
+    }
+
+    try:
+        if request.method == 'POST': 
+            
+            # TODO: only profile picture should be gotten? maybe as another field in dict with value of img name
+            #       could be accomplished by adding field to serializer and method get_profile to model
+            # for now, if there is a profile image, it is listed in image set with isProfile as True
+            retval = controller.get_patient_list(retval) 
+            retval["data"]["patient"] = (PatientSerializer(retval["data"]["patient"], many=True)).data
+            
         else:
             retval["error"] = "Not a valid request."
     except Exception as e:

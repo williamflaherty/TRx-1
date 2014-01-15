@@ -11,6 +11,7 @@ urlpatterns = patterns('',
 
     # patients
     url(r'^get_patient/$', api.get_patient, name='get_patient'),
+    url(r'^get_patient_list/$', api.get_patient_list, name='get_patient_list'),    
     url(r'^save_patient/$', api.save_patient, name='save_patient'),
 
     # audio
@@ -24,6 +25,10 @@ urlpatterns = patterns('',
     # orders
     url(r'^get_order/$', api.get_order, name='get_order'),
     url(r'^save_order/$', api.save_order, name='save_order'),
+
+    # # history
+    # url(r'^get_history/$', api.get_order, name='get_order'),
+    # url(r'^save_history/$', api.save_order, name='save_order'),
 
 	######################
 	# Config # CONVTAG

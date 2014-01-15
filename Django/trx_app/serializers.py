@@ -22,11 +22,6 @@ class DynamicFieldsModelSerializer(serializers.ModelSerializer):
             for field_name in existing - allowed:
                 self.fields.pop(field_name)
  
-class PatientSerializer(DynamicFieldsModelSerializer):
-
-    class Meta:
-        model = models.Patient
-
 class AudioSerializer(DynamicFieldsModelSerializer):
 
     class Meta:
@@ -47,3 +42,9 @@ class ConfigSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = models.JSONFiles
 
+class PatientSerializer(DynamicFieldsModelSerializer):
+
+    image_set = ImageSerializer(many=True, required=False)
+
+    class Meta:
+        model = models.Patient

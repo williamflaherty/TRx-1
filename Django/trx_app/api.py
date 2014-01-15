@@ -7,16 +7,11 @@ from trx_app import controller
 from trx_app.serializers import *
 
 # TODO: do something about my permission schemes
-# TODO: add sync config api call. returns approp question file, doctors, surgery types, etc (based on trip/language)
 # TODO: figure out why serializers ignore the id field when deserializing (difference between insert and update, but it is stupid)
 # TODO: I know there's a note somewhere about the ugly way I'm handling some gets (ex blahblah(retval, None, id))
 #       either clean up the way I'm doing it by finding a better way to do it
 #       figure out the serializers ignoring id problem, which should fix it
 #       or use named parameters so I want to kill myself a little less
-# SATTODO: api method to return config file (pull from jsonfiles) based on file_name
-# SATTODO: api method to return list of isLive jsonfiles
-# SATTODO: configure server
-# SATTODO: history api methods get/set
 class JSONResponse(HttpResponse):
     """
     An HttpResponse that renders its content into JSON.

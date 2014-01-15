@@ -10,7 +10,6 @@ from trx_app.serializers import *
 # TODO: add sync config api call. returns approp question file, doctors, surgery types, etc (based on trip/language)
 # TODO: figure out why serializers ignore the id field when deserializing (difference between insert and update, but it is stupid)
 
-# SATTODO: commit, delete obselete folders/files
 # SATTODO: api method to return config file (pull from jsonfiles) based on file_name
 # SATTODO: api method to return list of isLive jsonfiles
 # SATTODO: configure server
@@ -152,6 +151,62 @@ def get_order(request):
                 else:
                     retval["error"] = order.errors
 
+        else:
+            retval["error"] = "Not a valid request."
+    except Exception as e:
+        retval["exception"] += str(e)
+
+    return JSONResponse(retval, status=200)
+
+@csrf_exempt
+@api_view(['POST'])
+def get_config_list(request):
+    
+    """
+    Gets the names of all live configuration files.
+    """    
+    
+    retval = {
+        "success": False, 
+        "data": {}, 
+        "exception": "", 
+        "error": ""
+    }
+
+    try:
+        if request.method == 'POST':
+                                
+            retval = controller.get_config_list(retval) 
+            retval["data"]["config"] = (ConfigSerializer(retval["data"]["config"], many=True, fields=('id', 'file_name'))).data
+
+        else:
+            retval["error"] = "Not a valid request."
+    except Exception as e:
+        retval["exception"] += str(e)
+
+    return JSONResponse(retval, status=200)
+
+@csrf_exempt
+@api_view(['POST'])
+def get_config(request):
+    
+    """
+    Gets a configuration file by id (it can't be by name since names are not unique).
+    """    
+    
+    retval = {
+        "success": False, 
+        "data": {}, 
+        "exception": "", 
+        "error": ""
+    }
+
+    try:
+        if request.method == 'POST' and "config" in request.DATA and "id" in request.DATA["config"]:
+                        
+            retval = controller.get_config(retval, request.DATA["config"]["id"]) 
+            retval["data"]["config"] = (ConfigSerializer(retval["data"]["config"])).data
+            
         else:
             retval["error"] = "Not a valid request."
     except Exception as e:

@@ -104,6 +104,51 @@ def get_order(status, order, order_id):
 
     return status
 
+def get_config_list(status):
+    
+    """
+    Get list of live configuration files
+    """
+
+    status["success"] = False
+    status["data"]["config"] = {}
+
+    try:
+
+        c = models.JSONFiles.objects.filter(isLive=True)
+        status["data"]["config"] = c
+        status["success"] = True
+        
+    except Exception as e:
+        status["exception"] += str(e)
+
+    return status
+
+def get_config(status, config_id):
+    
+    """
+    Get a configuration file.
+    """
+
+    status["success"] = False
+    status["data"]["config"] = {}
+
+    try:
+
+        c = models.JSONFiles.objects.filter(pk=config_id)
+
+        if len(c) == 1:
+            status["data"]["config"] = c[0]
+            status["success"] = True
+        elif c:
+            status["error"] = "More than one record found."
+        else:
+            status["error"] = "No configuration file found." 
+    except Exception as e:
+        status["exception"] += str(e)
+
+    return status
+
 def save_audio(status, audio, audio_data):
     
     """

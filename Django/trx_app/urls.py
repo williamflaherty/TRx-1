@@ -5,7 +5,11 @@ urlpatterns = patterns('',
 	######################
 	# API
 	######################
-	# patients
+	# config
+    url(r'^get_config_list/$', api.get_config_list, name='get_config_list'),
+    url(r'^get_config/$', api.get_config, name='get_config'),
+
+    # patients
     url(r'^get_patient/$', api.get_patient, name='get_patient'),
     url(r'^save_patient/$', api.save_patient, name='save_patient'),
 

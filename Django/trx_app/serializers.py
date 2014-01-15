@@ -42,4 +42,8 @@ class OrderSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = models.Order
 
+class ConfigSerializer(DynamicFieldsModelSerializer):
+
+    class Meta:
+        model = models.JSONFiles
 

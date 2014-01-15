@@ -354,6 +354,11 @@ class JSONFiles(models.Model):
   file_text = models.TextField()
   isLive = models.BooleanField(default = True)
 
+  # TODO: consider making the file_name unique
+  # the generator doesn't make test X if the test is there, and it does not override the old file
+  # the first is probably the better solution
+  # or just insisting that it should be unique and allowing the user to input a name
+
 
 
 

@@ -45,7 +45,9 @@ class Location(models.Model):
         unique_together = ('city', 'region', 'country')
 
 class Doctor(models.Model):
-    firstName = models.CharField(max_length = 255)
+    # TODO: first name should NOT be allowed to be blank/null
+    #       have to fix web app unfortunately though, and then can revert happily       
+    firstName = models.CharField(max_length = 255, null = True, blank = True) 
     middleName = models.CharField(max_length = 255, null = True, blank = True)
     lastName = models.CharField(max_length = 255)
     # isCurrent = models.BooleanField()
@@ -357,13 +359,13 @@ class QuestionProjectToChain(models.Model):
   question_chain = models.ForeignKey(QuestionChain)
   stack_index = models.IntegerField()
 
-# CONVTAG
-class SurgeryType_Config(models.Model):
-  surgery_name = models.CharField(max_length=30, unique=True)
+# # CONVTAG
+# class SurgeryType_Config(models.Model):
+#   surgery_name = models.CharField(max_length=30, unique=True)
 
-# CONVTAG
-class Doctor_Config(models.Model):
-  doctor_name = models.CharField(max_length=30, unique=True)
+# # CONVTAG
+# class Doctor_Config(models.Model):
+#   doctor_name = models.CharField(max_length=30, unique=True)
 
 class JSONFiles(models.Model):
   file_name = models.CharField(max_length=40)

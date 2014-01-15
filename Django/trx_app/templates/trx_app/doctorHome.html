@@ -7,7 +7,7 @@
 {% block pane %}
   {% for doctor in doctors %}
   <li class="list-group-item" onclick="update_selected(this);" doctor_id="{{ doctor.id }}">
-    {{ doctor.doctor_name }}
+    {{ doctor.lastName }}
   </li>
 {% endfor %}
 

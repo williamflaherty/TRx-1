@@ -4,10 +4,9 @@ from django import forms
 from django.forms.formsets import formset_factory
 from django.db.models import Q
 from django.core import serializers
-from trx_app.models import QuestionProject, QuestionChain, Question, Option, QuestionProjectToChain, ChainToQuestion, SurgeryType_Config, JSONFiles, Doctor_Config
+from trx_app.models import QuestionProject, QuestionChain, Question, Option, QuestionProjectToChain, ChainToQuestion, SurgeryType, JSONFiles, Doctor
 import json
 
-# TODO: fix SurgeryType_config and Doctor_config # CONVTAG
 #################################### Home Pages ######################################
 
 def projectHome(request):
@@ -54,11 +53,11 @@ def surgeryHome(request):
     form = NewSurgeryForm(request.POST)
     if form.is_valid():
       name = request.POST['name']
-      ob = SurgeryType_Config(surgery_name=name)
+      ob = SurgeryType(name=name)
       ob.save()
       print("just saved surgery name: ", name)
 
-  context["surgeries"] = SurgeryType_Config.objects.all()
+  context["surgeries"] = SurgeryType.objects.all()
   context["form"] = NewSurgeryForm()
   context["menu_location"] = "surgery"
   context["previous_page"] = previous_page(request.path)
@@ -71,10 +70,10 @@ def doctorHome(request):
     form = NewDoctorForm(request.POST)
     if form.is_valid():
       name = request.POST['name']
-      ob = Doctor_Config(doctor_name=name)
+      ob = Doctor(lastName=name)
       ob.save()
 
-  context["doctors"] = Doctor_Config.objects.all()
+  context["doctors"] = Doctor.objects.all()
   context["form"] = NewDoctorForm()
   context["menu_location"] = "doctor"
   context["previous_page"] = previous_page(request.path)
@@ -311,12 +310,12 @@ def deleteQuestion(request, question_index):
   return HttpResponseRedirect('/trx_app/questionHome/')
 
 def deleteSurgery(request, surgery_index):
-  surgery = SurgeryType_Config.objects.get(id = surgery_index)
+  surgery = SurgeryType.objects.get(id = surgery_index)
   surgery.delete()
   return HttpResponseRedirect('/trx_app/surgeryHome/')
 
 def deleteDoctor(request, doctor_index):
-  doctor = Doctor_Config.objects.get(id = doctor_index)
+  doctor = Doctor.objects.get(id = doctor_index)
   doctor.delete()
   return HttpResponseRedirect('/trx_app/doctorHome/')
 
@@ -380,9 +379,9 @@ def generateJSON(request, project_index):
     
   question_project["branch_questions"] = branch_questions
 
-  #question_project["surgeries"] = SurgeryType_Config.objects..values()
-  question_project["surgeries"] = list(SurgeryType_Config.objects.all().values())
-  question_project["doctors"] = list(Doctor_Config.objects.all().values())
+  #question_project["surgeries"] = SurgeryType.objects..values()
+  question_project["surgeries"] = list(SurgeryType.objects.all().values())
+  question_project["doctors"] = list(Doctor.objects.all().values())
 
   s =  json.dumps(question_project, sort_keys=True, indent=4).splitlines()
   return '\n'.join([l.rstrip() for l in s])

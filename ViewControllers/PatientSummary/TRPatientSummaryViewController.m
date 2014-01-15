@@ -7,7 +7,7 @@
 //
 
 #import "TRPatientSummaryViewController.h"
-#import "TRBorderedImageView.h"
+#import "TRCustomImageView.h"
 #import "TRActivePatientManager.h"
 #import "CDPatient.h"
 #import "CDImage.h"
@@ -17,7 +17,7 @@
 @end
 
 @implementation TRPatientSummaryViewController{
-    TRBorderedImageView *_photoIDImageView;
+    TRCustomImageView *_photoIDImageView;
     
     UILabel *_nameLabel;
     UILabel *_birthdateLabel;
@@ -61,8 +61,8 @@
 }
 
 - (void)loadImageView{
-    _photoIDImageView = [[TRBorderedImageView alloc] initWithFrame:CGRectZero];
-    [_photoIDImageView drawBorderWithColor:self.view.tintColor];
+    _photoIDImageView = [[TRCustomImageView alloc] initWithFrame:CGRectZero];
+    [_photoIDImageView drawImageViewWithDefaultStyle];
     [self.view addSubview:_photoIDImageView];
 }
 

@@ -9,7 +9,7 @@
 #import "TRAddPatientViewController.h"
 #import "TRTabBarController.h"
 #import "TRCustomButton.h"
-#import "TRBorderedImageView.h"
+#import "TRCustomImageView.h"
 #import "TRManagedObjectContext.h"
 #import "CDItem.h"
 #import "CDItemList.h"
@@ -28,7 +28,7 @@
 @implementation TRAddPatientViewController{
     TRActivePatientManager *_activePatientManager;
     
-    TRBorderedImageView *_photoIDImageView;
+    TRCustomImageView *_photoIDImageView;
     
     TRCustomButton *_takePictureButton;
     UIBarButtonItem *_submitButton;
@@ -196,8 +196,8 @@
 }
 
 - (void)loadImageView{
-    _photoIDImageView = [[TRBorderedImageView alloc] init];
-    [_photoIDImageView drawBorderWithColor:self.view.tintColor];
+    _photoIDImageView = [[TRCustomImageView alloc] init];
+    [_photoIDImageView drawImageViewWithDefaultStyle];
     [self.view addSubview:_photoIDImageView];
 }
 

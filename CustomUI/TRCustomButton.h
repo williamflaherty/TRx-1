@@ -10,7 +10,6 @@
 
 @interface TRCustomButton : UIButton
 
-//- (void)drawButtonWithColor:(UIColor*)buttonCollor;
 - (void)drawButtonWithDefaultStyle;
 - (void)drawButtonWithCancelStlye;
 

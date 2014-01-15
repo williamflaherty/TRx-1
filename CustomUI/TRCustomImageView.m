@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 TeamHaiti. All rights reserved.
 //
 
-#import "TRBorderedImageView.h"
+#import "TRCustomImageView.h"
 
-@implementation TRBorderedImageView
+@implementation TRCustomImageView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -19,11 +19,11 @@
     return self;
 }
 
-- (void)drawBorderWithColor:(UIColor *)borderColor{
+- (void)drawImageViewWithDefaultStyle{
     
     self.layer.borderColor = [[UIApplication sharedApplication] keyWindow].tintColor.CGColor;
     self.layer.borderWidth = 1.5f;
-    self.layer.cornerRadius = 10;
+//    self.layer.cornerRadius = 10;
     self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1.0];
     
     [self setNeedsDisplay];

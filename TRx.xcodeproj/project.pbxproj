@@ -22,7 +22,7 @@
 		C40325891874CA0E003D8159 /* TRQView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325881874CA0E003D8159 /* TRQView.m */; };
 		C403258C1874CA7C003D8159 /* TRQCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C403258B1874CA7C003D8159 /* TRQCheckBox.m */; };
 		C403258F1874CAA7003D8159 /* TRQYesNoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C403258E1874CAA7003D8159 /* TRQYesNoButton.m */; };
-		C40325951874CF4E003D8159 /* TRBorderedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325931874CF4E003D8159 /* TRBorderedImageView.m */; };
+		C40325951874CF4E003D8159 /* TRCustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325931874CF4E003D8159 /* TRCustomImageView.m */; };
 		C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325971876105B003D8159 /* TRSettingsViewController.m */; };
 		C403259B18761096003D8159 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403259A18761096003D8159 /* Settings.xib */; };
 		C403259D187610B3003D8159 /* Settings-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403259C187610B3003D8159 /* Settings-Landscape.xib */; };
@@ -111,8 +111,8 @@
 		C403258B1874CA7C003D8159 /* TRQCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRQCheckBox.m; path = ViewControllers/QuestionItems/TRQCheckBox.m; sourceTree = SOURCE_ROOT; };
 		C403258D1874CAA7003D8159 /* TRQYesNoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRQYesNoButton.h; path = ViewControllers/QuestionItems/TRQYesNoButton.h; sourceTree = SOURCE_ROOT; };
 		C403258E1874CAA7003D8159 /* TRQYesNoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRQYesNoButton.m; path = ViewControllers/QuestionItems/TRQYesNoButton.m; sourceTree = SOURCE_ROOT; };
-		C40325921874CF4E003D8159 /* TRBorderedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRBorderedImageView.h; path = CustomUI/TRBorderedImageView.h; sourceTree = SOURCE_ROOT; };
-		C40325931874CF4E003D8159 /* TRBorderedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRBorderedImageView.m; path = CustomUI/TRBorderedImageView.m; sourceTree = SOURCE_ROOT; };
+		C40325921874CF4E003D8159 /* TRCustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRCustomImageView.h; path = CustomUI/TRCustomImageView.h; sourceTree = SOURCE_ROOT; };
+		C40325931874CF4E003D8159 /* TRCustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRCustomImageView.m; path = CustomUI/TRCustomImageView.m; sourceTree = SOURCE_ROOT; };
 		C40325961876105B003D8159 /* TRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRSettingsViewController.h; path = ViewControllers/Settings/TRSettingsViewController.h; sourceTree = SOURCE_ROOT; };
 		C40325971876105B003D8159 /* TRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRSettingsViewController.m; path = ViewControllers/Settings/TRSettingsViewController.m; sourceTree = SOURCE_ROOT; };
 		C403259A18761096003D8159 /* Settings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Settings.xib; path = ViewControllers/XIBs/Settings.xib; sourceTree = SOURCE_ROOT; };
@@ -488,8 +488,8 @@
 			children = (
 				C4839E17187A1BF9002990E0 /* TRCustomButton.h */,
 				C4839E18187A1BF9002990E0 /* TRCustomButton.m */,
-				C40325921874CF4E003D8159 /* TRBorderedImageView.h */,
-				C40325931874CF4E003D8159 /* TRBorderedImageView.m */,
+				C40325921874CF4E003D8159 /* TRCustomImageView.h */,
+				C40325931874CF4E003D8159 /* TRCustomImageView.m */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -649,7 +649,7 @@
 				1318E1F8188202EE000146FC /* CDItemList.m in Sources */,
 				C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */,
 				C48C6E3F17E661700065ABBE /* TRAppDelegate.m in Sources */,
-				C40325951874CF4E003D8159 /* TRBorderedImageView.m in Sources */,
+				C40325951874CF4E003D8159 /* TRCustomImageView.m in Sources */,
 				C403257D1874C943003D8159 /* TRHistoryManager.m in Sources */,
 				C48C6E3B17E661700065ABBE /* main.m in Sources */,
 				C403258F1874CAA7003D8159 /* TRQYesNoButton.m in Sources */,

@@ -23,18 +23,6 @@
     }
     return self;
 }
-//
-//- (void)drawButtonWithColor:(UIColor *)buttonColor{
-//    
-//    self.layer.borderColor = buttonColor.CGColor;
-//    self.layer.backgroundColor = buttonColor.CGColor;
-//    self.layer.borderWidth = 1.0f;
-//    self.layer.cornerRadius = 6;
-//    
-//    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    
-//    [self setNeedsDisplay];
-//}
 
 - (void)drawButtonWithDefaultStyle{
     

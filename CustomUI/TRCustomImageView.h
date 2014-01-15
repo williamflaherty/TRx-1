@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TRBorderedImageView : UIImageView
+@interface TRCustomImageView : UIImageView
 
-- (void)drawBorderWithColor:(UIColor*)borderColor;
+- (void)drawImageViewWithDefaultStyle;
 
 @end

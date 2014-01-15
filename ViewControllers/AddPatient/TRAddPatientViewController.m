@@ -259,6 +259,29 @@
 #pragma mark - Camera Methods
 
 - (void)takePicturePressed{
+//    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+//    
+//    
+//    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+//        //Create camera overlay
+//        CGRect f = imagePickerController.view.bounds;
+//        f.size.height -= imagePickerController.navigationBar.bounds.size.height;
+//        CGFloat barHeight = (f.size.height - f.size.width) / 2;
+//        UIGraphicsBeginImageContext(f.size);
+//        [[UIColor colorWithWhite:0 alpha:.5] set];
+//        UIRectFillUsingBlendMode(CGRectMake(0, 0, f.size.width, barHeight), kCGBlendModeNormal);
+//        UIRectFillUsingBlendMode(CGRectMake(0, f.size.height - barHeight, f.size.width, barHeight), kCGBlendModeNormal);
+//        UIImage *overlayImage = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
+//        
+//        UIImageView *overlayIV = [[UIImageView alloc] initWithFrame:f];
+//        overlayIV.image = overlayImage;
+//        [imagePickerController.cameraOverlayView addSubview:overlayIV];
+//    }
+//    
+//    imagePickerController.delegate = self;
+//    [self presentViewController:imagePickerController animated:YES completion:nil];
+    
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
         imagePicker.delegate = self;
@@ -273,6 +296,22 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    CGSize imageSize = image.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    if (width != height) {
+        CGFloat newDimension = MIN(width, height);
+        CGFloat widthOffset = (width - newDimension) / 2;
+        CGFloat heightOffset = (height - newDimension) / 2;
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), NO, 0.);
+        [image drawAtPoint:CGPointMake(-widthOffset, -heightOffset)
+                 blendMode:kCGBlendModeCopy
+                     alpha:1.];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
     _photoIDImageView.image = image;;
 }
 

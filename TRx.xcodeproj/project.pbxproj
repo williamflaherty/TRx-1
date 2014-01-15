@@ -96,6 +96,8 @@
 		1318E20E18827193000146FC /* CDQuestionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDQuestionList.h; path = Models/ConfigModels/CDQuestionList.h; sourceTree = SOURCE_ROOT; };
 		1318E20F18827193000146FC /* CDQuestionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDQuestionList.m; path = Models/ConfigModels/CDQuestionList.m; sourceTree = SOURCE_ROOT; };
 		1318E2141883B876000146FC /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
+		136D220D1885F6EE0030947A /* CDOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDOption.h; path = Models/ConfigModels/CDOption.h; sourceTree = SOURCE_ROOT; };
+		136D220E1885F6EE0030947A /* CDOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDOption.m; path = Models/ConfigModels/CDOption.m; sourceTree = SOURCE_ROOT; };
 		520D5244C93F431DA0DBD15B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C403257B1874C943003D8159 /* TRHistoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRHistoryManager.h; path = ViewControllers/History/TRHistoryManager.h; sourceTree = SOURCE_ROOT; };
 		C403257C1874C943003D8159 /* TRHistoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryManager.m; path = ViewControllers/History/TRHistoryManager.m; sourceTree = SOURCE_ROOT; };
@@ -414,6 +416,8 @@
 			children = (
 				C48C6E6317E661F90065ABBE /* Models */,
 				C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */,
+				136D220D1885F6EE0030947A /* CDOption.h */,
+				136D220E1885F6EE0030947A /* CDOption.m */,
 			);
 			name = "Data / Models";
 			sourceTree = "<group>";

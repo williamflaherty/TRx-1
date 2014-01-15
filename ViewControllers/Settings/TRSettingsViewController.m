@@ -144,7 +144,7 @@
         
         NSLog(@"stack_index: %@", qList.stack_index);
         
-        NSOrderedSet *questions = qList.questions;
+        NSSet *questions = qList.questions;
         for (CDQuestion *q in questions) {
             NSLog(@"question: %@", q.question_text);
             
@@ -294,6 +294,46 @@
         return false;
     }
     
+    //set branches
+    
+    //get all chains in an array
+    NSOrderedSet *stack_chains = [CDChainList getChainsForRequestName:@"StackList" fromContext:[self managedObjectContext]];
+    NSOrderedSet *branch_chains = [CDChainList getChainsForRequestName:@"BranchList" fromContext:[self managedObjectContext]];
+    NSMutableArray *chainsArray = [[NSMutableArray alloc] init];
+    
+    for (CDQuestionList *qList in stack_chains) {
+        [chainsArray addObject:qList];
+    }
+    
+    for (CDQuestionList *qList in branch_chains) {
+        [chainsArray addObject:qList];
+    }
+    
+    //get all options.
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDOption" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *optionsArray = [context executeFetchRequest:fetchRequest error:&error];
+    if (optionsArray == nil) {
+        NSLog(@"Error retrieving %@ list: %@", @"OptionList", error);
+        return false;
+    }
+    
+    //for every option, get the branch_id
+    NSLog(@"*********************************************");
+    for (CDOption *o in optionsArray) {
+        //find matching branch_id in chain and set link
+        for (CDQuestionList *qList in chainsArray) {
+            if (qList.branch_id == o.branch_id) {
+                o.branchTo = qList;
+                NSLog(@"linking option %@ to qList %@", o.display_text, qList.branch_id);
+            }
+        }
+    }
+    NSLog(@"*********************************************");
     return true;
 }
 

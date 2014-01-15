@@ -2,12 +2,13 @@
 //  CDOption.m
 //  TRx
 //
-//  Created by John Cotham on 1/12/14.
+//  Created by John Cotham on 1/14/14.
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
 #import "CDOption.h"
 #import "CDQuestion.h"
+#import "CDQuestionList.h"
 
 
 @implementation CDOption
@@ -18,5 +19,6 @@
 @dynamic text;
 @dynamic translation;
 @dynamic question;
+@dynamic branchTo;
 
 @end

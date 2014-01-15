@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CDChainList" representedClassName="CDChainList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="chains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDQuestionList" inverseName="list" inverseEntity="CDQuestionList" syncable="YES"/>
     </entity>
     <entity name="CDHistory" representedClassName="CDHistory" syncable="YES">
+        <attribute name="displayGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="questionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPatient" inverseName="history" inverseEntity="CDPatient" syncable="YES"/>
     </entity>
@@ -30,6 +33,7 @@
         <attribute name="highlight" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translation" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="branchTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuestionList" inverseName="branches" inverseEntity="CDQuestionList" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuestion" inverseName="options" inverseEntity="CDQuestion" syncable="YES"/>
     </entity>
     <entity name="CDPatient" representedClassName="CDPatient" syncable="YES">
@@ -59,6 +63,7 @@
     <entity name="CDQuestionList" representedClassName="QuestionChain" syncable="YES">
         <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stack_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="branches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDOption" inverseName="branchTo" inverseEntity="CDOption" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDChainList" inverseName="chains" inverseEntity="CDChainList" syncable="YES"/>
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDQuestion" inverseName="list" inverseEntity="CDQuestion" syncable="YES"/>
     </entity>
@@ -69,13 +74,13 @@
     <fetchRequest name="SurgeryList" entity="CDItemList" predicateString="name == &quot;surgeries&quot;"/>
     <elements>
         <element name="CDChainList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDHistory" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDImage" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDItem" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDItemList" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDOption" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDPatient" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDQuestion" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDQuestionList" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CDHistory" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CDImage" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

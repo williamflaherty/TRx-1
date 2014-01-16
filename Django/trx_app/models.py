@@ -315,10 +315,14 @@ class QuestionChain(models.Model):
     return self.chain_name
 
 question_types = (
-    ('fib', 'fill-in-the-blank'),
-    ('yn', 'yes/no'),
-    ('cb', 'check box'),
-    ('cbb', 'check box with blank'),)
+    ('fill', 'fill-in-the-blank'),
+    ('check box', 'check box'),
+    ('check box other', 'check box with explain'),
+    ('yes no', 'yes/no'),
+    ('yes explain', 'yes/no with explain for yes'),
+    ('no explain', 'yes/no with explain for no'),
+    ('yes and no explain', 'yes/no with explain both'),
+)
 
 highlight_colors = (
     ('n', 'no highlight'),
@@ -329,11 +333,11 @@ branch_choice = (
     (None, 'No branch'),)
 
 class Question(models.Model):
-  question_type = models.CharField(max_length=5,choices=question_types)
+  question_type = models.CharField(max_length=30,choices=question_types)
   question_text = models.CharField(max_length=300)
   translation_text = models.CharField(max_length=300, null=True)
   display_text = models.CharField(max_length=100)
-  display_group = models.CharField(max_length=30)
+  display_group = models.CharField(max_length=100)
 
   def __str__(self):
     return self.question_text

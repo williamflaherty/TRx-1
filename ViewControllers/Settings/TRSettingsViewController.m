@@ -323,17 +323,14 @@
     }
     
     //for every option, get the branch_id
-    NSLog(@"*********************************************");
     for (CDOption *o in optionsArray) {
         //find matching branch_id in chain and set link
         for (CDQuestionList *qList in chainsArray) {
             if (qList.branch_id == o.branch_id) {
                 o.branchTo = qList;
-                NSLog(@"linking option %@ to qList %@", o.display_text, qList.branch_id);
             }
         }
     }
-    NSLog(@"*********************************************");
     return true;
 }
 
@@ -489,5 +486,87 @@
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
+
+
+
+#pragma mark - Get JSON of patient records on app
+
+- (NSData *)getJSONOfRecordsOnApp{
+    
+    //get patients and put in array
+    NSManagedObjectContext *context = self.managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDPatient" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *patientArray = [context executeFetchRequest:fetchRequest error:&error];
+    if (patientArray == nil) {
+        NSLog(@"Error retrieving %@ list: %@", @"OptionList", error);
+    }
+    
+    
+    NSMutableArray *patientDicArray = [[NSMutableArray alloc] init];
+    
+    //properties returns a dictionary for each patient. add each dic to an array
+    for (NSManagedObject *patient in patientArray) {
+        [patientDicArray addObject:[self propertiesDictionary:entity forObject:patient]];
+    }
+    
+    //now put the array in JSON format and test it
+    NSData *JSONData = [NSJSONSerialization dataWithJSONObject:patientDicArray options:kNilOptions error:&error];
+    NSString *testToString = [[NSString alloc] initWithData:JSONData encoding:NSJSONWritingPrettyPrinted];
+    NSLog(@"%@", testToString);
+    return JSONData;
+}
+
+- (NSDictionary *)propertiesDictionary:(NSEntityDescription *)entity forObject:(NSManagedObject *)object
+{
+    NSManagedObjectContext *context = self.managedObjectContext;
+    NSEntityDescription *e;
+    NSMutableDictionary *properties = [[NSMutableDictionary alloc] init];
+    
+    for (id property in [entity properties])
+    {
+        if ([property isKindOfClass:[NSAttributeDescription class]])
+        {
+            NSAttributeDescription *attributeDescription = (NSAttributeDescription *)property;
+            NSString *name = [attributeDescription name];
+            [properties setValue:[entity valueForKey:name] forKey:name];
+        }
+        
+        if ([property isKindOfClass:[NSRelationshipDescription class]])
+        {
+            NSRelationshipDescription *relationshipDescription = (NSRelationshipDescription *)property;
+            NSString *name = [relationshipDescription name];
+            
+            if ([relationshipDescription isToMany])
+            {
+                NSMutableArray *arr = [properties valueForKey:name];
+                if (!arr)
+                {
+                    arr = [[NSMutableArray alloc] init];
+                    [properties setValue:arr forKey:name];
+                }
+                //recursive calls for many related child objects
+                for (NSManagedObject *o in [entity mutableSetValueForKey:name]) {
+                    e = [NSEntityDescription entityForName:NSStringFromClass([o class]) inManagedObjectContext:context];
+                    [arr addObject:[self propertiesDictionary:e forObject:o]];
+                }
+            }
+            else
+            {
+                //one recursive call for related child
+                NSManagedObject *o = [self valueForKey:name];
+                e = [NSEntityDescription entityForName:NSStringFromClass([o class]) inManagedObjectContext:context];
+                [properties setValue:[self propertiesDictionary:e forObject:o] forKey:name];
+            }
+        }
+    }
+    
+    return properties;
+}  
+
+
 
 @end

@@ -37,9 +37,6 @@
 		C482B0CC18159A4A001B0B20 /* TRPatientSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C482B0CB18159A4A001B0B20 /* TRPatientSummaryViewController.m */; };
 		C482B0D418159B4A001B0B20 /* TRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C482B0D318159B4A001B0B20 /* TRTabBarController.m */; };
 		C4839E19187A1BF9002990E0 /* TRCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4839E18187A1BF9002990E0 /* TRCustomButton.m */; };
-		C4839E1D187AB284002990E0 /* mark.png in Resources */ = {isa = PBXBuildFile; fileRef = C4839E1A187AB284002990E0 /* mark.png */; };
-		C4839E1E187AB284002990E0 /* mischa.png in Resources */ = {isa = PBXBuildFile; fileRef = C4839E1B187AB284002990E0 /* mischa.png */; };
-		C4839E1F187AB284002990E0 /* willie.png in Resources */ = {isa = PBXBuildFile; fileRef = C4839E1C187AB284002990E0 /* willie.png */; };
 		C48C6E2D17E661700065ABBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2C17E661700065ABBE /* Foundation.framework */; };
 		C48C6E2F17E661700065ABBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E2E17E661700065ABBE /* CoreGraphics.framework */; };
 		C48C6E3117E661700065ABBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48C6E3017E661700065ABBE /* UIKit.framework */; };
@@ -56,6 +53,18 @@
 		C48C6E5817E661700065ABBE /* TRxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E5717E661700065ABBE /* TRxTests.m */; };
 		C48C6E6717E662220065ABBE /* TRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */; };
 		C48C6E6D17E6622F0065ABBE /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C6E6C17E6622F0065ABBE /* TestViewController.m */; };
+		C4917C30188779DB00C73E45 /* mark.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C2C188779DB00C73E45 /* mark.png */; };
+		C4917C31188779DB00C73E45 /* mischa.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C2D188779DB00C73E45 /* mischa.png */; };
+		C4917C32188779DB00C73E45 /* Thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4917C2E188779DB00C73E45 /* Thumb.jpg */; };
+		C4917C33188779DB00C73E45 /* willie.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C2F188779DB00C73E45 /* willie.png */; };
+		C4917C36188779FE00C73E45 /* Summary.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C34188779FE00C73E45 /* Summary.png */; };
+		C4917C37188779FE00C73E45 /* Summary@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C35188779FE00C73E45 /* Summary@2x.png */; };
+		C4917C3A18877A1900C73E45 /* Surgery.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C3818877A1900C73E45 /* Surgery.png */; };
+		C4917C3B18877A1900C73E45 /* Surgery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C3918877A1900C73E45 /* Surgery@2x.png */; };
+		C4917C3E18877A3700C73E45 /* History.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C3C18877A3700C73E45 /* History.png */; };
+		C4917C3F18877A3700C73E45 /* History@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C3D18877A3700C73E45 /* History@2x.png */; };
+		C4917C4218877A9600C73E45 /* Physical.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C4018877A9600C73E45 /* Physical.png */; };
+		C4917C4318877A9600C73E45 /* Physical@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4917C4118877A9600C73E45 /* Physical@2x.png */; };
 		C4CD8DC1186F496E0016E371 /* PatientListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC0186F496E0016E371 /* PatientListCell.xib */; };
 		C4CD8DC4186F49780016E371 /* AddPatient-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC2186F49780016E371 /* AddPatient-Landscape.xib */; };
 		C4CD8DC5186F49780016E371 /* AddPatient.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CD8DC3186F49780016E371 /* AddPatient.xib */; };
@@ -65,7 +74,6 @@
 		C4EDCF04181C3A2300256DE5 /* TRHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDCF03181C3A2300256DE5 /* TRHistoryViewController.m */; };
 		C4EDCF07181C3A4000256DE5 /* TRPhysicalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDCF06181C3A4000256DE5 /* TRPhysicalViewController.m */; };
 		C4EDCF0A181C3A5800256DE5 /* TRSurgeryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EDCF09181C3A5800256DE5 /* TRSurgeryViewController.m */; };
-		C4F90D8818159CDE0004578A /* Thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4F90D8718159CDE0004578A /* Thumb.jpg */; };
 		C4FC4229187245BA00792E1A /* History.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FC4228187245BA00792E1A /* History.xib */; };
 		C4FC422B1872460500792E1A /* History-Landscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FC422A1872460500792E1A /* History-Landscape.xib */; };
 /* End PBXBuildFile section */
@@ -139,9 +147,6 @@
 		C482B0D318159B4A001B0B20 /* TRTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRTabBarController.m; path = ViewControllers/TRTabBarController.m; sourceTree = SOURCE_ROOT; };
 		C4839E17187A1BF9002990E0 /* TRCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRCustomButton.h; path = CustomUI/TRCustomButton.h; sourceTree = SOURCE_ROOT; };
 		C4839E18187A1BF9002990E0 /* TRCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRCustomButton.m; path = CustomUI/TRCustomButton.m; sourceTree = SOURCE_ROOT; };
-		C4839E1A187AB284002990E0 /* mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mark.png; sourceTree = SOURCE_ROOT; };
-		C4839E1B187AB284002990E0 /* mischa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mischa.png; sourceTree = SOURCE_ROOT; };
-		C4839E1C187AB284002990E0 /* willie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = willie.png; sourceTree = SOURCE_ROOT; };
 		C48C6E2917E661700065ABBE /* TRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48C6E2C17E661700065ABBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C48C6E2E17E661700065ABBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +167,18 @@
 		C48C6E6617E662220065ABBE /* TRx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TRx.xcdatamodel; sourceTree = "<group>"; };
 		C48C6E6B17E6622F0065ABBE /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = Test/TestViewController.h; sourceTree = SOURCE_ROOT; };
 		C48C6E6C17E6622F0065ABBE /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = Test/TestViewController.m; sourceTree = SOURCE_ROOT; };
+		C4917C2C188779DB00C73E45 /* mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mark.png; path = "Images/Test Images/mark.png"; sourceTree = SOURCE_ROOT; };
+		C4917C2D188779DB00C73E45 /* mischa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mischa.png; path = "Images/Test Images/mischa.png"; sourceTree = SOURCE_ROOT; };
+		C4917C2E188779DB00C73E45 /* Thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Thumb.jpg; path = "Images/Test Images/Thumb.jpg"; sourceTree = SOURCE_ROOT; };
+		C4917C2F188779DB00C73E45 /* willie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = willie.png; path = "Images/Test Images/willie.png"; sourceTree = SOURCE_ROOT; };
+		C4917C34188779FE00C73E45 /* Summary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Summary.png; path = "Images/Tab Images/Summary.png"; sourceTree = SOURCE_ROOT; };
+		C4917C35188779FE00C73E45 /* Summary@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Summary@2x.png"; path = "Images/Tab Images/Summary@2x.png"; sourceTree = SOURCE_ROOT; };
+		C4917C3818877A1900C73E45 /* Surgery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Surgery.png; path = "Images/Tab Images/Surgery.png"; sourceTree = SOURCE_ROOT; };
+		C4917C3918877A1900C73E45 /* Surgery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Surgery@2x.png"; path = "Images/Tab Images/Surgery@2x.png"; sourceTree = SOURCE_ROOT; };
+		C4917C3C18877A3700C73E45 /* History.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = History.png; path = "Images/Tab Images/History.png"; sourceTree = SOURCE_ROOT; };
+		C4917C3D18877A3700C73E45 /* History@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History@2x.png"; path = "Images/Tab Images/History@2x.png"; sourceTree = SOURCE_ROOT; };
+		C4917C4018877A9600C73E45 /* Physical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Physical.png; path = "Images/Tab Images/Physical.png"; sourceTree = SOURCE_ROOT; };
+		C4917C4118877A9600C73E45 /* Physical@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Physical@2x.png"; path = "Images/Tab Images/Physical@2x.png"; sourceTree = SOURCE_ROOT; };
 		C4CD8DC0186F496E0016E371 /* PatientListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PatientListCell.xib; path = ViewControllers/XIBs/PatientListCell.xib; sourceTree = SOURCE_ROOT; };
 		C4CD8DC2186F49780016E371 /* AddPatient-Landscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "AddPatient-Landscape.xib"; path = "ViewControllers/XIBs/AddPatient-Landscape.xib"; sourceTree = SOURCE_ROOT; };
 		C4CD8DC3186F49780016E371 /* AddPatient.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddPatient.xib; path = ViewControllers/XIBs/AddPatient.xib; sourceTree = SOURCE_ROOT; };
@@ -174,7 +191,6 @@
 		C4EDCF06181C3A4000256DE5 /* TRPhysicalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRPhysicalViewController.m; path = ViewControllers/Physical/TRPhysicalViewController.m; sourceTree = SOURCE_ROOT; };
 		C4EDCF08181C3A5800256DE5 /* TRSurgeryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRSurgeryViewController.h; path = ViewControllers/Surgery/TRSurgeryViewController.h; sourceTree = SOURCE_ROOT; };
 		C4EDCF09181C3A5800256DE5 /* TRSurgeryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRSurgeryViewController.m; path = ViewControllers/Surgery/TRSurgeryViewController.m; sourceTree = SOURCE_ROOT; };
-		C4F90D8718159CDE0004578A /* Thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Thumb.jpg; sourceTree = SOURCE_ROOT; };
 		C4FC4228187245BA00792E1A /* History.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = History.xib; path = ViewControllers/XIBs/History.xib; sourceTree = SOURCE_ROOT; };
 		C4FC422A1872460500792E1A /* History-Landscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "History-Landscape.xib"; path = "ViewControllers/XIBs/History-Landscape.xib"; sourceTree = SOURCE_ROOT; };
 		CA35FE7EB0304591A19109D4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,10 +278,8 @@
 		C43EEED318620D54000E3E12 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C4F90D8718159CDE0004578A /* Thumb.jpg */,
-				C4839E1A187AB284002990E0 /* mark.png */,
-				C4839E1B187AB284002990E0 /* mischa.png */,
-				C4839E1C187AB284002990E0 /* willie.png */,
+				C4917C2B188779CD00C73E45 /* Tests */,
+				C4917C2A188779C400C73E45 /* Tabs */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -452,6 +466,32 @@
 			name = "Views / Controllers";
 			sourceTree = "<group>";
 		};
+		C4917C2A188779C400C73E45 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				C4917C34188779FE00C73E45 /* Summary.png */,
+				C4917C35188779FE00C73E45 /* Summary@2x.png */,
+				C4917C3C18877A3700C73E45 /* History.png */,
+				C4917C3D18877A3700C73E45 /* History@2x.png */,
+				C4917C4018877A9600C73E45 /* Physical.png */,
+				C4917C4118877A9600C73E45 /* Physical@2x.png */,
+				C4917C3818877A1900C73E45 /* Surgery.png */,
+				C4917C3918877A1900C73E45 /* Surgery@2x.png */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		C4917C2B188779CD00C73E45 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C4917C2C188779DB00C73E45 /* mark.png */,
+				C4917C2D188779DB00C73E45 /* mischa.png */,
+				C4917C2E188779DB00C73E45 /* Thumb.jpg */,
+				C4917C2F188779DB00C73E45 /* willie.png */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		C4EDCEF8181C395600256DE5 /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,19 +612,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4917C36188779FE00C73E45 /* Summary.png in Resources */,
 				C4CD8DCB1870D4290016E371 /* PatientSummary-Landscape.xib in Resources */,
 				1318E2151883B876000146FC /* example.json in Resources */,
-				C4F90D8818159CDE0004578A /* Thumb.jpg in Resources */,
+				C4917C4318877A9600C73E45 /* Physical@2x.png in Resources */,
+				C4917C3A18877A1900C73E45 /* Surgery.png in Resources */,
+				C4917C4218877A9600C73E45 /* Physical.png in Resources */,
 				C4E887641881BEC900B241A6 /* ColorGuide in Resources */,
 				C403259B18761096003D8159 /* Settings.xib in Resources */,
-				C4839E1F187AB284002990E0 /* willie.png in Resources */,
 				C4CD8DC1186F496E0016E371 /* PatientListCell.xib in Resources */,
+				C4917C31188779DB00C73E45 /* mischa.png in Resources */,
 				C4FC4229187245BA00792E1A /* History.xib in Resources */,
-				C4839E1E187AB284002990E0 /* mischa.png in Resources */,
 				C4CD8DC4186F49780016E371 /* AddPatient-Landscape.xib in Resources */,
+				C4917C32188779DB00C73E45 /* Thumb.jpg in Resources */,
+				C4917C33188779DB00C73E45 /* willie.png in Resources */,
+				C4917C3F18877A3700C73E45 /* History@2x.png in Resources */,
 				C48C6E3917E661700065ABBE /* InfoPlist.strings in Resources */,
-				C4839E1D187AB284002990E0 /* mark.png in Resources */,
+				C4917C30188779DB00C73E45 /* mark.png in Resources */,
+				C4917C3E18877A3700C73E45 /* History.png in Resources */,
+				C4917C3B18877A1900C73E45 /* Surgery@2x.png in Resources */,
 				C4CD8DC71870D3D60016E371 /* PatientSummary.xib in Resources */,
+				C4917C37188779FE00C73E45 /* Summary@2x.png in Resources */,
 				C403259D187610B3003D8159 /* Settings-Landscape.xib in Resources */,
 				C48C6E4417E661700065ABBE /* Images.xcassets in Resources */,
 				C4FC422B1872460500792E1A /* History-Landscape.xib in Resources */,

@@ -60,6 +60,11 @@
     _physicalTabVC.tabBarItem.title = @"Physical";
     _surgeryTabVC.tabBarItem.title = @"Surgery";
     
+    _summaryTabVC.tabBarItem.image = [UIImage imageNamed:@"Summary.png"];
+    _historyTabVC.tabBarItem.image = [UIImage imageNamed:@"History.png"];
+    _physicalTabVC.tabBarItem.image = [UIImage imageNamed:@"Physical.png"];
+    _surgeryTabVC.tabBarItem.image = [UIImage imageNamed:@"Surgery.png"];
+    
     [self setViewControllers:@[_summaryTabVC, _historyTabVC, _physicalTabVC, _surgeryTabVC]];
 }
 

@@ -302,7 +302,7 @@
 			name = NavigationController;
 			sourceTree = "<group>";
 		};
-		C482B0C918159A21001B0B20 /* Patient Summary */ = {
+		C482B0C918159A21001B0B20 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
 				C482B0CA18159A4A001B0B20 /* TRPatientSummaryViewController.h */,
@@ -310,7 +310,7 @@
 				C4CD8DC61870D3D60016E371 /* PatientSummary.xib */,
 				C4CD8DCA1870D4290016E371 /* PatientSummary-Landscape.xib */,
 			);
-			name = "Patient Summary";
+			name = Summary;
 			sourceTree = "<group>";
 		};
 		C482B0D118159B1C001B0B20 /* TabBarController */ = {
@@ -444,7 +444,7 @@
 				C47B527E17EF79420044E0A7 /* PatientList */,
 				C482B0C7181598CB001B0B20 /* AddPatient */,
 				C482B0D118159B1C001B0B20 /* TabBarController */,
-				C482B0C918159A21001B0B20 /* Patient Summary */,
+				C482B0C918159A21001B0B20 /* Summary */,
 				C4EDCEF8181C395600256DE5 /* History */,
 				C4EDCEF9181C396C00256DE5 /* Physical */,
 				C4EDCEFA181C398700256DE5 /* Surgery */,

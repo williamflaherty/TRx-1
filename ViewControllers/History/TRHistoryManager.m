@@ -50,8 +50,19 @@
     _mainQuestionStack = [[NSMutableArray alloc] init];
     
     NSOrderedSet *stack_chains = [CDChainList getChainsForRequestName:@"StackList" fromContext:[self managedObjectContext]];
-    for(CDQuestionList *q in stack_chains){
-        [_mainQuestionStack addObject:q];
+    for(CDQuestionList *list in stack_chains){
+        for(CDQuestion *q in list.questions){
+            NSLog(@"%@",q.question_text);
+            for(CDOption *o in q.options){
+                NSLog(@"%@",o.text);
+                if(o.branchTo != nil){
+                    for(CDQuestion *qb in o.branchTo.questions){
+                        NSLog(@"%@", qb.question_text);
+                    }
+                }
+            }
+        }
+//        [_mainQuestionStack addObject:q];
     }
     
     NSArray *sortArray = [_mainQuestionStack sortedArrayUsingComparator:^(id obj1, id obj2){

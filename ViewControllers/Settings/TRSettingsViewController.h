@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TRSettingsViewController : UIViewController
+< UIAlertViewDelegate >
 
 @end

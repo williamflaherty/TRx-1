@@ -15,5 +15,5 @@ _deleteButton.frame = CGRectMake(437, 370, 150, 50);
 _exportButton.frame = CGRectMake(437, 254, 150, 50);
 _configureLabel.frame = CGRectMake(285, 109, 455, 21);
 _exportLabel.frame = CGRectMake(410, 225, 204, 21);
-_deleteLabel.frame = CGRectMake(336, 341, 350, 21);
+_deleteLabel.frame = CGRectMake(321, 341, 383, 21);
 

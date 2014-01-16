@@ -198,18 +198,26 @@
 
 - (void)deletePressed{
     NSLog(@"DELETE!!!");
-    [self deleteAllObjects:@"CDPatient"];
-    [self deleteAllObjects:@"CDImage"];
     
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Are You Sure?" message:@"This can not be undone!" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"I'm Sure", nil];
+    [alertView show];
 }
 
 - (void)exportPressed{
-    //Replace with relevant information (JSON to export)
-    NSArray *shareArray = @[@"One", @"Two"];
+    NSData *exportData = [self getJSONOfRecordsOnApp];
+    NSArray *shareArray = @[exportData];
     
     UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:shareArray applicationActivities:nil];
     
     [self presentViewController:shareSheet animated:YES completion:nil];
+}
+
+#pragma mark - UIAlertViewDelegate Methods
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+        [self clearPatientData];
+    }
 }
 
 #pragma mark - Configuration Methods
@@ -487,6 +495,11 @@
     NSLog(@"Tables cleared");
 }
 
+- (void) clearPatientData{
+    [self deleteAllObjects:@"CDPatient"];
+    [self deleteAllObjects:@"CDImage"];
+}
+
 - (void) deleteAllObjects: (NSString *) entityDescription  {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:entityDescription inManagedObjectContext:_managedObjectContext];
@@ -622,7 +635,7 @@
     _exportButton.frame = CGRectMake(437, 254, 150, 50);
     _configureLabel.frame = CGRectMake(285, 109, 455, 21);
     _exportLabel.frame = CGRectMake(410, 225, 204, 21);
-    _deleteLabel.frame = CGRectMake(336, 341, 350, 21);
+    _deleteLabel.frame = CGRectMake(321, 341, 383, 21);
 
 }
 

@@ -10,7 +10,12 @@
 
 @interface TRCustomButton : UIButton
 
+@property (nonatomic, readwrite) BOOL isSelected;
+
 - (void)drawButtonWithDefaultStyle;
 - (void)drawButtonWithCancelStlye;
+
+- (void)selectButton;
+- (void)deselectButton;
 
 @end

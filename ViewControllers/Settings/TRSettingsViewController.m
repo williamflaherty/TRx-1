@@ -25,6 +25,10 @@
 @end
 
 @implementation TRSettingsViewController{
+    UILabel *_configureLabel;
+    UILabel *_exportLabel;
+    UILabel *_deleteLabel;
+    
     TRCustomButton *_configureButton;
     TRCustomButton *_deleteButton;
     TRCustomButton *_exportButton;
@@ -51,8 +55,27 @@
 }
 
 - (void)initialSetup{
+    [self loadLabels];
     [self loadButtons];
     [self resizeViewsForOrientation:self.interfaceOrientation];
+}
+
+- (void)loadLabels{
+    _configureLabel = [[UILabel alloc] init];
+    _configureLabel.font = [UIFont systemFontOfSize:17];
+    _configureLabel.text = @"Configure local data, required immediately after installation.";
+    
+    _exportLabel = [[UILabel alloc] init];
+    _exportLabel.font = [UIFont systemFontOfSize:17];
+    _exportLabel.text = @"Export local data by email.";
+    
+    _deleteLabel = [[UILabel alloc] init];
+    _deleteLabel.font = [UIFont systemFontOfSize:17];
+    _deleteLabel.text = @"Delete all local patient data. This can't be undone!";
+    
+    [self.view addSubview:_configureLabel];
+    [self.view addSubview:_exportLabel];
+    [self.view addSubview:_deleteLabel];
 }
 
 - (void)loadButtons{
@@ -61,19 +84,19 @@
     [_configureButton setTitle:@"Configure" forState:UIControlStateNormal];
     [_configureButton drawButtonWithDefaultStyle];
     
-    _deleteButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
-    [_deleteButton addTarget:self action:@selector(deletePressed) forControlEvents:UIControlEventTouchUpInside];
-    [_deleteButton setTitle:@"Delete Data" forState:UIControlStateNormal];
-    [_deleteButton drawButtonWithDefaultStyle];
-    
     _exportButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
     [_exportButton addTarget:self action:@selector(exportPressed) forControlEvents:UIControlEventTouchUpInside];
     [_exportButton setTitle:@"Export Data" forState:UIControlStateNormal];
     [_exportButton drawButtonWithDefaultStyle];
     
+    _deleteButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
+    [_deleteButton addTarget:self action:@selector(deletePressed) forControlEvents:UIControlEventTouchUpInside];
+    [_deleteButton setTitle:@"Delete Data" forState:UIControlStateNormal];
+    [_deleteButton drawButtonWithCancelStlye];
+    
     [self.view addSubview:_configureButton];
-    [self.view addSubview:_deleteButton];
     [self.view addSubview:_exportButton];
+    [self.view addSubview:_deleteButton];
 }
 
 #pragma mark - Button Methods
@@ -181,6 +204,7 @@
 }
 
 - (void)exportPressed{
+    //Replace with relevant information (JSON to export)
     NSArray *shareArray = @[@"One", @"Two"];
     
     UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:shareArray applicationActivities:nil];
@@ -201,6 +225,7 @@
     patient.firstName = @"Mark";
     patient.lastName = @"Bellott";
     patient.surgeryType = @"Cataract";
+    patient.doctor = @"Unkown";
     patient.birthday = [formatter dateFromString:@"09/17/1990"];
     
     CDImage *profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
@@ -216,6 +241,7 @@
     patient.firstName = @"Willie";
     patient.lastName = @"Flaherty";
     patient.surgeryType = @"Hernia";
+    patient.doctor = @"Unkown";
     patient.birthday = [formatter dateFromString:@"06/18/1989"];
     
     profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
@@ -231,6 +257,7 @@
     patient.firstName = @"Mischa";
     patient.lastName = @"Buckler";
     patient.surgeryType = @"Cataract";
+    patient.doctor = @"Unkown";
     patient.birthday = [formatter dateFromString:@"04/13/1991"];
     
     profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
@@ -581,15 +608,22 @@
 #pragma mark - Frame Sizing Methods
 
 - (void)resizeFramesForPortrait{
-    _configureButton.frame = CGRectMake(309, 361, 150, 50);
-    _deleteButton.frame = CGRectMake(309, 477, 150, 50);
-    _exportButton.frame = CGRectMake(309, 593, 150, 50);
+    _configureButton.frame = CGRectMake(309, 240, 150, 50);
+    _deleteButton.frame = CGRectMake(309, 472, 150, 50);
+    _exportButton.frame = CGRectMake(309, 356, 150, 50);
+    _configureLabel.frame = CGRectMake(157, 211, 455, 21);
+    _exportLabel.frame = CGRectMake(282, 327, 204, 21);
+    _deleteLabel.frame = CGRectMake(193, 443, 383, 21);
 }
 
 - (void)resizeFramesForLandscape{
-    _configureButton.frame = CGRectMake(437, 243, 150, 50);
-    _deleteButton.frame = CGRectMake(437, 359, 150, 50);
-    _exportButton.frame = CGRectMake(437, 475, 150, 50);
+    _configureButton.frame = CGRectMake(437, 138, 150, 50);
+    _deleteButton.frame = CGRectMake(437, 370, 150, 50);
+    _exportButton.frame = CGRectMake(437, 254, 150, 50);
+    _configureLabel.frame = CGRectMake(285, 109, 455, 21);
+    _exportLabel.frame = CGRectMake(410, 225, 204, 21);
+    _deleteLabel.frame = CGRectMake(336, 341, 350, 21);
+
 }
 
 - (void)didReceiveMemoryWarning{

@@ -122,6 +122,9 @@
     displayString = _activePatient.surgeryType;
     _patientChiefComplaint.text = displayString;
     
+    displayString = _activePatient.doctor;
+    _patientDoctor.text = displayString;
+    
     _photoIDImageView.image = [UIImage imageWithData:_activePatient.profileImage.data];
 }
 
@@ -132,6 +135,36 @@
     
     [self.view addSubview:_summarayTableView];
 }
+
+#pragma mark - UITableView Delegate Methods
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+}
+
+#pragma mark - UITableView DataSource Methods
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 30;
+}
+
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString* cellIdentifier = @"patientSummaryCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    
+    return cell;
+}
+
 
 #pragma mark - Orientation and Frame Methods
 

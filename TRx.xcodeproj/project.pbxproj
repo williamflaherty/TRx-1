@@ -18,10 +18,8 @@
 		1318E2151883B876000146FC /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 1318E2141883B876000146FC /* example.json */; };
 		C403257D1874C943003D8159 /* TRHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C403257C1874C943003D8159 /* TRHistoryManager.m */; };
 		C40325831874C9CD003D8159 /* TRQLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325821874C9CD003D8159 /* TRQLabel.m */; };
-		C40325861874C9EB003D8159 /* TRQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325851874C9EB003D8159 /* TRQTextField.m */; };
 		C40325891874CA0E003D8159 /* TRQView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325881874CA0E003D8159 /* TRQView.m */; };
 		C403258C1874CA7C003D8159 /* TRQCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C403258B1874CA7C003D8159 /* TRQCheckBox.m */; };
-		C403258F1874CAA7003D8159 /* TRQYesNoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C403258E1874CAA7003D8159 /* TRQYesNoButton.m */; };
 		C40325951874CF4E003D8159 /* TRCustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325931874CF4E003D8159 /* TRCustomImageView.m */; };
 		C40325981876105B003D8159 /* TRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40325971876105B003D8159 /* TRSettingsViewController.m */; };
 		C403259B18761096003D8159 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = C403259A18761096003D8159 /* Settings.xib */; };
@@ -111,14 +109,10 @@
 		C403257C1874C943003D8159 /* TRHistoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRHistoryManager.m; path = ViewControllers/History/TRHistoryManager.m; sourceTree = SOURCE_ROOT; };
 		C40325811874C9CD003D8159 /* TRQLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRQLabel.h; path = ViewControllers/QuestionItems/TRQLabel.h; sourceTree = SOURCE_ROOT; };
 		C40325821874C9CD003D8159 /* TRQLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRQLabel.m; path = ViewControllers/QuestionItems/TRQLabel.m; sourceTree = SOURCE_ROOT; };
-		C40325841874C9EB003D8159 /* TRQTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRQTextField.h; path = ViewControllers/QuestionItems/TRQTextField.h; sourceTree = SOURCE_ROOT; };
-		C40325851874C9EB003D8159 /* TRQTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRQTextField.m; path = ViewControllers/QuestionItems/TRQTextField.m; sourceTree = SOURCE_ROOT; };
 		C40325871874CA0E003D8159 /* TRQView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRQView.h; path = ViewControllers/QuestionItems/TRQView.h; sourceTree = SOURCE_ROOT; };
 		C40325881874CA0E003D8159 /* TRQView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRQView.m; path = ViewControllers/QuestionItems/TRQView.m; sourceTree = SOURCE_ROOT; };
 		C403258A1874CA7C003D8159 /* TRQCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRQCheckBox.h; path = ViewControllers/QuestionItems/TRQCheckBox.h; sourceTree = SOURCE_ROOT; };
 		C403258B1874CA7C003D8159 /* TRQCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRQCheckBox.m; path = ViewControllers/QuestionItems/TRQCheckBox.m; sourceTree = SOURCE_ROOT; };
-		C403258D1874CAA7003D8159 /* TRQYesNoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRQYesNoButton.h; path = ViewControllers/QuestionItems/TRQYesNoButton.h; sourceTree = SOURCE_ROOT; };
-		C403258E1874CAA7003D8159 /* TRQYesNoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRQYesNoButton.m; path = ViewControllers/QuestionItems/TRQYesNoButton.m; sourceTree = SOURCE_ROOT; };
 		C40325921874CF4E003D8159 /* TRCustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRCustomImageView.h; path = CustomUI/TRCustomImageView.h; sourceTree = SOURCE_ROOT; };
 		C40325931874CF4E003D8159 /* TRCustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRCustomImageView.m; path = CustomUI/TRCustomImageView.m; sourceTree = SOURCE_ROOT; };
 		C40325961876105B003D8159 /* TRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRSettingsViewController.h; path = ViewControllers/Settings/TRSettingsViewController.h; sourceTree = SOURCE_ROOT; };
@@ -253,12 +247,8 @@
 				C403258B1874CA7C003D8159 /* TRQCheckBox.m */,
 				C40325811874C9CD003D8159 /* TRQLabel.h */,
 				C40325821874C9CD003D8159 /* TRQLabel.m */,
-				C40325841874C9EB003D8159 /* TRQTextField.h */,
-				C40325851874C9EB003D8159 /* TRQTextField.m */,
 				C40325871874CA0E003D8159 /* TRQView.h */,
 				C40325881874CA0E003D8159 /* TRQView.m */,
-				C403258D1874CAA7003D8159 /* TRQYesNoButton.h */,
-				C403258E1874CAA7003D8159 /* TRQYesNoButton.m */,
 			);
 			name = "TRQ - Question Items";
 			sourceTree = "<group>";
@@ -700,7 +690,6 @@
 				C40325951874CF4E003D8159 /* TRCustomImageView.m in Sources */,
 				C403257D1874C943003D8159 /* TRHistoryManager.m in Sources */,
 				C48C6E3B17E661700065ABBE /* main.m in Sources */,
-				C403258F1874CAA7003D8159 /* TRQYesNoButton.m in Sources */,
 				C40325891874CA0E003D8159 /* TRQView.m in Sources */,
 				1318E21018827193000146FC /* CDQuestionList.m in Sources */,
 				C4839E19187A1BF9002990E0 /* TRCustomButton.m in Sources */,
@@ -710,7 +699,6 @@
 				1318E1FE18823795000146FC /* TRManagedObjectContext.m in Sources */,
 				C47B528717EF7A450044E0A7 /* TRPatientListViewController.m in Sources */,
 				C4EDCF0A181C3A5800256DE5 /* TRSurgeryViewController.m in Sources */,
-				C40325861874C9EB003D8159 /* TRQTextField.m in Sources */,
 				C47B528617EF7A450044E0A7 /* TRPatientListCell.m in Sources */,
 				C40325831874C9CD003D8159 /* TRQLabel.m in Sources */,
 				C48C6E6D17E6622F0065ABBE /* TestViewController.m in Sources */,

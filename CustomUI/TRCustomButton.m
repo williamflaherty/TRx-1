@@ -10,6 +10,8 @@
 
 @implementation TRCustomButton
 
+@synthesize isSelected = _isSelected;
+
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -25,7 +27,7 @@
 }
 
 - (void)drawButtonWithDefaultStyle{
-    
+    _isSelected = YES;
     self.layer.borderColor = [[UIApplication sharedApplication] keyWindow].tintColor.CGColor;
     self.layer.backgroundColor = [[UIApplication sharedApplication] keyWindow].tintColor.CGColor;
     self.layer.borderWidth = 1.0f;
@@ -37,7 +39,28 @@
 }
 
 - (void)drawButtonWithCancelStlye{
+    self.layer.borderColor = [UIColor redColor].CGColor;
+    self.layer.backgroundColor = [UIColor redColor].CGColor;
+    self.layer.borderWidth = 1.0f;
+    self.layer.cornerRadius = 6;
     
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self setNeedsDisplay];
+}
+
+- (void)selectButton{
+    _isSelected = YES;
+    self.layer.backgroundColor = [[UIApplication sharedApplication] keyWindow].tintColor.CGColor;
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self setNeedsDisplay];
+}
+
+- (void)deselectButton{
+    _isSelected = NO;
+    self.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    [self setTitleColor:[[UIApplication sharedApplication] keyWindow].tintColor forState:UIControlStateNormal];
+    [self setNeedsDisplay];
 }
 
 /*

@@ -10,4 +10,9 @@
 
 @interface TRQLabel : UILabel
 
+@property(nonatomic) float minHeight;
+@property(nonatomic, readwrite) float constrainedWidth;
+
+-(void) calculateSize;
+
 @end

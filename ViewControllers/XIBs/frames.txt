@@ -1,13 +1,19 @@
 
 --- Settings.xib ---
 
-_configureButton.frame = CGRectMake(309, 361, 150, 50);
-_deleteButton.frame = CGRectMake(309, 477, 150, 50);
-_exportButton.frame = CGRectMake(309, 593, 150, 50);
+_configureButton.frame = CGRectMake(309, 240, 150, 50);
+_deleteButton.frame = CGRectMake(309, 472, 150, 50);
+_exportButton.frame = CGRectMake(309, 356, 150, 50);
+_configureLabel.frame = CGRectMake(157, 211, 455, 21);
+_exportLabel.frame = CGRectMake(282, 327, 204, 21);
+_deleteLabel.frame = CGRectMake(193, 443, 383, 21);
 
 --- Settings-Landscape.xib ---
 
-_configureButton.frame = CGRectMake(437, 243, 150, 50);
-_deleteButton.frame = CGRectMake(437, 359, 150, 50);
-_exportButton.frame = CGRectMake(437, 475, 150, 50);
+_configureButton.frame = CGRectMake(437, 138, 150, 50);
+_deleteButton.frame = CGRectMake(437, 370, 150, 50);
+_exportButton.frame = CGRectMake(437, 254, 150, 50);
+_configureLabel.frame = CGRectMake(285, 109, 455, 21);
+_exportLabel.frame = CGRectMake(410, 225, 204, 21);
+_deleteLabel.frame = CGRectMake(336, 341, 350, 21);
 

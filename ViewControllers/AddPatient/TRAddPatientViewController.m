@@ -34,12 +34,14 @@
     UIBarButtonItem *_submitButton;
     
     UILabel *_firstNameLabel;
+    UILabel *_middleNameLabel;
     UILabel *_lastNameLabel;
     UILabel *_birthdateLabel;
     UILabel *_chiefComplaintLabel;
     UILabel *_doctorLabel;
     
     UITextField *_firstNameTextField;
+    UITextField *_middleNameTextField;
     UITextField *_lastNameTextField;
     
     UITextField *_birthdateTextField;
@@ -126,6 +128,10 @@
     _firstNameLabel.font = [UIFont systemFontOfSize:17];
     _firstNameLabel.text = @"First Name";
     
+    _middleNameLabel = [[UILabel alloc] init];
+    _middleNameLabel.font = [UIFont systemFontOfSize:17];
+    _middleNameLabel.text = @"Mddle Name";
+    
     _lastNameLabel = [[UILabel alloc] init];
     _lastNameLabel.font = [UIFont systemFontOfSize:17];
     _lastNameLabel.text = @"Last Name";
@@ -143,6 +149,7 @@
     _doctorLabel.text = @"Doctor";
     
     [self.view addSubview:_firstNameLabel];
+    [self.view addSubview:_middleNameLabel];
     [self.view addSubview:_lastNameLabel];
     [self.view addSubview:_birthdateLabel];
     [self.view addSubview:_chiefComplaintLabel];
@@ -151,26 +158,31 @@
 
 - (void) loadTextFields{
     _firstNameTextField = [[UITextField alloc] init];
-    _firstNameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _firstNameTextField.borderStyle = UITextBorderStyleBezel;
     _firstNameTextField.delegate = self;
     
+    _middleNameTextField = [[UITextField alloc] init];
+    _middleNameTextField.borderStyle = UITextBorderStyleBezel;
+    _middleNameTextField.delegate = self;
+    
     _lastNameTextField = [[UITextField alloc] init];
-    _lastNameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _lastNameTextField.borderStyle = UITextBorderStyleBezel;
     _lastNameTextField.delegate = self;
     
     _birthdateTextField = [[UITextField alloc] init];
-    _birthdateTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _birthdateTextField.borderStyle = UITextBorderStyleBezel;
     _birthdateTextField.delegate = self;
     
     _chiefComplaintTextField = [[UITextField alloc] init];
-    _chiefComplaintTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _chiefComplaintTextField.borderStyle = UITextBorderStyleBezel;
     _chiefComplaintTextField.delegate = self;
     
     _doctorTextField = [[UITextField alloc] init];
-    _doctorTextField.borderStyle = UITextBorderStyleRoundedRect;
+    _doctorTextField.borderStyle = UITextBorderStyleBezel;
     _doctorTextField.delegate = self;
     
     [self.view addSubview:_firstNameTextField];
+    [self.view addSubview:_middleNameTextField];
     [self.view addSubview:_lastNameTextField];
     [self.view addSubview:_birthdateTextField];
     [self.view addSubview:_chiefComplaintTextField];
@@ -217,12 +229,22 @@
 #pragma mark - Button Methods
 
 - (void)submitPressed{
+    BOOL requiredFilled = [self checkAndMarkRequiredFields];
+    
+    if(!requiredFilled){
+        UIAlertView *provideAnswer = [[UIAlertView alloc] initWithTitle:@"Wait!" message:@"Please fill in all required fields." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [provideAnswer show];
+        return;
+    }
+    
     CDPatient *patient = [NSEntityDescription insertNewObjectForEntityForName:@"CDPatient"
                                                        inManagedObjectContext:self.managedObjectContext];
     patient.firstName = _firstNameTextField.text;
+    patient.middleName = _middleNameTextField.text;
     patient.lastName = _lastNameTextField.text;
     patient.surgeryType = _chiefComplaintTextField.text;
     patient.birthday = _birthdatePicker.date;
+    patient.doctor = _doctorTextField.text;
     
     CDImage *profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
                                                        inManagedObjectContext:self.managedObjectContext];
@@ -236,6 +258,53 @@
     
     TRTabBarController *patientTC =[[TRTabBarController alloc] init];
     [self.navigationController pushViewController:patientTC animated:YES];
+}
+
+- (BOOL)checkAndMarkRequiredFields{
+    BOOL requiredFilled = YES;
+    
+    //Required
+    
+    if([_firstNameTextField.text isEqualToString:@""]){
+        requiredFilled = NO;
+        _firstNameTextField.layer.backgroundColor =
+        [UIColor colorWithRed:0.90 green:0.72 blue:0.69 alpha:1.0].CGColor;
+        [_firstNameTextField setNeedsDisplay];
+    }
+    
+    if([_lastNameTextField.text isEqualToString:@""]){
+        requiredFilled = NO;
+        _lastNameTextField.layer.backgroundColor =
+        [UIColor colorWithRed:0.90 green:0.72 blue:0.69 alpha:1.0].CGColor;
+        [_lastNameTextField setNeedsDisplay];
+    }
+    
+    if([_birthdateTextField.text isEqualToString:@""]){
+        requiredFilled = NO;
+        _birthdateTextField.layer.backgroundColor =
+        [UIColor colorWithRed:0.90 green:0.72 blue:0.69 alpha:1.0].CGColor;
+        [_birthdateTextField setNeedsDisplay];
+    }
+    
+    if(_photoIDImageView.image == nil){
+        requiredFilled = NO;
+        _photoIDImageView.layer.backgroundColor =
+        [UIColor colorWithRed:0.90 green:0.72 blue:0.69 alpha:1.0].CGColor;
+        [_photoIDImageView setNeedsDisplay];
+    }
+    
+    //Check the rest
+    
+    if([_chiefComplaintTextField.text isEqualToString:@""]){
+        [_chiefComplaintTextField setText:@"Unknown"];
+    }
+    
+    if([_doctorTextField.text isEqualToString:@""]){
+        [_doctorTextField setText:@"Unknown"];
+    }
+    
+    
+    return requiredFilled;
 }
 
 - (void)popoverSubmitPressed{
@@ -321,18 +390,21 @@
     if(textField == _birthdateTextField){
         [self selectBirthdate];
         [_firstNameTextField resignFirstResponder];
+        [_middleNameTextField resignFirstResponder];
         [_lastNameTextField resignFirstResponder];
         return NO;
     }
     else if(textField == _chiefComplaintTextField){
         [self selectChiefComplaint];
         [_firstNameTextField resignFirstResponder];
+        [_middleNameTextField resignFirstResponder];
         [_lastNameTextField resignFirstResponder];
         return NO;
     }
     else if(textField == _doctorTextField){
         [self selectDoctor];
         [_firstNameTextField resignFirstResponder];
+        [_middleNameTextField resignFirstResponder];
         [_lastNameTextField resignFirstResponder];
         return NO;
     }
@@ -342,6 +414,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [_firstNameTextField resignFirstResponder];
+    [_middleNameTextField resignFirstResponder];
     [_lastNameTextField resignFirstResponder];
     [_birthdateTextField resignFirstResponder];
     [_chiefComplaintTextField resignFirstResponder];
@@ -476,33 +549,37 @@
 }
 
 - (void)resizeFramesForPortrait{
-    _photoIDImageView.frame = CGRectMake(20, 307, 352, 352);
-    _firstNameTextField.frame = CGRectMake(398, 348, 350, 30);
-    _lastNameTextField.frame = CGRectMake(398, 415, 350, 30);
-    _firstNameLabel.frame = CGRectMake(531, 319, 84, 21);
-    _lastNameLabel.frame = CGRectMake(532, 386, 83, 21);
-    _birthdateTextField.frame = CGRectMake(398, 482, 350, 30);
-    _chiefComplaintTextField.frame = CGRectMake(398, 549, 350, 30);
-    _birthdateLabel.frame = CGRectMake(538, 453, 71, 21);
-    _chiefComplaintLabel.frame = CGRectMake(511, 520, 124, 21);
-    _doctorTextField.frame = CGRectMake(398, 616, 350, 30);
-    _doctorLabel.frame = CGRectMake(547, 587, 53, 21);
-    _takePictureButton.frame = CGRectMake(148, 667, 97, 30);
+    _photoIDImageView.frame = CGRectMake(20, 122, 352, 352);
+    _middleNameTextField.frame = CGRectMake(398, 189, 350, 30);
+    _lastNameTextField.frame = CGRectMake(398, 256, 350, 30);
+    _middleNameLabel.frame = CGRectMake(522, 160, 103, 21);
+    _firstNameTextField.frame = CGRectMake(398, 122, 350, 30);
+    _firstNameLabel.frame = CGRectMake(531, 93, 84, 21);
+    _lastNameLabel.frame = CGRectMake(532, 227, 83, 21);
+    _birthdateTextField.frame = CGRectMake(398, 323, 350, 30);
+    _chiefComplaintTextField.frame = CGRectMake(398, 390, 350, 30);
+    _birthdateLabel.frame = CGRectMake(538, 294, 71, 21);
+    _doctorTextField.frame = CGRectMake(398, 457, 350, 30);
+    _doctorLabel.frame = CGRectMake(547, 428, 53, 21);
+    _chiefComplaintLabel.frame = CGRectMake(511, 361, 124, 21);
+    _takePictureButton.frame = CGRectMake(148, 482, 97, 30);
 }
 
 - (void)resizeFramesForLandscape{
-    _photoIDImageView.frame = CGRectMake(148, 189, 352, 352);
-    _firstNameTextField.frame = CGRectMake(530, 230, 350, 30);
-    _lastNameTextField.frame = CGRectMake(530, 297, 350, 30);
-    _firstNameLabel.frame = CGRectMake(663, 201, 84, 21);
-    _lastNameLabel.frame = CGRectMake(664, 268, 83, 21);
-    _birthdateTextField.frame = CGRectMake(530, 364, 350, 30);
-    _chiefComplaintTextField.frame = CGRectMake(530, 431, 350, 30);
-    _birthdateLabel.frame = CGRectMake(670, 335, 71, 21);
-    _chiefComplaintLabel.frame = CGRectMake(643, 402, 124, 21);
-    _takePictureButton.frame = CGRectMake(276, 549, 97, 30);
-    _doctorTextField.frame = CGRectMake(530, 498, 350, 30);
-    _doctorLabel.frame = CGRectMake(679, 469, 53, 21);
+    _photoIDImageView.frame = CGRectMake(149, 104, 352, 352);
+    _middleNameTextField.frame = CGRectMake(526, 171, 350, 30);
+    _lastNameTextField.frame = CGRectMake(526, 238, 350, 30);
+    _middleNameLabel.frame = CGRectMake(650, 142, 103, 21);
+    _firstNameTextField.frame = CGRectMake(526, 104, 350, 30);
+    _firstNameLabel.frame = CGRectMake(659, 75, 84, 21);
+    _lastNameLabel.frame = CGRectMake(660, 209, 83, 21);
+    _birthdateTextField.frame = CGRectMake(526, 305, 350, 30);
+    _chiefComplaintTextField.frame = CGRectMake(526, 372, 350, 30);
+    _birthdateLabel.frame = CGRectMake(666, 276, 71, 21);
+    _doctorTextField.frame = CGRectMake(526, 439, 350, 30);
+    _doctorLabel.frame = CGRectMake(675, 410, 53, 21);
+    _chiefComplaintLabel.frame = CGRectMake(639, 343, 124, 21);
+    _takePictureButton.frame = CGRectMake(277, 464, 97, 30);
 }
 
 - (void)handlePopoeverOnSwitch{

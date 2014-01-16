@@ -85,6 +85,18 @@
     _previousQuestionStack = [[NSMutableArray alloc] initWithCapacity:[_mainQuestionStack count]];
 }
 
+- (QType)getNextQuestionType{
+    return QTypeYesNoDefault;
+}
+
+- (NSString*)getNextEnglishLabel{
+    return @"ASDASFASDASDADASDDSFSFD";
+}
+
+- (NSString*)getNextTranslatedLabel{
+    return @"ASDASDASDASDASDADASDASDASD";
+}
+
 
 
 @end

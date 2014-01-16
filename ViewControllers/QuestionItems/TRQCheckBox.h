@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TRCustomButton.h"
 
-@interface TRQCheckBox : UIButton
+@interface TRQCheckBox : TRCustomButton
 
 @end

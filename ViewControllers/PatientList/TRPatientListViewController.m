@@ -183,7 +183,7 @@
     cell.patientCellComplaint.text = patient.surgeryType;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"mm/dd/yyyy"];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
     cell.patientCellBirthdate.text = [formatter stringFromDate:patient.birthday];
     
     
@@ -211,11 +211,13 @@
 }
 
 - (void)resizeFramesForPortrait{
-    _patientListTableView.frame = CGRectMake(0, 0, winSize.width, winSize.height);
+    _patientListTableView.frame = CGRectMake(0, 0, winSize.width, winSize.height -
+                                             (self.navigationController.navigationBar.frame.size.height + 14));
 }
 
 - (void)resizeFramesForLandscape{
-    _patientListTableView.frame = CGRectMake(0, 0, winSize.height, winSize.width);
+    _patientListTableView.frame = CGRectMake(0, 0, winSize.height, winSize.width -
+                                             (self.navigationController.navigationBar.frame.size.height + 14));
 }
 
 #pragma mark - Memory Methods

@@ -328,6 +328,9 @@
 #pragma mark - Camera Methods
 
 - (void)takePicturePressed{
+    
+    //TODO: Square Camera Overlay
+    
 //    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
 //    
 //    
@@ -481,7 +484,7 @@
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
     if(popoverController == _birthdatePopoverController){
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM/DD/YYYY"];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
         [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
     }
     else if(popoverController == _chiefComplaintPopoverController){

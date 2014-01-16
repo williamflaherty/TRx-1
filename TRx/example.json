@@ -141,25 +141,21 @@
     ],
     "doctors": [
         {
-            "doctor_name": "John Cotham",
+            "doctor_name": "David Dahl",
             "id": 1
         },
         {
-            "doctor_name": "Mark Bellot",
+            "doctor_name": "Reagan Bollig",
             "id": 2
         },
         {
-            "doctor_name": "Willie Flaherty",
+            "doctor_name": "Audrey Barry",
             "id": 3
         },
         {
-            "doctor_name": "Mischa Buckler",
+            "doctor_name": "Unknown",
             "id": 4
         },
-        {
-            "doctor_name": "David Dahl",
-            "id": 5
-        }
     ],
     "stack_questions": [
         {
@@ -386,15 +382,24 @@
         },
         {
             "id": 2,
-            "surgery_name": "Cataract"
+            "surgery_name": "I&D"
         },
         {
             "id": 3,
-            "surgery_name": "Hysterectomy"
+            "surgery_name": "Lipoma Removal"
         },
         {
             "id": 4,
-            "surgery_name": "Laparascopy"
+            "surgery_name": "Lumpectomy"
+        },
+        {
+            "id": 5,
+            "surgery_name": "Hysterectomy"
+        },
+        {
+            "id": 6,
+            "surgery_name": "Unknown"
         }
+                  
     ]
 }

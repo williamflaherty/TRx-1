@@ -38,6 +38,14 @@
     self.managedObjectContext = [TRManagedObjectContext mainThreadContext];
 }
 
+/*
+ Question List contains Questions
+ Questions Contain Options
+ Options point to branchin Question Lists
+ These Question Lists Contain 1 to Many Questions
+ Go Back to main stack once all Branching is null
+*/
+
 - (void)loadQuesitonStacks{
     _mainQuestionStack = [[NSMutableArray alloc] init];
     

@@ -306,7 +306,7 @@ class QuestionProject(models.Model):
   project_name = models.CharField(max_length=50, unique=True)
 
   def __str__(self):
-    return self.set_name
+    return self.project_name
 
 class QuestionChain(models.Model):
   chain_name = models.CharField(max_length=50)
@@ -358,14 +358,6 @@ class QuestionProjectToChain(models.Model):
   question_set = models.ForeignKey(QuestionProject)
   question_chain = models.ForeignKey(QuestionChain)
   stack_index = models.IntegerField()
-
-# # CONVTAG
-# class SurgeryType_Config(models.Model):
-#   surgery_name = models.CharField(max_length=30, unique=True)
-
-# # CONVTAG
-# class Doctor_Config(models.Model):
-#   doctor_name = models.CharField(max_length=30, unique=True)
 
 class JSONFiles(models.Model):
   file_name = models.CharField(max_length=40)

@@ -25,6 +25,5 @@ admin.site.register(QuestionChain)
 admin.site.register(QuestionProject)
 
 # admin.site.register(JSONFiles)
-
-#TODO: since you can add, for example, not current doctors to a patient/pr, it would be nice to maybe have a note or something?
-#	idk, don't enter bad data vis the admin is the point
+# admin.site.register(ChainToQuestion)
+# admin.site.register(QuestionProjectToChain)

@@ -26,6 +26,8 @@
 
 @implementation TRSettingsViewController{
     TRCustomButton *_configureButton;
+    TRCustomButton *_deleteButton;
+    TRCustomButton *_exportButton;
 }
 
 #pragma mark Init and Load Methods
@@ -59,7 +61,19 @@
     [_configureButton setTitle:@"Configure" forState:UIControlStateNormal];
     [_configureButton drawButtonWithDefaultStyle];
     
+    _deleteButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
+    [_deleteButton addTarget:self action:@selector(deletePressed) forControlEvents:UIControlEventTouchUpInside];
+    [_deleteButton setTitle:@"Delete Data" forState:UIControlStateNormal];
+    [_deleteButton drawButtonWithDefaultStyle];
+    
+    _exportButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
+    [_exportButton addTarget:self action:@selector(exportPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_exportButton setTitle:@"Export Data" forState:UIControlStateNormal];
+    [_exportButton drawButtonWithDefaultStyle];
+    
     [self.view addSubview:_configureButton];
+    [self.view addSubview:_deleteButton];
+    [self.view addSubview:_exportButton];
 }
 
 #pragma mark - Button Methods
@@ -157,6 +171,21 @@
         
         //NSLog(@"%@", qList);
     }
+}
+
+- (void)deletePressed{
+    NSLog(@"DELETE!!!");
+    [self deleteAllObjects:@"CDPatient"];
+    [self deleteAllObjects:@"CDImage"];
+    
+}
+
+- (void)exportPressed{
+    NSArray *shareArray = @[@"One", @"Two"];
+    
+    UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:shareArray applicationActivities:nil];
+    
+    [self presentViewController:shareSheet animated:YES completion:nil];
 }
 
 #pragma mark - Configuration Methods
@@ -428,8 +457,6 @@
     [self deleteAllObjects:@"CDQuestion"];
     [self deleteAllObjects:@"CDQuestionList"];
     [self deleteAllObjects:@"CDChainList"];
-    [self deleteAllObjects:@"CDPatient"];
-    [self deleteAllObjects:@"CDImage"];
     NSLog(@"Tables cleared");
 }
 
@@ -450,44 +477,6 @@
     }
     
 }
-
-#pragma mark - Orientation Handling Methods
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-    [self resizeViewsForOrientation:toInterfaceOrientation];
-}
-
-- (void)resizeViewsForOrientation:(UIInterfaceOrientation)newOrientation{
-    
-    if(newOrientation == UIInterfaceOrientationPortrait ||
-       newOrientation == UIInterfaceOrientationPortraitUpsideDown){
-        
-        [self resizeFramesForPortrait];
-        
-    }
-    else if(newOrientation == UIInterfaceOrientationLandscapeLeft ||
-            newOrientation == UIInterfaceOrientationLandscapeRight){
-        
-        [self resizeFramesForLandscape];
-        
-    }
-}
-
-#pragma mark - Frame Sizing Methods
-
-- (void)resizeFramesForPortrait{
-    _configureButton.frame = CGRectMake(309, 477, 150, 50);
-}
-
-- (void)resizeFramesForLandscape{
-    _configureButton.frame = CGRectMake(437, 359, 150, 50);
-}
-
-- (void)didReceiveMemoryWarning{
-    [super didReceiveMemoryWarning];
-}
-
-
 
 #pragma mark - Get JSON of patient records on app
 
@@ -565,7 +554,47 @@
     }
     
     return properties;
-}  
+}
+
+#pragma mark - Orientation Handling Methods
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    [self resizeViewsForOrientation:toInterfaceOrientation];
+}
+
+- (void)resizeViewsForOrientation:(UIInterfaceOrientation)newOrientation{
+    
+    if(newOrientation == UIInterfaceOrientationPortrait ||
+       newOrientation == UIInterfaceOrientationPortraitUpsideDown){
+        
+        [self resizeFramesForPortrait];
+        
+    }
+    else if(newOrientation == UIInterfaceOrientationLandscapeLeft ||
+            newOrientation == UIInterfaceOrientationLandscapeRight){
+        
+        [self resizeFramesForLandscape];
+        
+    }
+}
+
+#pragma mark - Frame Sizing Methods
+
+- (void)resizeFramesForPortrait{
+    _configureButton.frame = CGRectMake(309, 361, 150, 50);
+    _deleteButton.frame = CGRectMake(309, 477, 150, 50);
+    _exportButton.frame = CGRectMake(309, 593, 150, 50);
+}
+
+- (void)resizeFramesForLandscape{
+    _configureButton.frame = CGRectMake(437, 243, 150, 50);
+    _deleteButton.frame = CGRectMake(437, 359, 150, 50);
+    _exportButton.frame = CGRectMake(437, 475, 150, 50);
+}
+
+- (void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
+}
 
 
 

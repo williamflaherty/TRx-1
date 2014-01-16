@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TRPatientSummaryViewController : UIViewController
+< UITableViewDelegate,
+UITableViewDataSource >
 
 @end

@@ -531,25 +531,25 @@
     NSError *error = nil;
     NSArray *patientArray = [context executeFetchRequest:fetchRequest error:&error];
     if (patientArray == nil) {
-        NSLog(@"Error retrieving %@ list: %@", @"OptionList", error);
+        NSLog(@"Error retrieving %@ list: %@", @"PatientList", error);
     }
-    
-    
+
     NSMutableArray *patientDicArray = [[NSMutableArray alloc] init];
     
     //properties returns a dictionary for each patient. add each dic to an array
-    for (NSManagedObject *patient in patientArray) {
-        [patientDicArray addObject:[self propertiesDictionary:entity forObject:patient]];
+    for (CDPatient *patient in patientArray) {
+        [patientDicArray addObject:[self propertiesDictionary:entity forObject:patient atLevel:0]];
     }
     
     //now put the array in JSON format and test it
     NSData *JSONData = [NSJSONSerialization dataWithJSONObject:patientDicArray options:kNilOptions error:&error];
+    
     NSString *testToString = [[NSString alloc] initWithData:JSONData encoding:NSJSONWritingPrettyPrinted];
     NSLog(@"%@", testToString);
     return JSONData;
 }
 
-- (NSDictionary *)propertiesDictionary:(NSEntityDescription *)entity forObject:(NSManagedObject *)object
+- (NSDictionary *)propertiesDictionary:(NSEntityDescription *)entity forObject:(NSManagedObject *)object atLevel:(int)level
 {
     NSManagedObjectContext *context = self.managedObjectContext;
     NSEntityDescription *e;
@@ -561,14 +561,27 @@
         {
             NSAttributeDescription *attributeDescription = (NSAttributeDescription *)property;
             NSString *name = [attributeDescription name];
-            [properties setValue:[entity valueForKey:name] forKey:name];
+            NSString *val = [object valueForKey:name];
+
+            if ([name isEqualToString:@"birthday"]) {
+                val = [NSDateFormatter localizedStringFromDate:(NSDate *)val
+                                                     dateStyle:NSDateFormatterShortStyle
+                                                     timeStyle:NSDateFormatterFullStyle];
+            }
+            
+            if ([name isEqualToString:@"data"]) {
+                val = @"imagePlaceholder";
+            }
+
+            [properties setValue:val forKey:name];
         }
         
-        if ([property isKindOfClass:[NSRelationshipDescription class]])
+        if ([property isKindOfClass:[NSRelationshipDescription class]] && level < 1)
         {
             NSRelationshipDescription *relationshipDescription = (NSRelationshipDescription *)property;
             NSString *name = [relationshipDescription name];
-            
+            level++;
+            //NSLog(@"****************** LEVEL: %d", level);
             if ([relationshipDescription isToMany])
             {
                 NSMutableArray *arr = [properties valueForKey:name];
@@ -578,17 +591,17 @@
                     [properties setValue:arr forKey:name];
                 }
                 //recursive calls for many related child objects
-                for (NSManagedObject *o in [entity mutableSetValueForKey:name]) {
+                for (NSManagedObject *o in [object mutableSetValueForKey:name]) {
                     e = [NSEntityDescription entityForName:NSStringFromClass([o class]) inManagedObjectContext:context];
-                    [arr addObject:[self propertiesDictionary:e forObject:o]];
+                    [arr addObject:[self propertiesDictionary:e forObject:o atLevel:level]];
                 }
             }
             else
             {
                 //one recursive call for related child
-                NSManagedObject *o = [self valueForKey:name];
+                NSManagedObject *o = [object valueForKey:name];
                 e = [NSEntityDescription entityForName:NSStringFromClass([o class]) inManagedObjectContext:context];
-                [properties setValue:[self propertiesDictionary:e forObject:o] forKey:name];
+                [properties setValue:[self propertiesDictionary:e forObject:o atLevel:level] forKey:name];
             }
         }
     }

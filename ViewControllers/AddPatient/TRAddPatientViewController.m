@@ -130,7 +130,7 @@
     
     _middleNameLabel = [[UILabel alloc] init];
     _middleNameLabel.font = [UIFont systemFontOfSize:17];
-    _middleNameLabel.text = @"Mddle Name";
+    _middleNameLabel.text = @"Middle Name";
     
     _lastNameLabel = [[UILabel alloc] init];
     _lastNameLabel.font = [UIFont systemFontOfSize:17];

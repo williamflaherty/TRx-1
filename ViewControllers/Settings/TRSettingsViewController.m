@@ -288,7 +288,8 @@
 }
 
 - (NSData *)getConfigContents{
-    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"json"];
+//    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"json"];
+    NSString *jsonPath = [[NSBundle mainBundle] pathForResource:@"configure" ofType:@"json"];
     
     NSData *data = [NSData dataWithContentsOfFile:jsonPath];
     if (!data) {

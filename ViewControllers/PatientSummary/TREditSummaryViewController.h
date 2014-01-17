@@ -10,4 +10,12 @@
 
 @interface TREditSummaryViewController : UIViewController
 
+< UINavigationControllerDelegate,
+UIImagePickerControllerDelegate,
+UITextFieldDelegate,
+UIPickerViewDelegate,
+UIPickerViewDataSource,
+UIPopoverControllerDelegate,
+UIAlertViewDelegate >
+
 @end

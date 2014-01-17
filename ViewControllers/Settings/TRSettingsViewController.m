@@ -32,6 +32,9 @@
     TRCustomButton *_configureButton;
     TRCustomButton *_deleteButton;
     TRCustomButton *_exportButton;
+    
+    NSMutableArray *_exportData;
+    NSInteger attachmentCount;
 }
 
 #pragma mark Init and Load Methods
@@ -124,6 +127,8 @@
     
     //convert dictionary to Core Data objects
     [self persistData:jsonData];
+    
+    //Patient Test Data
     [self patientTestData];
     
     //save context
@@ -204,8 +209,14 @@
 }
 
 - (void)exportPressed{
-    NSData *exportData = [self getJSONOfRecordsOnApp];
-    NSArray *shareArray = @[exportData];
+    _exportData = [[NSMutableArray alloc] init];
+    attachmentCount = 0;
+    
+    NSData *jsonData = [self getJSONOfRecordsOnApp];
+    NSString *string = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    [_exportData addObject:string];
+    
+    NSArray *shareArray = [[NSArray alloc] initWithArray:_exportData];
     
     UIActivityViewController *shareSheet = [[UIActivityViewController alloc] initWithActivityItems:shareArray applicationActivities:nil];
     
@@ -566,11 +577,18 @@
             if ([name isEqualToString:@"birthday"]) {
                 val = [NSDateFormatter localizedStringFromDate:(NSDate *)val
                                                      dateStyle:NSDateFormatterShortStyle
-                                                     timeStyle:NSDateFormatterFullStyle];
+                                                     timeStyle:NSDateFormatterNoStyle];
             }
             
             if ([name isEqualToString:@"data"]) {
-                val = @"imagePlaceholder";
+                attachmentCount++;
+                
+                UIImage *exportImage = [UIImage imageWithData:(NSData*)[object valueForKey:name]];
+                [_exportData addObject:UIImageJPEGRepresentation(exportImage, 0.5)];
+                
+                val = [[@"Attachment-" stringByAppendingString:
+                        [NSString stringWithFormat:@"%ld",(long)attachmentCount]]
+                       stringByAppendingString:@".jpeg"];;
             }
 
             [properties setValue:val forKey:name];

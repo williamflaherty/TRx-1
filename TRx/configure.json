@@ -1,0 +1,602 @@
+{
+    "branch_questions": [
+        {
+            "id": 1,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "History of Present Illness",
+                    "display_text": "# of blocks",
+                    "id": 9,
+                    "options": [],
+                    "question_text": "How many blocks can you walk?",
+                    "question_type": "fill",
+                    "translation_text": "Konbyen bl\u00f2k ou ka mache?"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Pain location change",
+                    "id": 11,
+                    "options": [],
+                    "question_text": "Has this changed over time?",
+                    "question_type": "yes explain",
+                    "translation_text": "\u00c8ske sa a chanje apre yon s\u00e8ten tan?"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Radiate pain location",
+                    "id": 12,
+                    "options": [],
+                    "question_text": "Does it radiate to a specific area of the body?",
+                    "question_type": "yes explain",
+                    "translation_text": "Li gaye nan yon z\u00f2n espesifik nan k\u00f2 a?"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Made it better or worse",
+                    "id": 14,
+                    "options": [],
+                    "question_text": "What's made it better (or worse)?",
+                    "question_type": "fill",
+                    "translation_text": "Ki sa ki te f\u00e8 li pi bon (oswa vin pi mal)?"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Rate of change",
+                    "id": 16,
+                    "options": [],
+                    "question_text": "What has been the rate of change?",
+                    "question_type": "fill",
+                    "translation_text": "Ki sa ki te gen pousantaj lajan an nan chanjman?"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "Past Medical History",
+                    "display_text": "Addressed issues",
+                    "id": 21,
+                    "options": [],
+                    "question_text": "What issues were addressed?",
+                    "question_type": "fill",
+                    "translation_text": "Ki sa ki pwobl\u00e8m yo te adrese?"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "Past Medical History",
+                    "display_text": "Care type",
+                    "id": 22,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": "Continuous",
+                            "highlight": "n",
+                            "id": 66,
+                            "question_id": 22,
+                            "text": "Continuous",
+                            "translation": "Kontini"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "Episodic",
+                            "highlight": null,
+                            "id": 67,
+                            "question_id": 22,
+                            "text": "Episodic",
+                            "translation": "Sanzatann"
+                        }
+                    ],
+                    "question_text": "Was the care continuous (i.e. provided on a regular basis by a single person) or episodic?",
+                    "question_type": "check box other",
+                    "translation_text": "Te swen an kontiny\u00e8l (sa vle di bay sou yon baz regilye pa yon s\u00e8l moun) oswa sanzatann?"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "Medications",
+                    "display_text": "Dosage/Frequency",
+                    "id": 27,
+                    "options": [],
+                    "question_text": "What is the dose and frequency?",
+                    "question_type": "fill",
+                    "translation_text": "Ki sa ki se d\u00f2z la ak frekans?"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "Medications",
+                    "display_text": "Amount",
+                    "id": 28,
+                    "options": [],
+                    "question_text": "How much are you taking?",
+                    "question_type": "fill",
+                    "translation_text": "Konbyen w ap pran?"
+                },
+                {
+                    "chain_index": 2,
+                    "display_group": "Medications",
+                    "display_text": "Treating",
+                    "id": 29,
+                    "options": [],
+                    "question_text": "What are you treating?",
+                    "question_type": "fill",
+                    "translation_text": "Ki sa yo ou trete?"
+                },
+                {
+                    "chain_index": 3,
+                    "display_group": "Medications",
+                    "display_text": "Effectivitiy",
+                    "id": 30,
+                    "options": [],
+                    "question_text": "Has it been effective?",
+                    "question_type": "yes and no explain",
+                    "translation_text": "\u00c8ske li te efikas?"
+                },
+                {
+                    "chain_index": 4,
+                    "display_group": "Medications",
+                    "display_text": "Prescribed/Self administered",
+                    "id": 31,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": "Prescribed",
+                            "highlight": "n",
+                            "id": 71,
+                            "question_id": 31,
+                            "text": "Prescribed",
+                            "translation": "Preskri"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "Self administered",
+                            "highlight": null,
+                            "id": 72,
+                            "question_id": 31,
+                            "text": "Self administered",
+                            "translation": "Pw\u00f2p t\u00e8t ou bay"
+                        }
+                    ],
+                    "question_text": "Are these medicines being prescribed by a practitioner? Self administered?",
+                    "question_type": "check box",
+                    "translation_text": "\u00c8ske medikaman sa yo ke yo te preskri pa yon pratikan? Pw\u00f2p t\u00e8t ou bay?"
+                }
+            ]
+        }
+    ],
+    "doctors": [
+        {
+            "firstName": null,
+            "id": 4,
+            "lastName": "Audrey Barry",
+            "middleName": null
+        },
+        {
+            "firstName": null,
+            "id": 5,
+            "lastName": "David Dahl",
+            "middleName": null
+        },
+        {
+            "firstName": null,
+            "id": 6,
+            "lastName": "Reagan Bollig",
+            "middleName": null
+        }
+    ],
+    "stack_questions": [
+        {
+            "id": 4,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Duration",
+                    "id": 1,
+                    "options": [],
+                    "question_text": "How long has this condition lasted?",
+                    "question_type": "fill",
+                    "translation_text": "Konbyen tan li te kondisyon sa a te dire?"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Past similarity",
+                    "id": 2,
+                    "options": [],
+                    "question_text": "Is it similar to a past problem?",
+                    "question_type": "yes explain",
+                    "translation_text": "\u00c8ske li menm jan ak yon pwobl\u00e8m sot pase yo?"
+                },
+                {
+                    "chain_index": 2,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Interference",
+                    "id": 3,
+                    "options": [],
+                    "question_text": "Does it interfere with your daily activities?",
+                    "question_type": "yes explain",
+                    "translation_text": "Li ent\u00e8fere ak aktivite chak jou ou a?"
+                },
+                {
+                    "chain_index": 3,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Kept up at night",
+                    "id": 4,
+                    "options": [],
+                    "question_text": "Does it keep you up at night?",
+                    "question_type": "yes no",
+                    "translation_text": "Li kenbe ou leve nan mitan lannwit?"
+                },
+                {
+                    "chain_index": 4,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Rating",
+                    "id": 5,
+                    "options": [],
+                    "question_text": "Objectively rate the problem. If you are describing pain, rate it from 1 to 10 with 10 being the worse pain of your life and explain what that was.",
+                    "question_type": "fill",
+                    "translation_text": "Objektivman to pwobl\u00e8m nan. Si w ap dekri doul\u00e8, pousantaj li nan 1 rive nan 10 ak 10 yo te doul\u00e8 a \u200b\u200bvin pi mal nan lavi ou epi eksplike ki sa sa te ye."
+                },
+                {
+                    "chain_index": 5,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Shortness of breath",
+                    "id": 8,
+                    "options": [
+                        {
+                            "branch_id": 1,
+                            "display_text": "Y",
+                            "highlight": "n",
+                            "id": 47,
+                            "question_id": 8,
+                            "text": "Yes",
+                            "translation": "Wi"
+                        }
+                    ],
+                    "question_text": "Do you have shortness of breath when walking?",
+                    "question_type": "yes no",
+                    "translation_text": "Ou gen souf kout l\u00e8 w ap mache?"
+                },
+                {
+                    "chain_index": 6,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Specific pain location",
+                    "id": 10,
+                    "options": [
+                        {
+                            "branch_id": 2,
+                            "display_text": "Y",
+                            "highlight": "n",
+                            "id": 64,
+                            "question_id": 10,
+                            "text": "Yes",
+                            "translation": "Wi"
+                        },
+                        {
+                            "branch_id": 3,
+                            "display_text": "N",
+                            "highlight": "n",
+                            "id": 65,
+                            "question_id": 10,
+                            "text": "No",
+                            "translation": "Pa gen"
+                        }
+                    ],
+                    "question_text": "Is the symptom (e.g. pain) located in a specific place?",
+                    "question_type": "yes explain",
+                    "translation_text": "\u00c8ske sent\u00f2m nan (egzanp doul\u00e8) ki sitiye nan yon kote espesifik?"
+                },
+                {
+                    "chain_index": 7,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Therapeutic maneuvers",
+                    "id": 13,
+                    "options": [
+                        {
+                            "branch_id": 5,
+                            "display_text": "Y",
+                            "highlight": "n",
+                            "id": 50,
+                            "question_id": 13,
+                            "text": "Yes",
+                            "translation": "Wi"
+                        }
+                    ],
+                    "question_text": "Have you tried any therapeutic maneuvers?",
+                    "question_type": "yes explain",
+                    "translation_text": "Eske ou te eseye okenn man\u00e8v ki ka geri ou?"
+                },
+                {
+                    "chain_index": 8,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Pace of illness",
+                    "id": 15,
+                    "options": [
+                        {
+                            "branch_id": 6,
+                            "display_text": "Worse",
+                            "highlight": null,
+                            "id": 68,
+                            "question_id": 15,
+                            "text": "Worse",
+                            "translation": "Vin pi mal"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "Same",
+                            "highlight": null,
+                            "id": 69,
+                            "question_id": 15,
+                            "text": "Staying the same",
+                            "translation": "Rete menm bagay la tou"
+                        },
+                        {
+                            "branch_id": 6,
+                            "display_text": "Better",
+                            "highlight": "n",
+                            "id": 70,
+                            "question_id": 15,
+                            "text": "Better",
+                            "translation": "Pi bon"
+                        }
+                    ],
+                    "question_text": "Is the problem getting...",
+                    "question_type": "check box",
+                    "translation_text": "Se pwobl\u00e8m nan ap resevwa ..."
+                },
+                {
+                    "chain_index": 9,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Associated symptoms",
+                    "id": 17,
+                    "options": [],
+                    "question_text": "Are there any associated symptoms?",
+                    "question_type": "fill",
+                    "translation_text": "\u00c8ske gen nenp\u00f2t sent\u00f2m ki asosye?"
+                },
+                {
+                    "chain_index": 10,
+                    "display_group": "History of Present Illness",
+                    "display_text": "Patient's opinion",
+                    "id": 18,
+                    "options": [],
+                    "question_text": "What do you think the problem is and/or what are you worried it might be?",
+                    "question_type": "fill",
+                    "translation_text": "Ki sa ou panse pwobl\u00e8m nan se ak / oswa ki sa yo ou enkyete yo ka?"
+                }
+            ],
+            "stack_index": 0
+        },
+        {
+            "id": 8,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "Past Medical History",
+                    "display_text": "Infection/heart/lung/abdomen problems",
+                    "id": 19,
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": "Other",
+                            "highlight": null,
+                            "id": 51,
+                            "question_id": 19,
+                            "text": "Other",
+                            "translation": "l\u00f2t"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "Anemia",
+                            "highlight": null,
+                            "id": 52,
+                            "question_id": 19,
+                            "text": "Anemia",
+                            "translation": "Anemi"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "Heart disease",
+                            "highlight": null,
+                            "id": 53,
+                            "question_id": 19,
+                            "text": "Heart disease",
+                            "translation": "Maladi k\u00e8"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "Cough",
+                            "highlight": null,
+                            "id": 54,
+                            "question_id": 19,
+                            "text": "Cough",
+                            "translation": "Tous"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "Pneumonia",
+                            "highlight": null,
+                            "id": 55,
+                            "question_id": 19,
+                            "text": "Pneumonia",
+                            "translation": "Nemoni"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "Hepatitis",
+                            "highlight": null,
+                            "id": 56,
+                            "question_id": 19,
+                            "text": "Hepatitis",
+                            "translation": "Epatit"
+                        },
+                        {
+                            "branch_id": null,
+                            "display_text": "AIDS",
+                            "highlight": "n",
+                            "id": 57,
+                            "question_id": 19,
+                            "text": "AIDS",
+                            "translation": "SIDA"
+                        }
+                    ],
+                    "question_text": "Do you have any infections, heart, lung, or abdominal problems?",
+                    "question_type": "check box other",
+                    "translation_text": "W gen nenp\u00f2t enfeksyon, k\u00e8, poumon, oswa pwobl\u00e8m nan vant?"
+                },
+                {
+                    "chain_index": 1,
+                    "display_group": "Past Medical History",
+                    "display_text": "Received medical care",
+                    "id": 20,
+                    "options": [
+                        {
+                            "branch_id": 7,
+                            "display_text": "Y",
+                            "highlight": "n",
+                            "id": 60,
+                            "question_id": 20,
+                            "text": "Yes",
+                            "translation": "Wi"
+                        }
+                    ],
+                    "question_text": "Have you ever received medical care?",
+                    "question_type": "yes no",
+                    "translation_text": "\u00c8ske w te janm resevwa swen medikal?"
+                },
+                {
+                    "chain_index": 2,
+                    "display_group": "Past Medical History",
+                    "display_text": "Procedures/Testing",
+                    "id": 23,
+                    "options": [],
+                    "question_text": "Have you ever undergone any procedures, X-Rays, CAT scans, MRIs or other special testing?",
+                    "question_type": "fill",
+                    "translation_text": "\u00c8ske w te janm sibi nenp\u00f2t ki pwosedi, x-rays, analiz CAT, MRIs oswa l\u00f2t t\u00e8s espesyal?"
+                },
+                {
+                    "chain_index": 3,
+                    "display_group": "Past Medical History",
+                    "display_text": "Been hospitalized",
+                    "id": 24,
+                    "options": [],
+                    "question_text": "Have you ever been hospitalized?",
+                    "question_type": "yes explain",
+                    "translation_text": "\u00c8ske w te janm te ent\u00e8ne lopital?"
+                }
+            ],
+            "stack_index": 1
+        },
+        {
+            "id": 12,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "Surgical History",
+                    "display_text": "Surgeries",
+                    "id": 25,
+                    "options": [],
+                    "question_text": "List any surgeries you have had.",
+                    "question_type": "fill",
+                    "translation_text": "Ekri non nenp\u00f2t operasyon ou te f\u00e8."
+                }
+            ],
+            "stack_index": 2
+        },
+        {
+            "id": 10,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "Medications",
+                    "display_text": "Prescription medicines",
+                    "id": 26,
+                    "options": [
+                        {
+                            "branch_id": 9,
+                            "display_text": "Y",
+                            "highlight": "n",
+                            "id": 63,
+                            "question_id": 26,
+                            "text": "Yes",
+                            "translation": "Wi"
+                        }
+                    ],
+                    "question_text": "Do you take any prescription medicines?",
+                    "question_type": "yes no",
+                    "translation_text": "Ou pran medikaman sou preskripsyon?"
+                }
+            ],
+            "stack_index": 3
+        },
+        {
+            "id": 11,
+            "questions": [
+                {
+                    "chain_index": 0,
+                    "display_group": "Allergies/Reactions",
+                    "display_text": "Medication Allergies",
+                    "id": 32,
+                    "options": [],
+                    "question_text": "Have you experienced any adverse reactions to medications?",
+                    "question_type": "yes explain",
+                    "translation_text": "Eske ou te f\u00e8 eksperyans nenp\u00f2t reyaksyon negatif a medikaman?"
+                }
+            ],
+            "stack_index": 4
+        }
+    ],
+    "surgeries": [
+        {
+            "id": 4,
+            "name": "Hernia"
+        },
+        {
+            "id": 5,
+            "name": "I&D"
+        },
+        {
+            "id": 6,
+            "name": "Lipoma Removal"
+        },
+        {
+            "id": 7,
+            "name": "Lumpectomy"
+        },
+        {
+            "id": 8,
+            "name": "Hysterectomy"
+        }
+    ]
+}

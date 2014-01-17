@@ -8,6 +8,7 @@
 
 #import "TRPatientSummaryViewController.h"
 #import "TRCustomImageView.h"
+#import "TRCustomButton.h"
 #import "TRActivePatientManager.h"
 #import "CDPatient.h"
 #import "CDImage.h"
@@ -18,6 +19,7 @@
 
 @implementation TRPatientSummaryViewController{
     TRCustomImageView *_photoIDImageView;
+    TRCustomButton*_editButton;
     
     UILabel *_nameLabel;
     UILabel *_birthdateLabel;
@@ -57,6 +59,7 @@
     _activePatientManager = [TRActivePatientManager sharedInstance];
     _activePatient = _activePatientManager.activePatient;
     [self loadImageView];
+    [self loadButtons];
     [self loadLabels];
     [self loadActivePatientInfo];
     [self loadTableView];
@@ -67,6 +70,14 @@
     _photoIDImageView = [[TRCustomImageView alloc] initWithFrame:CGRectZero];
     [_photoIDImageView drawImageViewWithDefaultStyle];
     [self.view addSubview:_photoIDImageView];
+}
+
+- (void)loadButtons{
+    _editButton = [TRCustomButton buttonWithType:UIButtonTypeSystem];
+    [_editButton addTarget:self action:@selector(editButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [_editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [_editButton drawButtonWithDefaultStyle];
+    
 }
 
 -(void)loadLabels{
@@ -130,10 +141,15 @@
 
 - (void)loadTableView{
     _summarayTableView = [[UITableView alloc] init];
-//    _summarayTableView.delegate = self;
-//    _summarayTableView.dataSource = self;
-    
+    _summarayTableView.delegate = self;
+    _summarayTableView.dataSource = self;
     [self.view addSubview:_summarayTableView];
+}
+
+#pragma mark - Button Methods
+
+- (void)editButtonPressed{
+    
 }
 
 #pragma mark - UITableView Delegate Methods

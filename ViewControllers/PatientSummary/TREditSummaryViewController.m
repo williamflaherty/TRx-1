@@ -32,6 +32,7 @@
     
     TRCustomButton *_takePictureButton;
     UIBarButtonItem *_submitButton;
+    UIBarButtonItem *_cancelButton;
     
     UILabel *_firstNameLabel;
     UILabel *_middleNameLabel;
@@ -64,6 +65,7 @@
     TRCustomButton *_deletePatientButton;
     UILabel *_deletePatientLabel;
     
+    BOOL _hasUnsavedChanges;
     CDPatient *_activePatient;
 }
 
@@ -90,13 +92,14 @@
 - (void)initialSetup{
     _activePatientManager = [TRActivePatientManager sharedInstance];
     _activePatient = _activePatientManager.activePatient;
+    _hasUnsavedChanges = NO;
     [self loadLabels];
     [self loadTextFields];
     [self loadButtons];
     [self loadImageView];
     [self loadPickers];
     [self loadActivePatientInfo];
-    
+    self.navigationItem.title = @"Edit Patient";
     [self resizeViewsForOrientation:self.interfaceOrientation];
 }
 
@@ -214,8 +217,11 @@
                  forControlEvents:UIControlEventTouchUpInside];
     [_deletePatientButton drawButtonWithCancelStlye];
     
-    _submitButton = [[UIBarButtonItem alloc] initWithTitle:@"Submit" style:UIBarButtonItemStylePlain target:self action:@selector(submitPressed)];
+    _submitButton = [[UIBarButtonItem alloc] initWithTitle:@"Save Changes" style:UIBarButtonItemStylePlain target:self action:@selector(submitPressed)];
     self.navigationItem.rightBarButtonItem = _submitButton;
+    
+    _cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelPressed)];
+    self.navigationItem.leftBarButtonItem = _cancelButton;
     
     [self.view addSubview:_takePictureButton];
     [self.view addSubview:_deletePatientButton];
@@ -235,6 +241,7 @@
 - (void)loadPickers{
     _birthdatePicker = [[UIDatePicker alloc] init];
     [_birthdatePicker setDatePickerMode:UIDatePickerModeDate];
+    [_birthdatePicker setDate:_activePatient.birthday];
     
     _chiefComplaintPicker = [[UIPickerView alloc] init];
     _chiefComplaintPicker.delegate = self;
@@ -257,7 +264,7 @@
     _lastNameTextField.text = displayString;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
     displayString = [formatter stringFromDate:_activePatient.birthday];
     _birthdateTextField.text = displayString;
     
@@ -290,7 +297,7 @@
     
     CDImage *profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
                                                           inManagedObjectContext:self.managedObjectContext];
-    profileImage.data = UIImageJPEGRepresentation(_photoIDImageView.image,0.0);
+    profileImage.data = UIImageJPEGRepresentation(_photoIDImageView.image,0.1);
     profileImage.belongsTo = _activePatient;
     profileImage.belongsToProfile = _activePatient;
     
@@ -306,14 +313,59 @@
     [alertView show];
 }
 
+- (void)cancelPressed{
+    [self checkForChanges];
+    if(_hasUnsavedChanges){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Wait!" message:@"You have unsaved changes that will be lost." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete Changes", nil];
+        [alertView show];
+    }
+    else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)checkForChanges{
+    if(![_firstNameTextField.text isEqualToString:_activePatient.firstName]){
+        _hasUnsavedChanges = YES;
+    }
+    if(![_middleNameTextField.text isEqualToString:_activePatient.middleName]
+       && ![_middleNameTextField.text isEqualToString:@""]){
+        _hasUnsavedChanges = YES;
+    }
+    if(![_lastNameTextField.text isEqualToString:_activePatient.lastName]){
+        _hasUnsavedChanges = YES;
+    }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    NSString *birthdayString = [formatter stringFromDate:_activePatient.birthday];
+    if(![_birthdateTextField.text isEqualToString:birthdayString]){
+        _hasUnsavedChanges = YES;
+    }
+    
+    if(![_chiefComplaintTextField.text isEqualToString:_activePatient.surgeryType]){
+        _hasUnsavedChanges = YES;
+    }
+    if(![_doctorTextField.text isEqualToString:_activePatient.doctor]){
+        _hasUnsavedChanges = YES;
+    }
+}
+
 #pragma mark - UIAlertViewDelegate Methods
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 1){
-        [self.managedObjectContext deleteObject:_activePatient.profileImage];
-        [self.managedObjectContext deleteObject:_activePatient];
-        [self.managedObjectContext saveContext];
-        [self.navigationController popToRootViewControllerAnimated:YES];
+    if([alertView.title isEqualToString:@"Are You Sure?"]){
+        if(buttonIndex == 1){
+            [self.managedObjectContext deleteObject:_activePatient.profileImage];
+            [self.managedObjectContext deleteObject:_activePatient];
+            [self.managedObjectContext saveContext];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    }
+    else if([alertView.title isEqualToString:@"Wait!"]){
+        if(buttonIndex == 1){
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 
@@ -397,6 +449,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [self dismissViewControllerAnimated:YES completion:nil];
+    _hasUnsavedChanges = YES;
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
@@ -441,6 +494,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
         [_middleNameTextField resignFirstResponder];
         [_lastNameTextField resignFirstResponder];
         return NO;
+    }
+    else if(textField == _middleNameTextField){
+        _hasUnsavedChanges = YES;
     }
     
     return YES;

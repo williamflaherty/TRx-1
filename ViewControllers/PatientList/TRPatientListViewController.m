@@ -55,7 +55,26 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self resizeViewsForOrientation:self.interfaceOrientation];
     [self fetchPatietData];
+    
     [_patientListTableView reloadData];
+}
+
+- (void)clearTableViewData{
+    NSMutableArray *cells = [[NSMutableArray alloc] init];
+    for (NSInteger j = 0; j < [_patientListTableView numberOfSections]; ++j)
+    {
+        for (NSInteger i = 0; i < [_patientListTableView numberOfRowsInSection:j]; ++i)
+        {
+            [cells addObject:[_patientListTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]]];
+        }
+    }
+    
+    for(TRPatientListCell *cell in cells){
+        cell.patientCellBirthdate = nil;
+        cell.patientCellComplaint = nil;
+        cell.patientCellName = nil;
+        cell.patientCellPhoto = nil;
+    }
 }
      
 - (void)initialSetup{
@@ -104,7 +123,23 @@
     }
     _patientArray = [[NSArray alloc] initWithArray:fetchedObjects];
     
+    [self sortPatientArray];
+    
     _activePatientManager.activePatient = nil;
+}
+
+- (void)sortPatientArray{
+    NSArray *sortArray = [_patientArray sortedArrayUsingComparator:^(id obj1, id obj2){
+        CDPatient *q1 = obj1;
+        CDPatient *q2 = obj2;
+        
+        NSString *nameString1 = [q1.firstName stringByAppendingString:q1.lastName];
+        NSString *nameString2 = [q2.firstName stringByAppendingString:q2.lastName];
+        
+        return [nameString1 compare:nameString2];
+    }];
+    
+    _patientArray = sortArray;
 }
 
 #pragma mark - Bar Button Actions
@@ -159,18 +194,18 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 180.0;
+    return 150.0;
 }
 
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString* cellIdentifier = @"patientListCell";
     TRPatientListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
-    cell = [[TRPatientListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    
+    if(cell == nil){
+        cell = [[TRPatientListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    [cell setUpCellItems];
     
     CDPatient *patient = [_patientArray objectAtIndex:[indexPath row]];
     CDImage *image = patient.profileImage;
@@ -183,7 +218,7 @@
     cell.patientCellComplaint.text = patient.surgeryType;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
     cell.patientCellBirthdate.text = [formatter stringFromDate:patient.birthday];
     
     

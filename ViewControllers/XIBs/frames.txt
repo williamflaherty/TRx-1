@@ -1,39 +1,29 @@
 
---- EditSummary.xib ---
+--- PatientSummary.xib ---
 
-_photoIDImageView.frame = CGRectMake(20, 122, 352, 352);
-_middleNameTextField.frame = CGRectMake(398, 189, 350, 30);
-_lastNameTextField.frame = CGRectMake(398, 256, 350, 30);
-_middleNameLabel.frame = CGRectMake(522, 160, 103, 21);
-_firstNameTextField.frame = CGRectMake(398, 122, 350, 30);
-_firstNameLabel.frame = CGRectMake(531, 93, 84, 21);
-_lastNameLabel.frame = CGRectMake(532, 227, 83, 21);
-_birthdateTextField.frame = CGRectMake(398, 323, 350, 30);
-_chiefComplaintTextField.frame = CGRectMake(398, 390, 350, 30);
-_birthdateLabel.frame = CGRectMake(538, 294, 71, 21);
-_doctorTextField.frame = CGRectMake(398, 457, 350, 30);
-_doctorLabel.frame = CGRectMake(547, 428, 53, 21);
-_chiefComplaintLabel.frame = CGRectMake(511, 361, 124, 21);
-_takePictureButton.frame = CGRectMake(148, 482, 97, 30);
-_deletePatientButton.frame = CGRectMake(259, 675, 250, 30);
-_deletePatientLabel.frame = CGRectMake(292, 713, 185, 21);
+_photoIDImageView.frame = CGRectMake(156, 17, 140, 140);
+_nameLabel.frame = CGRectMake(321, 33, 51, 21);
+_birthdateLabel.frame = CGRectMake(321, 62, 75, 21);
+_chiefComplaintLabel.frame = CGRectMake(321, 91, 84, 21);
+_doctorLabel.frame = CGRectMake(321, 120, 57, 21);
+_patientChiefComplaint.frame = CGRectMake(413, 91, 200, 21);
+_patientDoctor.frame = CGRectMake(413, 120, 200, 21);
+_patientName.frame = CGRectMake(413, 33, 200, 21);
+_patientBirthdate.frame = CGRectMake(413, 62, 200, 21);
+_patientBirthdate.frame = CGRectMake(0.0, 165, 768, 859);
+_editButton.frame = CGRectMake(621, 72, 50, 30);
 
---- EditSummary-Landscape.xib ---
+--- PatientSummary-Landscape.xib ---
 
-_photoIDImageView.frame = CGRectMake(149, 104, 352, 352);
-_middleNameTextField.frame = CGRectMake(526, 171, 350, 30);
-_lastNameTextField.frame = CGRectMake(526, 238, 350, 30);
-_middleNameLabel.frame = CGRectMake(650, 142, 103, 21);
-_firstNameTextField.frame = CGRectMake(526, 104, 350, 30);
-_firstNameLabel.frame = CGRectMake(659, 75, 84, 21);
-_lastNameLabel.frame = CGRectMake(660, 209, 83, 21);
-_birthdateTextField.frame = CGRectMake(526, 305, 350, 30);
-_chiefComplaintTextField.frame = CGRectMake(526, 372, 350, 30);
-_birthdateLabel.frame = CGRectMake(666, 276, 71, 21);
-_doctorTextField.frame = CGRectMake(526, 439, 350, 30);
-_doctorLabel.frame = CGRectMake(675, 410, 53, 21);
-_chiefComplaintLabel.frame = CGRectMake(639, 343, 124, 21);
-_takePictureButton.frame = CGRectMake(277, 464, 97, 30);
-_deletePatientButton.frame = CGRectMake(387, 586, 250, 30);
-_deletePatientLabel.frame = CGRectMake(420, 624, 185, 21);
+_editButton.frame = CGRectMake(0.0, 154, 1024, 614);
+_editButton.frame = CGRectMake(749, 61, 50, 30);
+_photoIDImageView.frame = CGRectMake(284, 6, 140, 140);
+_nameLabel.frame = CGRectMake(449, 22, 51, 21);
+_birthdateLabel.frame = CGRectMake(449, 51, 75, 21);
+_chiefComplaintLabel.frame = CGRectMake(449, 80, 84, 21);
+_doctorLabel.frame = CGRectMake(449, 109, 57, 21);
+_patientChiefComplaint.frame = CGRectMake(541, 80, 200, 21);
+_patientDoctor.frame = CGRectMake(541, 109, 200, 21);
+_patientName.frame = CGRectMake(541, 22, 200, 21);
+_patientBirthdate.frame = CGRectMake(541, 51, 200, 21);
 

@@ -1,6 +1,12 @@
 
 This is a list of the colors used throughout the app.
 
-Navigation Bar:             [UIColor colorWithRed:0.25 green:0.52 blue:0.76 alpha:1.0]];
-Navigation Tint Color:    [UIColor whiteColor];
-Tint Color:                 [UIColor colorWithRed:0.25 green:0.52 blue:0.76 alpha:1.0]];
+Navigation Bar: [UIColor colorWithRed:0.25 green:0.52 blue:0.76 alpha:1.0];
+
+Navigation Tint Color:  [UIColor whiteColor];
+
+Tint Color: [UIColor colorWithRed:0.25 green:0.52 blue:0.76 alpha:1.0]]
+
+CancelColor:    [UIColor colorWithRed:1.00 green:0.23 blue:0.18 alpha:1.0]
+
+Required Field Blank:   [UIColor colorWithRed:0.90 green:0.72 blue:0.69 alpha:1.0]

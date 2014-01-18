@@ -235,7 +235,7 @@
 
 - (void)patientTestData{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"mm/dd/yyyy"];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
     
     //Mark
     
@@ -244,8 +244,8 @@
     patient.firstName = @"Mark";
     patient.lastName = @"Bellott";
     patient.surgeryType = @"Cataract";
-    patient.doctor = @"Unkown";
-    patient.birthday = [formatter dateFromString:@"09/17/1990"];
+    patient.doctor = @"Unknown";
+    patient.birthday = [formatter dateFromString:@"September 17, 1990"];
     
     CDImage *profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
                                                           inManagedObjectContext:self.managedObjectContext];
@@ -260,8 +260,8 @@
     patient.firstName = @"Willie";
     patient.lastName = @"Flaherty";
     patient.surgeryType = @"Hernia";
-    patient.doctor = @"Unkown";
-    patient.birthday = [formatter dateFromString:@"06/18/1989"];
+    patient.doctor = @"Unknown";
+    patient.birthday = [formatter dateFromString:@"January 18, 1989"];
     
     profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
                                                           inManagedObjectContext:self.managedObjectContext];
@@ -276,8 +276,8 @@
     patient.firstName = @"Mischa";
     patient.lastName = @"Buckler";
     patient.surgeryType = @"Cataract";
-    patient.doctor = @"Unkown";
-    patient.birthday = [formatter dateFromString:@"04/13/1991"];
+    patient.doctor = @"Unknown";
+    patient.birthday = [formatter dateFromString:@"April 13, 1991"];
     
     profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
                                                  inManagedObjectContext:self.managedObjectContext];

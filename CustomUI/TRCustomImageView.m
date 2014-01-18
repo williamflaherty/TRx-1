@@ -23,7 +23,7 @@
     
     self.layer.borderColor = [[UIApplication sharedApplication] keyWindow].tintColor.CGColor;
     self.layer.borderWidth = 1.5f;
-//    self.layer.cornerRadius = 10;
+    self.layer.cornerRadius = 5;
     self.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:1.0];
     
     [self setNeedsDisplay];

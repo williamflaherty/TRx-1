@@ -9,6 +9,7 @@
 #import "TRQView.h"
 #import "TRQLabel.h"
 #import "TRCustomButton.h"
+#import "TRQCheckBox.h"
 
 #define FONT_SIZE 20
 
@@ -38,6 +39,8 @@
 @synthesize noButton = _noButton;
 @synthesize textEntryField = _textEntryField;
 @synthesize response = _response;
+@synthesize selectionTextFields = _selectionTextFields;
+@synthesize checkBoxes = _checkBoxes;
 
 #pragma mark - Init and Load Methods
 
@@ -51,7 +54,7 @@
 
 - (void)initialSetUp{
     [self loadQuestionLabel];
-    [self loadResponse];
+    [self loadArrays];
 }
 
 - (void)loadQuestionLabel{
@@ -62,8 +65,9 @@
     [self addSubview:_questionLabel];
 }
 
-- (void)loadResponse{
+- (void)loadArrays{
     _response = [[NSMutableArray alloc] init];
+    _selectionTextFields = [[NSMutableArray alloc] init];
 }
 
 # pragma mark - Quesiton and Answer Methods
@@ -77,6 +81,9 @@
 }
 
 - (void)buildQuestionOfType:(QType)type withManager:(TRHistoryManager*)manager{
+    
+    //Build Yes No
+    
     if(type == QTypeYesNoDefault){
         _questionType = QTypeYesNoDefault;
         [self buildYesNoDefault];
@@ -93,14 +100,20 @@
         _questionType = QTypeYesNoExplainBoth;
         [self buildYesNoExplainBoth];
     }
+    
+    //Build Check Box
+    
     else if(type == QTypeCheckBoxDefault){
         _questionType = QTypeCheckBoxDefault;
-        [self buildCheckBoxDefault];
+        [self buildCheckBoxDefaultWithOptions:@[@"One!",@"Two!"]];
     }
     else if(type == QTypeCheckBoxOther){
         _questionType = QTypeCheckBoxOther;
-        [self buildCheckBoxOther];
+        [self buildCheckBoxOtherWithOptions:@[]];
     }
+    
+    //Build Text Entry
+    
     else if(type == QTypeTextEntry){
         _questionType = QTypeTextEntry;
         [self buildTextEntry];
@@ -163,12 +176,87 @@
 
 #pragma mark - Check Box Methods
 
-- (void)buildCheckBoxDefault{
+- (void)buildCheckBoxDefaultWithOptions:(NSArray*)options{
+    [_selectionTextFields removeAllObjects];
+    
+    NSInteger count = 0;
+    NSMutableArray *tmpButtons = [[NSMutableArray alloc] init];
+    NSRegularExpression *otherRegex = [[NSRegularExpression alloc] initWithPattern:@"\\b(o)(t)(h)(e)(r)\\b.*"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    
+    for(NSString *s in options){
+        TRQLabel *tmp = [[TRQLabel alloc]init];
+        TRQLabel *lastLabel = [[TRQLabel alloc]init];
+        TRQCheckBox *box = [TRQCheckBox buttonWithType:UIButtonTypeCustom];
+        TRQCheckBox *lastBox = [[TRQCheckBox alloc]init];
+        UITextField *textField = [[UITextField alloc] init];
+        
+        tmp.constrainedWidth = 375;
+        [tmp setText:s];
+        
+        NSUInteger countMatches = [otherRegex numberOfMatchesInString:s
+                                                              options:0 range:NSMakeRange(0, [s length])];
+        
+        if(countMatches == 0){
+            if(count == 0){
+                tmp.frame = CGRectMake(_questionLabel.frame.origin.x + SELECT_OFFSET, _questionLabel.frame.origin.y + _questionLabel.frame.size.height + Y_PADDING, tmp.frame.size.width, tmp.frame.size.height);
+                box.frame = CGRectMake(_questionLabel.frame.origin.x, _questionLabel.frame.origin.y + _questionLabel.frame.size.height + Y_PADDING, 30, 30);
+            }
+            else{
+                lastLabel = [_response lastObject];
+                lastBox = [tmpButtons lastObject];
+                tmp.frame = CGRectMake(lastLabel.frame.origin.x, lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, tmp.frame.size.width, tmp.frame.size.height);
+                box.frame = CGRectMake(lastBox.frame.origin.x, lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, 30, 30);
+            }
+            
+            [box setArrayIndex:count];
+            box.optionLabel = s;
+            
+            _responseHeight += (tmp.frame.size.height + Y_PADDING);
+            
+            [_response addObject: tmp];
+            [_checkBoxes addObject:box];
+            [tmpButtons addObject:box];
+//            [questionUnion addObject:tmp];
+//            [questionUnion addObject:box];
+            
+            [box addTarget:self action:@selector(checkPressed:) forControlEvents:UIControlEventTouchDown];
+            
+            [self addSubview:tmp];
+            [self addSubview:box];
+        }
+        else{
+            lastLabel = [_response lastObject];
+            tmp.frame = CGRectMake(lastLabel.frame.origin.x, lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, tmp.frame.size.width, tmp.frame.size.height);
+            textField.frame = CGRectMake(tmp.frame.origin.x +(lastLabel.text.length * 10), lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, 250, 30);
+            textField.delegate = self;
+            textField.borderStyle = UITextBorderStyleBezel;
+            textField.keyboardType = UIKeyboardTypeDefault;
+            textField.autocorrectionType = UITextAutocorrectionTypeNo;
+            [_textEntryField setFont:[UIFont fontWithName:@"HelveticaNeue" size:FONT_SIZE]];
+            
+            _responseHeight += (tmp.frame.size.height + Y_PADDING);
+            
+            [_response addObject:tmp];
+            [_selectionTextFields addObject:textField];
+            
+            [self addSubview:tmp];
+            [self addSubview:textField];
+        }
+        count++;
+    }
+    
+    [self adjustFrame];
+}
+
+- (void)buildCheckBoxOtherWithOptions:(NSArray*)options{
     
 }
 
-- (void)buildCheckBoxOther{
-    
+- (void)checkPressed:(id)sender{
+    TRQCheckBox *cb = (TRQCheckBox*)sender;
+    [cb checkPressed];
 }
 
 #pragma mark - Text Entry Methods

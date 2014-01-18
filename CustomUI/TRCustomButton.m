@@ -39,8 +39,8 @@
 }
 
 - (void)drawButtonWithCancelStlye{
-    self.layer.borderColor = [UIColor redColor].CGColor;
-    self.layer.backgroundColor = [UIColor redColor].CGColor;
+    self.layer.borderColor = [UIColor colorWithRed:1.00 green:0.23 blue:0.18 alpha:1.0].CGColor;
+    self.layer.backgroundColor = [UIColor colorWithRed:1.00 green:0.23 blue:0.18 alpha:1.0].CGColor;
     self.layer.borderWidth = 1.0f;
     self.layer.cornerRadius = 6;
     

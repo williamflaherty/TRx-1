@@ -10,11 +10,40 @@
 
 @implementation TRQCheckBox
 
-- (id)initWithFrame:(CGRect)frame{
+@synthesize toggleCount = _toggleCount;
+@synthesize optionLabel = _optionLabel;
+@synthesize arrayIndex = _arrayIndex;
+
+#pragma mark - Init and Load Methods
+
+- (id)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
+        _toggleCount = 0;
+        _arrayIndex = 0;
+        
+        self.frame = CGRectMake(0, 0, 20, 20);
+        [self drawButtonWithDefaultStyle];
+        [self deselectButton];
+        
     }
     return self;
+}
+
+-(void) setArrayIndex:(NSInteger)a{
+    _arrayIndex = a;
+}
+
+-(void) checkPressed{
+    if(_toggleCount == 0){
+        [self selectButton];
+        _toggleCount++;
+    }
+    else{
+        [self deselectButton];
+        _toggleCount--;
+    }
 }
 
 

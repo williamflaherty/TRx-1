@@ -196,28 +196,20 @@
     ],
     "doctors": [
         {
-            "firstName": null,
             "id": 4,
-            "lastName": "Audrey Barry",
-            "middleName": null
+            "doctor_name": "Audrey Barry",
         },
         {
-            "firstName": null,
             "id": 5,
-            "lastName": "David Dahl",
-            "middleName": null
+            "doctor_name": "David Dahl",
         },
         {
-            "firstName": null,
             "id": 6,
-            "lastName": "Reagan Bollig",
-            "middleName": null
+            "doctor_name": "Reagan Bollig",
         },
         {
-            "firstName": null,
             "id": 7,
-            "lastName": "Unknown",
-            "middleName": null
+            "doctor_name" : "Unknown",
         }
     ],
     "stack_questions": [
@@ -586,27 +578,27 @@
     "surgeries": [
         {
             "id": 4,
-            "name": "Hernia"
+            "surgery_name": "Hernia"
         },
         {
             "id": 5,
-            "name": "I&D"
+            "surgery_name": "I&D"
         },
         {
             "id": 6,
-            "name": "Lipoma Removal"
+            "surgery_name": "Lipoma Removal"
         },
         {
             "id": 7,
-            "name": "Lumpectomy"
+            "surgery_name": "Lumpectomy"
         },
         {
             "id": 8,
-            "name": "Hysterectomy"
+            "surgery_name": "Hysterectomy"
         },
         {
             "id": 9,
-            "name": "Unknown"
+            "surgery_name": "Unknown"
         }
     ]
 }

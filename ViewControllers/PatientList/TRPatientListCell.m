@@ -18,6 +18,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        [self setUpCellItems];
     }
     return self;
 }
@@ -53,12 +54,12 @@
 }
 
 - (void)resizeFrames{
-    _patientCellPhoto.frame = CGRectMake(20, 15, 150, 150);
-    _patientCellName.frame = CGRectMake(231, 15, 504, 55);
-    _birthdateLabel.frame = CGRectMake(231, 108, 86, 21);
-    _complaintLabel.frame = CGRectMake(231, 79, 86, 21);
-    _patientCellComplaint.frame = CGRectMake(325, 79, 410, 21);
-    _patientCellBirthdate.frame = CGRectMake(325, 108, 410, 21);
+    _patientCellPhoto.frame = CGRectMake(44, 20, 109, 109);
+    _patientCellName.frame = CGRectMake(231, 18, 504, 55);
+    _birthdateLabel.frame = CGRectMake(231, 111, 86, 21);
+    _complaintLabel.frame = CGRectMake(231, 82, 86, 21);
+    _patientCellComplaint.frame = CGRectMake(325, 82, 410, 21);
+    _patientCellBirthdate.frame = CGRectMake(325, 111, 410, 21);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated{

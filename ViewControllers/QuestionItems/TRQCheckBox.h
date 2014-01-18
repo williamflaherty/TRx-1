@@ -11,4 +11,10 @@
 
 @interface TRQCheckBox : TRCustomButton
 
+@property(nonatomic, readonly) NSInteger toggleCount;
+@property(nonatomic, retain) NSString *optionLabel;
+@property(nonatomic, readwrite) NSInteger arrayIndex;
+
+-(void) checkPressed;
+
 @end

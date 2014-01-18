@@ -86,7 +86,7 @@
 }
 
 - (QType)getNextQuestionType{
-    return QTypeYesNoDefault;
+    return QTypeCheckBoxDefault;
 }
 
 - (NSString*)getNextEnglishLabel{

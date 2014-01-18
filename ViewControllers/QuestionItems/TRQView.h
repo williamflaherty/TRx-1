@@ -12,6 +12,7 @@
 @class TRHistoryManager, TRQLabel, TRCustomButton;
 
 @interface TRQView : UIView
+< UITextFieldDelegate >
 
 @property (nonatomic, retain) TRQView *connectedView;
 @property (nonatomic, readwrite) QType questionType;
@@ -22,6 +23,8 @@
 @property (nonatomic, retain) UITextField *textEntryField;
 
 @property (nonatomic, retain) NSMutableArray *response;
+@property (nonatomic, retain) NSMutableArray *selectionTextFields;
+@property(nonatomic, retain) NSMutableArray *checkBoxes;
 
 - (void)checkHasAnswer;
 - (void)setQuestionLabelText:(NSString *)text;
@@ -32,8 +35,8 @@
 - (void)buildYesNoExplainNo;
 - (void)buildYesNoExplainBoth;
 
-- (void)buildCheckBoxDefault;
-- (void)buildCheckBoxOther;
+- (void)buildCheckBoxDefaultWithOptions:(NSArray*)options;
+- (void)buildCheckBoxOtherWithOptions:(NSArray*)options;
 
 - (void)buildTextEntry;
 

@@ -8,7 +8,6 @@
 
 #import "TRPatientSummaryViewController.h"
 #import "TREditSummaryViewController.h"
-#import "TRCustomImageView.h"
 #import "TRCustomButton.h"
 #import "TRActivePatientManager.h"
 #import "CDPatient.h"
@@ -19,7 +18,7 @@
 @end
 
 @implementation TRPatientSummaryViewController{
-    TRCustomImageView *_photoIDImageView;
+    UIImageView *_photoIDImageView;
     TRCustomButton*_editButton;
     
     UILabel *_nameLabel;
@@ -69,8 +68,7 @@
 }
 
 - (void)loadImageView{
-    _photoIDImageView = [[TRCustomImageView alloc] initWithFrame:CGRectZero];
-    [_photoIDImageView drawImageViewWithDefaultStyle];
+    _photoIDImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_photoIDImageView];
 }
 
@@ -210,31 +208,32 @@
 }
 
 - (void)resizeFramesForPortrait{
-    _photoIDImageView.frame = CGRectMake(130, 20, 108, 108);
-    _nameLabel.frame = CGRectMake(246, 20, 51, 21);
-    _birthdateLabel.frame = CGRectMake(246, 49, 75, 21);
-    _chiefComplaintLabel.frame = CGRectMake(246, 78, 84, 21);
-    _doctorLabel.frame = CGRectMake(246, 107, 57, 21);
-    _patientChiefComplaint.frame = CGRectMake(338, 78, 300, 21);
-    _patientDoctor.frame = CGRectMake(338, 107, 300, 21);
-    _patientName.frame = CGRectMake(338, 20, 300, 21);
-    _patientBirthdate.frame = CGRectMake(338, 49, 300, 21);
+    _photoIDImageView.frame = CGRectMake(156, 17, 140, 140);
+    _nameLabel.frame = CGRectMake(321, 33, 51, 21);
+    _birthdateLabel.frame = CGRectMake(321, 62, 75, 21);
+    _chiefComplaintLabel.frame = CGRectMake(321, 91, 84, 21);
+    _doctorLabel.frame = CGRectMake(321, 120, 57, 21);
+    _patientChiefComplaint.frame = CGRectMake(413, 91, 200, 21);
+    _patientDoctor.frame = CGRectMake(413, 120, 200, 21);
+    _patientName.frame = CGRectMake(413, 33, 200, 21);
+    _patientBirthdate.frame = CGRectMake(413, 62, 200, 21);
     _summarayTableView.frame = CGRectMake(0.0, 165, 768, 859);
-    _editButton.frame = CGRectMake(646, 59, 50, 30);
+    _editButton.frame = CGRectMake(621, 72, 50, 30);
+
 }
 
 - (void)resizeFramesForLandscape{
-    _photoIDImageView.frame = CGRectMake(258, 20, 108, 108);
-    _nameLabel.frame = CGRectMake(374, 20, 51, 21);
-    _birthdateLabel.frame = CGRectMake(374, 49, 75, 21);
-    _chiefComplaintLabel.frame = CGRectMake(374, 78, 84, 21);
-    _doctorLabel.frame = CGRectMake(374, 107, 57, 21);
-    _patientChiefComplaint.frame = CGRectMake(466, 78, 300, 21);
-    _patientDoctor.frame = CGRectMake(466, 107, 300, 21);
-    _patientName.frame = CGRectMake(466, 20, 300, 21);
-    _patientBirthdate.frame = CGRectMake(466, 49, 300, 21);
     _summarayTableView.frame = CGRectMake(0.0, 154, 1024, 614);
-    _editButton.frame = CGRectMake(774, 59, 50, 30);
+    _editButton.frame = CGRectMake(749, 61, 50, 30);
+    _photoIDImageView.frame = CGRectMake(284, 6, 140, 140);
+    _nameLabel.frame = CGRectMake(449, 22, 51, 21);
+    _birthdateLabel.frame = CGRectMake(449, 51, 75, 21);
+    _chiefComplaintLabel.frame = CGRectMake(449, 80, 84, 21);
+    _doctorLabel.frame = CGRectMake(449, 109, 57, 21);
+    _patientChiefComplaint.frame = CGRectMake(541, 80, 200, 21);
+    _patientDoctor.frame = CGRectMake(541, 109, 200, 21);
+    _patientName.frame = CGRectMake(541, 22, 200, 21);
+    _patientBirthdate.frame = CGRectMake(541, 51, 200, 21);
 }
 
 - (void)didReceiveMemoryWarning{

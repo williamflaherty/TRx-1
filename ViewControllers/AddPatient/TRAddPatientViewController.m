@@ -89,14 +89,13 @@
     [self loadButtons];
     [self loadImageView];
     [self loadPickers];
-
+    self.navigationItem.title = @"Add Patient";
     [self resizeViewsForOrientation:self.interfaceOrientation];
 }
 
 - (void)loadObjectContext{
     self.managedObjectContext = [TRManagedObjectContext mainThreadContext];
     [self fetchItemsFromCoreData];
-    
 }
 
 - (void)fetchItemsFromCoreData{
@@ -216,6 +215,10 @@
 - (void)loadPickers{
     _birthdatePicker = [[UIDatePicker alloc] init];
     [_birthdatePicker setDatePickerMode:UIDatePickerModeDate];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [_birthdatePicker setDate:[formatter dateFromString:@"Jan 1, 1990"]];
+    
     
     _chiefComplaintPicker = [[UIPickerView alloc] init];
     _chiefComplaintPicker.delegate = self;
@@ -248,7 +251,7 @@
     
     CDImage *profileImage = [NSEntityDescription insertNewObjectForEntityForName:@"CDImage"
                                                        inManagedObjectContext:self.managedObjectContext];
-    profileImage.data = UIImageJPEGRepresentation(_photoIDImageView.image,0.0);
+    profileImage.data = UIImageJPEGRepresentation(_photoIDImageView.image,0.1);
     profileImage.belongsTo = patient;
     profileImage.belongsToProfile = patient;
     
@@ -384,7 +387,7 @@
         UIGraphicsEndImageContext();
     }
     
-    _photoIDImageView.image = image;;
+    _photoIDImageView.image = image;
 }
 
 #pragma mark -  Text FieldMethods

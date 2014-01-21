@@ -218,7 +218,7 @@
     cell.patientCellComplaint.text = patient.surgeryType;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
     cell.patientCellBirthdate.text = [formatter stringFromDate:patient.birthday];
     
     

@@ -127,7 +127,7 @@
     _patientName.text = displayString;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
     displayString = [formatter stringFromDate:_activePatient.birthday];
     _patientBirthdate.text = displayString;
     

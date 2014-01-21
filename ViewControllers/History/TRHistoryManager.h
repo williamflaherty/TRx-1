@@ -24,6 +24,7 @@ typedef enum{
 
 @property (nonatomic, strong) TRManagedObjectContext  *managedObjectContext;
 
+- (void)loadNexQuestion;
 - (QType)getNextQuestionType;
 - (NSString*)getNextEnglishLabel;
 - (NSString*)getNextTranslatedLabel;

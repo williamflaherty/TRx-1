@@ -216,9 +216,8 @@
     _birthdatePicker = [[UIDatePicker alloc] init];
     [_birthdatePicker setDatePickerMode:UIDatePickerModeDate];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
     [_birthdatePicker setDate:[formatter dateFromString:@"Jan 1, 1990"]];
-    
     
     _chiefComplaintPicker = [[UIPickerView alloc] init];
     _chiefComplaintPicker.delegate = self;
@@ -315,7 +314,7 @@
         [_birthdatePopoverController dismissPopoverAnimated:YES];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM/DD/YYYY"];
+        [dateFormatter setDateStyle:NSDateFormatterLongStyle];
         [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
     }
     else if (_chiefComplaintPopoverController.isPopoverVisible){
@@ -487,7 +486,7 @@
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
     if(popoverController == _birthdatePopoverController){
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setDateStyle:NSDateFormatterLongStyle];
         [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
     }
     else if(popoverController == _chiefComplaintPopoverController){

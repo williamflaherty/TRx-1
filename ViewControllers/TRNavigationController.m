@@ -7,6 +7,8 @@
 //
 
 #import "TRNavigationController.h"
+#import "TRHistoryViewController.h"
+#import "TRTabBarController.h"
 
 @interface TRNavigationController ()
 
@@ -14,8 +16,9 @@
 
 @implementation TRNavigationController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+#pragma mark - Init and Load Methods
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
@@ -28,16 +31,30 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
+#pragma mark - Autorotation Methods
+
+- (BOOL)shouldAutorotate{    
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations{
+    if([self.topViewController isKindOfClass:[TRTabBarController class]]){
+        TRTabBarController *tbc = (TRTabBarController*)self.topViewController;
+        if([tbc.selectedViewController isKindOfClass:[TRHistoryViewController class]]){
+            return UIInterfaceOrientationMaskLandscape;
+        }
+    }
+    return UIInterfaceOrientationMaskAll;
+}
+
+#pragma mark - Memory Management Methods
+
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

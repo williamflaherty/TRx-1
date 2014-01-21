@@ -38,6 +38,7 @@
     
     NSMutableArray *_previousPages;
     NSMutableArray *_nextPages;
+    NSMutableArray *_answers;
 }
 
 #pragma mark - Init and Load Methods
@@ -45,7 +46,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-//        [self initialSetup];
+        [self initialSetup];
     }
     return self;
 }
@@ -55,6 +56,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    
+    //OMG IT WORKS!
+//    if(self.interfaceOrientation != UIInterfaceOrientationLandscapeLeft &&
+//        self.interfaceOrientation != UIInterfaceOrientationLandscapeRight){
+//        [[UIDevice currentDevice] performSelector:NSSelectorFromString(@"setOrientation:")
+//                                       withObject:(__bridge id)((void*)UIInterfaceOrientationLandscapeRight)];
+//    }
+    
     [self resizeViewsForOrientation:self.interfaceOrientation];
 }
 
@@ -72,6 +81,7 @@
     _pageCount = 1;
     _lastQuestionreached = NO;
     _hasNextPages = NO;
+    _answers = [[NSMutableArray alloc] init];
 }
 
 - (void)loadButtons{
@@ -122,14 +132,18 @@
     [self loadPreviousQuestion];
 }
 
+#pragma mark - Touch Handling Methods
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"TOUCH!");
+}
+
 #pragma mark - Question Handling Methods
 
 - (void)loadNextQuestion{
-    _pageCount++;
+    [_questionManager loadNexQuestion];
     
-    if(_pageCount != 1){
-        
-    }
+    _pageCount++;
     
     if(_hasNextPages){
         
@@ -139,13 +153,26 @@
     TRQView *newTransQuestion = [[TRQView alloc] init];
     
     if(_pageCount != 1){
-//        [self dismissCurrentQuestion];
+        [self dismissCurrentQuestion];
     }
     
-    newMainQuestion.questionType = [_questionManager getNextQuestionType];
+    if(_pageCount == 2){
+        newMainQuestion.questionType = QTypeTextEntry;
+        newTransQuestion.questionType = QTypeTextEntry;
+    }
+    else if(_pageCount == 3){
+        newMainQuestion.questionType = QTypeYesNoDefault;
+        newTransQuestion.questionType = QTypeYesNoDefault;
+    }
+    else if(_pageCount == 4){
+        newMainQuestion.questionType = QTypeCheckBoxDefault;
+        newTransQuestion.questionType = QTypeCheckBoxDefault;
+    }
+    
+//    newMainQuestion.questionType = [_questionManager getNextQuestionType];
     [newMainQuestion setQuestionLabelText:[_questionManager getNextEnglishLabel]];
     
-    newTransQuestion.questionType = [_questionManager getNextQuestionType];
+//    newTransQuestion.questionType = [_questionManager getNextQuestionType];
     [newTransQuestion setQuestionLabelText:[_questionManager getNextTranslatedLabel]];
     
     //[qHelper updateCurrentIndex];
@@ -157,8 +184,8 @@
     [self setPositionForTransQuestion:newTransQuestion];
     
     if(newMainQuestion.questionType == QTypeTextEntry){
-//        newMainQuestion.textEntryField.delegate = self;
-//        newTransQuestion.textEntryField.delegate = self;
+        newMainQuestion.textEntryField.delegate = self;
+        newTransQuestion.textEntryField.delegate = self;
     }
     
     newMainQuestion.connectedView = newTransQuestion;
@@ -170,10 +197,15 @@
     [self.view addSubview:_mainQuestion];
     [self.view addSubview:_translatedQuestion];
     
-//    [answers removeAllObjects];
+//    [_answers removeAllObjects];
     
     [self checkShouldHideButtons];
     
+}
+
+- (void)dismissCurrentQuestion{
+    [_mainQuestion removeFromSuperview];
+    [_translatedQuestion removeFromSuperview];
 }
 
 - (void)loadPreviousQuestion{
@@ -204,6 +236,17 @@
     q.frame = CGRectMake(TRANS_X, yPos, q.frame.size.width, q.frame.size.height);
 }
 
+#pragma mark - UITextField Delegate Methods
+
+-(void) textFieldDidEndEditing:(UITextField *)textField{
+    if(textField == _mainQuestion.textEntryField){
+        _translatedQuestion.textEntryField.text = _mainQuestion.textEntryField.text;
+    }
+    if(textField == _translatedQuestion.textEntryField){
+        _mainQuestion.textEntryField.text = _translatedQuestion.textEntryField.text;
+    }
+}
+
 #pragma mark - Orientation and Frame Methods
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
@@ -216,13 +259,11 @@
        newOrientation == UIInterfaceOrientationPortraitUpsideDown){
         
         [self resizeFramesForPortrait];
-        
     }
     else if(newOrientation == UIInterfaceOrientationLandscapeLeft ||
             newOrientation == UIInterfaceOrientationLandscapeRight){
         
         [self resizeFramesForLandscape];
-        
     }
 }
 

@@ -235,7 +235,7 @@
 
 - (void)patientTestData{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
     
     //Mark
     
@@ -577,7 +577,7 @@
 
             if ([name isEqualToString:@"birthday"]) {
                 val = [NSDateFormatter localizedStringFromDate:(NSDate *)val
-                                                     dateStyle:NSDateFormatterShortStyle
+                                                     dateStyle:NSDateFormatterLongStyle
                                                      timeStyle:NSDateFormatterNoStyle];
             }
             

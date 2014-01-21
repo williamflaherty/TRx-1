@@ -264,7 +264,7 @@
     _lastNameTextField.text = displayString;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
     displayString = [formatter stringFromDate:_activePatient.birthday];
     _birthdateTextField.text = displayString;
     
@@ -337,7 +337,7 @@
     }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
     NSString *birthdayString = [formatter stringFromDate:_activePatient.birthday];
     if(![_birthdateTextField.text isEqualToString:birthdayString]){
         _hasUnsavedChanges = YES;
@@ -421,7 +421,7 @@
         [_birthdatePopoverController dismissPopoverAnimated:YES];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM/DD/YYYY"];
+        [dateFormatter setDateStyle:NSDateFormatterLongStyle];
         [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
     }
     else if (_chiefComplaintPopoverController.isPopoverVisible){
@@ -571,7 +571,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info{
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
     if(popoverController == _birthdatePopoverController){
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setDateStyle:NSDateFormatterLongStyle];
         [_birthdateTextField setText:[dateFormatter stringFromDate: _birthdatePicker.date]];
     }
     else if(popoverController == _chiefComplaintPopoverController){

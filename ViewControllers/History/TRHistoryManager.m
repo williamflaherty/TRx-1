@@ -14,6 +14,10 @@
 #import "CDOption.h"
 
 @implementation TRHistoryManager{
+    int currentQuestionIndex;
+    
+    CDQuestion *_currentQuestion;
+    
     NSMutableArray *_mainQuestionStack;
     NSMutableArray *_previousQuestionStack;
 }
@@ -29,6 +33,7 @@
 }
 
 - (void)initialSetup{
+    currentQuestionIndex = 0;
     [self loadContext];
     [self loadQuesitonStacks];
     
@@ -61,40 +66,69 @@
                     }
                 }
             }
+            [_mainQuestionStack addObject:q];
         }
-//        [_mainQuestionStack addObject:q];
     }
     
-    NSArray *sortArray = [_mainQuestionStack sortedArrayUsingComparator:^(id obj1, id obj2){
-        CDQuestionList *q1 = obj1;
-        CDQuestionList *q2 = obj2;
-        
-        if ([q1.stack_index integerValue] < [q2.stack_index integerValue]) {
-            return (NSComparisonResult)NSOrderedDescending;
-        }
-        else if ([q1.stack_index integerValue] > [q2.stack_index integerValue]) {
-            return (NSComparisonResult)NSOrderedAscending;
-        }
-        else{
-            return (NSComparisonResult)NSOrderedSame;
-        }
-    }];
-    
-    _mainQuestionStack = [sortArray mutableCopy];
+//    NSArray *sortArray = [_mainQuestionStack sortedArrayUsingComparator:^(id obj1, id obj2){
+//        CDQuestionList *q1 = obj1;
+//        CDQuestionList *q2 = obj2;
+//        
+//        if ([q1.stack_index integerValue] < [q2.stack_index integerValue]) {
+//            return (NSComparisonResult)NSOrderedDescending;
+//        }
+//        else if ([q1.stack_index integerValue] > [q2.stack_index integerValue]) {
+//            return (NSComparisonResult)NSOrderedAscending;
+//        }
+//        else{
+//            return (NSComparisonResult)NSOrderedSame;
+//        }
+//    }];
+//    
+//    _mainQuestionStack = [sortArray mutableCopy];
     
     _previousQuestionStack = [[NSMutableArray alloc] initWithCapacity:[_mainQuestionStack count]];
 }
 
+- (void)loadNexQuestion{
+    _currentQuestion = [_mainQuestionStack objectAtIndex:currentQuestionIndex];
+    currentQuestionIndex++;
+}
+
 - (QType)getNextQuestionType{
-    return QTypeCheckBoxDefault;
+    QType questionType;
+    if([_currentQuestion.question_type isEqualToString: @"fill"]){
+        questionType = QTypeTextEntry;
+    }
+    if([_currentQuestion.question_type isEqualToString: @"yes no"]){
+        questionType = QTypeYesNoDefault;
+    }
+    if([_currentQuestion.question_type isEqualToString: @"yes explain"]){
+        questionType = QTypeYesNoExplainYes;
+    }
+    if([_currentQuestion.question_type isEqualToString: @"no expain"]){
+        questionType = QTypeYesNoExplainNo;
+    }
+    if([_currentQuestion.question_type isEqualToString: @"yes and no explain"]){
+        questionType = QTypeYesNoExplainBoth;
+    }
+    if([_currentQuestion.question_type isEqualToString: @"check_box"]){
+        questionType = QTypeCheckBoxDefault;
+    }
+    if([_currentQuestion.question_type isEqualToString: @"check box other"]){
+        questionType = QTypeCheckBoxOther;
+    }
+    
+
+    return questionType;
 }
 
 - (NSString*)getNextEnglishLabel{
-    return @"ASDASFASDASDADASDDSFSFD";
+    return _currentQuestion.question_text;
 }
 
 - (NSString*)getNextTranslatedLabel{
-    return @"ASDASDASDASDASDADASDASDASD";
+    return _currentQuestion.translation_text;
 }
 
 

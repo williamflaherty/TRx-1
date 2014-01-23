@@ -154,7 +154,7 @@
     _explainLabel = [[TRQLabel alloc] init];
     [_explainLabel setFont:[UIFont systemFontOfSize:FONT_SIZE]];
     [_explainLabel setTextColor:[UIColor blackColor]];
-    [_explainLabel setText:@"Explain:"];
+    [_explainLabel setText:@"Please Explain:"];
     _explainLabel.frame = CGRectMake(_yesButton.frame.origin.x ,
                                      _yesButton.frame.origin.y + Y_PADDING + _yesButton.frame.size.height,
                                      _explainLabel.frame.size.width, _explainLabel.frame.size.height);
@@ -165,15 +165,15 @@
     _explainTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     [_explainTextField setFont:[UIFont fontWithName:@"HelveticaNeue" size:FONT_SIZE]];
     
-    _explainTextField.frame = CGRectMake(_explainLabel.frame.origin.x + X_PADDING + _explainLabel.frame.size.width,
-                               _explainLabel.frame.origin.y,
-                                CONST_WIDTH - _explainLabel.frame.size.width - X_PADDING - EXPLAIN_PADDING,
-                               30);
+    _explainTextField.frame = CGRectMake(_explainLabel.frame.origin.x,
+                               _explainLabel.frame.size.height + _explainLabel.frame.origin.y + Y_PADDING,
+                                CONST_WIDTH, 30);
     
     [_explainLabel setHidden:YES];
     [_explainTextField setHidden:YES];
     
-    _responseHeight = _yesButton.frame.size.height + Y_PADDING + _explainLabel.frame.size.height;
+    _responseHeight = _yesButton.frame.size.height + (2*Y_PADDING)
+    + _explainLabel.frame.size.height + _explainTextField.frame.size.height;
     [_response addObject:_noButton];
     [_response addObject:_yesButton];
     [_response addObject:_explainLabel];

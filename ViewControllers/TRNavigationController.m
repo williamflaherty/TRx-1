@@ -41,15 +41,15 @@
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations{
-    if([self.topViewController isKindOfClass:[TRTabBarController class]]){
-        TRTabBarController *tbc = (TRTabBarController*)self.topViewController;
-        if([tbc.selectedViewController isKindOfClass:[TRHistoryViewController class]]){
-            return UIInterfaceOrientationMaskLandscape;
-        }
-    }
-    return UIInterfaceOrientationMaskAll;
-}
+//- (NSUInteger)supportedInterfaceOrientations{
+//    if([self.topViewController isKindOfClass:[TRTabBarController class]]){
+//        TRTabBarController *tbc = (TRTabBarController*)self.topViewController;
+//        if([tbc.selectedViewController isKindOfClass:[TRHistoryViewController class]]){
+//            return UIInterfaceOrientationMaskLandscape;
+//        }
+//    }
+//    return UIInterfaceOrientationMaskAll;
+//}
 
 #pragma mark - Memory Management Methods
 

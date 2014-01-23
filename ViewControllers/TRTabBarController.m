@@ -1,4 +1,4 @@
-//
+  //
 //  TRTabBarController.m
 //  TRx
 //
@@ -95,7 +95,6 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     self.navigationItem.title = viewController.title;
 }
-
 
 #pragma mark - Memory Management Methods
 

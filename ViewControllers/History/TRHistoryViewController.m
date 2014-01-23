@@ -17,7 +17,9 @@
 #define ENG_X 50.0f
 #define TRANS_X 550.0f
 
-@interface TRHistoryViewController ()
+@interface TRHistoryViewController (){
+    CGSize winSize;
+}
 
 @end
 
@@ -58,6 +60,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     //OMG IT WORKS!
+    //Kind Of...
 //    if(self.interfaceOrientation != UIInterfaceOrientationLandscapeLeft &&
 //        self.interfaceOrientation != UIInterfaceOrientationLandscapeRight){
 //        [[UIDevice currentDevice] performSelector:NSSelectorFromString(@"setOrientation:")
@@ -68,6 +71,7 @@
 }
 
 - (void)initialSetup{
+    winSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
     [self loadVariables];
     [self loadButtons];
     [self loadSeperator];
@@ -284,12 +288,14 @@
 }
 
 - (void)resizeFramesForPortrait{
+//    self.view.frame = CGRectMake(0, 0, winSize.width, winSize.height);
     _nextQuestionButton.frame = CGRectMake(648, 826, 100, 50);
     _previousQuestionButton.frame = CGRectMake(20, 826, 100, 50);
     _seperator.frame = CGRectMake(381, 0.0, 7, 1004);
 }
 
 - (void)resizeFramesForLandscape{
+//    self.view.frame = CGRectMake(0, 0, winSize.height, winSize.width);
     _nextQuestionButton.frame = CGRectMake(904, 590, 100, 50);
     _previousQuestionButton.frame = CGRectMake(20, 590, 100, 50);
     _seperator.frame = CGRectMake(509, 0.0, 7, 768);

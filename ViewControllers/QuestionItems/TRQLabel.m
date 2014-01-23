@@ -55,7 +55,7 @@
     [self setLineBreakMode:NSLineBreakByWordWrapping];
     [self setAdjustsFontSizeToFitWidth:NO];
     [self setNumberOfLines:0];
-    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, size.height)];
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width, size.height)];
 }
 
 - (void)setText:(NSString *)text {

@@ -136,6 +136,16 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     NSLog(@"TOUCH!");
+    if(_mainQuestion.questionType == QTypeTextEntry){
+        [_mainQuestion.textEntryField resignFirstResponder];
+        [_translatedQuestion.textEntryField resignFirstResponder];
+    }
+    else if(_mainQuestion.questionType == QTypeYesNoExplainYes ||
+            _mainQuestion.questionType == QTypeYesNoExplainNo ||
+            _mainQuestion.questionType == QTypeYesNoExplainBoth){
+        [_mainQuestion.explainTextField resignFirstResponder];
+        [_translatedQuestion.explainTextField resignFirstResponder];
+    }
 }
 
 #pragma mark - Question Handling Methods
@@ -169,10 +179,10 @@
         newTransQuestion.questionType = QTypeCheckBoxDefault;
     }
     
-//    newMainQuestion.questionType = [_questionManager getNextQuestionType];
+    newMainQuestion.questionType = [_questionManager getNextQuestionType];
     [newMainQuestion setQuestionLabelText:[_questionManager getNextEnglishLabel]];
     
-//    newTransQuestion.questionType = [_questionManager getNextQuestionType];
+    newTransQuestion.questionType = [_questionManager getNextQuestionType];
     [newTransQuestion setQuestionLabelText:[_questionManager getNextTranslatedLabel]];
     
     //[qHelper updateCurrentIndex];
@@ -186,6 +196,12 @@
     if(newMainQuestion.questionType == QTypeTextEntry){
         newMainQuestion.textEntryField.delegate = self;
         newTransQuestion.textEntryField.delegate = self;
+    }
+    else if(newMainQuestion.questionType == QTypeYesNoExplainYes ||
+            newMainQuestion.questionType == QTypeYesNoExplainNo ||
+            newMainQuestion.questionType == QTypeYesNoExplainBoth){
+        newMainQuestion.explainTextField.delegate = self;
+        newTransQuestion.explainTextField.delegate = self;
     }
     
     newMainQuestion.connectedView = newTransQuestion;

@@ -241,6 +241,8 @@
 				1318E20018826B11000146FC /* CDQuestion.m */,
 				1318E20E18827193000146FC /* CDQuestionList.h */,
 				1318E20F18827193000146FC /* CDQuestionList.m */,
+				136D220D1885F6EE0030947A /* CDOption.h */,
+				136D220E1885F6EE0030947A /* CDOption.m */,
 				C4677E23188595C300BD7588 /* CDHistory.h */,
 				C4677E24188595C300BD7588 /* CDHistory.m */,
 				C4677E201885959900BD7588 /* CDImage.h */,
@@ -434,8 +436,6 @@
 			children = (
 				C48C6E6317E661F90065ABBE /* Models */,
 				C48C6E6517E662220065ABBE /* TRx.xcdatamodeld */,
-				136D220D1885F6EE0030947A /* CDOption.h */,
-				136D220E1885F6EE0030947A /* CDOption.m */,
 			);
 			name = "Data / Models";
 			sourceTree = "<group>";

@@ -14,8 +14,12 @@
 #define FONT_SIZE 20
 
 #define Y_PADDING 20.0f
+#define X_PADDING 20.0f
 #define YES_PADDING 0.0f
 #define NO_PADDING 250.0f
+#define YES_NO_WIDTH 150.0f
+#define YES_NO_HEIGHT 75.0f
+#define EXPLAIN_PADDING 24.0f
 
 #define MAX_Y 50.0f
 #define MID_Y 256.f
@@ -34,10 +38,12 @@
 
 @synthesize connectedView = _connectedView;
 @synthesize questionType = _questionType;
+@synthesize textEntryField = _textEntryField;
 @synthesize questionLabel = _questionLabel;
 @synthesize yesButton = _yesButton;
 @synthesize noButton = _noButton;
-@synthesize textEntryField = _textEntryField;
+@synthesize explainLabel = _explainLabel;
+@synthesize explainTextField = _explainTextField;
 @synthesize response = _response;
 @synthesize selectionTextFields = _selectionTextFields;
 @synthesize checkBoxes = _checkBoxes;
@@ -53,15 +59,14 @@
 }
 
 - (void)initialSetUp{
-    [self loadQuestionLabel];
     [self loadArrays];
+    [self loadQuestionLabel];
 }
 
 - (void)loadQuestionLabel{
     _questionLabel = [[TRQLabel alloc] init];
     [_questionLabel setFont:[UIFont systemFontOfSize:FONT_SIZE]];
     [_questionLabel setTextColor:[UIColor blackColor]];
-//    [questionUnion addObject:questionLabel];
     [self addSubview:_questionLabel];
 }
 
@@ -90,15 +95,15 @@
     }
     else if(type == QTypeYesNoExplainYes){
         _questionType = QTypeYesNoExplainYes;
-        [self buildYesNoExplainYes];
+        [self buildYesNoDefault];
     }
     else if(type == QTypeYesNoExplainNo){
         _questionType = QTypeYesNoExplainNo;
-        [self buildYesNoExplainNo];
+        [self buildYesNoDefault];
     }
     else if(type == QTypeYesNoExplainBoth){
         _questionType = QTypeYesNoExplainBoth;
-        [self buildYesNoExplainBoth];
+        [self buildYesNoDefault];
     }
     
     //Build Check Box
@@ -126,8 +131,15 @@
 #pragma mark - Yes No Methods
 
 - (void)buildYesNoDefault{
-    _yesButton = [[TRCustomButton alloc]initWithFrame:CGRectMake(_questionLabel.frame.origin.x + YES_PADDING, _questionLabel.frame.origin.y + Y_PADDING + _questionLabel.frame.size.height, 150, 75)];
-    _noButton = [[TRCustomButton alloc]initWithFrame:CGRectMake(_questionLabel.frame.origin.x + NO_PADDING, _questionLabel.frame.origin.y + Y_PADDING + _questionLabel.frame.size.height, 150, 75)];
+    _yesButton = [[TRCustomButton alloc]initWithFrame:
+                  CGRectMake(_questionLabel.frame.origin.x + YES_PADDING,
+                             _questionLabel.frame.origin.y + Y_PADDING + _questionLabel.frame.size.height,
+                             YES_NO_WIDTH, YES_NO_HEIGHT)];
+    _noButton = [[TRCustomButton alloc]initWithFrame:
+                 CGRectMake(_questionLabel.frame.origin.x + NO_PADDING,
+                            _questionLabel.frame.origin.y + Y_PADDING + _questionLabel.frame.size.height,
+                            YES_NO_WIDTH, YES_NO_HEIGHT)];
+    
     [_yesButton setTitle:@"Yes" forState:UIControlStateNormal];
     [_noButton setTitle:@"No" forState:UIControlStateNormal];
     [_yesButton addTarget:self action:@selector(yesPressed) forControlEvents:UIControlEventTouchDown];
@@ -139,32 +151,58 @@
     [_noButton drawButtonWithDefaultStyle];
     [_noButton deselectButton];
     
-    _responseHeight = _yesButton.frame.size.height;
+    _explainLabel = [[TRQLabel alloc] init];
+    [_explainLabel setFont:[UIFont systemFontOfSize:FONT_SIZE]];
+    [_explainLabel setTextColor:[UIColor blackColor]];
+    [_explainLabel setText:@"Explain:"];
+    _explainLabel.frame = CGRectMake(_yesButton.frame.origin.x ,
+                                     _yesButton.frame.origin.y + Y_PADDING + _yesButton.frame.size.height,
+                                     _explainLabel.frame.size.width, _explainLabel.frame.size.height);
+    
+    _explainTextField = [[UITextField alloc] init];
+    _explainTextField.borderStyle = UITextBorderStyleBezel;
+    _explainTextField.keyboardType = UIKeyboardTypeDefault;
+    _explainTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    [_explainTextField setFont:[UIFont fontWithName:@"HelveticaNeue" size:FONT_SIZE]];
+    
+    _explainTextField.frame = CGRectMake(_explainLabel.frame.origin.x + X_PADDING + _explainLabel.frame.size.width,
+                               _explainLabel.frame.origin.y,
+                                CONST_WIDTH - _explainLabel.frame.size.width - X_PADDING - EXPLAIN_PADDING,
+                               30);
+    
+    [_explainLabel setHidden:YES];
+    [_explainTextField setHidden:YES];
+    
+    _responseHeight = _yesButton.frame.size.height + Y_PADDING + _explainLabel.frame.size.height;
     [_response addObject:_noButton];
     [_response addObject:_yesButton];
+    [_response addObject:_explainLabel];
+    [_response addObject:_explainTextField];
     
     [self addSubview:_yesButton];
     [self addSubview:_noButton];
+    [self addSubview:_explainLabel];
+    [self addSubview:_explainTextField];
     [self adjustFrame];
 }
 
-- (void)buildYesNoExplainYes{
-    
-}
 
-- (void)buildYesNoExplainNo{
-    
-}
-
-- (void)buildYesNoExplainBoth{
-    
-}
 
 - (void)yesPressed{
     [_yesButton selectButton];
     [_noButton deselectButton];
     [_connectedView.yesButton selectButton];
     [_connectedView.noButton deselectButton];
+    
+    if(self.questionType == QTypeYesNoExplainYes){
+        [self displayYesNoExplain];
+    }
+    else if(self.questionType == QTypeYesNoExplainNo){
+        [self hideYesNoExplain];
+    }
+    else if(self.questionType == QTypeYesNoExplainBoth){
+        [self displayYesNoExplain];
+    }
 }
 
 - (void)noPressed{
@@ -172,6 +210,28 @@
     [_noButton selectButton];
     [_connectedView.yesButton deselectButton];
     [_connectedView.noButton selectButton];
+    
+    if(self.questionType == QTypeYesNoExplainYes){
+        [self hideYesNoExplain];
+    }
+    else if(self.questionType == QTypeYesNoExplainNo){
+        [self displayYesNoExplain];
+    }
+    else if(self.questionType == QTypeYesNoExplainBoth){
+        [self displayYesNoExplain];
+    }
+}
+
+- (void)displayYesNoExplain{
+    [_explainLabel setHidden:NO];
+    [_explainTextField setHidden:NO];
+    [_explainTextField setEnabled:NO];
+}
+
+- (void)hideYesNoExplain{
+    [_explainLabel setHidden:YES];
+    [_explainTextField setHidden:YES];
+    [_explainTextField setEnabled:YES];
 }
 
 #pragma mark - Check Box Methods
@@ -218,8 +278,6 @@
             [_response addObject: tmp];
             [_checkBoxes addObject:box];
             [tmpButtons addObject:box];
-//            [questionUnion addObject:tmp];
-//            [questionUnion addObject:box];
             
             [box addTarget:self action:@selector(checkPressed:) forControlEvents:UIControlEventTouchDown];
             
@@ -266,16 +324,13 @@
     _textEntryField.borderStyle = UITextBorderStyleBezel;
     _textEntryField.keyboardType = UIKeyboardTypeDefault;
     _textEntryField.autocorrectionType = UITextAutocorrectionTypeNo;
-    
-//    previousTextEntry = _textEntryField.text;
-    
     [_textEntryField setFont:[UIFont fontWithName:@"HelveticaNeue" size:FONT_SIZE]];
+    
     _textEntryField.frame = CGRectMake(_questionLabel.frame.origin.x, _questionLabel.frame.origin.y + _questionLabel.frame.size.height + Y_PADDING, CONST_WIDTH, 30);
     
     _responseHeight = _textEntryField.frame.size.height + Y_PADDING;
     
     [_response addObject:_textEntryField];
-//    [questionUnion addObject:textEntryField];
     
     [self addSubview:_textEntryField];
     

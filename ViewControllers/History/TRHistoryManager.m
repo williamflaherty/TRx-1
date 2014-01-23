@@ -124,10 +124,12 @@
 }
 
 - (NSString*)getNextEnglishLabel{
+    NSLog(@"%@",_currentQuestion.question_text);
     return _currentQuestion.question_text;
 }
 
 - (NSString*)getNextTranslatedLabel{
+    NSLog(@"%@",_currentQuestion.translation_text);
     return _currentQuestion.translation_text;
 }
 

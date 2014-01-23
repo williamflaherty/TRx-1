@@ -18,9 +18,12 @@
 @property (nonatomic, readwrite) QType questionType;
 
 @property (nonatomic, retain) TRQLabel *questionLabel;
+@property (nonatomic, retain) UITextField *textEntryField;
+
 @property (nonatomic, retain) TRCustomButton *yesButton;
 @property (nonatomic, retain) TRCustomButton *noButton;
-@property (nonatomic, retain) UITextField *textEntryField;
+@property (nonatomic, retain) UILabel *explainLabel;
+@property (nonatomic, retain) UITextField *explainTextField;
 
 @property (nonatomic, retain) NSMutableArray *response;
 @property (nonatomic, retain) NSMutableArray *selectionTextFields;
@@ -31,9 +34,6 @@
 - (void)buildQuestionOfType:(QType)type withManager:(TRHistoryManager*)manager;
 
 - (void)buildYesNoDefault;
-- (void)buildYesNoExplainYes;
-- (void)buildYesNoExplainNo;
-- (void)buildYesNoExplainBoth;
 
 - (void)buildCheckBoxDefaultWithOptions:(NSArray*)options;
 - (void)buildCheckBoxOtherWithOptions:(NSArray*)options;

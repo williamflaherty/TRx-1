@@ -13,6 +13,6 @@
 @property(nonatomic) float minHeight;
 @property(nonatomic, readwrite) float constrainedWidth;
 
--(void) calculateSize;
+- (void)calculateSize;
 
 @end

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CDAppData" representedClassName="CDAppData" syncable="YES">
+        <attribute name="appID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="patientCounter" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="CDChainList" representedClassName="CDChainList" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="chains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDQuestionList" inverseName="list" inverseEntity="CDQuestionList" syncable="YES"/>
@@ -37,6 +41,7 @@
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuestion" inverseName="options" inverseEntity="CDQuestion" syncable="YES"/>
     </entity>
     <entity name="CDPatient" representedClassName="CDPatient" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="doctor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,6 +50,7 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="middleName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="patientID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="surgeryType" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="history" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDHistory" inverseName="patient" inverseEntity="CDHistory" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDImage" inverseName="belongsTo" inverseEntity="CDImage" syncable="YES"/>
@@ -54,6 +60,7 @@
         <attribute name="display_group" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="display_text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="list_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="question_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="question_text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="question_type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translation_text" optional="YES" attributeType="String" syncable="YES"/>
@@ -82,5 +89,6 @@
         <element name="CDPatient" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDQuestion" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDQuestionList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CDAppData" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

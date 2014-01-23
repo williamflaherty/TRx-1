@@ -462,6 +462,7 @@
     q.display_text = dic[@"display_text"];
     q.question_text = dic[@"question_text"];
     q.question_type = dic[@"question_type"];
+    q.question_id = dic[@"id"];
     q.list = qList;
 }
 

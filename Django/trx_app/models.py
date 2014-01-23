@@ -64,6 +64,7 @@ class Patient(models.Model):
     middleName = models.CharField(max_length = 255, blank = True)
     lastName = models.CharField(max_length = 255)
     birthday = models.DateField()
+    address = models.CharField(max_length = 255, blank = True)
     surgeryType = models.ForeignKey(SurgeryType)
     doctor = models.ForeignKey(Doctor)
     location = models.ForeignKey(Location)

@@ -2,7 +2,7 @@
 //  CDHistory.h
 //  TRx
 //
-//  Created by Mark Bellott on 1/14/14.
+//  Created by John Cotham on 1/23/14.
 //  Copyright (c) 2014 TeamHaiti. All rights reserved.
 //
 
@@ -13,7 +13,10 @@
 
 @interface CDHistory : NSManagedObject
 
+@property (nonatomic, retain) NSString * displayGroup;
+@property (nonatomic, retain) NSString * displayText;
 @property (nonatomic, retain) NSString * key;
+@property (nonatomic, retain) NSString * questionText;
 @property (nonatomic, retain) NSString * value;
 @property (nonatomic, retain) CDPatient *patient;
 

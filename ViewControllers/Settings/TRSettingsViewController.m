@@ -462,8 +462,10 @@
     q.display_text = dic[@"display_text"];
     q.question_text = dic[@"question_text"];
     q.question_type = dic[@"question_type"];
+    q.translation_text = dic[@"translation_text"];
     q.question_id = dic[@"id"];
     q.list = qList;
+    NSLog(@"translation_text: %@", q.translation_text);
 }
 
 -(void)packOption:(CDOption *)o intoQuestion:(CDQuestion *)q withData:(NSDictionary *)dic {

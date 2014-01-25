@@ -87,7 +87,7 @@ class Patient(models.Model):
         if not surgeryRecords:
             super(Patient, self).save(*args, **kwargs)
         else:
-            raise Exception, "A patient can only have one current record for this surgery type."
+            raise Exception( "A patient can only have one current record for this surgery type.")
 
     class Meta:
         ordering = ['lastName', 'firstName']
@@ -144,7 +144,7 @@ class Order(models.Model):
         if not order:
             super(Order, self).save(*args, **kwargs)
         else:
-            raise Exception, "This is a duplicate order entry."
+            raise Exception( "This is a duplicate order entry.")
 
 class OrderTemplate(models.Model):
     surgeryType = models.ForeignKey(SurgeryType)
@@ -191,7 +191,7 @@ class PhysicalExam(models.Model):
         if not physical:
             super(PhysicalExam, self).save(*args, **kwargs)
         else:
-            raise Exception, "This is a duplicate physical exam entry."
+            raise Exception ("This is a duplicate physical exam entry.")
 
 class Recovery(models.Model):
     patient = models.OneToOneField(Patient)
@@ -256,7 +256,7 @@ class History(models.Model):
         if not history:
             super(History, self).save(*args, **kwargs)
         else:
-            raise Exception, "This is a duplicate history entry."
+            raise Exception( "This is a duplicate history entry.")
     class Meta:
         # unique_together = ('patient', 'key')
         verbose_name_plural = "Histories"

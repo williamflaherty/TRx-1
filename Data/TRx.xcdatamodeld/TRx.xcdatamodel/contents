@@ -35,6 +35,7 @@
         <attribute name="branch_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="display_text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="highlight" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="option_index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translation" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="branchTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDQuestionList" inverseName="branches" inverseEntity="CDQuestionList" syncable="YES"/>
@@ -80,6 +81,7 @@
     <fetchRequest name="StackList" entity="CDChainList" predicateString="name == &quot;stack_questions&quot;"/>
     <fetchRequest name="SurgeryList" entity="CDItemList" predicateString="name == &quot;surgeries&quot;"/>
     <elements>
+        <element name="CDAppData" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDChainList" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDHistory" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDImage" positionX="0" positionY="0" width="0" height="0"/>
@@ -89,6 +91,5 @@
         <element name="CDPatient" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDQuestion" positionX="0" positionY="0" width="0" height="0"/>
         <element name="CDQuestionList" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="CDAppData" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

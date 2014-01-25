@@ -161,9 +161,13 @@ def editQuestion(request, question_index):
 
         Option.objects.filter(question=question_index).delete()
 
-      for form in options_formset.forms:
+      for option_index,form in enumerate(options_formset.forms):
+        print("form=>")
+        #print("form=>",form)
         option = form.save(commit=False) #commit = false
         option.question = q
+        option.option_index = option_index
+        print(option.text)
         option.save()
         
       #redirect to options page unless fill in the blank
@@ -177,7 +181,7 @@ def editQuestion(request, question_index):
       options_formset = NewOptionsFormset()
     else: ##** The else statement needs to load the forms with data from database
       question = get_object_or_404(Question, id=question_index)
-      options =  Option.objects.all().filter(question=question).values()
+      options =  Option.objects.all().filter(question=question).order_by('option_index').values()
 
       #branch select couldn't find option['branch_id'] so insert option['branch']
       for option in options:
@@ -191,7 +195,7 @@ def editQuestion(request, question_index):
       question_form = NewQuestionForm(instance=question)
       print("options ===> ", options)
       options_formset = NewOptionsFormset(initial=options)
-      print(options_formset)
+      #print(options_formset)
   context = { 'question_form': question_form, 'options_formset': options_formset}
   context['previous_page'] = previous_page(request.path)
   return render(request, 'trx_app/addQuestion.html', context)
@@ -347,7 +351,7 @@ class NewQuestionForm(forms.ModelForm):
 class NewOptionForm(forms.ModelForm):
   class Meta:
     model = Option
-    exclude = ['question']
+    exclude = ['question', 'option_index']
     widgets = {
         'text': forms.TextInput(attrs={'size':40}),
         'translation': forms.TextInput(attrs={'size':40}),

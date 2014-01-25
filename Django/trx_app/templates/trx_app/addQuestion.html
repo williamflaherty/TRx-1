@@ -3,31 +3,38 @@
 <script src="{% static "trx_app/question_form.js" %}"></script>
 <link href="{% static "trx_app/question_form.css" %}" rel="stylesheet">
 
+
 <!-- form for adding new project -->
 <div id="superDiv">
-  <form action="" method="post">{% csrf_token %}
+  <form action="" method="post" >{% csrf_token %}
     <div class="question">
       {{ question_form.as_p }}
     </div>
     {{ options_formset.management_form }}
 
-    <div id="super_option">
+    <ul id="super_option" class="sortable">
+
       {% for option in options_formset.forms %}
-      <div
+      <li
         {% ifequal option options_formset.forms.0 %} class="initial_option option"
         {% else %} class="option" {% endifequal %}>
 
         {{ option.as_p }}
         <p><button class="delete" href="#">Delete</button></p>
-      </div>
+      </li>
       {% endfor %}
 
-    </div>
+    </ul>
 
     <p>
-    <div style="float:right;"><input type="submit" value="Submit" id="submit" /></div>
-    <div style="float:none;"><button id="add" href="#" >Add another item</button></div>
+      <div style="float:right;"><input type="submit" value="Submit" id="submit" /></div>
+      <div style="float:none;"><button id="add" href="#" >Add another item</button></div>
     </p>
   </form>
 </div>
 
+ <script>
+  $(function() {
+    $( ".sortable" ).sortable();
+  });
+</script>

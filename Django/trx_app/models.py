@@ -350,6 +350,7 @@ class Option(models.Model):
   translation = models.CharField(max_length=50, null=True)
   display_text = models.CharField(max_length=30, null=True)
   highlight = models.CharField(max_length=2,choices=highlight_colors, blank=True,null=True, default='n')
+  option_index = models.IntegerField(null=True)
 
   def __str__(self):
     return self.text

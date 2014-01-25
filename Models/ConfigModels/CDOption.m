@@ -20,5 +20,6 @@
 @dynamic translation;
 @dynamic question;
 @dynamic branchTo;
+@dynamic option_index;
 
 @end

@@ -11,16 +11,25 @@ $(document).ready(function() {
 total_form_count = 0
   $('.option').each(function(d){ total_form_count+=1; });
 
+function update_indices() {
+  $('.option').each(function(i,e) {
+    $(this).children().children().each(function(){
+      console.log("woohoo!")
+      console.log(i)
+      console.log(this)
+      updateElementIndex(this, 'form', i)
+    })
+  });
+  return true;
+}
+
+$('#submit').click(update_indices)
 
 function delete_callback() {
   total_form_count -= 1
   $(this).parents('.option').remove()
 
-  $('.option').each(function(i,e) {
-    $(this).children().children().each(function(){
-      updateElementIndex(this, 'form', i)
-    })
-  });
+  update_indices();
 
   $("#id_" + 'form' + "-TOTAL_FORMS").val(total_form_count);
   return false;
@@ -48,19 +57,20 @@ $('#add').click(function() {
 
   if (type != "fib") {
     form = $(base_form).clone()
-  $(form).find('.delete').click(delete_callback)
+    $(form).find('.delete').click(delete_callback)
 
-  form.appendTo("#super_option")
+    form.appendTo("#super_option")
 
-  $(form).children().children().each(function() {
-    updateElementIndex(this, 'form', total_form_count)
-    $(this).val("");
-  });
+    $(form).children().children().each(function() {
+      updateElementIndex(this, 'form', total_form_count)
+      $(this).val("");
+    });
 
-$("#id_" + 'form' + "-TOTAL_FORMS").val(total_form_count + 1);
+    $("#id_" + 'form' + "-TOTAL_FORMS").val(total_form_count + 1);
 
-total_form_count += 1
+    total_form_count += 1
   }
+  $(".sortable").sortable();
   return false;
 });
 

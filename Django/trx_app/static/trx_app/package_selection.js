@@ -6,15 +6,21 @@
 function save_order(target_url,target_id) {
   var used_ids = []
 
-    // is the following definitely in the right order?
-    // maybe not, because of javascript asynchronous functions.
-    // Is there an each method for only the first match?
-    // Or some method that implies only one match exists?
-    $('#stack li').each(function(j,i){
-      if ($(this).attr(target_id) !== undefined) {
-        used_ids[j] = $(this).attr(target_id)
-      }
-    });
+  // is the following definitely in the right order?
+  // maybe not, because of javascript asynchronous functions.
+  // Is there an each method for only the first match?
+  // Or some method that implies only one match exists?
+  $('#stack li').each(function(j,i){
+    if ($(this).attr(target_id) !== undefined) {
+      used_ids[j] = $(this).attr(target_id)
+    }
+  });
+
+  $('#super_option li').each(function(j,i){
+    if ($(this).attr(target_id) !== undefined) {
+      used_ids[j] = $(this).attr(target_id)
+    }
+  });
 
   // Couldn't get the following to work. Should have
   // been sorted, though.

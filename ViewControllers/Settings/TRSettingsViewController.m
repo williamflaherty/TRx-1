@@ -486,6 +486,13 @@
     if ([display_text isEqual:[NSNull null]]) {
         display_text = @"";
     }
+    
+    NSNumber *option_index = dic[@"option_index"];
+    if ([option_index isEqual:[NSNull null]]) {
+        option_index = [NSNumber numberWithInt:-1];
+    }
+    o.option_index = option_index;
+    
     o.display_text = display_text;
     o.question = q;
 }

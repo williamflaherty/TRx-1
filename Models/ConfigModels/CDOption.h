@@ -14,6 +14,7 @@
 @interface CDOption : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * branch_id;
+@property (nonatomic, retain) NSNumber * option_index;
 @property (nonatomic, retain) NSString * display_text;
 @property (nonatomic, retain) NSString * highlight;
 @property (nonatomic, retain) NSString * text;

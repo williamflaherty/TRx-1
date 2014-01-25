@@ -86,6 +86,10 @@
 //    }];
 //    
 //    _mainQuestionStack = [sortArray mutableCopy];
+//    
+//    for(CDQuestionList *q in _mainQuestionStack){
+//        NSLog(@"%@",q.stack_index);
+//    }
     
     _previousQuestionStack = [[NSMutableArray alloc] initWithCapacity:[_mainQuestionStack count]];
 }

@@ -14,6 +14,8 @@
 @interface TRQView : UIView
 < UITextFieldDelegate >
 
+@property (nonatomic, readwrite) BOOL isEnglish;
+
 @property (nonatomic, retain) TRQView *connectedView;
 @property (nonatomic, readwrite) QType questionType;
 

@@ -36,6 +36,7 @@
     float _responseHeight;
 }
 
+@synthesize isEnglish = _isEnglish;
 @synthesize connectedView = _connectedView;
 @synthesize questionType = _questionType;
 @synthesize textEntryField = _textEntryField;
@@ -53,12 +54,14 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
         [self initialSetUp];
     }
     return self;
 }
 
 - (void)initialSetUp{
+    _isEnglish = YES;
     [self loadArrays];
     [self loadQuestionLabel];
 }
@@ -139,9 +142,14 @@
                  CGRectMake(_questionLabel.frame.origin.x + NO_PADDING,
                             _questionLabel.frame.origin.y + Y_PADDING + _questionLabel.frame.size.height,
                             YES_NO_WIDTH, YES_NO_HEIGHT)];
-    
-    [_yesButton setTitle:@"Yes" forState:UIControlStateNormal];
-    [_noButton setTitle:@"No" forState:UIControlStateNormal];
+    if(_isEnglish){
+        [_yesButton setTitle:@"Yes" forState:UIControlStateNormal];
+        [_noButton setTitle:@"No" forState:UIControlStateNormal];
+    }
+    else{
+        [_yesButton setTitle:@"Wi" forState:UIControlStateNormal];
+        [_noButton setTitle:@"Pa gen" forState:UIControlStateNormal];
+    }
     [_yesButton addTarget:self action:@selector(yesPressed) forControlEvents:UIControlEventTouchDown];
     [_noButton addTarget:self action:@selector(noPressed) forControlEvents:UIControlEventTouchDown];
     
@@ -154,7 +162,15 @@
     _explainLabel = [[TRQLabel alloc] init];
     [_explainLabel setFont:[UIFont systemFontOfSize:FONT_SIZE]];
     [_explainLabel setTextColor:[UIColor blackColor]];
-    [_explainLabel setText:@"Please Explain:"];
+    
+    if(_isEnglish){
+        [_explainLabel setText:@"Please Explain:"];
+    }
+    else{
+        [_explainLabel setText:@"Tanpri Eksplike:"];
+    }
+    
+    
     _explainLabel.frame = CGRectMake(_yesButton.frame.origin.x ,
                                      _yesButton.frame.origin.y + Y_PADDING + _yesButton.frame.size.height,
                                      _explainLabel.frame.size.width, _explainLabel.frame.size.height);
@@ -172,7 +188,7 @@
     [_explainLabel setHidden:YES];
     [_explainTextField setHidden:YES];
     
-    _responseHeight = _yesButton.frame.size.height + (2*Y_PADDING)
+    _responseHeight = _yesButton.frame.size.height + (3*Y_PADDING)
     + _explainLabel.frame.size.height + _explainTextField.frame.size.height;
     [_response addObject:_noButton];
     [_response addObject:_yesButton];
@@ -226,12 +242,20 @@
     [_explainLabel setHidden:NO];
     [_explainTextField setHidden:NO];
     [_explainTextField setEnabled:NO];
+    
+    [self.connectedView.explainLabel setHidden:NO];
+    [self.connectedView.explainTextField setHidden:NO];
+    [self.connectedView.explainTextField setEnabled:NO];
 }
 
 - (void)hideYesNoExplain{
     [_explainLabel setHidden:YES];
     [_explainTextField setHidden:YES];
     [_explainTextField setEnabled:YES];
+    
+    [self.connectedView.explainLabel setHidden:YES];
+    [self.connectedView.explainTextField setHidden:YES];
+    [self.connectedView.explainTextField setEnabled:YES];
 }
 
 #pragma mark - Check Box Methods
@@ -349,6 +373,15 @@
     
     _totalHeight += tmpHeight;
     
+}
+
+- (void)drawRect:(CGRect)rect {
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.bounds];
+    self.layer.masksToBounds = NO;
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
+    self.layer.shadowOpacity = 0.5f;
+    self.layer.shadowPath = shadowPath.CGPath;
 }
 
 @end

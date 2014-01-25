@@ -166,6 +166,9 @@
     TRQView *newMainQuestion = [[TRQView alloc] init];
     TRQView *newTransQuestion = [[TRQView alloc] init];
     
+    newMainQuestion.isEnglish = YES;
+    newTransQuestion.isEnglish = NO;
+    
     if(_pageCount != 1){
         [self dismissCurrentQuestion];
     }

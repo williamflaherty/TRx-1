@@ -31,7 +31,7 @@
 @property (nonatomic, retain) NSMutableArray *selectionTextFields;
 @property(nonatomic, retain) NSMutableArray *checkBoxes;
 
-- (void)checkHasAnswer;
+- (BOOL)checkHasAnswer;
 - (void)setQuestionLabelText:(NSString *)text;
 - (void)buildQuestionOfType:(QType)type withManager:(TRHistoryManager*)manager;
 

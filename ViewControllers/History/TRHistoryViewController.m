@@ -14,8 +14,8 @@
 #define MAX_Y 50.0f
 #define MID_Y 250.0f
 #define MIN_Y 500.0f
-#define ENG_X 50.0f
-#define TRANS_X 550.0f
+#define ENG_X 30.0f
+#define TRANS_X 545.0f
 
 @interface TRHistoryViewController (){
     CGSize winSize;
@@ -128,6 +128,14 @@
 
 - (void)nextQuestionPreseed{
     NSLog(@"NEXT!");
+    
+    if([_mainQuestion checkHasAnswer]){
+        NSLog(@"Has answer!");
+    }
+    else{
+        NSLog(@"Does not have answer...");
+    }
+    
     [self loadNextQuestion];
 }
 
@@ -172,19 +180,7 @@
     if(_pageCount != 1){
         [self dismissCurrentQuestion];
     }
-    
-    if(_pageCount == 2){
-        newMainQuestion.questionType = QTypeTextEntry;
-        newTransQuestion.questionType = QTypeTextEntry;
-    }
-    else if(_pageCount == 3){
-        newMainQuestion.questionType = QTypeYesNoDefault;
-        newTransQuestion.questionType = QTypeYesNoDefault;
-    }
-    else if(_pageCount == 4){
-        newMainQuestion.questionType = QTypeCheckBoxDefault;
-        newTransQuestion.questionType = QTypeCheckBoxDefault;
-    }
+
     
     newMainQuestion.questionType = [_questionManager getNextQuestionType];
     [newMainQuestion setQuestionLabelText:[_questionManager getNextEnglishLabel]];

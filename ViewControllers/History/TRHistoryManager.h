@@ -23,11 +23,13 @@ typedef enum{
 @interface TRHistoryManager : NSObject
 
 @property (nonatomic, strong) TRManagedObjectContext  *managedObjectContext;
+@property (nonatomic, readwrite) BOOL completedAllQuestions;
 
 - (void)loadNexQuestion;
 - (QType)getNextQuestionType;
 - (NSString*)getNextEnglishLabel;
 - (NSString*)getNextTranslatedLabel;
+- (NSArray*)getNextQuestionOptions;
 
 
 @end

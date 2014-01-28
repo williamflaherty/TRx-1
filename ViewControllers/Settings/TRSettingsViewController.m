@@ -17,6 +17,7 @@
 #import "CDOption.h"
 #import "CDPatient.h"
 #import "CDImage.h"
+#import "TRGetFromServer.h"
 
 @interface TRSettingsViewController ()
 
@@ -51,6 +52,9 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.managedObjectContext = [TRManagedObjectContext mainThreadContext];
+    
+    /* testing - you should remove this if it's still here -John */
+    [TRGetFromServer getPatientList];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

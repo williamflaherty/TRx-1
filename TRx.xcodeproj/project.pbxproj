@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CB999C613134C2DB5524417 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA35FE7EB0304591A19109D4 /* libPods.a */; };
+		13003B94189786030099F834 /* TRGetFromServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 13003B93189786030099F834 /* TRGetFromServer.m */; };
 		1318E1F8188202EE000146FC /* CDItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1F7188202EE000146FC /* CDItemList.m */; };
 		1318E1FB188202EE000146FC /* CDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FA188202EE000146FC /* CDItem.m */; };
 		1318E1FE18823795000146FC /* TRManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1318E1FD18823795000146FC /* TRManagedObjectContext.m */; };
@@ -92,6 +93,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13003B92189786030099F834 /* TRGetFromServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRGetFromServer.h; path = Server/TRGetFromServer.h; sourceTree = SOURCE_ROOT; };
+		13003B93189786030099F834 /* TRGetFromServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TRGetFromServer.m; path = Server/TRGetFromServer.m; sourceTree = SOURCE_ROOT; };
 		1318E1F6188202EE000146FC /* CDItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDItemList.h; path = Models/ConfigModels/CDItemList.h; sourceTree = SOURCE_ROOT; };
 		1318E1F7188202EE000146FC /* CDItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDItemList.m; path = Models/ConfigModels/CDItemList.m; sourceTree = SOURCE_ROOT; };
 		1318E1F9188202EE000146FC /* CDItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDItem.h; path = Models/ConfigModels/CDItem.h; sourceTree = SOURCE_ROOT; };
@@ -227,6 +230,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13003B911897859F0099F834 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				13003B92189786030099F834 /* TRGetFromServer.h */,
+				13003B93189786030099F834 /* TRGetFromServer.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
 		1318E211188271D3000146FC /* ConfigModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +393,7 @@
 		C48C6E3417E661700065ABBE /* TRx */ = {
 			isa = PBXGroup;
 			children = (
+				13003B911897859F0099F834 /* Server */,
 				C48C6E6117E661E70065ABBE /* Test */,
 				C48C6E6217E661F10065ABBE /* Data / Models */,
 				C403259918761062003D8159 /* Settings / Config */,
@@ -723,6 +736,7 @@
 				C4EDCF0A181C3A5800256DE5 /* TRSurgeryViewController.m in Sources */,
 				C47B528617EF7A450044E0A7 /* TRPatientListCell.m in Sources */,
 				C40325831874C9CD003D8159 /* TRQLabel.m in Sources */,
+				13003B94189786030099F834 /* TRGetFromServer.m in Sources */,
 				C48C6E6D17E6622F0065ABBE /* TestViewController.m in Sources */,
 				C482B0C6181598C4001B0B20 /* TRAddPatientViewController.m in Sources */,
 				C482B0D418159B4A001B0B20 /* TRTabBarController.m in Sources */,

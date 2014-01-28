@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>252BC92E-C5D1-4B43-BC06-2E87CF0185CA</string>
+	<string>32A9A8F0-C80F-4CA0-ADCC-AE1718832A72</string>
 	<key>IDESourceControlProjectName</key>
 	<string>TRx</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F0EDE455-D683-4237-A77D-6435997C2BCD</key>
-		<string>https://github.com/mdbellott/TRx.git</string>
+		<key>E21B7FB7-0629-40C8-BC62-F0D3324DE704</key>
+		<string>https://github.com/williamflaherty/TRx-1.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TRx.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F0EDE455-D683-4237-A77D-6435997C2BCD</key>
+		<key>E21B7FB7-0629-40C8-BC62-F0D3324DE704</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/mdbellott/TRx.git</string>
+	<string>https://github.com/williamflaherty/TRx-1.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F0EDE455-D683-4237-A77D-6435997C2BCD</string>
+	<string>E21B7FB7-0629-40C8-BC62-F0D3324DE704</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F0EDE455-D683-4237-A77D-6435997C2BCD</string>
+			<string>E21B7FB7-0629-40C8-BC62-F0D3324DE704</string>
 			<key>IDESourceControlWCCName</key>
-			<string>TRx</string>
+			<string>TRx-1</string>
 		</dict>
 	</array>
 </dict>

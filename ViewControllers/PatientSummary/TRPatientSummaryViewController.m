@@ -188,7 +188,6 @@
 - (void)editButtonPressed{
     TREditSummaryViewController *editVC = [[TREditSummaryViewController alloc] init];
     [self.navigationController pushViewController:editVC animated:YES];
-    
 }
 
 #pragma mark - UITableView Delegate Methods

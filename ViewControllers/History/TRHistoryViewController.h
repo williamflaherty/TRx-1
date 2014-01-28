@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class TRQView;
+
 @interface TRHistoryViewController : UIViewController
-< UITextFieldDelegate >
+< UITextFieldDelegate,
+UIAlertViewDelegate >
+
+@property (nonatomic, retain) TRQView *mainQuestion;
+@property (nonatomic, retain) TRQView *translatedQuestion;
 
 @end

@@ -19,6 +19,11 @@
 
 @interface TRHistoryViewController (){
     CGSize winSize;
+    
+    CGFloat yPosTextField;
+    
+    CGPoint questionViewCenter;
+    CGPoint translatedViewCenter;
 }
 
 @end
@@ -35,13 +40,13 @@
     
     UIView *_seperator;
     
-    TRQView *_mainQuestion;
-    TRQView *_translatedQuestion;
-    
     NSMutableArray *_previousPages;
     NSMutableArray *_nextPages;
     NSMutableArray *_answers;
 }
+
+@synthesize mainQuestion = _mainQuestion;
+@synthesize translatedQuestion = _translatedQuestion;
 
 #pragma mark - Init and Load Methods
 
@@ -71,7 +76,7 @@
 }
 
 - (void)initialSetup{
-    winSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    [self loadConstants];
     [self loadVariables];
     [self loadButtons];
     [self loadSeperator];
@@ -79,6 +84,11 @@
     [self loadQuestionViews];
     
     [self resizeViewsForOrientation:self.interfaceOrientation];
+}
+
+- (void)loadConstants{
+    winSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    yPosTextField = winSize.height/4;
 }
 
 - (void)loadVariables{
@@ -112,6 +122,7 @@
 
 - (void)loadManager{
     _questionManager = [[TRHistoryManager alloc] init];
+    _questionManager.historyViewController = self;
 }
 
 - (void)loadQuestionViews{
@@ -129,20 +140,24 @@
 - (void)nextQuestionPreseed{
     NSLog(@"NEXT!");
     
-    if([_mainQuestion checkHasAnswer]){
+    if(_pageCount == 1 || [_mainQuestion checkHasAnswer]){
         NSLog(@"Has answer!");
+        [_questionManager saveCurrentAnswers];
+        [self loadNextQuestion];
     }
     else{
         NSLog(@"Does not have answer...");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Wait!" message:@"Please provide an answer before continuing." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
-    
-    [self loadNextQuestion];
 }
 
 - (void)previousQuestionPressed{
     NSLog(@"BACK!");
     [self loadPreviousQuestion];
 }
+
+
 
 #pragma mark - Touch Handling Methods
 
@@ -157,6 +172,10 @@
             _mainQuestion.questionType == QTypeYesNoExplainBoth){
         [_mainQuestion.explainTextField resignFirstResponder];
         [_translatedQuestion.explainTextField resignFirstResponder];
+    }
+    else if(_mainQuestion.questionType == QTypeCheckBoxOther){
+        [_mainQuestion.otherTextField resignFirstResponder];
+        [_translatedQuestion.otherTextField resignFirstResponder];
     }
 }
 
@@ -196,22 +215,31 @@
     [newTransQuestion buildQuestionOfType:newTransQuestion.questionType withManager:_questionManager];
     [self setPositionForTransQuestion:newTransQuestion];
     
+    newMainQuestion.connectedView = newTransQuestion;
+    newTransQuestion.connectedView = newMainQuestion;
+    
     if(newMainQuestion.questionType == QTypeTextEntry){
         newMainQuestion.textEntryField.delegate = self;
         newTransQuestion.textEntryField.delegate = self;
     }
-    else if(newMainQuestion.questionType == QTypeYesNoExplainYes ||
+    else if(newMainQuestion.questionType == QTypeYesNoDefault ||
+            newMainQuestion.questionType == QTypeYesNoExplainYes ||
             newMainQuestion.questionType == QTypeYesNoExplainNo ||
             newMainQuestion.questionType == QTypeYesNoExplainBoth){
         newMainQuestion.explainTextField.delegate = self;
         newTransQuestion.explainTextField.delegate = self;
+        [newMainQuestion hideYesNoExplain];
     }
-    
-    newMainQuestion.connectedView = newTransQuestion;
-    newTransQuestion.connectedView = newMainQuestion;
+    else if(newMainQuestion.questionType == QTypeCheckBoxOther){
+        newMainQuestion.otherTextField.delegate = self;
+        newTransQuestion.otherTextField.delegate = self;
+    }
     
     _mainQuestion = newMainQuestion;
     _translatedQuestion = newTransQuestion;
+    
+    questionViewCenter = _mainQuestion.center;
+    translatedViewCenter = _translatedQuestion.center;
     
     [self.view addSubview:_mainQuestion];
     [self.view addSubview:_translatedQuestion];
@@ -257,13 +285,52 @@
 
 #pragma mark - UITextField Delegate Methods
 
--(void) textFieldDidEndEditing:(UITextField *)textField{
-    if(textField == _mainQuestion.textEntryField){
-        _translatedQuestion.textEntryField.text = _mainQuestion.textEntryField.text;
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    float textPosSuperview = _mainQuestion.frame.origin.y + textField.frame.origin.y;
+    float yDistance = textPosSuperview - yPosTextField;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        _mainQuestion.center = CGPointMake(_mainQuestion.center.x, _mainQuestion.center.y - yDistance);
+        _translatedQuestion.center = CGPointMake(_translatedQuestion.center.x, _translatedQuestion.center.y - yDistance);
+    }];
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)textField{
+    
+    if(_mainQuestion.questionType == QTypeTextEntry){
+        if(textField == _mainQuestion.textEntryField){
+            _translatedQuestion.textEntryField.text = _mainQuestion.textEntryField.text;
+        }
+        else if(textField == _translatedQuestion.textEntryField){
+            _mainQuestion.textEntryField.text = _translatedQuestion.textEntryField.text;
+        }
     }
-    if(textField == _translatedQuestion.textEntryField){
-        _mainQuestion.textEntryField.text = _translatedQuestion.textEntryField.text;
+    
+    else if(_mainQuestion.questionType == QTypeYesNoDefault ||
+            _mainQuestion.questionType == QTypeYesNoExplainYes ||
+            _mainQuestion.questionType == QTypeYesNoExplainNo ||
+            _mainQuestion.questionType == QTypeYesNoExplainBoth){
+        if(textField == _mainQuestion.explainTextField){
+            _translatedQuestion.explainTextField.text = _mainQuestion.explainTextField.text;
+        }
+        else if(textField == _translatedQuestion.explainTextField){
+            _mainQuestion.explainTextField.text = _translatedQuestion.explainTextField.text;
+        }
+        
     }
+    else if(_mainQuestion.questionType == QTypeCheckBoxOther){
+        if(textField == _mainQuestion.otherTextField){
+            _translatedQuestion.otherTextField.text = _mainQuestion.otherTextField.text;
+        }
+        else if(textField == _translatedQuestion.otherTextField){
+            _mainQuestion.otherTextField.text = _translatedQuestion.otherTextField.text;
+        }
+    }
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        _mainQuestion.center = questionViewCenter;
+        _translatedQuestion.center = translatedViewCenter;
+    }];
 }
 
 #pragma mark - Orientation and Frame Methods

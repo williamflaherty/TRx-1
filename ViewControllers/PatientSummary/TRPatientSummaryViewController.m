@@ -12,12 +12,17 @@
 #import "TRActivePatientManager.h"
 #import "CDPatient.h"
 #import "CDImage.h"
+#import "CDHistory.h"
 
 @interface TRPatientSummaryViewController ()
 
 @end
 
 @implementation TRPatientSummaryViewController{
+    BOOL _isInit;
+    
+    NSArray *_historyArray;
+    
     UIImageView *_photoIDImageView;
     TRCustomButton*_editButton;
     
@@ -52,11 +57,16 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self resizeViewsForOrientation:self.interfaceOrientation];
-    [self loadActivePatientInfo];
+    if(!_isInit){
+        [self resizeViewsForOrientation:self.interfaceOrientation];
+        [self loadActivePatientInfo];
+        [_summarayTableView reloadData];
+    }
+    _isInit = NO;
 }
 
 - (void)initialSetup{
+    _isInit = YES;
     _activePatientManager = [TRActivePatientManager sharedInstance];
     _activePatient = _activePatientManager.activePatient;
     [self loadImageView];
@@ -138,6 +148,12 @@
     _patientDoctor.text = displayString;
     
     _photoIDImageView.image = [UIImage imageWithData:_activePatient.profileImage.data];
+    
+    for(CDHistory *h in _activePatient.history){
+        NSLog(@"%@ : %@", h.questionText, h.value);
+    }
+    
+    _historyArray = [_activePatient.history allObjects];
 }
 
 - (void)loadTableView{
@@ -168,7 +184,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return [_historyArray count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -180,6 +196,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    
+    CDHistory *h = [_historyArray objectAtIndex:[indexPath row]];
+    
+    cell.textLabel.text = [[h.displayText stringByAppendingString:@"  :  "] stringByAppendingString:h.value];
     
     return cell;
 }

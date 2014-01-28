@@ -15,6 +15,12 @@
 
 #define FONT_SIZE 20
 
+#define VIEW_TOP_PAD 10.0f
+#define VIEW_BOT_PAD 10.0f
+#define VIEW_LEFT_PAD 10.0f
+#define VIEW_RIGHT_PAD 10.0f
+
+
 #define Y_PADDING 20.0f
 #define X_PADDING 20.0f
 #define YES_PADDING 0.0f
@@ -30,7 +36,7 @@
 #define TRANS_X 530.0f
 #define SELECT_OFFSET 50.0f
 
-#define CONST_WIDTH 450.0f
+#define CONST_WIDTH 425.0f
 #define SELECT_WIDTH 375.0f
 
 @implementation TRQView{
@@ -50,6 +56,7 @@
 @synthesize response = _response;
 @synthesize selectionTextFields = _selectionTextFields;
 @synthesize checkBoxes = _checkBoxes;
+@synthesize otherTextField = _otherTextField;
 
 #pragma mark - Init and Load Methods
 
@@ -72,6 +79,8 @@
     _questionLabel = [[TRQLabel alloc] init];
     [_questionLabel setFont:[UIFont systemFontOfSize:FONT_SIZE]];
     [_questionLabel setTextColor:[UIColor blackColor]];
+    _questionLabel.frame = CGRectMake(VIEW_LEFT_PAD, VIEW_TOP_PAD,
+                                      _questionLabel.frame.size.width, _questionLabel.frame.size.height);
     [self addSubview:_questionLabel];
 }
 
@@ -244,14 +253,12 @@
     _explainTextField.borderStyle = UITextBorderStyleBezel;
     _explainTextField.keyboardType = UIKeyboardTypeDefault;
     _explainTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    _explainTextField.backgroundColor = [UIColor whiteColor];
     [_explainTextField setFont:[UIFont fontWithName:@"HelveticaNeue" size:FONT_SIZE]];
     
     _explainTextField.frame = CGRectMake(_explainLabel.frame.origin.x,
                                _explainLabel.frame.size.height + _explainLabel.frame.origin.y + Y_PADDING,
                                 CONST_WIDTH, 30);
-    
-    [_explainLabel setHidden:YES];
-    [_explainTextField setHidden:YES];
     
     _responseHeight = _yesButton.frame.size.height + (3*Y_PADDING)
     + _explainLabel.frame.size.height + _explainTextField.frame.size.height;
@@ -262,8 +269,7 @@
     
     [self addSubview:_yesButton];
     [self addSubview:_noButton];
-    [self addSubview:_explainLabel];
-    [self addSubview:_explainTextField];
+
     [self adjustFrame];
 }
 
@@ -304,23 +310,37 @@
 }
 
 - (void)displayYesNoExplain{
-    [_explainLabel setHidden:NO];
-    [_explainTextField setHidden:NO];
-    [_explainTextField setEnabled:NO];
+    [self addSubview:_explainLabel];
+    [self addSubview:_explainTextField];
     
-    [self.connectedView.explainLabel setHidden:NO];
-    [self.connectedView.explainTextField setHidden:NO];
-    [self.connectedView.explainTextField setEnabled:NO];
+    [self.connectedView addSubview: self.connectedView.explainLabel];
+    [self.connectedView addSubview: self.connectedView.explainTextField];
+    
+//    [_explainLabel setHidden:NO];
+//    [_explainTextField setHidden:NO];
+//    [_explainTextField setEnabled:NO];
+//    
+//    [self.connectedView.explainLabel setHidden:NO];
+//    [self.connectedView.explainTextField setHidden:NO];
+//    [self.connectedView.explainTextField setEnabled:NO];
 }
 
 - (void)hideYesNoExplain{
-    [_explainLabel setHidden:YES];
-    [_explainTextField setHidden:YES];
-    [_explainTextField setEnabled:YES];
     
-    [self.connectedView.explainLabel setHidden:YES];
-    [self.connectedView.explainTextField setHidden:YES];
-    [self.connectedView.explainTextField setEnabled:YES];
+    [_explainLabel removeFromSuperview];
+    [_explainTextField removeFromSuperview];
+    
+    [self.connectedView.explainLabel removeFromSuperview];
+    [self.connectedView.explainTextField removeFromSuperview];
+
+    
+//    [_explainLabel setHidden:YES];
+//    [_explainTextField setHidden:YES];
+//    [_explainTextField setEnabled:YES];
+//    
+//    [self.connectedView.explainLabel setHidden:YES];
+//    [self.connectedView.explainTextField setHidden:YES];
+//    [self.connectedView.explainTextField setEnabled:YES];
 }
 
 #pragma mark - Check Box Methods
@@ -362,7 +382,7 @@
             }
             
             [box setArrayIndex:count];
-            box.optionLabel = o.text;
+            box.optionValue = o.text;
             
             _responseHeight += (tmp.frame.size.height + Y_PADDING);
             
@@ -408,12 +428,14 @@
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:nil];
     
+    _checkBoxes = [[NSMutableArray alloc] init];
+    
     for(CDOption *o in options){
         TRQLabel *tmp = [[TRQLabel alloc]init];
         TRQLabel *lastLabel = [[TRQLabel alloc]init];
         TRQCheckBox *box = [TRQCheckBox buttonWithType:UIButtonTypeCustom];
         TRQCheckBox *lastBox = [[TRQCheckBox alloc]init];
-        UITextField *textField = [[UITextField alloc] init];
+        _otherTextField = [[UITextField alloc] init];
         
         tmp.constrainedWidth = 375;
         [tmp setText:o.text];
@@ -421,22 +443,20 @@
         NSUInteger countMatches = [otherRegex numberOfMatchesInString:o.text
                                                               options:0 range:NSMakeRange(0, [o.text length])];
         
-        _checkBoxes = [[NSMutableArray alloc] init];
-        
         if(countMatches == 0){
             if(count == 0){
+                tmp.frame = CGRectMake(_questionLabel.frame.origin.x + SELECT_OFFSET, _questionLabel.frame.origin.y + _questionLabel.frame.size.height + Y_PADDING, tmp.frame.size.width, tmp.frame.size.height);
                 box.frame = CGRectMake(_questionLabel.frame.origin.x, _questionLabel.frame.origin.y + _questionLabel.frame.size.height + Y_PADDING, 30, 30);
-                tmp.frame = CGRectMake(box.frame.origin.x + SELECT_OFFSET, _questionLabel.frame.origin.y + _questionLabel.frame.size.height + Y_PADDING, tmp.frame.size.width, tmp.frame.size.height);
             }
             else{
                 lastLabel = [_response lastObject];
                 lastBox = [tmpButtons lastObject];
-                box.frame = CGRectMake(lastBox.frame.origin.x, lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, 30, 30);
                 tmp.frame = CGRectMake(lastLabel.frame.origin.x, lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, tmp.frame.size.width, tmp.frame.size.height);
+                box.frame = CGRectMake(lastBox.frame.origin.x, lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, 30, 30);
             }
             
             [box setArrayIndex:count];
-            box.optionLabel = o.text;
+            box.optionValue = o.text;
             
             _responseHeight += (tmp.frame.size.height + Y_PADDING);
             
@@ -452,20 +472,21 @@
         else{
             lastLabel = [_response lastObject];
             tmp.frame = CGRectMake(lastLabel.frame.origin.x, lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, tmp.frame.size.width, tmp.frame.size.height);
-            textField.frame = CGRectMake(tmp.frame.origin.x +(lastLabel.text.length * 10), lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, 250, 30);
-            textField.delegate = self;
-            textField.borderStyle = UITextBorderStyleBezel;
-            textField.keyboardType = UIKeyboardTypeDefault;
-            textField.autocorrectionType = UITextAutocorrectionTypeNo;
+            _otherTextField.frame = CGRectMake(tmp.frame.origin.x +(lastLabel.text.length * 10), lastLabel.frame.origin.y + lastLabel.frame.size.height + Y_PADDING, 250, 30);
+            _otherTextField.delegate = self;
+            _otherTextField.borderStyle = UITextBorderStyleBezel;
+            _otherTextField.keyboardType = UIKeyboardTypeDefault;
+            _otherTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+            _otherTextField.backgroundColor = [UIColor whiteColor];
             [_textEntryField setFont:[UIFont fontWithName:@"HelveticaNeue" size:FONT_SIZE]];
             
             _responseHeight += (tmp.frame.size.height + Y_PADDING);
             
             [_response addObject:tmp];
-            [_selectionTextFields addObject:textField];
+            [_selectionTextFields addObject:_otherTextField];
             
             [self addSubview:tmp];
-            [self addSubview:textField];
+            [self addSubview:_otherTextField];
         }
         count++;
     }
@@ -491,6 +512,7 @@
     _textEntryField.keyboardType = UIKeyboardTypeDefault;
     _textEntryField.autocorrectionType = UITextAutocorrectionTypeNo;
     [_textEntryField setFont:[UIFont fontWithName:@"HelveticaNeue" size:FONT_SIZE]];
+    _textEntryField.backgroundColor = [UIColor whiteColor];
     
     _textEntryField.frame = CGRectMake(_questionLabel.frame.origin.x, _questionLabel.frame.origin.y + _questionLabel.frame.size.height + Y_PADDING, CONST_WIDTH, 30);
     
@@ -510,8 +532,10 @@
     
     tmpHeight += _questionLabel.frame.size.height;
     tmpHeight += _responseHeight;
+    tmpHeight += VIEW_BOT_PAD + VIEW_TOP_PAD;
     
-    [self setFrame:CGRectMake(_questionLabel.frame.origin.x, _questionLabel.frame.origin.y, CONST_WIDTH, tmpHeight)];
+    [self setFrame:CGRectMake(_questionLabel.frame.origin.x, _questionLabel.frame.origin.y,
+                              CONST_WIDTH + VIEW_LEFT_PAD + VIEW_RIGHT_PAD, tmpHeight)];
     
     _totalHeight += tmpHeight;
     

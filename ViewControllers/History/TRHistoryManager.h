@@ -18,18 +18,22 @@ typedef enum{
     QTypeTextEntry
 }QType;
 
-@class TRManagedObjectContext;
+@class TRManagedObjectContext, TRHistoryViewController;
 
 @interface TRHistoryManager : NSObject
 
-@property (nonatomic, strong) TRManagedObjectContext  *managedObjectContext;
 @property (nonatomic, readwrite) BOOL completedAllQuestions;
+@property (nonatomic, strong) TRManagedObjectContext  *managedObjectContext;
+@property (nonatomic, retain) TRHistoryViewController *historyViewController;
 
 - (void)loadNexQuestion;
+
 - (QType)getNextQuestionType;
 - (NSString*)getNextEnglishLabel;
 - (NSString*)getNextTranslatedLabel;
 - (NSArray*)getNextQuestionOptions;
+
+- (void)saveCurrentAnswers;
 
 
 @end

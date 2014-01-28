@@ -11,7 +11,7 @@
 @implementation TRQCheckBox
 
 @synthesize toggleCount = _toggleCount;
-@synthesize optionLabel = _optionLabel;
+@synthesize optionValue = _optionValue;
 @synthesize arrayIndex = _arrayIndex;
 
 #pragma mark - Init and Load Methods

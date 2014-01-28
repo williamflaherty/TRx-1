@@ -29,13 +29,15 @@
 
 @property (nonatomic, retain) NSMutableArray *response;
 @property (nonatomic, retain) NSMutableArray *selectionTextFields;
-@property(nonatomic, retain) NSMutableArray *checkBoxes;
+@property (nonatomic, retain) NSMutableArray *checkBoxes;
+@property (nonatomic, retain) UITextField *otherTextField;
 
 - (BOOL)checkHasAnswer;
 - (void)setQuestionLabelText:(NSString *)text;
 - (void)buildQuestionOfType:(QType)type withManager:(TRHistoryManager*)manager;
 
 - (void)buildYesNoDefault;
+- (void)hideYesNoExplain;
 
 - (void)buildCheckBoxDefaultWithOptions:(NSArray*)options;
 - (void)buildCheckBoxOtherWithOptions:(NSArray*)options;

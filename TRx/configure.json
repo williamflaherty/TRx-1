@@ -23,7 +23,18 @@
                     "display_group": "History of Present Illness",
                     "display_text": "Pain location change",
                     "id": 11,
-                    "options": [],
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 81,
+                            "option_index": 0,
+                            "question_id": 11,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
                     "question_text": "Has this changed over time?",
                     "question_type": "yes explain",
                     "translation_text": "\u00c8ske sa a chanje apre yon s\u00e8ten tan?"
@@ -38,7 +49,18 @@
                     "display_group": "History of Present Illness",
                     "display_text": "Radiate pain location",
                     "id": 12,
-                    "options": [],
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 82,
+                            "option_index": 0,
+                            "question_id": 12,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
                     "question_text": "Does it radiate to a specific area of the body?",
                     "question_type": "yes explain",
                     "translation_text": "Li gaye nan yon z\u00f2n espesifik nan k\u00f2 a?"
@@ -53,7 +75,18 @@
                     "display_group": "History of Present Illness",
                     "display_text": "Made it better or worse",
                     "id": 14,
-                    "options": [],
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 83,
+                            "option_index": 0,
+                            "question_id": 14,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
                     "question_text": "What's made it better (or worse)?",
                     "question_type": "fill",
                     "translation_text": "Ki sa ki te f\u00e8 li pi bon (oswa vin pi mal)?"
@@ -98,7 +131,8 @@
                             "branch_id": null,
                             "display_text": "Continuous",
                             "highlight": "n",
-                            "id": 66,
+                            "id": 105,
+                            "option_index": 0,
                             "question_id": 22,
                             "text": "Continuous",
                             "translation": "Kontini"
@@ -107,7 +141,8 @@
                             "branch_id": null,
                             "display_text": "Episodic",
                             "highlight": null,
-                            "id": 67,
+                            "id": 106,
+                            "option_index": 1,
                             "question_id": 22,
                             "text": "Episodic",
                             "translation": "Sanzatann"
@@ -127,7 +162,18 @@
                     "display_group": "Medications",
                     "display_text": "Dosage/Frequency",
                     "id": 27,
-                    "options": [],
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 103,
+                            "option_index": 0,
+                            "question_id": 27,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
                     "question_text": "What is the dose and frequency?",
                     "question_type": "fill",
                     "translation_text": "Ki sa ki se d\u00f2z la ak frekans?"
@@ -137,7 +183,18 @@
                     "display_group": "Medications",
                     "display_text": "Amount",
                     "id": 28,
-                    "options": [],
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 101,
+                            "option_index": 0,
+                            "question_id": 28,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
                     "question_text": "How much are you taking?",
                     "question_type": "fill",
                     "translation_text": "Konbyen w ap pran?"
@@ -147,7 +204,18 @@
                     "display_group": "Medications",
                     "display_text": "Treating",
                     "id": 29,
-                    "options": [],
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 102,
+                            "option_index": 0,
+                            "question_id": 29,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
                     "question_text": "What are you treating?",
                     "question_type": "fill",
                     "translation_text": "Ki sa yo ou trete?"
@@ -157,7 +225,18 @@
                     "display_group": "Medications",
                     "display_text": "Effectivitiy",
                     "id": 30,
-                    "options": [],
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 104,
+                            "option_index": 0,
+                            "question_id": 30,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
                     "question_text": "Has it been effective?",
                     "question_type": "yes and no explain",
                     "translation_text": "\u00c8ske li te efikas?"
@@ -172,7 +251,8 @@
                             "branch_id": null,
                             "display_text": "Prescribed",
                             "highlight": "n",
-                            "id": 71,
+                            "id": 107,
+                            "option_index": 0,
                             "question_id": 31,
                             "text": "Prescribed",
                             "translation": "Preskri"
@@ -181,7 +261,8 @@
                             "branch_id": null,
                             "display_text": "Self administered",
                             "highlight": null,
-                            "id": 72,
+                            "id": 108,
+                            "option_index": 1,
                             "question_id": 31,
                             "text": "Self administered",
                             "translation": "Pw\u00f2p t\u00e8t ou bay"
@@ -196,20 +277,28 @@
     ],
     "doctors": [
         {
+            "firstName": null,
             "id": 4,
-            "doctor_name": "Audrey Barry",
+            "lastName": "Audrey Barry",
+            "middleName": null
         },
         {
+            "firstName": null,
             "id": 5,
-            "doctor_name": "David Dahl",
+            "lastName": "David Dahl",
+            "middleName": null
         },
         {
+            "firstName": null,
             "id": 6,
-            "doctor_name": "Reagan Bollig",
+            "lastName": "Reagan Bollig",
+            "middleName": null
         },
         {
+            "firstName": null,
             "id": 7,
-            "doctor_name" : "Unknown",
+            "lastName": "Unknown",
+            "middleName": null
         }
     ],
     "stack_questions": [
@@ -276,7 +365,8 @@
                             "branch_id": 1,
                             "display_text": "Y",
                             "highlight": "n",
-                            "id": 47,
+                            "id": 109,
+                            "option_index": 0,
                             "question_id": 8,
                             "text": "Yes",
                             "translation": "Wi"
@@ -296,7 +386,8 @@
                             "branch_id": 2,
                             "display_text": "Y",
                             "highlight": "n",
-                            "id": 64,
+                            "id": 110,
+                            "option_index": 0,
                             "question_id": 10,
                             "text": "Yes",
                             "translation": "Wi"
@@ -305,7 +396,8 @@
                             "branch_id": 3,
                             "display_text": "N",
                             "highlight": "n",
-                            "id": 65,
+                            "id": 111,
+                            "option_index": 1,
                             "question_id": 10,
                             "text": "No",
                             "translation": "Pa gen"
@@ -325,7 +417,8 @@
                             "branch_id": 5,
                             "display_text": "Y",
                             "highlight": "n",
-                            "id": 50,
+                            "id": 112,
+                            "option_index": 0,
                             "question_id": 13,
                             "text": "Yes",
                             "translation": "Wi"
@@ -345,7 +438,8 @@
                             "branch_id": 6,
                             "display_text": "Worse",
                             "highlight": null,
-                            "id": 68,
+                            "id": 98,
+                            "option_index": 0,
                             "question_id": 15,
                             "text": "Worse",
                             "translation": "Vin pi mal"
@@ -354,7 +448,8 @@
                             "branch_id": null,
                             "display_text": "Same",
                             "highlight": null,
-                            "id": 69,
+                            "id": 99,
+                            "option_index": 1,
                             "question_id": 15,
                             "text": "Staying the same",
                             "translation": "Rete menm bagay la tou"
@@ -363,7 +458,8 @@
                             "branch_id": 6,
                             "display_text": "Better",
                             "highlight": "n",
-                            "id": 70,
+                            "id": 100,
+                            "option_index": 2,
                             "question_id": 15,
                             "text": "Better",
                             "translation": "Pi bon"
@@ -409,7 +505,8 @@
                             "branch_id": null,
                             "display_text": "Other",
                             "highlight": null,
-                            "id": 51,
+                            "id": 91,
+                            "option_index": 0,
                             "question_id": 19,
                             "text": "Other",
                             "translation": "l\u00f2t"
@@ -418,7 +515,8 @@
                             "branch_id": null,
                             "display_text": "Anemia",
                             "highlight": null,
-                            "id": 52,
+                            "id": 92,
+                            "option_index": 1,
                             "question_id": 19,
                             "text": "Anemia",
                             "translation": "Anemi"
@@ -427,7 +525,8 @@
                             "branch_id": null,
                             "display_text": "Heart disease",
                             "highlight": null,
-                            "id": 53,
+                            "id": 93,
+                            "option_index": 2,
                             "question_id": 19,
                             "text": "Heart disease",
                             "translation": "Maladi k\u00e8"
@@ -436,7 +535,8 @@
                             "branch_id": null,
                             "display_text": "Cough",
                             "highlight": null,
-                            "id": 54,
+                            "id": 94,
+                            "option_index": 3,
                             "question_id": 19,
                             "text": "Cough",
                             "translation": "Tous"
@@ -445,7 +545,8 @@
                             "branch_id": null,
                             "display_text": "Pneumonia",
                             "highlight": null,
-                            "id": 55,
+                            "id": 95,
+                            "option_index": 4,
                             "question_id": 19,
                             "text": "Pneumonia",
                             "translation": "Nemoni"
@@ -454,7 +555,8 @@
                             "branch_id": null,
                             "display_text": "Hepatitis",
                             "highlight": null,
-                            "id": 56,
+                            "id": 96,
+                            "option_index": 5,
                             "question_id": 19,
                             "text": "Hepatitis",
                             "translation": "Epatit"
@@ -463,7 +565,8 @@
                             "branch_id": null,
                             "display_text": "AIDS",
                             "highlight": "n",
-                            "id": 57,
+                            "id": 97,
+                            "option_index": 6,
                             "question_id": 19,
                             "text": "AIDS",
                             "translation": "SIDA"
@@ -483,7 +586,8 @@
                             "branch_id": 7,
                             "display_text": "Y",
                             "highlight": "n",
-                            "id": 60,
+                            "id": 113,
+                            "option_index": 0,
                             "question_id": 20,
                             "text": "Yes",
                             "translation": "Wi"
@@ -524,7 +628,18 @@
                     "display_group": "Surgical History",
                     "display_text": "Surgeries",
                     "id": 25,
-                    "options": [],
+                    "options": [
+                        {
+                            "branch_id": null,
+                            "display_text": null,
+                            "highlight": "n",
+                            "id": 80,
+                            "option_index": 0,
+                            "question_id": 25,
+                            "text": "",
+                            "translation": null
+                        }
+                    ],
                     "question_text": "List any surgeries you have had.",
                     "question_type": "fill",
                     "translation_text": "Ekri non nenp\u00f2t operasyon ou te f\u00e8."
@@ -545,7 +660,8 @@
                             "branch_id": 9,
                             "display_text": "Y",
                             "highlight": "n",
-                            "id": 63,
+                            "id": 114,
+                            "option_index": 0,
                             "question_id": 26,
                             "text": "Yes",
                             "translation": "Wi"
@@ -578,27 +694,27 @@
     "surgeries": [
         {
             "id": 4,
-            "surgery_name": "Hernia"
+            "name": "Hernia"
         },
         {
             "id": 5,
-            "surgery_name": "I&D"
+            "name": "I&D"
         },
         {
             "id": 6,
-            "surgery_name": "Lipoma Removal"
+            "name": "Lipoma Removal"
         },
         {
             "id": 7,
-            "surgery_name": "Lumpectomy"
+            "name": "Lumpectomy"
         },
         {
             "id": 8,
-            "surgery_name": "Hysterectomy"
+            "name": "Hysterectomy"
         },
         {
             "id": 9,
-            "surgery_name": "Unknown"
+            "name": "Unknown"
         }
     ]
 }

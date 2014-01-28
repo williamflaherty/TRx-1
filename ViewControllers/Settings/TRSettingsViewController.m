@@ -520,6 +520,7 @@
 - (void) clearPatientData{
     [self deleteAllObjects:@"CDPatient"];
     [self deleteAllObjects:@"CDImage"];
+    [self deleteAllObjects:@"CDHistory"];
 }
 
 - (void) deleteAllObjects: (NSString *) entityDescription  {

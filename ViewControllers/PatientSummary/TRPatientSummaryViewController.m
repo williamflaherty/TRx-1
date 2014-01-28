@@ -21,6 +21,8 @@
 @implementation TRPatientSummaryViewController{
     BOOL _isInit;
     
+    NSMutableDictionary *_historyDictionary;
+    
     NSArray *_historyArray;
     
     UIImageView *_photoIDImageView;
@@ -154,6 +156,24 @@
     }
     
     _historyArray = [_activePatient.history allObjects];
+    [self buildHistoryDictionary];
+}
+
+- (void)buildHistoryDictionary{
+    _historyDictionary = [[NSMutableDictionary alloc] init];
+    
+    for(CDHistory *h in _historyArray){
+        if(h.displayGroup != NULL){
+            if([[_historyDictionary allKeys] containsObject:h.displayGroup]){
+                [[_historyDictionary objectForKey:h.displayGroup] addObject:h];
+            }
+            else{
+                NSMutableArray *val = [[NSMutableArray alloc] initWithObjects:h, nil];
+                [_historyDictionary setObject:val forKey:h.displayGroup];
+            }
+        }
+    }
+    
 }
 
 - (void)loadTableView{
@@ -180,11 +200,15 @@
 #pragma mark - UITableView DataSource Methods
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return [[_historyDictionary allKeys] count];
+}
+
+- (NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [[_historyDictionary allKeys] objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_historyArray count];
+    return [[_historyDictionary objectForKey:[[_historyDictionary allKeys] objectAtIndex:section]] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -197,8 +221,10 @@
     
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
-    CDHistory *h = [_historyArray objectAtIndex:[indexPath row]];
-    
+    CDHistory *h = [[_historyDictionary objectForKey:
+                     [[_historyDictionary allKeys] objectAtIndex:[indexPath section]]]
+                    objectAtIndex:[indexPath row]];
+
     cell.textLabel.text = [[h.displayText stringByAppendingString:@"  :  "] stringByAppendingString:h.value];
     
     return cell;

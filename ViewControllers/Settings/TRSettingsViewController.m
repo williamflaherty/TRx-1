@@ -135,20 +135,14 @@
     //Patient Test Data
     [self patientTestData];
     
-    //save context
-    [self.managedObjectContext saveContext];
     
-    /* testing - you should remove this if it's still here -John
-    *
-    *
-    *
-    *
-    */
+    //gets current patient data from the server
     [TRGetFromServer getPatientList];
     
     
     
-    
+    //save context
+    [self.managedObjectContext saveContext];
     
     
     /* Hey, Mark. This is how you can retrieve the Surgeries and the Doctors lists */

@@ -30,6 +30,8 @@ static NSString *host = nil;
     
     
     TRManagedObjectContext *context = [TRManagedObjectContext mainThreadContext];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
     
     
     NSOrderedSet *doctors = [CDItemList getList:@"DoctorList" inContext:context];
@@ -70,15 +72,14 @@ static NSString *host = nil;
             p.firstName = patient[@"firstName"];
             p.lastName = patient[@"lastName"];
             p.hasTimeout = patient[@"hasTimeout"];
-            
+            p.birthday = [formatter dateFromString:patient[@"birthday"]];
             p.isCurrent = patient[@"isCurrent"];
             p.middleName = patient[@"middleName"];
-            //p.location = patient[@"location"];
-            //p.surgeryType = [NSString stringWithFormat:@"%@", patient[@"surgeryType"]];
-            //p.doctor = [NSString stringWithFormat:@"%@", patient[@"doctor"]];
+
             p.surgeryType = surgeryDic[patient[@"surgeryType"]]; // note that surgery type is an id
             p.doctor =  doctorDic[patient[@"doctor"]]; // note that doctor is an id
             
+            NSLog(@"%@", patient);
             
             //find profile image and set to patient's profile image
             NSArray *imageSet = patient[@"image_set"];

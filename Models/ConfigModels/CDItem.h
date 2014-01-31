@@ -14,6 +14,7 @@
 @interface CDItem : NSManagedObject
 
 @property (nonatomic, retain) NSString * value;
+@property (nonatomic, retain) NSNumber *item_id;
 @property (nonatomic, retain) CDItemList *list;
 
 @end

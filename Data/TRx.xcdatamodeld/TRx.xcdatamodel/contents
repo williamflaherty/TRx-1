@@ -24,6 +24,7 @@
         <relationship name="belongsToProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPatient" inverseName="profileImage" inverseEntity="CDPatient" syncable="YES"/>
     </entity>
     <entity name="CDItem" representedClassName="CDItem" syncable="YES">
+        <attribute name="item_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDItemList" inverseName="items" inverseEntity="CDItemList" syncable="YES"/>
     </entity>

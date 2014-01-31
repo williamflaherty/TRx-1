@@ -13,6 +13,7 @@
 @implementation CDItem
 
 @dynamic value;
+@dynamic item_id;
 @dynamic list;
 
 @end

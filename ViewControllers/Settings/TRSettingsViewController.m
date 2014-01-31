@@ -54,7 +54,7 @@
     self.managedObjectContext = [TRManagedObjectContext mainThreadContext];
     
     /* testing - you should remove this if it's still here -John */
-    [TRGetFromServer getPatientList];
+    //[TRGetFromServer getPatientList];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -137,6 +137,19 @@
     
     //save context
     [self.managedObjectContext saveContext];
+    
+    /* testing - you should remove this if it's still here -John
+    *
+    *
+    *
+    *
+    */
+    [TRGetFromServer getPatientList];
+    
+    
+    
+    
+    
     
     /* Hey, Mark. This is how you can retrieve the Surgeries and the Doctors lists */
     /* the trickyish part is making sure that the controller has a managedObjectContext that is
@@ -335,7 +348,8 @@
         CDItem *d = [NSEntityDescription
                    insertNewObjectForEntityForName:itemName
                    inManagedObjectContext:context];
-        d.value = doctor[@"doctor_name"];
+        d.value = doctor[@"lastName"];
+        d.item_id = doctor[@"id"];
         d.list = list;
     }
     
@@ -359,7 +373,8 @@
                    insertNewObjectForEntityForName:itemName
                    inManagedObjectContext:context];
         
-        s.value = surgery[@"surgery_name"];
+        s.value = surgery[@"name"];
+        s.item_id = surgery[@"id"];
         s.list = list;
     }
     
